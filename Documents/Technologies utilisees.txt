@@ -22,6 +22,8 @@ Technologies
 	*Chat ecrit
 	*Chat vocal
 	[*Chat video]
+	*Messages vocaux
+	*Retranscription audio/écrite
 
 -Administration reseau
 	*Deploiement serveur
