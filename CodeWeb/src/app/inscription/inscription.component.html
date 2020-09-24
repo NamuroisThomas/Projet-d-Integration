@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NeedHelp ? -- Inscription</title>
+  <p>NeedHelp ?</p>
+</head>
+<body>
+<form>
+  <div><label for="nom">Nom :</label> <input id="nom" name="nom" type="text" /></div>
+  <div><label for="prenom">Prénom :</label> <input id="prenom" name="prenom" type="text" /></div>
+  <div><label for="email">E-mail :</label> <input id="email" name="email" type="email" /></div>
+  <div><label for="tel">Téléphone :</label> <input id="tel" name="tel" type="tel"required></div>
+  <P>Status :
+    <INPUT type="radio" name="status" value="PMR" checked> PMR
+    <INPUT type="radio" name="status" value="Aide" onclick="afficherDomaine()"> Aide
+
+  <P>Domaine :
+  <UL>
+    <LI><INPUT type="checkbox" name="sport"> Déplacement
+    <LI><INPUT type="checkbox" name="lecture"> Bricoloage
+    <LI><INPUT type="checkbox" name="informatique"> Course
+  </UL>
+
+  <button type="submit">s'inscrire</button>
+
+</form>
+</body>
+</html>
