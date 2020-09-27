@@ -9,6 +9,7 @@ import { ChatComponent } from './chat/chat.component';
 import { ListeDemandeComponent } from './liste-demande/liste-demande.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { AvisReportComponent } from './avis-report/avis-report.component';
+import { FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AvisReportComponent } from './avis-report/avis-report.component';
     AvisReportComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule
   ],

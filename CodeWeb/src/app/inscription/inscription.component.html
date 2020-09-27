@@ -1,29 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>NeedHelp ? -- Inscription</title>
-  <p>NeedHelp ?</p>
-</head>
-<body>
-<form>
-  <div><label for="nom">Nom :</label> <input id="nom" name="nom" type="text" /></div>
-  <div><label for="prenom">Prénom :</label> <input id="prenom" name="prenom" type="text" /></div>
-  <div><label for="email">E-mail :</label> <input id="email" name="email" type="email" /></div>
-  <div><label for="tel">Téléphone :</label> <input id="tel" name="tel" type="tel"required></div>
-  <P>Status :
-    <INPUT type="radio" name="status" value="PMR" checked> PMR
-    <INPUT type="radio" name="status" value="Aide" onclick="afficherDomaine()"> Aide
+<h2>NeedHelp ?</h2>
+<div id="formulaireIncription">
+  <form >
+    <div><label for="nom">Nom :</label> <input [(ngModel)]="nom" id="nom" name="nom" type="text" /></div>
+    <div><label for="prenom">Prénom :</label> <input [(ngModel)]="prenom" id="prenom" name="prenom" type="text" /></div>
+    <div><label for="email">E-mail :</label> <input [(ngModel)]="email" id="email" name="email" type="email"  /></div>
+    <div><label for="tel">Téléphone :</label> <input [(ngModel)]="telephone" id="tel" name="tel" type="tel" ></div>
+    <div><label for="mdp">Mot de passe:</label> <input [(ngModel)]="mdp" id="mdp" name="mdp" type="password" required></div>
+    <div id="status">Status :
 
-  <P>Domaine :
-  <UL>
-    <LI><INPUT type="checkbox" name="sport"> Déplacement
-    <LI><INPUT type="checkbox" name="lecture"> Bricoloage
-    <LI><INPUT type="checkbox" name="informatique"> Course
-  </UL>
+      <input name="options"  [(ngModel)]="options" type="radio" [value]="false" [checked]="!options" /> PMR
 
-  <button type="submit">s'inscrire</button>
+      <input name="options" [(ngModel)]="options" type="radio" [value]="true" [checked]="options"/> Aide
+    </div>
+    <div *ngIf="!options">
+    </div>
+    <div *ngIf="options">
+      <P>Domaine des aides :
+      <UL>
+        <LI><label><INPUT type="checkbox" name="aucun" checked>Aucun </label>
+        <LI><label><INPUT type="checkbox" name="deplacement"> Déplacement </label>
+        <LI><label><INPUT type="checkbox" name="bricolage"> Bricolage </label>
+        <LI><label><INPUT type="checkbox" name="course"> Course </label>
+      </UL>
+    </div>
+    <button (click)="afficherConsole()">s'inscrire</button>
+  </form>
+</div>
 
-</form>
-</body>
-</html>
