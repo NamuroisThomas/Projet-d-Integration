@@ -8,5 +8,6 @@
     <string name="gsm">Téléphone:</string>
     <string name="password">Mot de passe:</string>
     <string name="confirmation">Confirmer le mot de passe:</string>
+    <string name="retour">Retour</string>
 
 </resources>

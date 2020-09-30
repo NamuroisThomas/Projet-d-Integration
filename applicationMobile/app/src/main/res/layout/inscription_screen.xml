@@ -123,4 +123,12 @@
         android:layout_marginBottom="0dp"
         android:text="@string/connexion"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/retour"
+        />
 </RelativeLayout>
