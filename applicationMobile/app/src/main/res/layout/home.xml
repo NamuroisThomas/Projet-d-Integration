@@ -24,6 +24,8 @@
         android:layout_above="@id/boutonInscription"
         android:layout_marginTop="5dip"
         android:layout_centerHorizontal="true"
+
+        android:onClick="goConnexionScreen"
         />
 
     <Button
@@ -35,6 +37,8 @@
         android:layout_marginTop="5dip"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+
+        android:onClick="goInscriptionScreen"
         />
 
 </RelativeLayout>

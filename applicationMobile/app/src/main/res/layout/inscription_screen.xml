@@ -122,6 +122,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
         android:text="@string/connexion"
+        android:onClick="goPrincipal"
         />
 
     <Button
@@ -130,5 +131,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:text="@string/retour"
+        android:onClick="back"
         />
 </RelativeLayout>
