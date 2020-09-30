@@ -122,7 +122,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
         android:text="@string/connexion"
-        android:onClick="goPrincipal"
+        android:onClick="goHome"
         />
 
     <Button

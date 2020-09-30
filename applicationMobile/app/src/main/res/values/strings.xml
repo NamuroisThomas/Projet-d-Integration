@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Need Help</string>
+    <string name="app_name">Need Help?</string>
     <string name="connexion">Connexion</string>
     <string name="inscription">Inscription</string>
     <string name="nom">Nom</string>

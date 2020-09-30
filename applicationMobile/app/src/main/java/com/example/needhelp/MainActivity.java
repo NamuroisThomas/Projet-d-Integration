@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+        setContentView(R.layout.acceuil);
     }
 
     public void goInscriptionScreen(View view){
@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void back(View view){
-        setContentView(R.layout.home);
+        setContentView(R.layout.acceuil);
     }
 
-    public void goPrincipal(View view) {
-        setContentView(R.layout.ecran_principal);
+    public void goHome(View view) {
+        setContentView(R.layout.home);
     }
 }
