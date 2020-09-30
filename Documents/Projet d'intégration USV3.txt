@@ -1,33 +1,101 @@
-﻿Titre : NeedHelp?
+﻿Titre : 
 
 Description :
 	
 	Certaines personnes se retrouvent souvent confrontés à des difficultés dans leurs tâches du quotidien à cause d'un accident ou d'un handicap. Nous pouvons citer comme exemples, les déplacements liés aux courses et rendez-vous médicaux, les différents travaux d’entretien du domicile, aides ménagères, ...etc.
 
-	Notre application a pour but premier de palier aux difficultés rencontrées par ces personnes en leurs permettant de demander une aide. Nous aurions donc sur cette application mobile et web, deux profiles :
+	Notre application a pour but premier de palier aux difficultés rencontrées par ces personnes en leurs permettant de demander une aide. Nous aurions donc sur cette application mobile et web, deux profils :
 
-- L'aidé/demandeur : s’inscrit sur l’application en tant que demandeur d'aide, en faisant cela, il a la possibilité d'appeler à tout moment une aide extérieur (pour une tâche ou un déplacement) sous forme d'annonce que tout les aidants reçevront dans les alentours.
+- Le demandeur : s’inscrit sur l’application en tant que demandeur d'aide, en faisant cela, il a la possibilité d'appeler à tout moment une aide extérieur (pour une tâche ou un déplacement) sous forme d'annonce que tout les aidants reçevront dans les alentours.
 
 -	L’aidant : s’inscrit sur l’application en tant que personne valide. De ce fait, il peut recevoir une notification indiquant que quelqu’un a besoin d’aide dans les alentours.
 
-Besoin :
+Besoins :
 
-En tant qu'utilisateur, je dois pouvoir créer un compte. 
-En tant qu'utilisateur, mes données doivent être sécurisées. 
-En tant qu'utilisateur, je dois me positionner en tant que demandeur ou aidant. 
-En tant qu'utilisateur, je dois pouvoir signaler un compte s'il s'avère être dangeureux.
-En tant qu'utilisateur, je dois pouvoir éditer certaines de mes données.
-En tant qu'utilisateur, je dois pouvoir contacter un administrateur du site en cas de problèmes ou de bugs.
-En tant que demandeur, je dois pouvoir créer une demande.
-En tant que demandeur, je dois pouvoir noter la prestation qui a été éffectuée.
-En tant qu'aidant, je dois pouvoir accepter une demande.
-En tant qu'aidant, je dois pouvoir voir les demandes proche de ma position.
-En tant qu'aidant, je dois pouvoir filtrer les annonces(rémunération, domaines,...etc.).
-En tant qu'aidant, je dois pouvoir avoir une liste de toutes les demandes déjà acceptées.
-En tant qu'administrateur, je dois pouvoir supprimer les comptes mal-attentionnés.
-En tant que aidant/aidé je dois pouvoir communiquer avec l'aidé/aidant(chat/appel).
+1. Accueil
+	1.1. Je dois pouvoir accéder à la page d'inscription à l'aide d'un bouton
+	1.2. Je dois pouvoir accéder à la page de connection à l'aide d'un bouton
+2. Inscription
+	2.1. Je dois pouvoir avoir un formulaire à la création de mon compte 
+	2.2. Je dois pouvoir voir mon profil à tout moment
+	2.3. Je dois pouvoir modifier mon profil à tout moment
+3. Connection
+	3.1. Je dois pouvoir entrer les données permettant de me connecter à mon compte
+4. Demandes
+	4.1. Je dois pouvoir un bouton me permettant de créer une demande
+	4.2. Je dois avoir un formulaire me permettant de créer ma demande 
+	4.3. Je dois voir la totalité des demandes faites par les différents utilisateurs
+	4.4. Je dois pouvoir cliquer sur une demande pour voir les informations complémentaires de celle-ci, ainsi qu'un bouton me permettant d'accepter la demande
+	4.5. Je dois pouvoir filtrer les différents demandes en fonction de mes envies
+5. Communication
+	5.1. Je dois avoir un chat écrit avec le commenditaire dans le cas où j'accepte la demande 
+	5.2. Je dois pouvoir appeler avec l'application le commenditaire dans le cas où j'accepte la demande 	
+6. Localisation
+	6.1. Je dois avoir l'addresse(dans sa page d'information/via la communication) du commenditaire pour savoir oú me rendre
+	6.2. Je dois avoir un gps me guidant au lieu de la demande via l'application
+7. Évaluation/Signalisation
+	7.1. Je dois pouvoir évaluer la prestation d'un utilisateur aprés qu'il ait réalisé sa tâche
+	7.2. Je dois pouvoir signaler un utilisateur en cas d'abus 
+	7.3. Je dois pouvoir ajouter une description à la signalisation
+	7.4. Je dois pouvoir supprimer/bloquer un utilisateur malveillant
+	7.5. je dois pouvoir contacter un administrateur du site en cas de problèmes ou de bugs.
+	
 
 Userstory :
+
+En tant qu'utilisateur, je souhaite avoir sur l'accueil un bouton d'inscription, afin d'accéder à la page d'inscription.
+En tant qu'utilisateur, je souhaite avoir sur l'accueil un bouton de connection, afin d'acceder à la page de connection.
+En tant qu'utilisateur, je souhaite avoir un formulaire d'inscription, afin de créer un profil avec les informations suivantes : nom, prénom, mail, téléphone, mot de passe et une confirmation du mot de passe.
+	Pour cette userstory, l'idée est de permettre à l'utilisateur de créer un compte qui contiendraient les informations ci-dessus, une fois valider, un pop-up de confirmation 
+	de création s'affiche, aprés cela, l'utilisateur retourne à la page d'accueil pour se connecter à son compte.
+	(TEMMERMAN François)
+	
+En tant qu'utilisateur, je souhaite avoir un bouton permettant d'accéder à ma page de profil, afin d'avoir accés à mes données personnelles.
+En tant qu'utilisateur, je souhaite pouvoir modifier ma page de profil, afin de remplir les informations complémentaires/optionnelles et remplacer une information plus valide.
+En tant qu'utilisateur, je souhaite avoir un formulaire de connection, afin d'accéder à ma page de profil grâce aux informations suivantes : mail et mot de passe.
+	Pour cette userstory, l'idée est de permettre à l'utilisateur de insérer dans un champ texte, leur mail et un champ texte, leur mot de passe, afin de se connecter au compte correspondant à ces informations.
+	Apres validation, un pop-up de confirmation s'affiche et l'utilisateur est redirigé vers la page de son profil.
+	(MAGNES Simon)
+
+En tant qu'utilisateur, je souhaite avoir un bouton demande, afin d'accéder à une page de création de demande d'aide.
+En tant qu'utilisateur, je souhaite avoir un formulaire de demande d'aide, afin de faire une demande d'aide avec les informations suivantes : nom de la tâche, description détaillée(optionnelle), domaines d'aide, remunération et lieu(code postal).
+	Pour cette userstory, l'idée est de permettre à l'utilisateur de insérer :
+	dans 3 champ texte, le nom de la tâche, une éventuelle description de la tâche ou autres informations, le code postal.
+	une liste avec des boutons radios des différents domaines(bricolage, courses, tâches ménagères, jardinerie et transport).
+	une liste déroulante pour la rémunération avec comme choix : oui ou non.
+	(GORTZ Gaëtan)
+
+En tant qu'utilisateur, je souhaite avoir une liste de toutes les demandes soumises, afin de choisir quel demande répond à mes envies.
+En tant qu'utilisateur, je souhaite avoir cliquer sur les différents demandes, afin d'obtenir les informations supplémentaires de la demande(description et lieu).
+En tant qu'utilisateur, je souhaite avoir un bouton sur la page d'informations supplémentaires, afin de signaler l'acceptation de la demande.
+En tant qu'utilisateur, je souhaite avoir un filtre, afin de trier les demandes en fonction de mes envies(rémunération, domaine de tâche et localité).
+	Pour cette userstory, l'idée est de mettre à disposition 3 listes déroulantes :
+		-La première liste sera pour la remunération, il y aura 3 options : oui, non ou quelconque.
+		-La deuxième liste sera pour les différents domaines de tâche : bricolage, courses, tâches ménagères, jardinerie et transport.
+		-La troisième liste sera pour la localisation, il y aura les différentes provinces.
+	(LUK Brian)
+	
+En tant qu'utilisateur, je souhaite avoir un chat écrit dans l'application, afin de pouvoir communiquer avec l'aidant/demandeur.
+En tant qu'utilisateur, je souhaite avoir la possibilité d'appeler via l'application l'aidant/demandeur, afin de pouvoir communiquer oralement sans échange de numéro de téléphone.
+En tant qu'utilisateur, je souhaite avoir un moyen d'obtenir un lieu de rendez-vous avec son accord, afin de savoir où me rendre.
+En tant qu'utilisateur, je souhaite avoir un système GPS dans l'application, afin de me guider au lieu de rendez-vous.
+	Pour cette userstory, l'idée est de mettre à disposition pour l'aidant un système de GPS le guidant de sa position jusqu'à l'addresse de rendez-vous.
+	(DE COCK Maxime)
+
+En tant qu'utilisateur, je souhaite avoir un système de notation à la fin de la requête, afin de noter la prestation de l'aidant.
+(En tant qu'utilisateur, je souhaite avoir un bouton de signalisation sur la page de profil d'utilisateur) // à voir
+En tant qu'utilisateur, je souhaite pouvoir signaler un autre utilisateur, afin de prévenir un abus ou un acte innaproprié.
+	Pour cette userstory, l'idée est de permettre à l'utilisateur d'envoyé un signalement aux administrateurs avec une description de la raison du signalement.
+	Cela permettra aux administrateurs de bannir/bloquer l'utilisateur si celui obtient un nombre conséquent de signalement.
+	(NAMUROIS Thomas)
+	
+En tant qu'utilisateur, je souhaite avoir un pop-up lors de la signalisation, afin de décrire l'acte abusive ou/et comportement d'un utilisateur.
+En tant qu'utilisateur, je souhaite pouvoir bloquer un utilisateur, afin de ne plus communiquer avec celui-ci.
+(En tant qu'administrateur, je souhaite supprimer un utilisateur, afin de rendre l'application plus saine.)
+En tant qu'utilisateur, je souhaite avoir un bouton de deconnection, afin de mieux sécuriser mon compte.
+En tant qu'utilisateur, je souhaite avoir une page de contact, afin de conctacter le support de l'application en cas de problèmes ou de bugs.
+En tant qu'utilisateur, je dois pouvoir avoir une liste de toutes les demandes acceptées en cours, afin de voir les informations des demandes à tout moment.
+
 
 
 
