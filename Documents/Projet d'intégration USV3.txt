@@ -1,0 +1,41 @@
+﻿Titre : NeedHelp?
+
+Description :
+	
+	Certaines personnes se retrouvent souvent confrontés à des difficultés dans leurs tâches du quotidien à cause d'un accident ou d'un handicap. Nous pouvons citer comme exemples, les déplacements liés aux courses et rendez-vous médicaux, les différents travaux d’entretien du domicile, aides ménagères, ...etc.
+
+	Notre application a pour but premier de palier aux difficultés rencontrées par ces personnes en leurs permettant de demander une aide. Nous aurions donc sur cette application mobile et web, deux profiles :
+
+- L'aidé/demandeur : s’inscrit sur l’application en tant que demandeur d'aide, en faisant cela, il a la possibilité d'appeler à tout moment une aide extérieur (pour une tâche ou un déplacement) sous forme d'annonce que tout les aidants reçevront dans les alentours.
+
+-	L’aidant : s’inscrit sur l’application en tant que personne valide. De ce fait, il peut recevoir une notification indiquant que quelqu’un a besoin d’aide dans les alentours.
+
+Besoin :
+
+En tant qu'utilisateur, je dois pouvoir créer un compte. 
+En tant qu'utilisateur, mes données doivent être sécurisées. 
+En tant qu'utilisateur, je dois me positionner en tant que demandeur ou aidant. 
+En tant qu'utilisateur, je dois pouvoir signaler un compte s'il s'avère être dangeureux.
+En tant qu'utilisateur, je dois pouvoir éditer certaines de mes données.
+En tant qu'utilisateur, je dois pouvoir contacter un administrateur du site en cas de problèmes ou de bugs.
+En tant que demandeur, je dois pouvoir créer une demande.
+En tant que demandeur, je dois pouvoir noter la prestation qui a été éffectuée.
+En tant qu'aidant, je dois pouvoir accepter une demande.
+En tant qu'aidant, je dois pouvoir voir les demandes proche de ma position.
+En tant qu'aidant, je dois pouvoir filtrer les annonces(rémunération, domaines,...etc.).
+En tant qu'aidant, je dois pouvoir avoir une liste de toutes les demandes déjà acceptées.
+En tant qu'administrateur, je dois pouvoir supprimer les comptes mal-attentionnés.
+En tant que aidant/aidé je dois pouvoir communiquer avec l'aidé/aidant(chat/appel).
+
+Userstory :
+
+
+
+
+
+
+
+
+
+
+
