@@ -11,10 +11,13 @@ import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { AvisReportComponent } from './avis-report/avis-report.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: 'demandeAide', component: DemandeAideComponent },
-  { path: 'inscription', component: InscriptionComponent}
+  { path: 'inscription', component: InscriptionComponent},
+  {path: 'not-found', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '/not-found'}
 ]
 
 @NgModule({
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
     ChatComponent,
     ListeDemandeComponent,
     EditProfilComponent,
-    AvisReportComponent
+    AvisReportComponent,
+    PageNotFoundComponent
   ],
   imports: [
     FormsModule,
