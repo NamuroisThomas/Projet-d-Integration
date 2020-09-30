@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-demande-aide',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemandeAideComponent implements OnInit {
 
-  constructor() { }
+  demandeAide: FormGroup;
+  errorMessage: string;
 
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder,
+              private router: Router) { }
+
+  ngOnInit(){
+    this.initForm();
   }
 
+  initForm(){
+    this.demandeAide = this.formBuilder.group({
+      titre: ['', [Validators.required]],
+      description: ['', [Validators.required]]
+    });
+  }
+  onSubmit() {
+    const titre =  this.demandeAide.get('titre').value;
+    const description = this.demandeAide.get('description').value;
+
+    console.log(titre, description);
+  }
 }
+
