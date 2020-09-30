@@ -1,0 +1,70 @@
+/!\ Ajouter lien vers les templates /!\
+
+
+-Style global
+	bandeau supérieur avec 
+		le logo
+		le nom de l'app
+		bouton log out
+
+
+
+-Inscription
+	Formulaire avec
+		Nom
+		Prénom
+		Email
+		Tel
+		DOB
+		Localisation
+		Status (bouton radio PMR/Aide)
+		
+
+
+
+-Connexion
+	formulaire
+		email
+		mot de passe
+
+
+-Demande d'aide
+	formulaire avec choix
+		titre
+		choix domaine
+		choix $
+		 
+		description
+		
+
+
+
+-Liste des demandes
+	filtre
+		domaine
+		distance
+
+
+
+-Chat
+	Panneau latéral avec toutes les discussions
+	Panneau principal avec la conversation séléctionnée
+	
+
+
+
+-Modification de profil
+	Changement de email, tel, localisation, status
+	Description
+	Domaine pour les aideurs
+	
+
+
+
+
+-Evaluation / Report
+
+
+
+
+-
