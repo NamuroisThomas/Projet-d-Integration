@@ -1,0 +1,66 @@
+Rapport réunion distanciel Mr Vandormael 24/09/2020
+
+1)Rappel du contxte et de l'application que nous souhaitons développer
+
+2) Questions
+VoIP?
+	-Tecniquement intéressant
+	-D'autres moyens (SMS, tel)
+	-Permet de ne pas divulguer les coordonées des utilisateurs
+	-Implémenter la possibilité de laisser un message vocal
+	-Tout regrouper dans une seule application
+	
+Web/App
+	-Pas de préférence
+	-Ne pas écarter des gens
+	-Possibilités similaires sur les 2 interfaces
+	
+Sécurité
+	-Mettre un code de confirmation par e-mail/SMS  -> COUT
+	
+	
+Ressemblance avec d'autres applications
+	-Pas exactement pareil
+	-Inspiré d'Uber pour PMR mais évolué
+	-Tout ce dont on a besoin en une seule application
+	
+Bénévole?
+	-Pas toujours
+	-Possibilité de mettre une compensation financière (trajet, matériel, ...)
+	-Le but n'est pas que cela devienne un travail
+	
+	
+Gérer les transactions via l'application?
+	-Non car demande beaucoup de sécurité
+	
+Baser sur la confiance?
+	-Oui mais vérification de qui crée un compte
+	-Evaluation en fin de prestation
+	-Possibilité de report en cas de problème
+	-Avant transmission des infos personnelles, une double acceptation est requise. D'abord l'offreur puis le demandeur
+	
+	
+Lois?
+	-Voir avec le professeur de Droit pour RGPD
+	
+GPS?
+	-Pour localiser le demandeur d'aide
+	-Pour localiser l'offreur et les demandes proches
+	-Pour guider via GPS
+	
+US
+	-Plus détaillé
+	-Manque VoIP
+	-Définir la priorité
+	-Défraiement non présent dans US
+	-Modifier l'US sur la disponibilité
+
+Profil
+	-Ajouté le status de la personne (PMR, handicap courte durée, vieillesse, type de handicap (malentendant, aveugle,...))
+	-Possibilité d'une courte description
+	
+	
+Administrateur
+	-A mettre en place
+
+

@@ -1,0 +1,34 @@
+Technologies
+- Programmation web
+	*Angular
+	*Typescript
+	*API
+
+-Programmation applicative
+	*Java
+	*AndroidStudio
+
+-Securisation
+	*RGPD
+	*Securite serveur
+	*Securite des utilisateurs
+	*Securite des donnees
+
+-Base de donnees
+	*API Rest
+	*MySQL
+
+-VoIP
+	*Chat ecrit
+	*Chat vocal
+	[*Chat video]
+	*Messages vocaux
+	*Retranscription audio/écrite
+
+-Administration reseau
+	*Deploiement serveur
+	*VoIP
+
+-Localisation
+	*Auto-localisation des utilisateurs
+	*Rayon de proximite

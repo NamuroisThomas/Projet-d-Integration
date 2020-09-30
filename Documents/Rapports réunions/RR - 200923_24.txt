@@ -1,0 +1,61 @@
+Rapport réunion teams 23/09/2020 + cours 24/09/2020
+
+Projet
+	-On ne se limite plus au PMR mais a toutes personnes nécessitant de l'aide
+	
+VoIP
+	chat écrit
+	chat vocal
+	[chat video]
+	retranscription audio/ecrite ?
+	messge vocaux ?
+	
+
+
+Quels sont les templates de pages a faire?
+	-Inscription
+	-Connexion
+	-Demande d'aide
+	-Liste des demandes
+	-Chat
+	-Modification de profil
+	-Evaluation / Report
+	-
+	
+	
+Ordre povisoire des US
+	-Inscription
+	-Connexion
+	-Créer demande d'aide
+	-Lister demande aide
+
+
+
+Pour jeudi 01/10/2020
+	-BDD (schéma + code mysql) - Raphaël
+	-Page d'inscription lié à BDD (pas d'API) - Brian et Gaëtan
+	-Maquettes des pages - Maxime
+	-Retravaillez les US - ALL
+	-Détaillez les US - ALL
+	-Début d'application simple - Simon et Thomas
+
+Lundi 28/09/2020 apres RSE
+	Faire les US - ALL
+
+
+Semaine type
+	-Jeudi	
+		démo
+		sprint review
+		préparation sprint suivant
+			
+	-Vendredi à lundi
+		chacun fait son travail attribué
+		
+	-Lundi apres RSE
+		réunion teams pour voir état d'avancement de chacun
+		
+	-Mercredi aprem
+		réunion teams pour savoir si la démo est prete
+		
+		
