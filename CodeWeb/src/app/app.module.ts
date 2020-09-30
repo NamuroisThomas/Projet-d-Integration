@@ -9,7 +9,13 @@ import { ChatComponent } from './chat/chat.component';
 import { ListeDemandeComponent } from './liste-demande/liste-demande.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { AvisReportComponent } from './avis-report/avis-report.component';
-import { FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'demandeAide', component: DemandeAideComponent },
+  { path: 'inscription', component: InscriptionComponent}
+]
 
 @NgModule({
   declarations: [
@@ -24,7 +30,9 @@ import { FormsModule} from '@angular/forms';
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
