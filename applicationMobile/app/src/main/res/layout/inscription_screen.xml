@@ -1,7 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundHome"
 
+>
+    <TextView
+        android:id="@+id/inscriptionNomTexte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nom"
+        android:textStyle="bold"
+        android:textSize="20dip"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="35dip"
+        />
+    <EditText
+        android:id="@+id/inscriptionNomEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Insérer nom"
+        android:inputType="text"
+        android:layout_below="@id/inscriptionNomTexte"
+        />
+
+    <TextView
+        android:id="@+id/inscriptionPrenomTexte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prenom"
+        android:textStyle="bold"
+        android:textSize="20dip"
+        android:layout_below="@id/inscriptionNomEdit"
+        />
+    <EditText
+        android:id="@+id/inscriptionPrenomEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Insérer prenom"
+        android:inputType="text"
+        android:layout_below="@id/inscriptionPrenomTexte"
+        />
+
+    <TextView
+        android:id="@+id/inscriptionMailTexte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mail"
+        android:textStyle="bold"
+        android:textSize="20dip"
+        android:layout_below="@id/inscriptionPrenomEdit"
+        />
+    <EditText
+        android:id="@+id/inscriptionMailEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Insérer mail"
+        android:inputType="textWebEmailAddress"
+        android:layout_below="@id/inscriptionMailTexte"
+        />
+
+    <TextView
+        android:id="@+id/inscriptionGSMTexte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gsm"
+        android:textStyle="bold"
+        android:textSize="20dip"
+        android:layout_below="@id/inscriptionMailEdit"
+        />
+    <EditText
+        android:id="@+id/inscriptionGSMEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Insérer numéro de téléphone"
+        android:inputType="phone"
+        android:layout_below="@id/inscriptionGSMTexte"
+        />
+
+    <TextView
+        android:id="@+id/inscriptionPSWTexte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:textStyle="bold"
+        android:textSize="20dip"
+        android:layout_below="@id/inscriptionGSMEdit"
+        />
+    <EditText
+        android:id="@+id/inscriptionPSWEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Insérer Mot de passe"
+        android:inputType="textPassword"
+        android:layout_below="@id/inscriptionPSWTexte"
+        />
+
+    <TextView
+        android:id="@+id/inscriptionConfirmTexte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirmation"
+        android:textStyle="bold"
+        android:textSize="20dip"
+        android:layout_below="@id/inscriptionPSWEdit"
+        />
+    <EditText
+        android:id="@+id/inscriptionConfirmEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Mot de passe"
+        android:inputType="textPassword"
+        android:layout_below="@id/inscriptionConfirmTexte"
+        />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:text="@string/connexion"
+        />
+</RelativeLayout>
