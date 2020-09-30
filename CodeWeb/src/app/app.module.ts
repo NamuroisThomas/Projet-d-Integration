@@ -12,13 +12,14 @@ import { AvisReportComponent } from './avis-report/avis-report.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { ToastModule } from 'primeng/toast';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+import {FieldsetModule} from 'primeng/fieldset';
 
-const appRoutes: Routes = [
-  { path: 'demandeAide', component: DemandeAideComponent },
-  { path: 'inscription', component: InscriptionComponent},
-  {path: 'not-found', component: PageNotFoundComponent},
-  {path: '**', redirectTo: '/not-found'}
-]
+
 
 @NgModule({
   declarations: [
@@ -29,14 +30,28 @@ const appRoutes: Routes = [
     ListeDemandeComponent,
     EditProfilComponent,
     AvisReportComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent
+
   ],
   imports: [
     FormsModule,
+    MessagesModule,
+    MessageModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    AppRoutingModule,
+    MessagesModule,
+    MessageModule,
+    ToastModule,
+    FieldsetModule,
+    ToastModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
