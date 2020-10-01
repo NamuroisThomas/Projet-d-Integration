@@ -41,31 +41,51 @@ Il faudra donc :
 USER STORIES : 
 
 
-1.1.1 En tant que demandeur, je souhaite pouvoir créer un compte, afin de demander de l’aide à quelqu’un lorsque j’en ai besoin.
-1.1.2 En tant qu’aide, je souhaite pouvoir créer un compte, afin d’offrir mon aide à une personne ayant fait la demande.
+1.1.1 En tant que demandeur, je souhaite pouvoir créer un compte, 
+afin de demander de l’aide à quelqu’un lorsque j’en ai besoin.
+1.1.2 En tant qu’aide, je souhaite pouvoir créer un compte, afin 
+d’offrir mon aide à une personne ayant fait la demande.
 
-1.2.1 En tant que demandeur, je souhaite indiquer que je suis PMR, afin de pouvoir demander de l’aide.
-1.2.2 En tant qu’aide, je souhaite indiquer que je suis dans la possibilité d’aider, afin de pouvoir offrir mes services à une personne à mobilité réduite.
+1.2.1 En tant que demandeur, je souhaite indiquer que je suis PMR, 
+afin de pouvoir demander de l’aide.
+1.2.2 En tant qu’aide, je souhaite indiquer que je suis dans la 
+possibilité d’aider, afin de pouvoir offrir mes services à une personne à 
+mobilité réduite.
 
-1.3.1 En tant que demandeur, je souhaite pouvoir éditer mon profil, afin d’indiquer des informations nécessaires pour recevoir de l’aide.
-1.3.2 En tant qu’aide, je souhaite pouvoir éditer mon profil, afin d’indiquer les informations nécessaires pour offrir mon aide.
+1.3.1 En tant que demandeur, je souhaite pouvoir éditer mon profil, 
+afin d’indiquer des informations nécessaires pour recevoir de l’aide.
+1.3.2 En tant qu’aide, je souhaite pouvoir éditer mon profil, afin 
+d’indiquer les informations nécessaires pour offrir mon aide.
 
-2.1.1 En tant que demandeur, je souhaite pouvoir soumettre une demande d’aide, afin de trouver quelqu’un prêt à m’aider.
-2.1.2 En tant qu’aide, je souhaite pouvoir répondre à une demande d’aide, afin de proposer mes services à une personne dans le besoin.
+2.1.1 En tant que demandeur, je souhaite pouvoir soumettre une demande 
+d’aide, afin de trouver quelqu’un prêt à m’aider.
+2.1.2 En tant qu’aide, je souhaite pouvoir répondre à une demande d’aide, 
+afin de proposer mes services à une personne dans le besoin.
 
-2.2.1 En tant qu’aide, je souhaite pouvoir consulter les différentes demandes soumises, afin de m’informer des annonces faites par les demandeurs.
+2.2.1 En tant qu’aide, je souhaite pouvoir consulter les différentes 
+demandes soumises, afin de m’informer des annonces faites par les demandeurs.
 
-2.3.1 En tant qu’aide, je souhaite pouvoir accepter une demande d’aide, afin de signaler à un demandeur que je suis disponible pour lui venir en aide.
+2.3.1 En tant qu’aide, je souhaite pouvoir accepter une demande d’aide, 
+afin de signaler à un demandeur que je suis disponible pour lui venir en aide.
 
-2.4.1 En tant que demandeur, je souhaite pouvoir discuter avec une aide, afin de mettre en place le service souhaité ou poser des questions pratiques.
-2.4.2 En tant qu’aide, je souhaite pouvoir discuter avec le demandeur, afin de mettre en place le service souhaité ou poser des questions pratiques.
+2.4.1 En tant que demandeur, je souhaite pouvoir discuter avec une aide, 
+afin de mettre en place le service souhaité ou poser des questions pratiques.
+2.4.2 En tant qu’aide, je souhaite pouvoir discuter avec le demandeur, 
+afin de mettre en place le service souhaité ou poser des questions pratiques.
 
-2.5.1 En tant que demandeur, je souhaite pouvoir indiquer à l’aide ma localisation, afin qu’il puisse me rejoindre pour le service demandé.
-2.5.2 En tant qu’aide, je souhaite pouvoir connaître la localisation du demandeur, afin de savoir où je dois me rendre pour le service du demandeur.
+2.5.1 En tant que demandeur, je souhaite pouvoir indiquer à l’aide ma 
+localisation, afin qu’il puisse me rejoindre pour le service demandé.
+2.5.2 En tant qu’aide, je souhaite pouvoir connaître la localisation du 
+demandeur, afin de savoir où je dois me rendre pour le service du demandeur.
 
-3.1.1 En tant qu’aide, je souhaite pouvoir signaler la fin d’un service, afin de signaler que je suis à nouveau disponible.
+3.1.1 En tant qu’aide, je souhaite pouvoir signaler la fin d’un service, 
+afin de signaler que je suis à nouveau disponible.
 
-3.2.1 En tant que demandeur, je souhaite pouvoir noter la prestation d’une aide, afin que d’autres demandeurs puissent voir si j’ai été satisfait.
-3.2.2 En tant qu’aide, je souhaite que le demandeur puisse noter ma prestation, afin que d’autres demandeur puisse voir la qualité de mes prestations.
+3.2.1 En tant que demandeur, je souhaite pouvoir noter la prestation d’une 
+aide, afin que d’autres demandeurs puissent voir si j’ai été satisfait.
+3.2.2 En tant qu’aide, je souhaite que le demandeur puisse noter ma prestation,
+ afin que d’autres demandeur puisse voir la qualité de mes prestations.
 
-3.3.1 En tant que demandeur, je souhaite pouvoir signaler aux administrateur un problème avec une aide, afin d’éviter que cela ne se reproduise ou que des sanctions soient prises.
+3.3.1 En tant que demandeur, je souhaite pouvoir signaler aux administrateur un 
+problème avec une aide, afin d’éviter que cela ne se reproduise ou que des sanctions 
+soient prises.
