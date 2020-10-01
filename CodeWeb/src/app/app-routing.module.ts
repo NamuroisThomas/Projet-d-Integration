@@ -7,11 +7,9 @@ import {HomeComponent} from './home/home.component';
 //https://angular.io/guide/cheatsheet
 
 const appRoutes: Routes = [
-  { path: '', children : [
-      { path: '' , component: HomeComponent},
-      { path: 'demandeAide', component: DemandeAideComponent },
-      { path: 'inscription', component: InscriptionComponent},
-    ]},
+  {path: 'inscription', component: InscriptionComponent},
+  {path: 'demandeAide', component: DemandeAideComponent},
+  {path: '', component: HomeComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
