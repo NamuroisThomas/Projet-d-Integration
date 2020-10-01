@@ -1,26 +1,19 @@
-<<<<<<< HEAD
-<div id="formulaireIncription">
-  <h2>NeedHelp ?</h2>
-  <form >
-    <div><label for="nom">Nom :</label> <input [(ngModel)]="nom" id="nom" name="nom" type="text" required/></div>
-    <div><label for="prenom">Prénom :</label> <input [(ngModel)]="prenom" id="prenom" name="prenom" type="text" required/></div>
-    <div><label for="email">E-mail :</label> <input [(ngModel)]="email" id="email" name="email" type="email" required /></div>
-    <div><label for="tel">Téléphone :</label> <input [(ngModel)]="telephone" id="tel" name="tel" type="tel" required></div>
-    <div><label for="mdp">Mot de passe:</label> <input [(ngModel)]="mdp" id="mdp" name="mdp" type="password" required></div>
-    <div><label for="mdp">Confirmé le mot de passe:</label> <input [(ngModel)]="mdpconfirmer" id="mdpconfirmer" name="mdp" type="password" required></div>
-    <!--
-        <div id="status">Status :
-=======
 <h2>NeedHelp ?</h2>
 <div id="formulaireIncription" class="col-sm-8 col-sm-offset-2">
   <form >
-    <div ><label for="nom">Nom :</label> <input class="form-control"  [(ngModel)]="nom" id="nom" name="nom" type="text" /></div>
-    <div><label for="prenom">Prénom :</label> <input class="form-control" [(ngModel)]="prenom" id="prenom" name="prenom" type="text" /></div>
-    <div><label for="email">E-mail :</label> <input class="form-control" [(ngModel)]="email" id="email" name="email" type="email"  /></div>
-    <div><label for="tel">Téléphone :</label> <input class="form-control" [(ngModel)]="telephone" id="tel" name="tel" type="tel" ></div>
-    <div><label for="mdp">Mot de passe:</label> <input class="form-control" [(ngModel)]="mdp" id="mdp" name="mdp" type="password" required></div>
+
+    <div ><label for="nom">Nom :</label>
+      <input class="form-control"  [(ngModel)]="nom" id="nom" name="nom" type="text" placeholder="ex: Dupont"/></div>
+    <div><label for="prenom">Prénom :</label>
+      <input class="form-control" [(ngModel)]="prenom" id="prenom" name="prenom" type="text" placeholder="ex: Jean"/></div>
+    <div><label for="email">E-mail :</label>
+      <input class="form-control" [(ngModel)]="email" id="email" name="email" type="email" placeholder="ex: jean@dupont.com"/></div>
+    <div><label for="tel">Téléphone :</label>
+      <input class="form-control" [(ngModel)]="telephone" id="tel" name="tel" type="tel" placeholder="ex: 0469696969"></div>
+    <div><label for="mdp">Mot de passe:</label>
+      <input class="form-control" [(ngModel)]="mdp" id="mdp" name="mdp" type="password" required placeholder="*******"></div>
+
     <div id="status">Status :
->>>>>>> e3d6a9798a8d0aced689464d5dfcc00dc4c21adc
 
           <input name="options"  [(ngModel)]="options" type="radio" [value]="false" [checked]="!options" /> PMR
 
@@ -37,8 +30,12 @@
             <LI><label><INPUT type="checkbox" name="course"> Course </label>
           </UL>
         </div>
-    -->
+   
         <button (click)="afficherConsole()">s'inscrire</button>
       </form>
     </div>
+
+    <button (click)="afficherConsole()" class="btn btn-success">s'inscrire</button>
+  </form>
+</div>
 
