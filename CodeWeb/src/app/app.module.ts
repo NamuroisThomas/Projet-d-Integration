@@ -12,11 +12,6 @@ import { AvisReportComponent } from './avis-report/avis-report.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
-const appRoutes: Routes = [
-  { path: 'demandeAide', component: DemandeAideComponent },
-  { path: 'inscription', component: InscriptionComponent}
-]
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,14 +20,17 @@ const appRoutes: Routes = [
     ChatComponent,
     ListeDemandeComponent,
     EditProfilComponent,
-    AvisReportComponent
+    AvisReportComponent,
+    PageNotFoundComponent,
+    HomeComponent
+
   ],
   imports: [
     FormsModule,
+    MessagesModule,
+    MessageModule,
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+
   ],
   providers: [],
   bootstrap: [AppComponent]

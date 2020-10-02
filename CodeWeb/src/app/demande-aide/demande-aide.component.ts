@@ -1,19 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-demande-aide',
   templateUrl: './demande-aide.component.html',
-  styleUrls: ['./demande-aide.component.scss']
+  styleUrls: ['./demande-aide.component.scss'],
+  providers: [MessageService]
 })
 export class DemandeAideComponent implements OnInit {
 
-  demandeAide: FormGroup;
-  errorMessage: string;
+
+ public demandeAide: FormGroup;
+ public errorMessage: string;
+
+ public formDemandeAide = new FormGroup({
+    Title: new FormControl(null),
+    Description: new FormControl(null)
+  })
 
   constructor(private formBuilder: FormBuilder,
-              private router: Router) { }
+              private messageService: MessageService,
+              private router: Router
+              ) { }
+
 
   ngOnInit(){
     this.initForm();
@@ -25,11 +34,19 @@ export class DemandeAideComponent implements OnInit {
       description: ['', [Validators.required]]
     });
   }
-  onSubmit() {
-    const titre =  this.demandeAide.get('titre').value;
-    const description = this.demandeAide.get('description').value;
 
-    console.log(titre, description);
+  // onSubmit() {
+  //   const titre =  this.demandeAide.get('titre').value;
+  //   const description = this.demandeAide.get('description').value;
+  //
+  //   console.log(titre, description);
+  // }
+
+  submit(){
+    console.log(this.formDemandeAide.value);
+    this.messageService.add({severity:'success', summary: 'Success Message', detail:'Order submitted'});
+
+
   }
 }
 
