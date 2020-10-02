@@ -18,6 +18,7 @@ import { ToastModule } from 'primeng/toast';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {FieldsetModule} from 'primeng/fieldset';
+import {SidebarModule} from 'primeng/sidebar';
 
 
 
@@ -44,6 +45,7 @@ import {FieldsetModule} from 'primeng/fieldset';
     AppRoutingModule,
     MessagesModule,
     MessageModule,
+    SidebarModule,
     ToastModule,
     FieldsetModule,
     ToastModule,
