@@ -1,5 +1,29 @@
-<div class="container">
-  <div class="row">
-    <router-outlet></router-outlet>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Angular Bootstrap Demo</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<app-inscription></app-inscription>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
+=======
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-var">
+      <li routerLinkActive="active"><a routerLink="auth">Mon Compte</a></li>
+      <li routerLinkActive="active"><a routerLink="appareils">Mes annonces</a></li>
+
+    </ul>
   </div>
-</div>
+</nav>
+
