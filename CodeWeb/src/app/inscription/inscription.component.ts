@@ -13,7 +13,7 @@ export class InscriptionComponent implements OnInit {
   telephone: number;
   email: string;
   mdp: string;
-  mdpconfirmer: string;
+  mdpconfirmation: string;
   options = false;
   constructor() {
   }
