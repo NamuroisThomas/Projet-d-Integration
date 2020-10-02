@@ -1,0 +1,42 @@
+Rapport réunion retrospective 01/10/2020
+
+
+Dans l'ensemble, les membres se sont tous investit dans les taches qui leur ont été attribuées au début du sprint 1
+
+Simon		Appli mobile	Formation		
+Simon		Appli mobile	Inscription		
+Thomas		Appli mobile	Connexion		
+Thomas		Appli mobile	Formation
+Brian		Dev web			Formation
+Brian		Dev web			Inscription
+Francois	Dev web			Formation
+Francois	Dev web			Demande d'aide
+Gaëtan		Dev web			Formation
+Gaëtan		Analyse			Wiki
+Gaëtan		Analyse			Maquettes
+Maxime		Analyse			Maquettes
+Maxime		BDD				Schéma
+All			Analyse			US
+
+
+
+Pour le sprint 2, nous comptons faire
+US02				Web		
+US04				Web		Brian
+US05				Web		Francois
+US05				Mobile	Thomas + Simon
+US06				Web		Francois + Gaëtan
+US06				Mobile	Thomas + Simon
+Mise en ligne		BDD		Gaëtan
+Maquettes 			Analyse	Maxime
+API					BDD		Maxime + Gaëtan
+Formation					All
+Wiki						Gaëtan
+
+
+
+
+
+
+
+
