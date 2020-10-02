@@ -1,5 +1,8 @@
 Rapport réunion retrospective 01/10/2020
 
+Plus de push sur master sauf avant démo (mercredi) ou écriture des rapports
+
+
 
 Dans l'ensemble, les membres se sont tous investit dans les taches qui leur ont été attribuées au début du sprint 1
 
