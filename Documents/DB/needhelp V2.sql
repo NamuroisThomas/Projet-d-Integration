@@ -2,6 +2,10 @@
 --
 -- Base de données : `needhelp`
 --
+
+CREATE USER projetI@'%' IDENTIFIED BY Integration7;
+GRANT ALL ON NeedHelpV2.* TO projetI@'%';
+FLUSH PRIVILEGES;
 CREATE DATABASE NeedHelp;
 
 USE NeedHelp;
