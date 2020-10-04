@@ -4,7 +4,7 @@ import {DemandeAideComponent} from './demande-aide/demande-aide.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
-
+import {ConnexionComponent} from './connexion/connexion.component';
 
 
 const appRoutes: Routes = [
@@ -14,6 +14,7 @@ const appRoutes: Routes = [
       {path: 'home', component: HomeComponent},
       {path: 'demandeAide', component: DemandeAideComponent},
       {path: 'inscription', component: InscriptionComponent},
+      {path: 'connexion', component: ConnexionComponent},
       {path: 'not-found', component: PageNotFoundComponent},
       {path: '**', redirectTo: 'home'}
     ]
