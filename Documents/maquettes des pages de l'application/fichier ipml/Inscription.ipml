@@ -1,0 +1,80 @@
+<iplotz type="page" pagetype="page" title="inscription" width="800" height="600" color="16777215" master="" pageAnnotationText="" pageAnnotationPreview="" pageSkin="hand.swf">
+  <layers>
+    <layer label="Background" layerId="0" isVisible="true" isLocked="false"/>
+  </layers>
+  <element type="Rectangle" index="0" group="0" w="801" h="498" x="-1" y="56" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>2,0,1,10092543,0.28,0,8,0,0,0,0,0,0</data>
+  </element>
+  <element type="Rectangle" index="1" group="0" w="800" h="59" x="0" y="-2" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>2,0,1,5654228,1,0,8,0,2825417,2105034,0,0,0</data>
+  </element>
+  <element type="Rectangle" index="2" group="0" w="77" h="58" x="71" y="-1" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>2,0,1,0,0,0,8,0,0,0,0,0,0,0</data>
+  </element>
+  <element type="TextLabel" index="3" group="0" w="125" h="30" x="88" y="17" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2224%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3ENH%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="Rectangle" index="4" group="0" w="321" h="50" x="202" y="4" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>2,0,1,0,0,0,8,0,0,0,0,0,0,0</data>
+  </element>
+  <element type="TextLabel" index="5" group="0" w="258" h="48" x="248" y="10" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2248%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3ENeedHelp?%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="Rectangle" index="6" group="0" w="149" h="50" x="647" y="2" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>2,0,1,0,0,0,8,0,0,0,0,0,0</data>
+  </element>
+  <element type="TextLabel" index="7" group="0" w="218" h="30" x="656" y="14" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2222%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3ED%C3%A9connexion%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="Form" index="8" group="0" w="660" h="438" x="68" y="92" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>Inscription%7C*#%7CComic%20Sans%20MS%7C*#%7C16%7C*#%7Cnormal%7C*#%7Cnormal%7C*#%7Cnone%7C*#%7C0</data>
+  </element>
+  <element type="Button" index="9" group="0" w="161" h="35" x="138" y="146" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>Nom%7C*#%7CComic%20Sans%20MS%7C*#%7C12%7C*#%7Cnormal%7C*#%7Cnormal%7C*#%7Cnone%7C*#%7C0$#@*$0xFFFFFF,1,0x8D8D8D,1,0</data>
+  </element>
+  <element type="Button" index="10" group="0" w="161" h="35" x="138" y="202" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>Prenom%7C*#%7CComic%20Sans%20MS%7C*#%7C12%7C*#%7Cnormal%7C*#%7Cnormal%7C*#%7Cnone%7C*#%7C0$#@*$0xFFFFFF,1,0x8D8D8D,1,0</data>
+  </element>
+  <element type="Button" index="11" group="0" w="161" h="35" x="138" y="317" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>Mail%7C*#%7CComic%20Sans%20MS%7C*#%7C12%7C*#%7Cnormal%7C*#%7Cnormal%7C*#%7Cnone%7C*#%7C0$#@*$0xFFFFFF,1,0x8D8D8D,1,0</data>
+  </element>
+  <element type="Button" index="12" group="0" w="161" h="35" x="138" y="375" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>Mot%20de%20passe%20%7C*#%7CComic%20Sans%20MS%7C*#%7C12%7C*#%7Cnormal%7C*#%7Cnormal%7C*#%7Cnone%7C*#%7C0$#@*$0xFFFFFF,1,0x8D8D8D,1,0</data>
+  </element>
+  <element type="Button" index="13" group="0" w="161" h="35" x="138" y="435" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>Confirmation%7C*#%7CComic%20Sans%20MS%7C*#%7C12%7C*#%7Cnormal%7C*#%7Cnormal%7C*#%7Cnone%7C*#%7C0$#@*$0xFFFFFF,1,0x8D8D8D,1,0</data>
+  </element>
+  <element type="Button" index="14" group="0" w="161" h="35" x="138" y="259" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>T%C3%A9lephone%7C*#%7CComic%20Sans%20MS%7C*#%7C12%7C*#%7Cnormal%7C*#%7Cnormal%7C*#%7Cnone%7C*#%7C0$#@*$0xFFFFFF,1,0x8D8D8D,1,0</data>
+  </element>
+  <element type="Button" index="15" group="0" w="80" h="35" x="354" y="470" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>Envoyer%20formulaire%20%7C*#%7CComic%20Sans%20MS%7C*#%7C12%7C*#%7Cnormal%7C*#%7Cnormal%7C*#%7Cnone%7C*#%7C0$#@*$0xFFFFFF,1,0x8D8D8D,1,0</data>
+  </element>
+  <element type="TextLabel" index="16" group="0" w="125" h="30" x="140" y="126" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3ENom%20:%3C/FONT%3E%3C/P%3E%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3E%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="TextLabel" index="17" group="0" w="125" h="30" x="138" y="183" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3EPr%C3%A9nom%20:%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="TextLabel" index="18" group="0" w="125" h="30" x="138" y="242" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3E%3C/FONT%3E%3C/P%3E%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3E%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="TextLabel" index="19" group="0" w="179" h="30" x="138" y="242" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3ENum%C3%A9ro%20de%20t%C3%A9l%C3%A9phone%20:%3C/FONT%3E%3C/P%3E%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3E%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="TextLabel" index="20" group="0" w="125" h="30" x="138" y="299" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3EAdresse%20mail%20:%20%3C/FONT%3E%3C/P%3E%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3E%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="TextLabel" index="21" group="0" w="125" h="30" x="138" y="359" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3EMot%20de%20passe%20:%3C/FONT%3E%3C/P%3E%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3E%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="TextLabel" index="22" group="0" w="214" h="30" x="138" y="418" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3EConfirmation%20mot%20de%20passe%20:%3C/FONT%3E%3C/P%3E%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2215%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3E%3C/FONT%3E%3C/P%3E</data>
+  </element>
+  <element type="Rectangle" index="23" group="0" w="802" h="50" x="0" y="552" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>2,0,1,5654228,1,0,8,0,0,0,0,0,0</data>
+  </element>
+  <element type="TextLabel" index="24" group="0" w="450" h="30" x="14" y="563" linktype="" url="" lock="no" annotation="" stackno="0" layerid="0">
+    <data>%3CP%20ALIGN=%22LEFT%22%3E%3CFONT%20FACE=%22Comic%20Sans%20MS%22%20SIZE=%2224%22%20COLOR=%22#000000%22%20LETTERSPACING=%220%22%20KERNING=%220%22%3Efooter%20:%20%20designer,%20participants%20au%20projet%20%3C/FONT%3E%3C/P%3E</data>
+  </element>
+</iplotz>
