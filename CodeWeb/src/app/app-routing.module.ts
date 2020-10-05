@@ -5,14 +5,14 @@ import {InscriptionComponent} from './inscription/inscription.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import {EditProfilComponent} from './edit-profil/edit-profil.component';
-
+import {NavbarComponent} from './navbar/navbar.component';
 
 
 const appRoutes: Routes = [
   {
-    path: '', component: HomeComponent,
+    path: '', component: NavbarComponent,
     children: [
-      {path: 'home', component: EditProfilComponent},  /*remplacer HomeComponent ici par EditProfilCompoenent pour le moment pour eviter le dédoublement*/
+      {path: 'home', component: HomeComponent},  /*remplacer HomeComponent ici par EditProfilCompoenent pour le moment pour eviter le dédoublement*/
       {path: 'demandeAide', component: DemandeAideComponent},
       {path: 'inscription', component: InscriptionComponent},
       {path: 'not-found', component: PageNotFoundComponent},

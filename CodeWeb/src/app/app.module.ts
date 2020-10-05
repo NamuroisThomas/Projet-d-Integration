@@ -19,6 +19,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import {SidebarModule} from 'primeng/sidebar';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -32,7 +33,8 @@ import {SidebarModule} from 'primeng/sidebar';
     EditProfilComponent,
     AvisReportComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
 
   ],
   imports: [
