@@ -1,0 +1,10 @@
+userstory + detaille (les requetes, api, ,message erreur, ou mettre les implementations, dans quelle page)
+
+maj trello
+
+mettre les liens maquetes
+
+penser a reunir les petites US
+
+Remarque : separer les US en plusieur taches et mettre des critere d'acceptation
+Quand considere-t-on qu'une US est terminé.
