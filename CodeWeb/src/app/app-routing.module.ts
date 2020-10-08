@@ -8,16 +8,19 @@ import {HomeComponent} from './home/home.component';
 import {ConnexionComponent} from './connexion/connexion.component';
 
 import {EditProfilComponent} from './edit-profil/edit-profil.component';
-
+import {NavbarComponent} from './navbar/navbar.component';
+import {ContactComponent} from './contact/contact.component';
 
 
 const appRoutes: Routes = [
   {
-    path: '', component: HomeComponent,
+    path: '', component: NavbarComponent,
     children: [
-      {path: 'home', component: EditProfilComponent},  /*remplacer HomeComponent ici par EditProfilCompoenent pour le moment pour eviter le dédoublement*/
+      {path: 'home', component: HomeComponent},  /*remplacer HomeComponent ici par EditProfilComponent pour le moment pour eviter le dédoublement*/
       {path: 'demandeAide', component: DemandeAideComponent},
       {path: 'inscription', component: InscriptionComponent},
+      {path: 'contactPage', component: ContactComponent},
+      {path: 'editProfil', component: EditProfilComponent},
       {path: 'connexion', component: ConnexionComponent},
       {path: 'not-found', component: PageNotFoundComponent},
       {path: '**', redirectTo: 'home'}
