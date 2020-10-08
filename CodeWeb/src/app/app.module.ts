@@ -18,8 +18,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import {SidebarModule} from 'primeng/sidebar';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactComponent } from './contact/contact.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 
@@ -35,7 +37,8 @@ import { ContactComponent } from './contact/contact.component';
     PageNotFoundComponent,
     HomeComponent,
     NavbarComponent,
-    ContactComponent
+    ContactComponent,
+    ConnexionComponent
 
   ],
   imports: [
