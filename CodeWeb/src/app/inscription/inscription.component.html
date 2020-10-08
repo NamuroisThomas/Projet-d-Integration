@@ -12,24 +12,28 @@
       <input class="form-control" [(ngModel)]="telephone" id="tel" name="tel" type="tel" placeholder="ex: 0469696969"></div>
     <div><label for="mdp">Mot de passe:</label>
       <input class="form-control" [(ngModel)]="mdp" id="mdp" name="mdp" type="password" required placeholder="*******"></div>
+    <div><label for="mdp">Mot de passe:</label>
+      <input class="form-control" [(ngModel)]="mdpconfirmation" id="mdpconfirmation" name="mdp" type="password" required></div>
+<!--    EN COMMENTAIRE POUR LE MOMENT, PEUT TOUJOURS SERVIR DANS UNE AUTRE ROUTE
 
     <div id="status">Status :
 
       <input name="options"  [(ngModel)]="options" type="radio" [value]="false" [checked]="!options" /> PMR
 
-      <input name="options" [(ngModel)]="options" type="radio" [value]="true" [checked]="options"/> Aide
-    </div>
-    <div *ngIf="!options">
-    </div>
-    <div *ngIf="options">
-      <P>Domaine des aides :
-      <UL>
-        <LI><label><INPUT type="checkbox" name="aucun" checked>Aucun </label>
-        <LI><label><INPUT type="checkbox" name="deplacement"> Déplacement </label>
-        <LI><label><INPUT type="checkbox" name="bricolage"> Bricolage </label>
-        <LI><label><INPUT type="checkbox" name="course"> Course </label>
-      </UL>
-    </div>
+          <input name="options" [(ngModel)]="options" type="radio" [value]="true" [checked]="options"/> Aide
+        </div>
+        <div *ngIf="!options">
+        </div>
+        <div *ngIf="options">
+          <P>Domaine des aides :
+          <UL>
+            <LI><label><INPUT type="checkbox" name="aucun" checked>Aucun </label>
+            <LI><label><INPUT type="checkbox" name="deplacement"> Déplacement </label>
+            <LI><label><INPUT type="checkbox" name="bricolage"> Bricolage </label>
+            <LI><label><INPUT type="checkbox" name="course"> Course </label>
+          </UL>
+        </div>
+-->
 
     <button (click)="afficherConsole()" class="btn btn-success">s'inscrire</button>
   </form>

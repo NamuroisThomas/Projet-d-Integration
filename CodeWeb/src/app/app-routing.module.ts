@@ -4,14 +4,18 @@ import {DemandeAideComponent} from './demande-aide/demande-aide.component';
 import {InscriptionComponent} from './inscription/inscription.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
+
 import {ConnexionComponent} from './connexion/connexion.component';
+
+import {EditProfilComponent} from './edit-profil/edit-profil.component';
+
 
 
 const appRoutes: Routes = [
   {
     path: '', component: HomeComponent,
     children: [
-      {path: 'home', component: HomeComponent},
+      {path: 'home', component: EditProfilComponent},  /*remplacer HomeComponent ici par EditProfilCompoenent pour le moment pour eviter le dédoublement*/
       {path: 'demandeAide', component: DemandeAideComponent},
       {path: 'inscription', component: InscriptionComponent},
       {path: 'connexion', component: ConnexionComponent},
