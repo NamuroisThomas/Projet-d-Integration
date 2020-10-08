@@ -12,7 +12,7 @@ public class Utilisateur {
     int idCateg;
     String nomCateg;
 
-
+    //connection db
     public  void afficher(){
         String url = "jdbc:mysql://62.210.130.145/NeedHelpV2";
         String login = "projetI";
