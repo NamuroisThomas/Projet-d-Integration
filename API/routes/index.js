@@ -59,23 +59,24 @@ router.get('/demande', function(req,res,next){
 	}
 });
 
-
+// à tester 
+// vérification de l'utilisateur (nom, prenom) et de son mot de passe sur base de l'adresse mail
 router.get('/utilisateur', function(req,res,next){
 
-    var  = req.query.;
+    var mailUtilisateur = req.query.mailUtilisateur;
+	
+	res.locals.connection.query('SELECT CONCAT(nomUtilisateur, ' ', prenomUtilisateur) as utilisateur , mdpUtilisateur as mdp FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur], function(error, results, fields) {
+		if (error!=null) {
+			res.redirect(529, '/error');
+			console.log("erreur query");
+		}
+		else {
+			res.send({"status": 200, "error": null, "response": results});
+			console.log("query OK");
 
-
-    res.locals.connection.query('SELECT * FROM utilisateurs  WHERE =?',[nom_utilisateur], function(error, results, fields) {
-        if (error!=null) {
-            res.redirect(529, '/error');
-            console.log("erreur query");
-        }
-        else {
-            res.send({"status": 200, "error": null, "response": results});
-            console.log("query OK");
-
-        }
-    });
+		}
+		
+	});
 });
 
 
