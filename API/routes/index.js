@@ -32,7 +32,7 @@ router.get('/demande', function(req,res,next){
 	var demande_id = req.query.idDemande;
 		console.log(demande_id);
 	
-	if (demande_id !== undefined){
+	if (demande_id != undefined){
 		
 		res.locals.connection.query('SELECT * FROM demandes  WHERE idDemande=?',[demande_id], function(error, results, fields) {
 			if (error!=null) {
@@ -121,13 +121,13 @@ router.get('/mailExist', function(req,res,next){
 });
 */
 
+// à tester 
+// récupération des données du formulaire inscription et ajout dans la base de donnée 
 router.post('/formInscription', function (req, res, next) {
-
 
     console.log(req);
 
-    if(req.body.formInscription==0) { //Si c'est un nouveau utilisateur //TODO a coder
-        res.locals.connection.query('INSERT INTO utilisateurs (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur, idStatus, descriptionUtilisateur, avertissementUtiisateur) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',[req.body.formUtilisateurNom, req.body.formUtilisateurPrenom, req.body., req.body.formUtilisateurTelephone, req.body., req.body.], function (error, results, fields) {
+        res.locals.connection.query('INSERT INTO utilisateurs (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur, idStatus, descriptionUtilisateur, avertissementUtiisateur) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',[req.body.formUtilisateurNom, req.body.formUtilisateurPrenom, req.body.formUtilisateurMail, req.body.formUtilisateurTel, req.body.formUtilisateurMdp, 4, " ", 0], function (error, results, fields) {
             if (error!=null) {
                 res.redirect(529, '/error');
             }
@@ -136,22 +136,23 @@ router.post('/formInscription', function (req, res, next) {
                 res.redirect(req.headers.referer);
             } //TODO pas juste changer la redirection
         });
-    }
-    /* à modif 
-	
-	else { //Si le utilisateur est déjà encodé
-        res.locals.connection.query('UPDATE utilisateurs SET nomParent = ?, prenomParent = ?, adresse = ?, telephonne = ?, GSM = ?, email = ? WHERE idParent = ?', [req.body.formUtilisateurNom, req.body.formUtilisateurPrenom, req.body., req.body.formUtilisateurTelephone, req.body., req.body., req.body.], function (error, results) {
+});
+
+
+/*
+router.post('/formDemande', function (req, res, next) {
+
+    console.log(req);
+
+        res.locals.connection.query('INSERT INTO demandes (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur, idStatus, descriptionUtilisateur, avertissementUtiisateur) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',[req.body.formUtilisateurNom, req.body.formUtilisateurPrenom, req.body.formUtilisateurMail, req.body.formUtilisateurTel, req.body.formUtilisateurMdp, 4, " ", 0],  function (error, results, fields) {
             if (error!=null) {
                 res.redirect(529, '/error');
             }
             else {
-                console.log("utilisateur modifié");
+                console.log("utilisateur ajouté");
                 res.redirect(req.headers.referer);
-            }
+            } //TODO pas juste changer la redirection
         });
-    } 
-	
-	*/
 });
-
+*/
 module.exports = router;
