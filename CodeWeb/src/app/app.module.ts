@@ -23,6 +23,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ContactComponent } from './contact/contact.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 
+import {HttpClientModule} from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -56,6 +59,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
     FieldsetModule,
     ToastModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule
