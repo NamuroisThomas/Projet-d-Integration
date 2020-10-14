@@ -1,0 +1,44 @@
+Rapport coaching du 01/10/2020
+
+
+
+Retour Mme Vroman
+	Très bonne présentation globalement
+
+	Seul Mr Vandormael avait été prévenu à l'avance de l'absence de Thomas pour cause de quarantaine, pas trop grave mais un petit mail en copie saura mieux la prochaine fois
+
+	Sur Trello, changer le nom US en backlog
+	Sur Clockify, faire des projets différents pour avoir les couleurs et avoir plus de détails pour qui fait quoi
+	
+
+	Il faut a tout pris différencier la partie démo client et la partie technique pour les profs
+	L'idéal serait de suivre le schéma de présentation suivant
+
+		1) Rappel du projet 30sec
+		2) Démo de l'appli web
+		3) Démo de l'appli android
+		----------------------------
+		4) Rapport sur le fonctionnement de l'équipe via le trello et le git flow
+		----------------------------
+		5) Développement des choix techniques, problèmes rencontrés, ... pour le web
+		6) Développement des choix techniques, problèmes rencontrés, ... pour l'appli
+		7) Développement des choix techniques, problèmes rencontrés, ... pour la base de données
+
+
+
+
+Retour interne
+	L'idée de 3 intervenants est pas mal, un pour le web ; un pour l'appli ; et un pour le fonctionnement de l'équipe et la BDD
+	Le rappel du projet était un peu brouillon, voire pour le décrire en une phrase plus simple pour l'accroche
+	
+
+
+
+
+
+
+
+
+
+
+

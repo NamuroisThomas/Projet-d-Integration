@@ -1,0 +1,37 @@
+Rapport réunion fin de sprint mercredi 30/09/2020
+
+
+Longue discussions pour bien définir les différentes US et leur ordre
+
+Pour voir la version finale actuelle, se rendre sur le document USV3.txt
+
+Avancement de l'appli web 		avec une page de demande d'aide
+Avancement de l'appli mobile 	avec une page d'acceuil, une page d'inscription et une page de connexion et une page de menu une fois connecté
+Avancement de la DB 			en sysbase, export prochain
+Avancement sur les maquettes	brouillons rapides a retravailler
+
+
+
+Bien déroulé : 
+  Tout le monde a fait la tache qui lui était attribbuée
+  
+Moyen : 
+  Un peu trop de temps sur les US (6h) mais au moins tout le monde a bien compris le sujet
+  
+Pas bien : 
+  Pour le moment rien
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,6 +13,7 @@ export class InscriptionComponent implements OnInit {
   telephone: number;
   email: string;
   mdp: string;
+  mdpconfirmation: string;
   options = false;
   constructor() {
   }
@@ -20,7 +21,6 @@ export class InscriptionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
   afficherConsole(){
     console.log('votre nom est : ' + this.nom + '\n votre prenom est : ' + this.prenom + '\n votre mail est : ' + this.email

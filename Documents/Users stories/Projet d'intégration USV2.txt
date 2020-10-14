@@ -1,0 +1,91 @@
+PMR on like
+
+Description :
+	
+	Les PMR (Personne à mobilité réduite) se retrouvent souvent confrontés à des difficultés liées aux transports et diverses tâches du quotidien. Nous pouvons citer comme exemples, les déplacements liés aux courses et rendez-vous médicaux, les différents travaux d’entretien du domicile, aides ménagères, etc.
+
+	Notre application a pour but premier de palier aux difficultés rencontrées par les personnes à mobilité réduite en leurs permettant de demander une aide. Nous aurions donc sur cette application mobile, deux profilent :
+
+- Le demandeur (PMR) : s’inscrit sur l’application en tant que PMR, en faisant cela, il a la possibilité de demander à tout moment une aide extérieur (pour une tâche ou un déplacement).
+NeedHelp?
+
+BUT : 
+	L’aide : s’inscrit sur l’application en tant que personne valide. De ce fait, il peut recevoir une notification indiquant que quelqu’un a besoin d’aide.
+
+
+BESOINS : 
+
+Thème 1 : La possibilité de créer un profil
+Il faudra donc :
+	1.	La possibilité de créer un compte
+	2.	La possibilité d’indiquer son statut (demandeur ou aide)
+	3.	La possibilité d’éditer son compte
+
+
+Thème 2 : L’interaction entre demandeurs et aides
+Il faudra donc :
+	1.	La possibilité d’offrir et de demander de l’aide
+	2.	La possibilité de consulter les demandes d’aide
+	3.	La possibilité d’accepter une demande d’aide
+	4.	La possibilité de contacter le demandeur ou l’aide
+	5.	La possibilité de connaître la localisation du demandeur
+
+Thème 3 : Clôturer l’interaction
+Il faudra donc :
+	1.	La possibilité de signaler la fin du service
+	2.	La possibilité de noter l’interaction
+	3.	La possibilité de signaler une aide
+
+
+
+USER STORIES : 
+
+
+1.1.1 En tant que demandeur, je souhaite pouvoir créer un compte, 
+afin de demander de l’aide à quelqu’un lorsque j’en ai besoin.
+1.1.2 En tant qu’aide, je souhaite pouvoir créer un compte, afin 
+d’offrir mon aide à une personne ayant fait la demande.
+
+1.2.1 En tant que demandeur, je souhaite indiquer que je suis PMR, 
+afin de pouvoir demander de l’aide.
+1.2.2 En tant qu’aide, je souhaite indiquer que je suis dans la 
+possibilité d’aider, afin de pouvoir offrir mes services à une personne à 
+mobilité réduite.
+
+1.3.1 En tant que demandeur, je souhaite pouvoir éditer mon profil, 
+afin d’indiquer des informations nécessaires pour recevoir de l’aide.
+1.3.2 En tant qu’aide, je souhaite pouvoir éditer mon profil, afin 
+d’indiquer les informations nécessaires pour offrir mon aide.
+
+2.1.1 En tant que demandeur, je souhaite pouvoir soumettre une demande 
+d’aide, afin de trouver quelqu’un prêt à m’aider.
+2.1.2 En tant qu’aide, je souhaite pouvoir répondre à une demande d’aide, 
+afin de proposer mes services à une personne dans le besoin.
+
+2.2.1 En tant qu’aide, je souhaite pouvoir consulter les différentes 
+demandes soumises, afin de m’informer des annonces faites par les demandeurs.
+
+2.3.1 En tant qu’aide, je souhaite pouvoir accepter une demande d’aide, 
+afin de signaler à un demandeur que je suis disponible pour lui venir en aide.
+
+2.4.1 En tant que demandeur, je souhaite pouvoir discuter avec une aide, 
+afin de mettre en place le service souhaité ou poser des questions pratiques.
+2.4.2 En tant qu’aide, je souhaite pouvoir discuter avec le demandeur, 
+afin de mettre en place le service souhaité ou poser des questions pratiques.
+
+2.5.1 En tant que demandeur, je souhaite pouvoir indiquer à l’aide ma 
+localisation, afin qu’il puisse me rejoindre pour le service demandé.
+2.5.2 En tant qu’aide, je souhaite pouvoir connaître la localisation du 
+demandeur, afin de savoir où je dois me rendre pour le service du demandeur.
+
+3.1.1 En tant qu’aide, je souhaite pouvoir signaler la fin d’un service, 
+afin de signaler que je suis à nouveau disponible.
+
+3.2.1 En tant que demandeur, je souhaite pouvoir noter la prestation d’une 
+aide, afin que d’autres demandeurs puissent voir si j’ai été satisfait.
+3.2.2 En tant qu’aide, je souhaite que le demandeur puisse noter ma prestation,
+ afin que d’autres demandeur puisse voir la qualité de mes prestations.
+
+3.3.1 En tant que demandeur, je souhaite pouvoir signaler aux administrateur un 
+problème avec une aide, afin d’éviter que cela ne se reproduise ou que des sanctions 
+soient prises.
