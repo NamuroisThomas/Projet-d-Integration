@@ -24,7 +24,7 @@ router.get('/test', function(req,res,next){
 
 
 //récupération des demandes par id si spécifié, sinon revoie toutes les demandes
-router.get('/demande', function(req,res,next){
+router.get('/demandes', function(req,res,next){
 	var demande_id = req.query.idDemande;
     console.log('GET demande');
 	if (demande_id != undefined){
