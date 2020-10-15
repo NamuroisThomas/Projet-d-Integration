@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
-var bodyParser = require('bodyparser');
+var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mysql = require('mysql');
 
