@@ -4,21 +4,21 @@
     <form [formGroup]="formInscription">
 
     <div><label for="nom">Nom :</label>
-      <input class="form-control" [(ngModel)]="formInscriptionNom" id="nom" name="nom" type="text" placeholder="ex: Dupont"/></div>
+      <input class="form-control"  id="nom" name="nom" type="text" placeholder="ex: Dupont"/></div>
     <div><label for="prenom">Prénom :</label>
-      <input class="form-control" [(ngModel)]="formInscriptionPrenom" id="prenom" name="prenom" type="text" placeholder="ex: Jean"/>
+      <input class="form-control" id="prenom" name="prenom" type="text" placeholder="ex: Jean"/>
     </div>
     <div><label for="email">E-mail :</label>
-      <input class="form-control" [(ngModel)]="formInscriptionMail" id="email" name="email" type="email"
+      <input class="form-control" id="email" name="email" type="email"
              placeholder="ex: jean@dupont.com"/></div>
     <div><label for="tel">Téléphone :</label>
-      <input class="form-control" [(ngModel)]="formInscriptionTel" id="tel" name="tel" type="tel" placeholder="ex: 0469696969">
+      <input class="form-control" id="tel" name="tel" type="tel" placeholder="ex: 0469696969">
     </div>
     <div><label for="mdp">Mot de passe:</label>
-      <input class="form-control" [(ngModel)]="formInscriptionMdp" id="mdp" name="mdp" type="password" required placeholder="*******">
+      <input class="form-control" id="mdp" name="mdp" type="password" required placeholder="*******">
     </div>
     <div><label for="mdp">Mot de passe:</label>
-      <input class="form-control" [(ngModel)]="mdpconfirmation" id="mdpconfirmation" name="mdp" type="password"
+      <input class="form-control" id="mdpconfirmation" name="mdp" type="password"
              required></div>
     <!--    EN COMMENTAIRE POUR LE MOMENT, PEUT TOUJOURS SERVIR DANS UNE AUTRE ROUTE
 
@@ -50,4 +50,4 @@
       </div>
   </form>
 </div>
-  
+
