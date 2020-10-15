@@ -1,6 +1,8 @@
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var cors = require('cors');
+var bodyParser = require('bodyparser');
 var logger = require('morgan');
 var mysql = require('mysql');
 
@@ -32,11 +34,16 @@ app.use(function (req, res, next) {
     });
 });
 
-router.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
-
+app.use( bodyParser.json() )
+    .use(bodyParser.urlencoded({
+        extended: true
+    }))
+    .use(cors())
+    .use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
 
 
 
