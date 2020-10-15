@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup} from '@angular/forms';
-
+import {TestServices} from '../test.service';
 
 @Component({
   selector: 'app-inscription',
@@ -14,8 +14,8 @@ export class InscriptionComponent implements OnInit {
   email: string;
   mdp: string;
   mdpconfirmation: string;
-  options = false;
-  constructor() {
+
+  constructor(private test: TestServices) {
   }
 
 
@@ -23,8 +23,7 @@ export class InscriptionComponent implements OnInit {
   }
 
   afficherConsole(){
-    console.log('votre nom est : ' + this.nom + '\n votre prenom est : ' + this.prenom + '\n votre mail est : ' + this.email
-      + '\n votre numéro de téléphone est : ' + this.telephone  + '\n votre mot de passe est : ' + this.mdp);
+    this.test.postInscription();
   }
 }
 
