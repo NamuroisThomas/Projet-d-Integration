@@ -19,11 +19,9 @@ export class InscriptionComponent implements OnInit {
 
   options = false;
   private messageService: any;
-  constructor() {
 
 
   constructor(private test: TestServices) {
- ede53b151c8b664a735cdbd7ba598a71538caf37
   }
 
   public formInscription = new FormGroup({
