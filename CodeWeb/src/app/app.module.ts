@@ -24,6 +24,9 @@ import { ContactComponent } from './contact/contact.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import {BotDetectCaptchaModule} from "angular-captcha";
 
+import {HttpClientModule} from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -57,6 +60,7 @@ import {BotDetectCaptchaModule} from "angular-captcha";
     FieldsetModule,
     ToastModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule,

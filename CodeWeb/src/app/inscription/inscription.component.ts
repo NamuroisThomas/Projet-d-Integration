@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { MessageService } from 'primeng/api';
-
+import {TestServices} from '../test.service';
 
 @Component({
   selector: 'app-inscription',
@@ -16,9 +16,14 @@ export class InscriptionComponent implements OnInit {
   email: string;
   mdp: string;
   mdpconfirmation: string;
+
   options = false;
   private messageService: any;
   constructor() {
+
+
+  constructor(private test: TestServices) {
+ ede53b151c8b664a735cdbd7ba598a71538caf37
   }
 
   public formInscription = new FormGroup({
@@ -30,8 +35,7 @@ export class InscriptionComponent implements OnInit {
   }
 
   afficherConsole(){
-    console.log('votre nom est : ' + this.nom + '\n votre prenom est : ' + this.prenom + '\n votre mail est : ' + this.email
-      + '\n votre numéro de téléphone est : ' + this.telephone  + '\n votre mot de passe est : ' + this.mdp);
+    this.test.postInscription();
   }
 
   submit(){
