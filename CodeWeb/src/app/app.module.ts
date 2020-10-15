@@ -22,6 +22,7 @@ import {SidebarModule} from 'primeng/sidebar';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactComponent } from './contact/contact.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import {BotDetectCaptchaModule} from "angular-captcha";
 
 
 
@@ -58,7 +59,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    BotDetectCaptchaModule
 
   ],
   providers: [],
