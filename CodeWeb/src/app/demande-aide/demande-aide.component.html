@@ -6,7 +6,7 @@
       <img src="./assets/img/svg/undraw_google_docs_jf93.svg" alt="Image demande d'aide" width="100vw" height="100vh">
     </div>
     <div class="col-6">
-        <form [formGroup]="formDemandeAide">
+        <form [formGroup]="formDemandeAide" method="POST" action="62.210.130.145:3000/utilisateur">
           <div class="row">
             <div class="form-group col-lg-12 col-md-12">
               <label for="titre">Intitulé</label>
