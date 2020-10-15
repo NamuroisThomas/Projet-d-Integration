@@ -119,7 +119,7 @@ router.post('/demande', function (req, res, next) {
             res.redirect(529, '/error');
         }
         else {
-            console.log("utilisateur ajouté");
+            console.log("demande ajoutée");
             res.send({"status":201, "error": null, "response":results});
         }
     });
