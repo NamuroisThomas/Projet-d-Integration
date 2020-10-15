@@ -93,11 +93,13 @@ router.get('/mailExist', function(req,res,next){
 // TODO ajouter verif mdp egaux et mail (front end)
 // récupération des données du formulaire inscription et ajout dans la base de données
 router.post('/inscription', function (req, res, next) {
-    //console.log(req.body);
+    console.log(req.body);
     console.log('POST inscription');
     res.locals.connection.query('INSERT INTO utilisateurs (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur) VALUES (?, ?, ?, ?, ?)',[req.body.formInscriptionNom, req.body.formInscriptionPrenom, req.body.formInscriptionMail, req.body.formInscriptionTel, req.body.formInscriptionMdp], function (error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
+            console.log(error);
+
         }
         else {
             console.log("utilisateur ajouté");
