@@ -112,7 +112,7 @@ router.post('/inscription', function (req, res, next) {
 // TODO à tester
 //récupération des données du formulaire demandes et ajout dans la base de données
 router.post('/demande', function (req, res, next) {
-    //console.log(req.body);
+    console.log(req.body);
     console.log('POST demande');
     res.locals.connection.query('INSERT INTO demandes (titreDemande, descriptionDemande, dateDemande, idUtilisateur, idCategorie, defraimentDemande, idCodePostal) VALUES (?, ?, ?, ?, ?, ?, ?)',[req.body.formDemandeTitre, req.body.formDemandeDescription, req.body.formDemandeDate, req.body.formDemandeIdUtilisateur, req.body.formDemandeIdCategorie, req.body.formDemandeDefraiement, req.body.formDemandeIdCodePostal],  function (error, results, fields) {
         if (error!=null) {
