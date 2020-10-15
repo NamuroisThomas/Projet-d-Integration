@@ -1,53 +1,9 @@
-<h2>NeedHelp ?</h2>
-<div class="row">
-  <div class="col-6">
-    <form [formGroup]="formInscription">
-
-    <div><label for="nom">Nom :</label>
-      <input class="form-control"  id="nom" name="nom" type="text" placeholder="ex: Dupont"/></div>
-    <div><label for="prenom">Prénom :</label>
-      <input class="form-control" id="prenom" name="prenom" type="text" placeholder="ex: Jean"/>
-    </div>
-    <div><label for="email">E-mail :</label>
-      <input class="form-control" id="email" name="email" type="email"
-             placeholder="ex: jean@dupont.com"/></div>
-    <div><label for="tel">Téléphone :</label>
-      <input class="form-control" id="tel" name="tel" type="tel" placeholder="ex: 0469696969">
-    </div>
-    <div><label for="mdp">Mot de passe:</label>
-      <input class="form-control" id="mdp" name="mdp" type="password" required placeholder="*******">
-    </div>
-    <div><label for="mdp">Mot de passe:</label>
-      <input class="form-control" id="mdpconfirmation" name="mdp" type="password"
-             required></div>
-    <!--    EN COMMENTAIRE POUR LE MOMENT, PEUT TOUJOURS SERVIR DANS UNE AUTRE ROUTE
-
-        <div id="status">Status :
-
-          <input name="options"  [(ngModel)]="options" type="radio" [value]="false" [checked]="!options" /> PMR
-
-              <input name="options" [(ngModel)]="options" type="radio" [value]="true" [checked]="options"/> Aide
-            </div>
-            <div *ngIf="!options">
-            </div>
-            <div *ngIf="options">
-              <P>Domaine des aides :
-              <UL>
-                <LI><label><INPUT type="checkbox" name="aucun" checked>Aucun </label>
-                <LI><label><INPUT type="checkbox" name="deplacement"> Déplacement </label>
-                <LI><label><INPUT type="checkbox" name="bricolage"> Bricolage </label>
-                <LI><label><INPUT type="checkbox" name="course"> Course </label>
-              </UL>
-            </div>
-    -->
-
-      <div class="row">
-        <div class="form-group col-lg-12 col-md-12">
-          <button class="btn btn-primary"
-                  type="submit"
-                  [disabled]="formInscription.invalid" (click)="submit()">S'inscrire</button>
-        </div>
-      </div>
-  </form>
-</div>
-
+<h1> Inscription </h1>
+<form #userPost="ngForm" (ngSubmit)="submit(userPost.value)">
+  <input type="text" name="formInscriptionNom" ngModel placeholder="Labeuh"><br><br>
+  <input type="text" name="formInscriptionPrenom" ngModel placeholder="Pierre"><br><br>
+  <input type="text" name="formInscriptionMail" ngModel placeholder="Labeuh@hotmail.com"><br><br>
+  <input type="text" name="formInscriptionTel" ngModel placeholder="+3215457865"><br><br>
+  <input type="text" name="formInscriptionMdp" ngModel placeholder="******"><br><br>
+  <button type="submit">Inscription</button>
+</form>

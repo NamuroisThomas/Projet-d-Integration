@@ -5,16 +5,16 @@ import {HttpClient} from '@angular/common/http';
   providedIn : 'root'
 })
 
-export class InscriptionService {
+export class InscriptionService{
 
   urlInscription = 'http://62.210.130.145:3000/inscription';
 
   postData = {
-    formInscriptionNom: 'erfe',
-    formInscriptionPrenom: 'grege',
-    formInscriptionMail: 'refe@hotmail.com',
-    formInscriptionTel: '3278652654',
-    formInscriptionMdp: 'g54gh54kgh4',
+    formInscriptionNom: String,
+    formInscriptionPrenom: String,
+    formInscriptionMail: String,
+    formInscriptionTel: String,
+    formInscriptionMdp: String,
   };
   constructor(private http: HttpClient ){}
 

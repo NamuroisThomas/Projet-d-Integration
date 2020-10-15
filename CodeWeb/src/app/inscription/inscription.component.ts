@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import {InscriptionService} from './inscription.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-inscription',
@@ -10,36 +9,17 @@ import {InscriptionService} from './inscription.service';
   providers: [MessageService]
 })
 export class InscriptionComponent implements OnInit {
-  formInscriptionNom: string;
-  formInscriptionPrenom: string;
-  formInscriptionTel: number;
-  formInscriptionMail: string;
-  formInscriptionMdp: string;
-  mdpconfirmation: string;
 
-  options = false;
-  private messageService: any;
-
-
-  constructor(private inscription: InscriptionService) {
+  constructor(private http: HttpClient) {
   }
-
-  public formInscription = new FormGroup({
-    Nom: new FormControl(null),
-    Prénom: new FormControl(null)
-  })
-
   ngOnInit(): void {
   }
-
-  afficherConsole(){
-    this.inscription.postInscription();
-  }
-
-  submit(){
-    console.log(this.formInscription.value);
-    this.messageService.add({severity:'success', summary: 'Success Message', detail:'Order submitted'});
-
+  submit(data){
+    this.http.post('http://62.210.130.145:3000/inscription',data)
+      .subscribe((result)=>
+        console.warn('result',result)
+      )
+    console.warn(data);
   }
 }
 
