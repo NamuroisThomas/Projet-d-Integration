@@ -76,7 +76,7 @@ router.get('/utilisateur', function(req,res,next){
 router.get('/mailExist', function(req,res,next){
     var mailUtilisateur = req.query.mail;
     console.log('GET mail exist');
-    res.locals.connection.query('SELECT * FROM utiisateurs where mailUtilisateur=?',[mailUtilisateur] , function(error, results, fields) {
+    res.locals.connection.query('SELECT * FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur] , function(error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
             console.log("erreur query");
@@ -122,10 +122,6 @@ router.post('/formDemande', function (req, res, next) {
         }
     });
 });
-
-
-
-
 
 
 
