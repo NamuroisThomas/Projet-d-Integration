@@ -95,7 +95,7 @@ router.get('/mailExist', function(req,res,next){
 router.post('/inscription', function (req, res, next) {
     //console.log(req.body);
     console.log('POST inscription');
-    res.locals.connection.query('INSERT INTO utilisateurs (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur) VALUES (?, ?, ?, ?, ?)',[req.body.formUtilisateurNom, req.body.formUtilisateurPrenom, req.body.formUtilisateurMail, req.body.formUtilisateurTel, req.body.formUtilisateurMdp], function (error, results, fields) {
+    res.locals.connection.query('INSERT INTO utilisateurs (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur) VALUES (?, ?, ?, ?, ?)',[req.body.formInscriptionNom, req.body.formInscriptionPrenom, req.body.formInscriptionMail, req.body.formInscriptionTel, req.body.formInscriptionMdp], function (error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
         }
