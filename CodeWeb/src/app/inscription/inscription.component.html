@@ -1,24 +1,21 @@
 <h2>NeedHelp ?</h2>
 <div class="row">
   <div class="col-6">
-    <img src="./assets/img/svg/undraw_google_docs_jf93.svg" alt="Image demande d'aide" width="100vw" height="100vh">
-  </div>
-  <div class="col-6">
-    <form [formGroup]="">
+    <form [formGroup]="formInscription">
 
     <div><label for="nom">Nom :</label>
-      <input class="form-control" [(ngModel)]="nom" id="nom" name="nom" type="text" placeholder="ex: Dupont"/></div>
+      <input class="form-control" [(ngModel)]="formInscriptionNom" id="nom" name="nom" type="text" placeholder="ex: Dupont"/></div>
     <div><label for="prenom">Prénom :</label>
-      <input class="form-control" [(ngModel)]="prenom" id="prenom" name="prenom" type="text" placeholder="ex: Jean"/>
+      <input class="form-control" [(ngModel)]="formInscriptionPrenom" id="prenom" name="prenom" type="text" placeholder="ex: Jean"/>
     </div>
     <div><label for="email">E-mail :</label>
-      <input class="form-control" [(ngModel)]="email" id="email" name="email" type="email"
+      <input class="form-control" [(ngModel)]="formInscriptionMail" id="email" name="email" type="email"
              placeholder="ex: jean@dupont.com"/></div>
     <div><label for="tel">Téléphone :</label>
-      <input class="form-control" [(ngModel)]="telephone" id="tel" name="tel" type="tel" placeholder="ex: 0469696969">
+      <input class="form-control" [(ngModel)]="formInscriptionTel" id="tel" name="tel" type="tel" placeholder="ex: 0469696969">
     </div>
     <div><label for="mdp">Mot de passe:</label>
-      <input class="form-control" [(ngModel)]="mdp" id="mdp" name="mdp" type="password" required placeholder="*******">
+      <input class="form-control" [(ngModel)]="formInscriptionMdp" id="mdp" name="mdp" type="password" required placeholder="*******">
     </div>
     <div><label for="mdp">Mot de passe:</label>
       <input class="form-control" [(ngModel)]="mdpconfirmation" id="mdpconfirmation" name="mdp" type="password"
@@ -53,5 +50,4 @@
       </div>
   </form>
 </div>
-
-
+  

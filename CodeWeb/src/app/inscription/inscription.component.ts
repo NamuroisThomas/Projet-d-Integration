@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import {TestServices} from '../test.service';
+import {InscriptionService} from './inscription.service';
 
 @Component({
   selector: 'app-inscription',
@@ -10,18 +10,18 @@ import {TestServices} from '../test.service';
   providers: [MessageService]
 })
 export class InscriptionComponent implements OnInit {
-  nom: string;
-  prenom: string;
-  telephone: number;
-  email: string;
-  mdp: string;
+  formInscriptionNom: string;
+  formInscriptionPrenom: string;
+  formInscriptionTel: number;
+  formInscriptionMail: string;
+  formInscriptionMdp: string;
   mdpconfirmation: string;
 
   options = false;
   private messageService: any;
 
 
-  constructor(private test: TestServices) {
+  constructor(private inscription: InscriptionService) {
   }
 
   public formInscription = new FormGroup({
@@ -33,7 +33,7 @@ export class InscriptionComponent implements OnInit {
   }
 
   afficherConsole(){
-    this.test.postInscription();
+    this.inscription.postInscription();
   }
 
   submit(){
