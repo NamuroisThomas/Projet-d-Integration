@@ -1,34 +1,34 @@
 <div class="col-sm-8 col-sm-offset-2">
-<h2> Inscription </h2>
-<div class="col-6">
-<form #userPost="ngForm" (ngSubmit)="submit(userPost.value)">
-  <div class="form-group">
-    <label>Nom</label>
-      <input class="form-control" type="text" name="formInscriptionNom" ngModel placeholder="Labeuh">
+  <h2> Inscription </h2>
+  <div class="col-6">
+   <form #userPost="ngForm" (ngSubmit)="submit(userPost.value)">
+     <div class="form-group">
+      <label>Nom</label>
+        <input class="form-control" type="text" name="formInscriptionNom" ngModel placeholder="Labeuh">
+     </div>
+     <div class="form-group">
+       <label>Prénom</label>
+        <input class="form-control" type="text" name="formInscriptionPrenom" ngModel placeholder="Pierre">
+     </div>
+     <div class="form-group">
+       <label>Adresse mail</label>
+        <input class="form-control" type="text" name="formInscriptionMail" ngModel placeholder="Labeuh@hotmail.com">
+     </div>
+     <div class="form-group">
+       <label>Numéro de téléphone</label>
+         <input class="form-control" type="text" name="formInscriptionTel" ngModel placeholder="+3215457865">
+     </div>
+     <div class="form-group">
+       <label>Mot de passe</label>
+         <input class="form-control" type="text" name="formInscriptionMdp" ngModel placeholder="******">
+     </div>
+     <div class="form-group">
+       <label>Confirmation du mot de passe</label>
+         <input class="form-control" type="text" name="formInscriptionMdpConfirmation" ngModel placeholder="******">
+     </div>
+     <div class="form-group">
+       <button class="btn btn-primary" type="submit">Inscription</button>
+     </div>
+   </form>
   </div>
-  <div class="form-group">
-    <label>Prénom</label>
-      <input class="form-control" type="text" name="formInscriptionPrenom" ngModel placeholder="Pierre">
-  </div>
-  <div class="form-group">
-    <label>Adresse mail</label>
-      <input class="form-control" type="text" name="formInscriptionMail" ngModel placeholder="Labeuh@hotmail.com">
-  </div>
-  <div class="form-group">
-    <label>Numéro de téléphone</label>
-      <input class="form-control" type="text" name="formInscriptionTel" ngModel placeholder="+3215457865">
-  </div>
-  <div class="form-group">
-    <label>Mot de passe</label>
-      <input class="form-control" type="text" name="formInscriptionMdp" ngModel placeholder="******">
-  </div>
-  <div class="form-group">
-    <label>Confirmation du mot de passe</label>
-    <input class="form-control" type="text" name="formInscriptionMdpConfirmation" ngModel placeholder="******">
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">Inscription</button>
-  </div>
-</form>
-</div>
 </div>
