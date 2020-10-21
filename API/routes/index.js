@@ -24,7 +24,7 @@ router.get('/test', function(req,res,next){
 
 
 //récupération des demandes par id si spécifié, sinon revoie toutes les demandes
-router.get('/demande', function(req,res,next){
+router.get('/demandes', function(req,res,next){
 	var demande_id = req.query.idDemande;
     console.log('GET demande');
 	if (demande_id != undefined){
@@ -93,11 +93,13 @@ router.get('/mailExist', function(req,res,next){
 // TODO ajouter verif mdp egaux et mail (front end)
 // récupération des données du formulaire inscription et ajout dans la base de données
 router.post('/inscription', function (req, res, next) {
-    //console.log(req.body);
+    console.log(req.body);
     console.log('POST inscription');
-    res.locals.connection.query('INSERT INTO utilisateurs (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur) VALUES (?, ?, ?, ?, ?)',[req.body.formUtilisateurNom, req.body.formUtilisateurPrenom, req.body.formUtilisateurMail, req.body.formUtilisateurTel, req.body.formUtilisateurMdp], function (error, results, fields) {
+    res.locals.connection.query('INSERT INTO utilisateurs (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur) VALUES (?, ?, ?, ?, ?)',[req.body.formInscriptionNom, req.body.formInscriptionPrenom, req.body.formInscriptionMail, req.body.formInscriptionTel, req.body.formInscriptionMdp], function (error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
+            console.log(error);
+
         }
         else {
             console.log("utilisateur ajouté");
@@ -109,23 +111,19 @@ router.post('/inscription', function (req, res, next) {
 
 // TODO à tester
 //récupération des données du formulaire demandes et ajout dans la base de données
-router.post('/formDemande', function (req, res, next) {
-    //console.log(req.body);
+router.post('/demande', function (req, res, next) {
+    console.log(req.body);
     console.log('POST demande');
-    res.locals.connection.query('INSERT INTO demandes (titreDemande, descriptionDemande, dateDemande, idUtilisateur, idCategorie, defraimentDemande, idCodePostal) VALUES (?, ?, ?, ?, ?, ?, ?)',[req.body.formDemandeTitre, req.body.formDemandeDescription, req.body.formDemandeDate, req.body.formDemandeIdUtilisateur, req.body.formDemandeIdCategorie, req.body.formDemandeDefraiement, req.body.formDemandeIdCodePostal],  function (error, results, fields) {
+    res.locals.connection.query('INSERT INTO demandes (titreDemande, descriptionDemande, dateDemande, idUtilisateur, idCategorie, defraiementDemande, idCodePostal) VALUES (?, ?, ?, ?, ?, ?, ?)',[req.body.formDemandeTitre, req.body.formDemandeDescription, req.body.formDemandeDate, req.body.formDemandeIdUtilisateur, req.body.formDemandeIdCategorie, req.body.formDemandeDefraiement, req.body.formDemandeIdCodePostal],  function (error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
         }
         else {
-            console.log("utilisateur ajouté");
+            console.log("demande ajoutée");
             res.send({"status":201, "error": null, "response":results});
         }
     });
 });
-
-
-
-
 
 
 
