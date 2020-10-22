@@ -1,5 +1,5 @@
 <?php
-    include "function.php";
+    include "fonctions.php";
 
     //controle de reception de parametre
     if(isset($_REQUEST["operation"])){
@@ -39,6 +39,7 @@
             }catch(PDOException $e){
                 print "Erreur !".$e->getMessage();
                 die();
-                    }
+            }
         }
+    }
 ?>

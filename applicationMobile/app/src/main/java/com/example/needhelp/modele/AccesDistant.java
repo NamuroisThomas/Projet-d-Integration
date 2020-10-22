@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class AccesDistant implements AsyncResponse {
 
     //constante
-    private static final String SERVEURADDR = "http://62.210.130.145/serveurAndroid.php";
+    private static final String SERVEURADDR = "http://192.168.1.9/needhelp/serveurAndroid.php";
     private Controle controle;
 
     /**
