@@ -23,7 +23,7 @@ router.get('/test', function(req,res,next){
 });
 
 
-//récupération des demandes par id si spécifié, sinon revoie toutes les demandes
+//récupération des demandes par id, par id de catégorie et code postal si spécifié, sinon revoie toutes les demandes
 router.get('/demandes', function(req,res,next){
 	var demande_id = req.query.idDemande;
 	var categ_id = req.query.idCateg;
@@ -97,7 +97,7 @@ router.get('/utilisateur', function(req,res,next){
 	});
 });
 
-//TODO a verif
+
 //Verif si mail est deja pris
 router.get('/mailExist', function(req,res,next){
     var mailUtilisateur = req.query.mail;
@@ -115,7 +115,7 @@ router.get('/mailExist', function(req,res,next){
 });
 
 
-// TODO à tester
+
 // TODO ajouter verif mdp egaux et mail (front end)
 // récupération des données du formulaire inscription et ajout dans la base de données
 router.post('/inscription', function (req, res, next) {
@@ -135,7 +135,7 @@ router.post('/inscription', function (req, res, next) {
 });
 
 
-// TODO à tester
+
 //récupération des données du formulaire demandes et ajout dans la base de données
 router.post('/demande', function (req, res, next) {
     console.log(req.body);
