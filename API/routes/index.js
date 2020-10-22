@@ -27,7 +27,7 @@ router.get('/test', function(req,res,next){
 router.get('/demandes', function(req,res,next){
 	var demande_id = req.query.idDemande;
 	var categ_id = req.query.idCateg;
-	var codePostal = req.query.codePostal
+	var codePostal = req.query.codePostal;
     console.log('GET demande');
 	if (demande_id != undefined){
 	    console.log('GET demande by id '+demande_id);
@@ -42,7 +42,7 @@ router.get('/demandes', function(req,res,next){
 			}
 		});
 	} else if(categ_id != undefined) {
-		console.log('GET demande by idCateg'+ categ_id);
+		console.log('GET demande by idCateg'+categ_id);
 		res.locals.connection.query('SELECT * FROM demandes  WHERE idCategorie=?',[categ_id], function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
@@ -54,7 +54,7 @@ router.get('/demandes', function(req,res,next){
 			}
 		});
 	} else if(codePostal != undefined) {
-		console.log('GET demande by codePostal'+ codePostal);
+		console.log('GET demande by codePostal'+codePostal);
 		res.locals.connection.query('SELECT * FROM demandes  WHERE idCodePostal=?',[codePostal], function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
