@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
     <h2>Se connecter</h2>
+    <button class="btn btn-success" *ngIf="!connexionStatus" (click)="onSignIn()">connexion</button>
+    <button class="btn btn-success" *ngIf="connexionStatus" (click)="onSignOut()">déconnexion</button>
+
+
+    <!--
     <form [formGroup]="" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Adresse mail</label>
@@ -20,6 +25,8 @@
               type="submit"
               (click)="onSubmit()">Se connecter</button>
     </form>
+
+    -->
 
   </div>
 </div>

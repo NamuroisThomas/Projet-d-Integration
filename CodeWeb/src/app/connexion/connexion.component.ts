@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {ConnexionService} from './connexion.service';
 
 @Component({
   selector: 'app-connexion',
@@ -8,12 +9,29 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor() { }
+  connexionStatus: boolean;
 
+  constructor(private connexionService: ConnexionService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.connexionStatus = this.connexionService.isAuth;
   }
-  onSubmit(){
 
+  onSignIn(){
+    this.connexionService.signIn().then(
+      () => {
+        alert('Connextion réussi');
+        this.connexionStatus = this.connexionService.isAuth;
+      }
+    );
   }
+
+  onSignOut() {
+    this.connexionService.signOut();
+    alert('Déconnexion');
+    this.connexionStatus = this.connexionService.isAuth;
+  }
+/*  onSubmit(){
+  }*/
+
 }

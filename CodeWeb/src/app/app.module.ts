@@ -24,6 +24,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 
 import {HttpClientModule} from '@angular/common/http';
+import {ConnexionService} from './connexion/connexion.service';
 
 
 
@@ -65,7 +66,9 @@ import {HttpClientModule} from '@angular/common/http';
     RouterModule
 
   ],
-  providers: [],
+  providers: [
+    ConnexionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
