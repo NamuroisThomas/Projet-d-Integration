@@ -4,27 +4,27 @@
    <form #userPost="ngForm" (ngSubmit)="submit(userPost.value)">
      <div class="form-group">
       <label>Nom</label>
-        <input class="form-control" type="text" name="formInscriptionNom" ngModel placeholder="Labeuh">
+        <input class="form-control" type="text" name="formInscriptionNom" ngModel placeholder="Labeuh" required>
      </div>
      <div class="form-group">
        <label>Prénom</label>
-        <input class="form-control" type="text" name="formInscriptionPrenom" ngModel placeholder="Pierre">
+        <input class="form-control" type="text" name="formInscriptionPrenom" ngModel placeholder="Pierre" required>
      </div>
      <div class="form-group">
        <label>Adresse mail</label>
-        <input class="form-control" type="text" name="formInscriptionMail" ngModel placeholder="Labeuh@hotmail.com">
+        <input class="form-control" type="text" name="formInscriptionMail" ngModel placeholder="Labeuh@hotmail.com" required>
      </div>
      <div class="form-group">
        <label>Numéro de téléphone</label>
-         <input class="form-control" type="text" name="formInscriptionTel" ngModel placeholder="+3215457865">
+         <input class="form-control" type="text" name="formInscriptionTel" ngModel placeholder="+3215457865" required>
      </div>
      <div class="form-group">
        <label>Mot de passe</label>
-         <input class="form-control" type="text" name="formInscriptionMdp" ngModel placeholder="******">
+         <input class="form-control" type="text" name="formInscriptionMdp" ngModel placeholder="******" required>
      </div>
      <div class="form-group">
        <label>Confirmation du mot de passe</label>
-         <input class="form-control" type="text" name="formInscriptionMdpConfirmation" ngModel placeholder="******">
+         <input class="form-control" type="text" name="formInscriptionMdpConfirmation" ngModel placeholder="******" required>
      </div>
      <div class="form-group">
        <button class="btn btn-primary" type="submit">Inscription</button>

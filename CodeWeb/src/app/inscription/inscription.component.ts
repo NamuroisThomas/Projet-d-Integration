@@ -15,17 +15,10 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
   }
   submit(data){
-    /*this.http.post('http://62.210.130.145:3000/inscription', data)
+    this.http.post('http://62.210.130.145:3000/inscription', data)
       .subscribe((result) =>
         console.warn('result', result)
       );
-      */
-    if(data.formInscriptionMdp.value === '') {
-      alert('mdp vide');
-    }
-    else{
-      alert('mdp pas vide');
-    }
   }
 }
 
