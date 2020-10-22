@@ -2,17 +2,17 @@
   <div class="col-sm-8 col-sm-offset-2">
     <h2>Se connecter</h2>
     <div class="col-6">
-      <form *ngIf="!connexionStatus">
+      <form *ngIf="!connexionStatus" #userGet="ngForm" (ngSubmit)="onSignIn(userGet.value)">
         <div class="form-group">
           <label>Adresse mail</label>
-          <input class="form-control" type="text" name="formInscriptionMail" ngModel placeholder="Labeuh@hotmail.com">
+          <input class="form-control" type="text" name="formConnexionMail" ngModel placeholder="Labefefeuh@hotmail.com" required>
         </div>
         <div class="form-group">
           <label>Mot de passe</label>
-          <input class="form-control" type="text" name="formInscriptionMdp" ngModel placeholder="******">
+          <input class="form-control" type="text" name="formConnexionMdp" ngModel placeholder="******" required>
         </div>
         <div class="form-group">
-          <button class="btn btn-success" (click)="onSignIn()">connexion</button>
+          <button class="btn btn-success">connexion</button>
         </div>
       </form>
     </div>
