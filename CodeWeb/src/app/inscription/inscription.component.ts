@@ -12,12 +12,16 @@ export class InscriptionComponent implements OnInit {
 
   constructor(private http: HttpClient) {
   }
+
   ngOnInit(): void {
   }
-  submit(data){
-    this.http.post('http://62.210.130.145:3000/inscription', data);
+
+  submit(data) {
+    this.http.post('http://62.210.130.145:3000/inscription', data)
+      .subscribe((result) =>
+        console.warn('result', result)
+      );
+    alert('inscription completer');
     location.reload();
-  }
+  };
 }
-
-
