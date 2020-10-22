@@ -20,7 +20,7 @@ router.get('/test', function(req,res,next){
                 console.log("query OK");
             }
         });
-});µ
+});
 
 
 //récupération des demandes par id si spécifié, sinon revoie toutes les demandes
