@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class AccessHTTP extends AsyncTask<String,Integer,Long> {
 
     private ArrayList<NameValuePair> parametres;
-    private String ret = null;
+    private String ret = "null !";
     public AsyncResponse delegate = null;
 
     /**

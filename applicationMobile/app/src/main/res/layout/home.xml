@@ -10,9 +10,18 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="test : "
+
         android:textSize="50sp"
         />
+
+    <Button
+        android:id="@+id/testDb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DB"
+        android:onClick="test"
+
+         />
 
     <Button
         android:layout_width="wrap_content"

@@ -2,21 +2,26 @@ package com.example.needhelp.modele;
 
 import android.util.Log;
 
+import com.example.needhelp.Utilisateur;
+import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.outils.AccessHTTP;
 import com.example.needhelp.outils.AsyncResponse;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class AccesDistant implements AsyncResponse {
 
     //constante
-    private static final String SERVEURADDR = "http://62.210.130.145/";
+    private static final String SERVEURADDR = "http://62.210.130.145/serveurAndroid.php";
+    private Controle controle;
 
     /**
      * Constructeur
      */
     public AccesDistant(){
-        super();
+        controle = Controle.getInstance();
     }
 
     /**
@@ -38,6 +43,15 @@ public class AccesDistant implements AsyncResponse {
             } else {
                 if (message[0].equals("dernier")){
                     Log.d("dernier", "***********" + message[1]);
+                    try {
+                        JSONObject info = new JSONObject(message[1]);
+                        Integer idCateg = info.getInt("idCategorie");
+                        String nomCateg = info.getString("nomCategorie");
+                        Utilisateur user = new Utilisateur("S","m","t",1,"123");
+                        controle.setUser(user);
+                    } catch (JSONException e) {
+                        Log.d("erreur ", "Conversiont JSON impossible ***********" + e.toString());
+                    }
                 }else{
                     if (message[0].equals("Erreur !")){
                         Log.d("Erreur !", "***********" + message[1]);
