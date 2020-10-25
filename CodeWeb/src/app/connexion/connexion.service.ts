@@ -9,7 +9,7 @@ export class ConnexionService{
           () => {
             this.isAuth = true;
             resolve(true);
-          }, 2000
+          }
         );
       }
     );
