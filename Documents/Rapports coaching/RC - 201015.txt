@@ -1,0 +1,16 @@
+rapport du 15.10.2020
+-----------------------
+
+Revoir les user story --> plus de détail, mieux les séparer 
+
+Trello --> Ne pas mettre en fait des fonctionnalité qui ne sont pas complète 
+
+À partir du sprint 2  --> On ne montre plus les maquettes 
+
+Avancer dans l'api  --> Afin de pouvoir connecter le web et le mobile à la db 
+
+
+
+
+
+

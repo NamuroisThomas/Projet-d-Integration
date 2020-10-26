@@ -12,6 +12,8 @@ import com.example.needhelp.controleur.Controle;
 
 //import javax.swing.text.View;
 
+import javax.swing.text.View;
+
 public class MainActivity extends AppCompatActivity {
 
     private Controle controle;

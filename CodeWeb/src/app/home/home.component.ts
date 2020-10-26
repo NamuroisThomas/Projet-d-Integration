@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TestServices} from '../test.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,13 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public display: boolean = true;
 
-  constructor(private router: RouterModule) { }
+  constructor( private test: TestServices) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.test.getTest().subscribe((result) =>{
+      console.warn('result', result);
+    })
   }
 
 }

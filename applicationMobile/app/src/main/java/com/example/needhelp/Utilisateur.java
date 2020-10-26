@@ -1,14 +1,15 @@
 package com.example.needhelp;
 
+
 import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class Utilisateur {
     int idCateg;
     String nomCateg;
+
     String nomUser;
     String prenomUser;
     String mail;
@@ -28,6 +29,7 @@ public class Utilisateur {
         laListe.add(idCateg);
         laListe.add(nomCateg);
         return new JSONArray(laListe);
+
     }
 
 }

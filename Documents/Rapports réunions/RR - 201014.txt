@@ -1,0 +1,73 @@
+Rapport réunion 14/10/2020 - fin sprint 2 - prépa démo
+
+
+
+
+Mise au point
+- Trello : ajouter les maquettes sur US
+- Point sur API
+	
+	
+- Choix technologiques
+	Web
+		Backend : Angular + NodeJS
+		
+		
+		Frontend : HTML + SCSS
+	
+	
+	Appli
+		
+		
+		
+	BDD
+		Mysql
+		
+	API
+		Backend : NodeJS
+
+		Frontend : HTML
+		
+		
+		
+- Présentation
+	1 Thomas 
+		Appli (idem que Simon)
+		Maquettes
+	
+	2 François 
+		Web
+		Maquettes
+	
+	3 Gaëtan 
+		DB + API + Trello + clockify
+	
+	4 Thomas 
+		choix technologique
+		Android Studio + Java
+		pq pas avancer sur connexion : problème liaison DB et API
+		
+	5 François
+		choix technologique
+		attend l'API
+		
+
+- Maquette barre de menus
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
