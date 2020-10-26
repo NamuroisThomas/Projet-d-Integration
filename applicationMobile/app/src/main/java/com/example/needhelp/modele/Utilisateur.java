@@ -12,10 +12,10 @@ public class Utilisateur {
     String nomUser;
     String prenomUser;
     String mail;
-    Integer telephone;
+    String telephone;
     String mdp;
 
-    public Utilisateur(String nomUser, String prenomUser, String mail, Integer telephone, String mdp) {
+    public Utilisateur(String nomUser, String prenomUser, String mail, String telephone, String mdp) {
         nomUser = this.nomUser;
         prenomUser = this.prenomUser;
         mail = this.mail;
