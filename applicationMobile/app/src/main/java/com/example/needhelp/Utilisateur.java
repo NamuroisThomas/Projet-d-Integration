@@ -1,58 +1,35 @@
 package com.example.needhelp;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
-import sun.net.www.http.HttpClient;
+import org.json.JSONArray;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Utilisateur {
     int idCateg;
     String nomCateg;
 
-    //connection db
-    public  void afficher(){
-        String url = "jdbc:mysql://62.210.130.145/NeedHelpV2";
-        String login = "projetI";
-        String passwd = "Integration7";
-        Connection cn = null;
-        Statement st = null;
-        ResultSet rs = null;
+    String nomUser;
+    String prenomUser;
+    String mail;
+    Integer telephone;
+    String mdp;
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection(url, login, passwd);
-            st = cn.createStatement();
-            String sql = "SELECT * FROM categories ";
+    public Utilisateur(String nomUser, String prenomUser, String mail, Integer telephone, String mdp) {
 
-            rs = (ResultSet) st.executeQuery(sql);
-            while(rs.next()) {
-                idCateg = rs.getInt("idCategorie");
-                nomCateg = rs.getString("nomCategorie");
-                System.out.println(idCateg);
-                System.out.println(nomCateg);
+    }
 
-            }
+    /**
+     * Conversion du profil au format JSONArray
+     * @return
+     */
+    public JSONArray convertToJSONArray(){
+        List laListe = new ArrayList();
+        laListe.add(idCateg);
+        laListe.add(nomCateg);
+        return new JSONArray(laListe);
 
-
-        }
-        catch(SQLException e) {
-            e.printStackTrace();
-        }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        finally {
-            try {
-                cn.close();
-                st.close();
-            }
-            catch (SQLException e2) {
-                e2.printStackTrace();
-            }
-        }
     }
 
 }
