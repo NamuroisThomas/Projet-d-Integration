@@ -1,4 +1,4 @@
-package com.example.needhelp;
+package com.example.needhelp.modele;
 
 import org.json.JSONArray;
 import java.util.ArrayList;
@@ -16,7 +16,11 @@ public class Utilisateur {
     String mdp;
 
     public Utilisateur(String nomUser, String prenomUser, String mail, Integer telephone, String mdp) {
-
+        nomUser = this.nomUser;
+        prenomUser = this.prenomUser;
+        mail = this.mail;
+        telephone = this.telephone;
+        mdp = this.mdp;
     }
 
     /**

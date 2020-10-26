@@ -2,8 +2,7 @@ package com.example.needhelp.controleur;
 
 import android.content.Context;
 
-import com.example.needhelp.MainActivity;
-import com.example.needhelp.Utilisateur;
+import com.example.needhelp.modele.Utilisateur;
 import com.example.needhelp.modele.AccesDistant;
 
 import org.json.JSONArray;

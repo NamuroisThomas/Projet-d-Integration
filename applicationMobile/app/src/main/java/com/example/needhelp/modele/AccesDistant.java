@@ -2,7 +2,6 @@ package com.example.needhelp.modele;
 
 import android.util.Log;
 
-import com.example.needhelp.Utilisateur;
 import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.outils.AccessHTTP;
 import com.example.needhelp.outils.AsyncResponse;
