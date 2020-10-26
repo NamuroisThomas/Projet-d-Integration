@@ -1,75 +1,106 @@
 package com.example.needhelp.outils;
-
-import android.os.AsyncTask;
-import android.provider.Settings;
-import android.util.Log;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.w3c.dom.Entity;
-
-import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import android.os.AsyncTask;
 
-public class AccessHTTP extends AsyncTask<String,Integer,Long> {
+/**
+ * Classe technique de connexion distante HTTP
+ */
+public class AccessHTTP extends AsyncTask<String, Integer, Long> {
 
-    private ArrayList<NameValuePair> parametres;
-    private String ret = "null !";
-    public AsyncResponse delegate = null;
+    // propriétés
+    public String ret=""; // information retournée par le serveur
+    public AsyncResponse delegate=null; // gestion du retour asynchrone
+    private String parametres = ""; // paramètres à envoyer en POST au serveur
 
     /**
-     * Constructeur
+     * Constructeur : ne fait rien
      */
-    public AccessHTTP(){
-        parametres = new ArrayList<NameValuePair>();
+    public AccessHTTP() {
+        super();
     }
 
     /**
-     * Ajout d'un parametre post
+     * Construction de la chaîne de paramètres à envoyer en POST au serveur
      * @param nom
      * @param valeur
      */
-    public void addParam(String nom, String valeur){
-        parametres.add(new BasicNameValuePair(nom,valeur));
+    public void addParam(String nom, String valeur) {
+        try {
+            if (parametres.equals("")) {
+                // premier paramètre
+                parametres = URLEncoder.encode(nom, "UTF-8") + "=" + URLEncoder.encode(valeur, "UTF-8");
+            }else{
+                // paramètres suivants (séparés par &)
+                parametres += "&" + URLEncoder.encode(nom, "UTF-8") + "=" + URLEncoder.encode(valeur, "UTF-8");
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
-    @Override
+
     /**
-     * Connexion en tache de fond dans un thread separe
-     * @param strings
-     * @return
+     * Méthode appelée par la méthode execute
+     * permet d'envoyer au serveur une liste de paramètres en GET
+     * @param urls contient l'adresse du serveur dans la case 0 de urls
+     * @return null
      */
-    protected Long doInBackground(String... strings) {
-        HttpClient cnxHttp = new DefaultHttpClient();
-        HttpPost paramCnx = new HttpPost(strings[0]);
+    @Override
+    protected Long doInBackground(String... urls) {
+
+        // pour éliminer certaines erreurs
+        System.setProperty("http.keepAlive", "false");
+        // objets pour gérer la connexion, la lecture et l'écriture
+        PrintWriter writer = null;
+        BufferedReader reader = null;
+        HttpURLConnection connexion = null;
 
         try {
-            // encodage des paramètres
-            paramCnx.setEntity(new UrlEncodedFormEntity(parametres));
-            // connexion et envoi des parametres, attente de reponse
-            HttpResponse response = cnxHttp.execute(paramCnx);
-            // transformation de la reponse
-            ret = EntityUtils.toString(response.getEntity());
-
-        } catch (UnsupportedEncodingException e) {
-            Log.d("Erreur Encodage", "**************" + e.toString());
-        } catch (ClientProtocolException e) {
-            Log.d("Erreur protocole", "**************" + e.toString());
-        } catch (IOException e) {
-            Log.d("Erreur I/O", "**************" + e.toString());
+            // création de l'url à partir de l'adresse reçu en paramètre, dans urls[0]
+            URL url = new URL(urls[0]);
+            // ouverture de la connexion
+            connexion = (HttpURLConnection) url.openConnection();
+            connexion.setDoOutput(true);
+            // choix de la méthode POST pour l'envoi des paramètres
+            connexion.setRequestMethod("POST");
+            connexion.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connexion.setFixedLengthStreamingMode(parametres.getBytes().length);
+            // création de la requete d'envoi sur la connexion, avec les paramètres
+            writer = new PrintWriter(connexion.getOutputStream());
+            writer.print(parametres);
+            // Une fois l'envoi réalisé, vide le canal d'envoi
+            writer.flush();
+            // Récupération du retour du serveur
+            reader = new BufferedReader(new InputStreamReader(connexion.getInputStream()));
+            ret = reader.readLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // fermeture des canaux d'envoi et de réception
+            try{
+                writer.close();
+            }catch(Exception e){}
+            try{
+                reader.close();
+            }catch(Exception e){}
         }
         return null;
     }
 
+    /**
+     * Sur le retour du serveur, envoi l'information retournée à processFinish
+     * @param result
+     */
     @Override
     protected void onPostExecute(Long result) {
-        delegate.processFinish(ret.toString());
+        // ret contient l'information récupérée
+        delegate.processFinish(this.ret.toString());
     }
+
 }

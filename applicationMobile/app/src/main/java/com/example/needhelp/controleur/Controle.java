@@ -32,7 +32,7 @@ public final class Controle {
         if(contexte!=null){
             Controle.contexte=contexte;
         }
-         */
+    */
         if (Controle.instance == null){
             Controle.instance = new Controle();
             accesDistant = new AccesDistant();
@@ -46,8 +46,7 @@ public final class Controle {
         accesDistant.envoi("enreg", user.convertToJSONArray());
     }
 
-    public void setUser(Utilisateur user){
+    public static void setUser(Utilisateur user) {
         Controle.user = user;
-        ((MainActivity)contexte).recupUser();
     }
 }

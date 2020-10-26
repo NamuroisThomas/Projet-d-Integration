@@ -47,8 +47,4 @@ public class MainActivity extends AppCompatActivity {
         //nomDesCateg.setText("test");
         Controle.getInstance();
     }
-
-    public void recupUser() {
-
-    }
 }
