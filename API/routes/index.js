@@ -43,7 +43,7 @@ router.get('/demandes', function(req,res,next){
 		});
 	} else if(categ_id != undefined) {
 		console.log('GET demande by idCateg'+categ_id);
-		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE idCategorie=?',[categ_id], function(error, results, fields) {
+		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE demandes.idCategorie=?',[categ_id], function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
 				console.log("erreur query");
@@ -55,7 +55,7 @@ router.get('/demandes', function(req,res,next){
 		});
 	} else if(codePostal != undefined) {
 		console.log('GET demande by codePostal'+codePostal);
-		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE idCodePostal=?',[codePostal], function(error, results, fields) {
+		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE demandes.idCodePostal=?',[codePostal], function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
 				console.log("erreur query");
