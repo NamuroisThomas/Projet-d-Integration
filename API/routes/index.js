@@ -23,13 +23,39 @@ router.get('/test', function(req,res,next){
 });
 
 
-//récupération des demandes par id si spécifié, sinon revoie toutes les demandes
+//récupération des demandes par id, par id de catégorie et code postal si spécifié, sinon revoie toutes les demandes
 router.get('/demandes', function(req,res,next){
 	var demande_id = req.query.idDemande;
+	var categ_id = req.query.idCateg;
+	var codePostal = req.query.codePostal;
     console.log('GET demande');
 	if (demande_id != undefined){
 	    console.log('GET demande by id '+demande_id);
 		res.locals.connection.query('SELECT * FROM demandes  WHERE idDemande=?',[demande_id], function(error, results, fields) {
+			if (error!=null) {
+				res.redirect(529, '/error');
+				console.log("erreur query");
+			}
+			else {
+				res.send({"status": 200, "error": null, "response": results});
+				console.log("query OK");
+			}
+		});
+	} else if(categ_id != undefined) {
+		console.log('GET demande by idCateg'+categ_id);
+		res.locals.connection.query('SELECT * FROM demandes  WHERE idCategorie=?',[categ_id], function(error, results, fields) {
+			if (error!=null) {
+				res.redirect(529, '/error');
+				console.log("erreur query");
+			}
+			else {
+				res.send({"status": 200, "error": null, "response": results});
+				console.log("query OK");
+			}
+		});
+	} else if(codePostal != undefined) {
+		console.log('GET demande by codePostal'+codePostal);
+		res.locals.connection.query('SELECT * FROM demandes  WHERE idCodePostal=?',[codePostal], function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
 				console.log("erreur query");
@@ -71,7 +97,7 @@ router.get('/utilisateur', function(req,res,next){
 	});
 });
 
-//TODO a verif
+
 //Verif si mail est deja pris
 router.get('/mailExist', function(req,res,next){
     var mailUtilisateur = req.query.mail;
@@ -89,7 +115,7 @@ router.get('/mailExist', function(req,res,next){
 });
 
 
-// TODO à tester
+
 // TODO ajouter verif mdp egaux et mail (front end)
 // récupération des données du formulaire inscription et ajout dans la base de données
 router.post('/inscription', function (req, res, next) {
@@ -109,7 +135,7 @@ router.post('/inscription', function (req, res, next) {
 });
 
 
-// TODO à tester
+
 //récupération des données du formulaire demandes et ajout dans la base de données
 router.post('/demande', function (req, res, next) {
     console.log(req.body);
