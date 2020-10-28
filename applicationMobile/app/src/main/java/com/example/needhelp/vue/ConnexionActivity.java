@@ -16,12 +16,22 @@ public class ConnexionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connexion_screen);
         ecouteGoToAcceuil();
+        ecouteGoToHome();
     }
     private void ecouteGoToAcceuil(){
         ((Button)findViewById(R.id.deconnexion)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ConnexionActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    private void ecouteGoToHome(){
+        ((Button)findViewById(R.id.connexion)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConnexionActivity.this,HomeActivity.class);
                 startActivity(intent);
             }
         });

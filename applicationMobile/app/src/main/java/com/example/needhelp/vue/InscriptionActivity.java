@@ -79,7 +79,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 }
 
                 // Controle des données saisie
-                if((nom=="")||(prenom=="")||(mail=="")||(tel=="")||(mdp=="")||(confMdp=="")){
+                if((nom.equals(""))||(prenom.equals(""))||(mail.equals(""))||(tel.equals(""))||(mdp.equals(""))||(confMdp.equals(""))){
                     Toast.makeText(InscriptionActivity.this,"Saisie incorrect",Toast.LENGTH_SHORT).show();
                 }else if (!(mdp.equals(confMdp))){
                     Toast.makeText(InscriptionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
@@ -88,7 +88,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     afficheResult(nom,prenom,mail,tel,mdp);
                     Utilisateur user = new Utilisateur(nom,prenom,mail,tel,mdp);
                     AccesDistant accesDistant = new AccesDistant();
-                    accesDistant.envoi("enreg", user.convertToJSONArray());
+                    accesDistant.envoi("inscription", user.convertToJSONArray());
 
                     // Bouton pour aller vers la page home
                     Intent intent = new Intent(InscriptionActivity.this,HomeActivity.class);

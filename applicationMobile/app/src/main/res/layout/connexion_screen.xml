@@ -39,7 +39,7 @@
         android:layout_below="@id/inscriptionPSWTexte"
         />
     <Button
-        android:id="@+id/deconnexion"
+        android:id="@+id/connexion"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -49,6 +49,7 @@
         />
 
     <Button
+        android:id="@+id/deconnexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
