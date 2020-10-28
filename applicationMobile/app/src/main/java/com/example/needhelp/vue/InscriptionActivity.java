@@ -36,7 +36,7 @@ public class InscriptionActivity extends AppCompatActivity {
     private EditText mailInscription;
     private EditText telInscription;
     private EditText mdpInscription;
-    private  EditText mdpConfirmation;
+    private EditText mdpConfirmation;
 
     /**
      * Initialisation des lien avec les objets graphiques
@@ -79,7 +79,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 }
 
                 // Controle des données saisie
-                if(nom==""||prenom==""||mail==""||tel==""||mdp==""||confMdp==""){
+                if((nom=="")||(prenom=="")||(mail=="")||(tel=="")||(mdp=="")||(confMdp=="")){
                     Toast.makeText(InscriptionActivity.this,"Saisie incorrect",Toast.LENGTH_SHORT).show();
                 }else if (!(mdp.equals(confMdp))){
                     Toast.makeText(InscriptionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
@@ -91,7 +91,8 @@ public class InscriptionActivity extends AppCompatActivity {
                     accesDistant.envoi("enreg", user.convertToJSONArray());
 
                     // Bouton pour aller vers la page home
-                    ecouteGoToHome();
+                    Intent intent = new Intent(InscriptionActivity.this,HomeActivity.class);
+                    startActivity(intent);
                 }
 
             }
@@ -119,15 +120,6 @@ public class InscriptionActivity extends AppCompatActivity {
     /**
      * Ecoute de l'évenement qui permet de changer d'activity
      */
-    private void ecouteGoToHome(){
-        ((Button)findViewById(R.id.inscriptionBouton)).setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InscriptionActivity.this,HomeActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
     private void ecouteGoToAcceuil(){
         ((Button)findViewById(R.id.deconnexion)).setOnClickListener(new Button.OnClickListener(){
             @Override

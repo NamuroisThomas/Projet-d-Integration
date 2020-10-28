@@ -16,6 +16,10 @@
 
         <activity android:name=".vue.InscriptionActivity">
         </activity>
+        <activity android:name=".vue.ConnexionActivity">
+        </activity>
+        <activity android:name=".vue.HomeActivity">
+        </activity>
         <activity android:name=".vue.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

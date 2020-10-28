@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.acceuil);
         this.controle = Controle.getInstance();
         ecouteGoToInscription();
+        ecouteGoToConnexion();
     }
 
     private Controle controle;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
      * Ecoute du bouton menant à la page d'inscription.
      */
     private void ecouteGoToInscription(){
-        ((Button)findViewById(R.id.boutonGoToConnexion)).setOnClickListener(new Button.OnClickListener(){
+        ((Button)findViewById(R.id.boutonGoToInscription)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,InscriptionActivity.class);
@@ -39,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void ecouteGoToConnexion(){
-        ((Button)findViewById(R.id.boutonGoToInscription)).setOnClickListener(new Button.OnClickListener(){
+        ((Button)findViewById(R.id.boutonGoToConnexion)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,InscriptionActivity.class);
+                Intent intent = new Intent(MainActivity.this,ConnexionActivity.class);
                 startActivity(intent);
             }
         });
