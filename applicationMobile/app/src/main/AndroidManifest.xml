@@ -13,13 +13,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
+
+        <activity android:name=".vue.InscriptionActivity">
+        </activity>
         <activity android:name=".vue.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

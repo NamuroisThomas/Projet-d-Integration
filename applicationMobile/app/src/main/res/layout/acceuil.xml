@@ -23,24 +23,19 @@
         android:layout_width="250dip"
         android:layout_height="50dip"
         android:text="@string/connexion"
-        android:layout_above="@id/boutonInscription"
+        android:layout_above="@id/boutonGoToInscription"
         android:layout_marginTop="5dip"
         android:layout_centerHorizontal="true"
-
-        android:onClick="goConnexionScreen"
         />
 
     <Button
-        android:id="@+id/boutonInscription"
+        android:id="@+id/boutonGoToInscription"
         android:layout_width="250dip"
         android:layout_height="50dip"
         android:text="@string/inscription"
-
         android:layout_marginTop="5dip"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-
-        android:onClick="goInscriptionScreen"
         />
 
 </RelativeLayout>

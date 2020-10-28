@@ -20,6 +20,7 @@ public class InscriptionActivity extends AppCompatActivity {
         setContentView(R.layout.inscription_screen);
         init();
         this.controle = Controle.getInstance();
+        ecouteInscription();
     }
 
     private Controle controle;
@@ -75,10 +76,10 @@ public class InscriptionActivity extends AppCompatActivity {
                 // Controle des données saisie
                 if(nom==""||prenom==""||mail==""||tel==0||mdp==""||confMdp==""){
                     Toast.makeText(InscriptionActivity.this,"Saisie incorrect",Toast.LENGTH_SHORT).show();
-                }else if (mdp != confMdp){
-                    Toast.makeText(InscriptionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
-                }else {
+                }else if (mdp.equals(confMdp)){
                     afficheResult(nom,prenom,mail,tel,mdp);
+                }else {
+                    Toast.makeText(InscriptionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
                 }
 
             }

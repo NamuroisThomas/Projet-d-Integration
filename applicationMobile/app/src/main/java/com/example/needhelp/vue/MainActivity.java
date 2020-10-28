@@ -2,8 +2,12 @@ package com.example.needhelp.vue;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.needhelp.R;
 import com.example.needhelp.controleur.Controle;
@@ -17,23 +21,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acceuil);
         this.controle = Controle.getInstance();
+        ecouteGoToInscription();
     }
 
     private Controle controle;
 
-   public void goInscriptionScreen(View view){
-        setContentView(R.layout.inscription_screen);
-    }
-
-    public void goConnexionScreen(View view){
-        setContentView(R.layout.connexion_screen);
-    }
-
-    public void back(View view){
-        setContentView(R.layout.acceuil);
-    }
-
-    public void goHome(View view) {
-        setContentView(R.layout.home);
+    private void ecouteGoToInscription(){
+        ((Button)findViewById(R.id.boutonGoToInscription)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,InscriptionActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
