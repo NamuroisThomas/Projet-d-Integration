@@ -7,8 +7,6 @@ import java.util.List;
 
 
 public class Utilisateur {
-    int idCateg;
-    String nomCateg;
     String nomUser;
     String prenomUser;
     String mail;
@@ -16,11 +14,11 @@ public class Utilisateur {
     String mdp;
 
     public Utilisateur(String nomUser, String prenomUser, String mail, String telephone, String mdp) {
-        nomUser = this.nomUser;
-        prenomUser = this.prenomUser;
-        mail = this.mail;
-        telephone = this.telephone;
-        mdp = this.mdp;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.mail = mail;
+        this.telephone = telephone;
+        this.mdp = mdp;
     }
 
     /**
@@ -29,8 +27,11 @@ public class Utilisateur {
      */
     public JSONArray convertToJSONArray(){
         List laListe = new ArrayList();
-        laListe.add(idCateg);
-        laListe.add(nomCateg);
+        laListe.add(nomUser);
+        laListe.add(prenomUser);
+        laListe.add(mail);
+        laListe.add(telephone);
+        laListe.add(mdp);
         return new JSONArray(laListe);
     }
 

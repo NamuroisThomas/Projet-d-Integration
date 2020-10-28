@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Controle controle;
 
+    /**
+     * Ecoute du bouton menant à la page d'inscription.
+     */
     private void ecouteGoToInscription(){
         ((Button)findViewById(R.id.boutonGoToInscription)).setOnClickListener(new Button.OnClickListener(){
             @Override

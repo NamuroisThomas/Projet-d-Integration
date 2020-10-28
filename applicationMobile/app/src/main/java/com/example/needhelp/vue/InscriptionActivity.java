@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.needhelp.R;
 import com.example.needhelp.controleur.Controle;
+import com.example.needhelp.modele.AccesDistant;
+import com.example.needhelp.modele.Utilisateur;
 
 public class InscriptionActivity extends AppCompatActivity {
 
@@ -57,7 +59,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 String nom ="";
                 String prenom = "";
                 String mail = "";
-                Integer tel = 0;
+                String tel = "";
                 String mdp = "";
                 String confMdp = "";
 
@@ -66,7 +68,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     nom = nomInscription.getText().toString();
                     prenom = prenomInscription.getText().toString();
                     mail = mailInscription.getText().toString();
-                    tel = Integer.parseInt(telInscription.getText().toString());
+                    tel = telInscription.getText().toString();
                     mdp = mdpInscription.getText().toString();
                     confMdp = mdpConfirmation.getText().toString();
                 }catch (Exception e){
@@ -74,12 +76,15 @@ public class InscriptionActivity extends AppCompatActivity {
                 }
 
                 // Controle des données saisie
-                if(nom==""||prenom==""||mail==""||tel==0||mdp==""||confMdp==""){
+                if(nom==""||prenom==""||mail==""||tel==""||mdp==""||confMdp==""){
                     Toast.makeText(InscriptionActivity.this,"Saisie incorrect",Toast.LENGTH_SHORT).show();
-                }else if (mdp.equals(confMdp)){
-                    afficheResult(nom,prenom,mail,tel,mdp);
-                }else {
+                }else if (!(mdp.equals(confMdp))){
                     Toast.makeText(InscriptionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
+                }else {
+                    afficheResult(nom,prenom,mail,tel,mdp);
+                    Utilisateur user = new Utilisateur(nom,prenom,mail,tel,mdp);
+                    AccesDistant accesDistant = new AccesDistant();
+                    accesDistant.envoi("enreg", user.convertToJSONArray());
                 }
 
             }
@@ -94,7 +99,7 @@ public class InscriptionActivity extends AppCompatActivity {
      * @param tel
      * @param mdp
      */
-    private void afficheResult(String nom,String prenom, String mail, Integer tel, String mdp){
+    private void afficheResult(String nom, String prenom, String mail, String tel, String mdp){
         Toast.makeText(InscriptionActivity.this,"ok",Toast.LENGTH_SHORT).show();
 
         Log.d("nom", "*******************" + nom);
@@ -102,5 +107,9 @@ public class InscriptionActivity extends AppCompatActivity {
         Log.d("mail", "*******************" + mail);
         Log.d("tel", "*******************" + tel);
         Log.d("mdp", "*******************" + mdp);
+    }
+
+    public void envoiInscriptionBdd(){
+
     }
 }
