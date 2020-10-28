@@ -9,9 +9,9 @@
             try{
                 print("dernier%");
                 $cnx = connexionPDO();
-                $req = $cnx->prepare("select * from categories");
+                $req = $cnx->prepare("SELECT * FROM categories");
                 $req->execute();
-                // si il y a des categoriesrecuperation de la premiere
+                // si il y a des categories recuperation de la premiere
                 if($ligne = $req->fetch(PDO::FETCH_ASSOC)){
                     print(json_encode($ligne));
                 }
@@ -24,14 +24,17 @@
             try{
                 // recuperation des donnees en post
                 $lesdonnees = $_REQUEST["lesdonnees"];
-                $donnee = json_decode("lesdonnees");
-                $idCategorie = $donnee[0];
-                $nomCategorie = $donnee[1];
+                $donnee = json_decode($lesdonnees);
+                $nomUtilisateur = $donnee[0];
+                $prenomUtilisateur = $donnee[1];
+                $mailUtilisateur = $donnee[2];
+                $telUtilisateur = $donnee[3];
+                $mdpUtilisateur = $donnee[4];
                 // insertion dans la base de donnees
                 print("enreg%");
                 $cnx = connexionPDO();
-                $larequete = "insert into categories (idCategorie, nomCategorie)";
-                $larequete .= "values ($idCategorie, $nomCategorie)";
+                $larequete = "INSERT INTO utilisateurs (nomUtilisateur,prenomUtilisateur,mailUtilisateur,telUtilisateur,mdpUtilisateur)";
+                $larequete .= "values ('$nomUtilisateur','$prenomUtilisateur','$mailUtilisateur','$telUtilisateur','$mdpUtilisateur')";
                 print ($larequete);
                 $req = $cnx->prepare($larequete);
                 $req->execute();

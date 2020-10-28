@@ -2,7 +2,6 @@ package com.example.needhelp.modele;
 
 import android.util.Log;
 
-import com.example.needhelp.Utilisateur;
 import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.outils.AccessHTTP;
 import com.example.needhelp.outils.AsyncResponse;
@@ -47,8 +46,6 @@ public class AccesDistant implements AsyncResponse {
                         JSONObject info = new JSONObject(message[1]);
                         Integer idCateg = info.getInt("idCategorie");
                         String nomCateg = info.getString("nomCategorie");
-                        Utilisateur user = new Utilisateur("S","m","t",1,"123");
-                        controle.setUser(user);
                     } catch (JSONException e) {
                         Log.d("erreur ", "Conversiont JSON impossible ***********" + e.toString());
                     }

@@ -1,9 +1,11 @@
 package com.example.needhelp.controleur;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.EditText;
 
-import com.example.needhelp.MainActivity;
-import com.example.needhelp.Utilisateur;
+import com.example.needhelp.R;
+import com.example.needhelp.modele.Utilisateur;
 import com.example.needhelp.modele.AccesDistant;
 
 import org.json.JSONArray;
@@ -13,6 +15,14 @@ public final class Controle {
     private static Controle instance = null;
     private static Utilisateur user;
     private static AccesDistant accesDistant;
+
+    // variable pour les layout
+    private EditText nomInscription;
+    private EditText prenomInscription;
+    private EditText mailInscription;
+    private EditText telInscription;
+    private EditText mdpInscription;
+    private  EditText mdpConfirmation;
 
     private static Context contexte;
 
@@ -36,17 +46,13 @@ public final class Controle {
         if (Controle.instance == null){
             Controle.instance = new Controle();
             accesDistant = new AccesDistant();
-            accesDistant.envoi("dernier", new JSONArray());
+            //accesDistant.envoi("dernier", new JSONArray());
         }
         return Controle.instance;
     }
 
-    public void CreerProfil(String nomUser, String prenomUser, String mail, Integer telephone, String mdp){
-        user = new Utilisateur(nomUser,prenomUser,mail,telephone,mdp);
-        accesDistant.envoi("enreg", user.convertToJSONArray());
-    }
-
     public static void setUser(Utilisateur user) {
         Controle.user = user;
+
     }
 }
