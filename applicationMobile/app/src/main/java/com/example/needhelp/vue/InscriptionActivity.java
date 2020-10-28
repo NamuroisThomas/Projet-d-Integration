@@ -1,26 +1,23 @@
-package com.example.needhelp;
+package com.example.needhelp.vue;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.needhelp.R;
 import com.example.needhelp.controleur.Controle;
 
-//import javax.swing.text.View;
-
-public class MainActivity extends AppCompatActivity {
+public class InscriptionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.acceuil);
+        setContentView(R.layout.inscription_screen);
         init();
         this.controle = Controle.getInstance();
     }
@@ -46,26 +43,7 @@ public class MainActivity extends AppCompatActivity {
         telInscription = (EditText)findViewById(R.id.inscriptionGSMEdit);
         mdpInscription = (EditText)findViewById(R.id.inscriptionPSWEdit);
         mdpConfirmation = (EditText)findViewById(R.id.inscriptionConfirmEdit);
-        //ecouteInscription();
     }
-
-   public void goInscriptionScreen(View view){
-        setContentView(R.layout.inscription_screen);
-        ecouteInscription();
-    }
-
-    public void goConnexionScreen(View view){
-        setContentView(R.layout.connexion_screen);
-    }
-
-    public void back(View view){
-        setContentView(R.layout.acceuil);
-    }
-
-    public void goHome(View view) {
-        setContentView(R.layout.home);
-    }
-
     /**
      * Ecoute évemenent sur le bouton inscription
      */
@@ -75,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Toast.makeText(MainActivity.this, "test",Toast.LENGTH_SHORT).show();
 
-                String nom = "";
+                String nom ="";
                 String prenom = "";
                 String mail = "";
                 Integer tel = 0;
@@ -90,13 +68,15 @@ public class MainActivity extends AppCompatActivity {
                     tel = Integer.parseInt(telInscription.getText().toString());
                     mdp = mdpInscription.getText().toString();
                     confMdp = mdpConfirmation.getText().toString();
-                }catch (Exception e){}
+                }catch (Exception e){
+                    Log.d("Recup", "****************** Erreur reuperation donnees inscription\n****" + e);
+                }
 
                 // Controle des données saisie
                 if(nom==""||prenom==""||mail==""||tel==0||mdp==""||confMdp==""){
-                    Toast.makeText(MainActivity.this,"Saisie incorrect",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InscriptionActivity.this,"Saisie incorrect",Toast.LENGTH_SHORT).show();
                 }else if (mdp != confMdp){
-                    Toast.makeText(MainActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InscriptionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
                 }else {
                     afficheResult(nom,prenom,mail,tel,mdp);
                 }
@@ -114,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
      * @param mdp
      */
     private void afficheResult(String nom,String prenom, String mail, Integer tel, String mdp){
-        Toast.makeText(MainActivity.this,"ok",Toast.LENGTH_SHORT).show();
+        Toast.makeText(InscriptionActivity.this,"ok",Toast.LENGTH_SHORT).show();
 
         Log.d("nom", "*******************" + nom);
         Log.d("prenom", "*******************" + prenom);
