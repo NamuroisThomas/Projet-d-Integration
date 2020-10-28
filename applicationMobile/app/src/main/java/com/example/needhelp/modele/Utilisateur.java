@@ -13,11 +13,29 @@ public class Utilisateur {
     String telephone;
     String mdp;
 
+    /**
+     * Constructeur complet
+     * @param nomUser
+     * @param prenomUser
+     * @param mail
+     * @param telephone
+     * @param mdp
+     */
     public Utilisateur(String nomUser, String prenomUser, String mail, String telephone, String mdp) {
         this.nomUser = nomUser;
         this.prenomUser = prenomUser;
         this.mail = mail;
         this.telephone = telephone;
+        this.mdp = mdp;
+    }
+
+    /**
+     * Constructeur juste mail et mot de passe
+     * @param mail
+     * @param mdp
+     */
+    public Utilisateur(String mail, String mdp) {
+        this.mail = mail;
         this.mdp = mdp;
     }
 

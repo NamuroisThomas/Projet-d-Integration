@@ -39,25 +39,35 @@ public class AccesDistant implements AsyncResponse {
         if(message.length>1){
             if(message[0].equals("enreg")){
                 Log.d("enreg", "***********" + message[1]);
-            } else {
-                if (message[0].equals("dernier")){
-                    Log.d("dernier", "***********" + message[1]);
-                    try {
-                        JSONObject info = new JSONObject(message[1]);
-                        Integer idCateg = info.getInt("idCategorie");
-                        String nomCateg = info.getString("nomCategorie");
-                    } catch (JSONException e) {
-                        Log.d("erreur ", "Conversiont JSON impossible ***********" + e.toString());
-                    }
-                }else{
-                    if (message[0].equals("Erreur !")){
-                        Log.d("Erreur !", "***********" + message[1]);
-                    }
-                }
+            }
+        } else if (message[0].equals("dernier")) {
+            Log.d("dernier", "***********" + message[1]);
+            try {
+                JSONObject info = new JSONObject(message[1]);
+                Integer idCateg = info.getInt("idCategorie");
+                String nomCateg = info.getString("nomCategorie");
+            } catch (JSONException e) {
+                Log.d("erreur ", "Conversiont JSON impossible ***********" + e.toString());
+            }
+        }else if (message[0].equals("Erreur !")){
+            Log.d("Erreur !", "***********" + message[1]);
+        }else if (message[0].equals("connexion")){
+            try {
+                JSONObject info = new JSONObject(message[1]);
+                String mail = info.getString("mailUtilisateur");
+                String mdp = info.getString("mdpUtilisateur");
+                Log.d("HIT","***********" + message[1]);
+            }catch (Exception e){
+                Log.d("ERREUR","************** Recup donnee connexions echouee\n****" + e);
             }
         }
     }
 
+    /**
+     * Methode pour envoyer des donnees à la base de donnees
+     * @param operation
+     * @param lesDonneesJSON
+     */
     public void envoi(String operation, JSONArray lesDonneesJSON){
         AccessHTTP accesDonnees = new AccessHTTP();
         // lien de délégation
@@ -65,6 +75,20 @@ public class AccesDistant implements AsyncResponse {
         //ajout parametre
         accesDonnees.addParam("operation",operation);
         accesDonnees.addParam("lesdonnees", lesDonneesJSON.toString());
+        // appel au serveur
+        accesDonnees.execute(SERVEURADDR);
+    }
+
+    /**
+     * Methode pour recuperer des donnees
+     * @param operation
+     */
+    public void recup(String operation){
+        AccessHTTP accesDonnees = new AccessHTTP();
+        // lien de délégation
+        accesDonnees.delegate = this;
+        //ajout parametre
+        accesDonnees.addParam("operation",operation);
         // appel au serveur
         accesDonnees.execute(SERVEURADDR);
     }

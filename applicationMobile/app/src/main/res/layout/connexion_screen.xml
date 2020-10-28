@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     >
     <TextView
-        android:id="@+id/inscriptionMailTexte"
+        android:id="@+id/connexionMailTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mail"
@@ -14,29 +14,29 @@
         android:layout_marginTop="35dip"
         />
     <EditText
-        android:id="@+id/inscriptionMailEdit"
+        android:id="@+id/connexionMailEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/mail"
         android:inputType="textWebEmailAddress"
-        android:layout_below="@id/inscriptionMailTexte"
+        android:layout_below="@id/connexionMailTexte"
         />
     <TextView
-        android:id="@+id/inscriptionPSWTexte"
+        android:id="@+id/connexionPSWTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_below="@id/inscriptionMailEdit"
+        android:layout_below="@id/connexionMailEdit"
         />
     <EditText
-        android:id="@+id/inscriptionPSWEdit"
+        android:id="@+id/connexionPSWEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:layout_below="@id/inscriptionPSWTexte"
+        android:layout_below="@id/connexionPSWTexte"
         />
     <Button
         android:id="@+id/connexion"
