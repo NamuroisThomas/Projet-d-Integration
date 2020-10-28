@@ -40,10 +40,10 @@ public class Utilisateur {
     }
 
     /**
-     * Conversion du profil au format JSONArray
+     * Conversion de l'inscription au format JSONArray
      * @return
      */
-    public JSONArray convertToJSONArray(){
+    public JSONArray inscriptionConvertToJSONArray(){
         List laListe = new ArrayList();
         laListe.add(nomUser);
         laListe.add(prenomUser);
@@ -51,7 +51,17 @@ public class Utilisateur {
         laListe.add(telephone);
         laListe.add(mdp);
         return new JSONArray(laListe);
-
     }
 
+    /**
+     * Conversion de la connexion au format JSONArray
+     * @return
+     */
+    public JSONArray connexionConvertToJsonArray(){
+        List laListe = new ArrayList();
+        laListe.add(mail);
+        laListe.add(mdp);
+
+        return new JSONArray(laListe);
+    }
 }

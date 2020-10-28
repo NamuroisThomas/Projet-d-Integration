@@ -88,7 +88,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     afficheResult(nom,prenom,mail,tel,mdp);
                     Utilisateur user = new Utilisateur(nom,prenom,mail,tel,mdp);
                     AccesDistant accesDistant = new AccesDistant();
-                    accesDistant.envoi("inscription", user.convertToJSONArray());
+                    accesDistant.envoi("inscription", user.inscriptionConvertToJSONArray());
 
                     // Bouton pour aller vers la page home
                     Intent intent = new Intent(InscriptionActivity.this,HomeActivity.class);
