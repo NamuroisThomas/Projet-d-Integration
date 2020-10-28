@@ -7,6 +7,7 @@ import android.widget.EditText;
 import com.example.needhelp.R;
 import com.example.needhelp.modele.Utilisateur;
 import com.example.needhelp.modele.AccesDistant;
+import com.example.needhelp.vue.ConnexionActivity;
 
 import org.json.JSONArray;
 
@@ -50,9 +51,8 @@ public final class Controle {
         }
         return Controle.instance;
     }
-
-    public static void setUser(Utilisateur user) {
+    public void setUser(Utilisateur user){
         Controle.user = user;
-
+        ((ConnexionActivity)contexte).recupUser();
     }
 }

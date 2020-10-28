@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.needhelp.R;
-import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.modele.AccesDistant;
 import com.example.needhelp.modele.Utilisateur;
 
@@ -30,8 +29,7 @@ public class ConnexionActivity extends AppCompatActivity {
     EditText mailEdit;
     EditText mdpEdit;
 
-    String mailServer = "";
-    String mdpServer = "";
+    AccesDistant accesDistant = new AccesDistant();
 
 
     /**
@@ -75,6 +73,7 @@ public class ConnexionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 // Variables locales
                 String mail = "";
                 String mdp = "";
@@ -82,33 +81,62 @@ public class ConnexionActivity extends AppCompatActivity {
                 String mdpServer = "";
 
                 try {
-                    mail = mailEdit.getText().toString();
-                    mdp = mdpEdit.getText().toString();
-                }catch (Exception e){
+                    mail = (mailEdit.getText().toString());
+                    mdp = (mdpEdit.getText().toString());
+                } catch (Exception e) {
                     Log.d("Recup", "****************** Erreur recuperation donnees connexion\n****" + e);
                 }
-                Utilisateur user = new Utilisateur(mail,mdp);
-
+                Utilisateur user = new Utilisateur(mail, mdp);
+                accesDistant.setMdpUser(mdp);
                 // Envoi de la requête à la DB
-                AccesDistant accesDistant = new AccesDistant();
                 accesDistant.envoi("connexion", user.connexionConvertToJsonArray());
-                accesDistant.;
 
-                /*
-                //Recupération des données
-                mdpServer = accesDistant.getMdpServeur();
-
-                // Vérification du mot de passe
-                if (mdpServer.equals(mdp)){
-                    Intent intent = new Intent(ConnexionActivity.this,HomeActivity.class);
-                    startActivity(intent);
-                    Log.d("Conn", "*************** Connexion reussie");
-                }else{
-                    Toast.makeText(ConnexionActivity.this,"Mot de passe incorrect",Toast.LENGTH_SHORT).show();
-                }
-                 */
+                //connexion();
             }
 
         });
+        //connexion();
     }
+
+    private void connexion() {
+        String mdpServ = accesDistant.getMdpServeur();
+        String mdp = accesDistant.getMdpUser();
+        // Vérification du mot de passe
+        if (mdpServ.equals(mdp)){
+            Intent intent = new Intent(ConnexionActivity.this,HomeActivity.class);
+            startActivity(intent);
+            Log.d("Conn", "*************** Connexion reussie");
+        }else{
+            Toast.makeText(ConnexionActivity.this,"Mot de passe incorrect",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void recupUser() {
+    }
+/*
+    public void boucle() {
+        if (accesDistant.isNotFinished() == false) {
+            Thread thread=  new Thread(){
+                @Override
+                public void run(){
+                    try {
+                        synchronized(this){
+                            wait(3000);
+                        }
+                    }
+                    catch(InterruptedException ex){
+                    }
+
+                    //TODO
+                }
+            };
+            thread.start();
+            boucle();
+        } else {
+            Intent intent = new Intent(ConnexionActivity.this, HomeActivity.class);
+            startActivity(intent);
+        }
+    }
+
+ */
 }

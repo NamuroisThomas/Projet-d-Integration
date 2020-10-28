@@ -1,11 +1,17 @@
 package com.example.needhelp.modele;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.needhelp.R;
 import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.outils.AccessHTTP;
 import com.example.needhelp.outils.AsyncResponse;
 import com.example.needhelp.vue.ConnexionActivity;
+import com.example.needhelp.vue.HomeActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,8 +23,11 @@ public class AccesDistant implements AsyncResponse {
     private static final String SERVEURADDR = "http://192.168.1.9/needhelp/serveurAndroid.php";
     //Variables
     private Controle controle;
-    String mailServeur;
-    String mdpServeur;
+    private String mailServeur;
+    private String mdpServeur;
+    private String mdpUser;
+    private boolean finishExecution = false;
+    private Activity activity;
 
     /**
      * Constructeur
@@ -59,9 +68,14 @@ public class AccesDistant implements AsyncResponse {
                     JSONObject info = new JSONObject(message[1]);
                    mailServeur = info.getString("mailUtilisateur");
                    mdpServeur = info.getString("mdpUtilisateur");
-                    Log.d("HIT", "***********" + message[1]);
+                   Log.d("HIT", "***********" + message[1]);
+                   Utilisateur userServ = new Utilisateur(mailServeur,mdpServeur);
+                   Utilisateur user = new Utilisateur(mailServeur,mdpUser);
+                  // activity.setContentView(R.layout.home);
+                   //setFinishExecution(true);
                 } catch (Exception e) {
                     Log.d("ERREUR", "************** Recup donnee connexions echouee\n****" + e);
+                    ConnexionActivity conn = new ConnexionActivity();
                 }
             }else{
                 Log.d("ERREUR", "*************** Aucun choix valide");
@@ -99,11 +113,33 @@ public class AccesDistant implements AsyncResponse {
         accesDonnees.execute(SERVEURADDR);
     }
 
-    public String getMailServeur() {
-        return mailServeur;
+    private void verification(String mdpServ, String mdp) {
+        // Vérification du mot de passe
+        if (mdpServ.equals(mdp) && mdp!=""){
+            ConnexionActivity conn = new ConnexionActivity();
+            finishExecution = true;
+            Log.d("Conn", "*************** Connexion reussie");
+        }else{
+            Log.d("ErrConn", "*************** mdp incorrect");
+        }
+    }
+
+    public void setMdpUser(String mdpUser) {
+        this.mdpUser = mdpUser;
     }
 
     public String getMdpServeur() {
         return mdpServeur;
+    }
+    public String getMdpUser() {
+        return mdpUser;
+    }
+
+    public void setFinishExecution(boolean finishExecution) {
+        this.finishExecution = finishExecution;
+    }
+
+    public boolean isFinishExecution() {
+        return finishExecution;
     }
 }
