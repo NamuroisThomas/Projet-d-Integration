@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.acceuil);
         this.controle = Controle.getInstance();
         ecouteGoToInscription();
+        ecouteGoToConnexion();
     }
 
     private Controle controle;
@@ -34,6 +35,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,InscriptionActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    private void ecouteGoToConnexion(){
+        ((Button)findViewById(R.id.boutonGoToConnexion)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ConnexionActivity.class);
                 startActivity(intent);
             }
         });

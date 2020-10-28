@@ -24,6 +24,7 @@ public class InscriptionActivity extends AppCompatActivity {
         init();
         this.controle = Controle.getInstance();
         ecouteInscription();
+        ecouteGoToAcceuil();
     }
 
     private Controle controle;
@@ -35,7 +36,7 @@ public class InscriptionActivity extends AppCompatActivity {
     private EditText mailInscription;
     private EditText telInscription;
     private EditText mdpInscription;
-    private  EditText mdpConfirmation;
+    private EditText mdpConfirmation;
 
     /**
      * Initialisation des lien avec les objets graphiques
@@ -78,7 +79,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 }
 
                 // Controle des données saisie
-                if(nom==""||prenom==""||mail==""||tel==""||mdp==""||confMdp==""){
+                if((nom.equals(""))||(prenom.equals(""))||(mail.equals(""))||(tel.equals(""))||(mdp.equals(""))||(confMdp.equals(""))){
                     Toast.makeText(InscriptionActivity.this,"Saisie incorrect",Toast.LENGTH_SHORT).show();
                 }else if (!(mdp.equals(confMdp))){
                     Toast.makeText(InscriptionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
@@ -87,10 +88,11 @@ public class InscriptionActivity extends AppCompatActivity {
                     afficheResult(nom,prenom,mail,tel,mdp);
                     Utilisateur user = new Utilisateur(nom,prenom,mail,tel,mdp);
                     AccesDistant accesDistant = new AccesDistant();
-                    accesDistant.envoi("enreg", user.convertToJSONArray());
+                    accesDistant.envoi("inscription", user.inscriptionConvertToJSONArray());
 
                     // Bouton pour aller vers la page home
-                    ecouteGoToHome();
+                    Intent intent = new Intent(InscriptionActivity.this,HomeActivity.class);
+                    startActivity(intent);
                 }
 
             }
@@ -118,11 +120,11 @@ public class InscriptionActivity extends AppCompatActivity {
     /**
      * Ecoute de l'évenement qui permet de changer d'activity
      */
-    private void ecouteGoToHome(){
-        ((Button)findViewById(R.id.inscriptionBouton)).setOnClickListener(new Button.OnClickListener(){
+    private void ecouteGoToAcceuil(){
+        ((Button)findViewById(R.id.deconnexion)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InscriptionActivity.this,HomeActivity.class);
+                Intent intent = new Intent(InscriptionActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });

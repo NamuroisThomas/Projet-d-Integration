@@ -13,6 +13,14 @@ public class Utilisateur {
     String telephone;
     String mdp;
 
+    /**
+     * Constructeur complet
+     * @param nomUser
+     * @param prenomUser
+     * @param mail
+     * @param telephone
+     * @param mdp
+     */
     public Utilisateur(String nomUser, String prenomUser, String mail, String telephone, String mdp) {
         this.nomUser = nomUser;
         this.prenomUser = prenomUser;
@@ -22,10 +30,20 @@ public class Utilisateur {
     }
 
     /**
-     * Conversion du profil au format JSONArray
+     * Constructeur juste mail et mot de passe
+     * @param mail
+     * @param mdp
+     */
+    public Utilisateur(String mail, String mdp) {
+        this.mail = mail;
+        this.mdp = mdp;
+    }
+
+    /**
+     * Conversion de l'inscription au format JSONArray
      * @return
      */
-    public JSONArray convertToJSONArray(){
+    public JSONArray inscriptionConvertToJSONArray(){
         List laListe = new ArrayList();
         laListe.add(nomUser);
         laListe.add(prenomUser);
@@ -33,7 +51,17 @@ public class Utilisateur {
         laListe.add(telephone);
         laListe.add(mdp);
         return new JSONArray(laListe);
-
     }
 
+    /**
+     * Conversion de la connexion au format JSONArray
+     * @return
+     */
+    public JSONArray connexionConvertToJsonArray(){
+        List laListe = new ArrayList();
+        laListe.add(mail);
+        laListe.add(mdp);
+
+        return new JSONArray(laListe);
+    }
 }

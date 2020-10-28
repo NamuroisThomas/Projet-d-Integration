@@ -20,7 +20,7 @@
                 die();
             }
         // enregistrement nouveau profil
-        }elseif($_REQUEST["operation"]=="enreg"){
+        }elseif($_REQUEST["operation"]=="inscription"){
             try{
                 // recuperation des donnees en post
                 $lesdonnees = $_REQUEST["lesdonnees"];
