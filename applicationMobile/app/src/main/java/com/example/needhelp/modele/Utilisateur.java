@@ -1,9 +1,9 @@
 package com.example.needhelp.modele;
 
+
 import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.List;
-
 
 
 public class Utilisateur {
@@ -33,6 +33,7 @@ public class Utilisateur {
         laListe.add(telephone);
         laListe.add(mdp);
         return new JSONArray(laListe);
+
     }
 
 }
