@@ -23,13 +23,39 @@ router.get('/test', function(req,res,next){
 });
 
 
-//récupération des demandes par id si spécifié, sinon revoie toutes les demandes
-router.get('/demande', function(req,res,next){
+//récupération des demandes par id, par id de catégorie et code postal si spécifié, sinon revoie toutes les demandes
+router.get('/demandes', function(req,res,next){
 	var demande_id = req.query.idDemande;
+	var categ_id = req.query.idCateg;
+	var codePostal = req.query.codePostal;
     console.log('GET demande');
 	if (demande_id != undefined){
 	    console.log('GET demande by id '+demande_id);
-		res.locals.connection.query('SELECT * FROM demandes  WHERE idDemande=?',[demande_id], function(error, results, fields) {
+		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE idDemande=?',[demande_id], function(error, results, fields) {
+			if (error!=null) {
+				res.redirect(529, '/error');
+				console.log("erreur query");
+			}
+			else {
+				res.send({"status": 200, "error": null, "response": results});
+				console.log("query OK");
+			}
+		});
+	} else if(categ_id != undefined) {
+		console.log('GET demande by idCateg'+categ_id);
+		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE demandes.idCategorie=?',[categ_id], function(error, results, fields) {
+			if (error!=null) {
+				res.redirect(529, '/error');
+				console.log("erreur query");
+			}
+			else {
+				res.send({"status": 200, "error": null, "response": results});
+				console.log("query OK");
+			}
+		});
+	} else if(codePostal != undefined) {
+		console.log('GET demande by codePostal'+codePostal);
+		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE demandes.idCodePostal=?',[codePostal], function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
 				console.log("erreur query");
@@ -41,7 +67,7 @@ router.get('/demande', function(req,res,next){
 		});
 	} else {
 	    console.log('GET demande all');
-		res.locals.connection.query('SELECT * FROM demandes', function(error, results, fields) {
+		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie;', function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
 				console.log("erreur query");
@@ -71,12 +97,12 @@ router.get('/utilisateur', function(req,res,next){
 	});
 });
 
-//TODO a verif
+
 //Verif si mail est deja pris
 router.get('/mailExist', function(req,res,next){
     var mailUtilisateur = req.query.mail;
     console.log('GET mail exist');
-    res.locals.connection.query('SELECT * FROM utiisateurs where mailUtilisateur=?',[mailUtilisateur] , function(error, results, fields) {
+    res.locals.connection.query('SELECT * FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur] , function(error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
             console.log("erreur query");
@@ -89,15 +115,17 @@ router.get('/mailExist', function(req,res,next){
 });
 
 
-// TODO à tester
+
 // TODO ajouter verif mdp egaux et mail (front end)
 // récupération des données du formulaire inscription et ajout dans la base de données
 router.post('/inscription', function (req, res, next) {
-    //console.log(req.body);
+    console.log(req.body);
     console.log('POST inscription');
-    res.locals.connection.query('INSERT INTO utilisateurs (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur) VALUES (?, ?, ?, ?, ?)',[req.body.formUtilisateurNom, req.body.formUtilisateurPrenom, req.body.formUtilisateurMail, req.body.formUtilisateurTel, req.body.formUtilisateurMdp], function (error, results, fields) {
+    res.locals.connection.query('INSERT INTO utilisateurs (nomUtilisateur, prenomUtilisateur, mailUtilisateur, telUtilisateur, mdpUtilisateur) VALUES (?, ?, ?, ?, ?)',[req.body.formInscriptionNom, req.body.formInscriptionPrenom, req.body.formInscriptionMail, req.body.formInscriptionTel, req.body.formInscriptionMdp], function (error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
+            console.log(error);
+
         }
         else {
             console.log("utilisateur ajouté");
@@ -107,25 +135,21 @@ router.post('/inscription', function (req, res, next) {
 });
 
 
-// TODO à tester
+
 //récupération des données du formulaire demandes et ajout dans la base de données
-router.post('/formDemande', function (req, res, next) {
-    //console.log(req.body);
+router.post('/demande', function (req, res, next) {
+    console.log(req.body);
     console.log('POST demande');
-    res.locals.connection.query('INSERT INTO demandes (titreDemande, descriptionDemande, dateDemande, idUtilisateur, idCategorie, defraimentDemande, idCodePostal) VALUES (?, ?, ?, ?, ?, ?, ?)',[req.body.formDemandeTitre, req.body.formDemandeDescription, req.body.formDemandeDate, req.body.formDemandeIdUtilisateur, req.body.formDemandeIdCategorie, req.body.formDemandeDefraiement, req.body.formDemandeIdCodePostal],  function (error, results, fields) {
+    res.locals.connection.query('INSERT INTO demandes (titreDemande, descriptionDemande, dateDemande, idUtilisateur, idCategorie, defraiementDemande, idCodePostal) VALUES (?, ?, ?, ?, ?, ?, ?)',[req.body.formDemandeTitre, req.body.formDemandeDescription, req.body.formDemandeDate, req.body.formDemandeIdUtilisateur, req.body.formDemandeIdCategorie, req.body.formDemandeDefraiement, req.body.formDemandeIdCodePostal],  function (error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
         }
         else {
-            console.log("utilisateur ajouté");
+            console.log("demande ajoutée");
             res.send({"status":201, "error": null, "response":results});
         }
     });
 });
-
-
-
-
 
 
 
