@@ -10,18 +10,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.needhelp.R;
 import com.example.needhelp.controleur.Controle;
 
-public class HomeActivity extends AppCompatActivity {
+public class ConnexionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+        setContentView(R.layout.connexion_screen);
         ecouteGoToAcceuil();
     }
     private void ecouteGoToAcceuil(){
         ((Button)findViewById(R.id.deconnexion)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this,MainActivity.class);
+                Intent intent = new Intent(ConnexionActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });

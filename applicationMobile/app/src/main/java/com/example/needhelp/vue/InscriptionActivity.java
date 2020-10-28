@@ -24,6 +24,7 @@ public class InscriptionActivity extends AppCompatActivity {
         init();
         this.controle = Controle.getInstance();
         ecouteInscription();
+        ecouteGoToAcceuil();
     }
 
     private Controle controle;
@@ -123,6 +124,15 @@ public class InscriptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InscriptionActivity.this,HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    private void ecouteGoToAcceuil(){
+        ((Button)findViewById(R.id.deconnexion)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InscriptionActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });

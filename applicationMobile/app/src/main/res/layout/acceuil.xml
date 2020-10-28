@@ -12,14 +12,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_above="@id/boutonConnecter"
+        android:layout_above="@id/boutonGoToConnexion"
         android:text="@string/app_name"
         android:textStyle="bold"
         android:textSize="25sp"
      />
 
     <Button
-        android:id="@+id/boutonConnecter"
+        android:id="@+id/boutonGoToConnexion"
         android:layout_width="250dip"
         android:layout_height="50dip"
         android:text="@string/connexion"

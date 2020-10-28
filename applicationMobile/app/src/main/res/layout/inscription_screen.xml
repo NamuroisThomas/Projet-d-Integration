@@ -127,11 +127,11 @@
         />
 
     <Button
+        android:id="@+id/deconnexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:text="@string/retour"
-        android:onClick="back"
         />
 </RelativeLayout>
