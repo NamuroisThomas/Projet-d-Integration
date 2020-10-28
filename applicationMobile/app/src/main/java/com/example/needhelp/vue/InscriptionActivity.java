@@ -1,5 +1,6 @@
 package com.example.needhelp.vue;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -56,6 +57,7 @@ public class InscriptionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Toast.makeText(MainActivity.this, "test",Toast.LENGTH_SHORT).show();
 
+                // variables locales
                 String nom ="";
                 String prenom = "";
                 String mail = "";
@@ -81,10 +83,14 @@ public class InscriptionActivity extends AppCompatActivity {
                 }else if (!(mdp.equals(confMdp))){
                     Toast.makeText(InscriptionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
                 }else {
+                    // si la saisie est correcte, envoie les informations à la base de données pour l'inscription
                     afficheResult(nom,prenom,mail,tel,mdp);
                     Utilisateur user = new Utilisateur(nom,prenom,mail,tel,mdp);
                     AccesDistant accesDistant = new AccesDistant();
                     accesDistant.envoi("enreg", user.convertToJSONArray());
+
+                    // Bouton pour aller vers la page home
+                    ecouteGoToHome();
                 }
 
             }
@@ -109,7 +115,16 @@ public class InscriptionActivity extends AppCompatActivity {
         Log.d("mdp", "*******************" + mdp);
     }
 
-    public void envoiInscriptionBdd(){
-
+    /**
+     * Ecoute de l'évenement qui permet de changer d'activity
+     */
+    private void ecouteGoToHome(){
+        ((Button)findViewById(R.id.inscriptionBouton)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InscriptionActivity.this,HomeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
