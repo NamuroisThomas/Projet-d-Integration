@@ -1,12 +1,10 @@
-<div class="container">
-  <div class="jumbotron">
-    <h1>Welcome</h1>
-    <h2>Angular & Bootstrap Demo</h2>
-  </div>
-  <div class="panel panel-primary">
-    <div class="panel-heading">Status</div>
-    <div class="panel-body">
-      <h3>{{title}}</h3>
-    </div>
+
+<div *ngFor="let liste of listeDemande" class="card" style="width: 50rem;">
+  <div class="list-group list-group-flush">
+    <div class="list-group-item">Nom utilisateur : {{liste.nom}}</div>
+    <div class="list-group-item">Titre de la demande : {{liste.titreDemande}}</div>
+    <div class="list-group-item">Catégorie : {{liste.nomCategorie}}</div>
+    <div class="list-group-item">Code postal : {{liste.idCodePostal}}</div>
+    <button class="btn btn-primary" type="submit">Détail</button>
   </div>
 </div>
