@@ -43,6 +43,31 @@
                 print "Erreur !".$e->getMessage();
                 die();
             }
+        // Tentative de connexion
+        }elseif ($_REQUEST["operation"]=="connexion") {
+            try{
+                
+                //recuperation des donnees envoyer
+                $lesdonnees = $_REQUEST["lesdonnees"];
+                $donnee = json_decode($lesdonnees);
+                $mailUtilisateur = $donnee[0];
+                $mdpUtilisateur = $donnee[1];
+                print("connexion%");
+                $cnx = connexionPDO();
+                $larequete = "SELECT mailUtilisateur,mdpUtilisateur FROM utilisateurs WHERE mailUtilisateur LIKE '$mailUtilisateur'";
+                $req = $cnx->prepare($larequete);
+
+                //print("%listeInscrit");
+                
+                $req->execute();
+                if($ligne = $req->fetch(PDO::FETCH_ASSOC)){
+                print(json_encode($ligne));
+                }
+                //print($larequete);
+            }catch(PDOException $e){
+                print "Erreur !".$e->getMessage();
+                die();
+            }
         }
     }
 ?>
