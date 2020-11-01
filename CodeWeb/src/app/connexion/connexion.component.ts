@@ -11,7 +11,7 @@ import {error} from 'selenium-webdriver';
   styleUrls: ['./connexion.component.scss']
 })
 export class ConnexionComponent implements OnInit {
-
+  model: any = {};
   connexionStatus: boolean;
 
   constructor(private connexionService: ConnexionService, private http: HttpClient) { }
@@ -39,7 +39,9 @@ export class ConnexionComponent implements OnInit {
                 res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
                 res[Object.keys(res)[2]][0].mdpUtilisateur === data.formConnexionMdp ){
                 alert('connexion...');
+                localStorage.setItem('user', JSON.stringify({nomUtilisateur : this.model.username, mdpUtilisateur : this.model.password}));
                 this.connexionStatus = this.connexionService.isAuth;
+                console.log(localStorage.getItem('user'));
               }
               else{
                 alert('erreur');
