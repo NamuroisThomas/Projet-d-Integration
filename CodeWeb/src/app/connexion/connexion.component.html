@@ -1,3 +1,23 @@
+<div class="col-md-6 col-md-offset-3">
+  <div class="login-wrapper">
+    <h2>Page de connexion</h2>
+    <form *ngIf="!connexionStatus" (ngSubmit)="onSignIn(f.value)" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label>Identifiant</label>
+        <input type="text" class="form-control" name="formConnexionMail" id="username" [(ngModel)]="model.username" #username="ngModel" placeholder='Saisissez votre adresse mail' required />
+      </div>
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <input type="password" class="form-control" name="formConnexionMdp" id="password" [(ngModel)]="model.password" #password="ngModel" placeholder='Saisissez votre mot de passe' required />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" [disabled]="!f.form.valid">Connexion</button>
+      </div>
+    </form>
+    <button class="btn btn-primary" *ngIf="connexionStatus" (click)="onSignOut()">déconnexion</button>
+  </div>
+</div>
+<!--
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
     <h2>Se connecter</h2>
@@ -17,30 +37,6 @@
       </form>
     </div>
     <button class="btn btn-success" *ngIf="connexionStatus" (click)="onSignOut()">déconnexion</button>
-
-
-    <!--
-    <form [formGroup]="" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="email">Adresse mail</label>
-        <input type="text"
-               id="email"
-               class="form-control"
-               formControlName="email">
-      </div>
-      <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password"
-               id="password"
-               class="form-control"
-               formControlName="password">
-      </div>
-      <button class="btn btn-primary"
-              type="submit"
-              (click)="onSubmit()">Se connecter</button>
-    </form>
-
-    -->
-
   </div>
 </div>
+-->
