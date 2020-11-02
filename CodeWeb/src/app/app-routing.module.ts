@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {AuthGuard} from './service/auth/auth.guard';
 import { Routes, RouterModule } from '@angular/router';
 import {DemandeAideComponent} from './demande-aide/demande-aide.component';
 import {InscriptionComponent} from './inscription/inscription.component';
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
       {path: 'demandeAide', component: DemandeAideComponent},
       {path: 'inscription', component: InscriptionComponent},
       {path: 'contactPage', component: ContactComponent},
-      {path: 'editProfil', component: EditProfilComponent},
+      {path: 'editProfil', canActivate: [AuthGuard], component: EditProfilComponent},
       {path: 'connexion', component: ConnexionComponent},
       {path: 'not-found', component: PageNotFoundComponent},
       {path: '**', redirectTo: 'home'}
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

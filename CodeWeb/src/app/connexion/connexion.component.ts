@@ -69,6 +69,7 @@ export class ConnexionComponent implements OnInit {
     this.connexionService.signOut();
     alert('Déconnexion');
     this.connexionStatus = this.connexionService.isAuth;
+    localStorage.clear();
   }
 /*  onSubmit(){
   }*/
