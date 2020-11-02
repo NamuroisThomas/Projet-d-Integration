@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ConnexionService} from './connexion.service';
 import {HttpClient} from '@angular/common/http';
-import {catchError, map, filter, mergeMap} from 'rxjs/operators';
-import {throwError, Observable, pipe, of} from 'rxjs';
-import {error} from 'selenium-webdriver';
 
 @Component({
   selector: 'app-connexion',
@@ -33,24 +30,21 @@ export class ConnexionComponent implements OnInit {
           .subscribe(
             (res) =>
             {
-              if (res[Object.keys(res)[2]][0].mailUtilisateur === '' || res[Object.keys(res)[2]][0].mdpUtilisateur === '' ){
-                alert('le champ mail et/ou mot de passe vide');
+              try {
+                if (res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
+                  res[Object.keys(res)[2]][0].mdpUtilisateur !== data.formConnexionMdp) {
+                  alert('mot de passe incorrect');
+                }
+                if (res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
+                  res[Object.keys(res)[2]][0].mdpUtilisateur === data.formConnexionMdp) {
+                  alert('connexion...');
+                  localStorage.setItem('user', JSON.stringify({nomUtilisateur: this.model.username, mdpUtilisateur: this.model.password}));
+                  this.role = this.readLocalStorageValue('user');
+                  console.log(localStorage.getItem('user'));
+                }
               }
-              if (res[Object.keys(res)[2]][0].mailUtilisateur !== '' && res[Object.keys(res)[2]][0].mdpUtilisateur !== '' &&
-                res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
-                res[Object.keys(res)[2]][0].mdpUtilisateur !== data.formConnexionMdp ) {
-              alert('mot de passe incorrect');
-              }
-              if (res[Object.keys(res)[2]][0].mailUtilisateur !== '' && res[Object.keys(res)[2]][0].mdpUtilisateur !== '' &&
-                res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
-                res[Object.keys(res)[2]][0].mdpUtilisateur === data.formConnexionMdp ){
-                alert('connexion...');
-                localStorage.setItem('user', JSON.stringify({nomUtilisateur : this.model.username, mdpUtilisateur : this.model.password}));
-                this.role = this.readLocalStorageValue('user');
-                console.log(localStorage.getItem('user'));
-              }
-              else{
-                alert('erreur');
+              catch (e) {
+                alert('mail inéxistant, Vous devez créer un compte');
               }
             }
           );
