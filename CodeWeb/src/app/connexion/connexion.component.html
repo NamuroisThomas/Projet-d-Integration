@@ -1,7 +1,7 @@
 <div class="col-md-6 col-md-offset-3">
   <div class="login-wrapper">
     <h2>Page de connexion</h2>
-    <form *ngIf="!connexionStatus" (ngSubmit)="onSignIn(f.value)" #f="ngForm" novalidate>
+    <form *ngIf="role === null" (ngSubmit)="onSignIn(f.value)" #f="ngForm" novalidate>
       <div class="form-group">
         <label>Identifiant</label>
         <input type="text" class="form-control" name="formConnexionMail" id="username" [(ngModel)]="model.username" #username="ngModel" placeholder='Saisissez votre adresse mail' required />
@@ -14,7 +14,7 @@
         <button class="btn btn-primary" [disabled]="!f.form.valid">Connexion</button>
       </div>
     </form>
-    <button class="btn btn-primary" *ngIf="connexionStatus" (click)="onSignOut()">déconnexion</button>
+    <button class="btn btn-primary" *ngIf="role !== null" (click)="onSignOut()">déconnexion</button>
   </div>
 </div>
 <!--
