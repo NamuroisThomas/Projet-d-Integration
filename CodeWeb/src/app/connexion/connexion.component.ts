@@ -13,11 +13,17 @@ import {error} from 'selenium-webdriver';
 export class ConnexionComponent implements OnInit {
   model: any = {};
   connexionStatus: boolean;
+  role: string;
 
   constructor(private connexionService: ConnexionService, private http: HttpClient) { }
 
   ngOnInit() {
-    this.connexionStatus = this.connexionService.isAuth;
+    this.role = this.readLocalStorageValue('user');
+    console.log(this.role);
+  }
+
+  readLocalStorageValue(key: string): string {
+    return localStorage.getItem(key);
   }
 
   onSignIn(data){
@@ -40,7 +46,7 @@ export class ConnexionComponent implements OnInit {
                 res[Object.keys(res)[2]][0].mdpUtilisateur === data.formConnexionMdp ){
                 alert('connexion...');
                 localStorage.setItem('user', JSON.stringify({nomUtilisateur : this.model.username, mdpUtilisateur : this.model.password}));
-                this.connexionStatus = this.connexionService.isAuth;
+                this.role = this.readLocalStorageValue('user');
                 console.log(localStorage.getItem('user'));
               }
               else{
@@ -66,10 +72,10 @@ export class ConnexionComponent implements OnInit {
   }
 
   onSignOut() {
+    localStorage.clear();
     this.connexionService.signOut();
     alert('Déconnexion');
-    this.connexionStatus = this.connexionService.isAuth;
-    localStorage.clear();
+    this.role = this.readLocalStorageValue('user');
   }
 /*  onSubmit(){
   }*/
