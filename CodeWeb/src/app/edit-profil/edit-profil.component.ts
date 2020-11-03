@@ -12,23 +12,20 @@ import { isNull } from 'util';
 
 @Injectable()
 
-export class EditProfilComponent implements CanActivate {
+export class EditProfilComponent implements OnInit{
+  profil: any
+  constructor() { }
 
-  constructor(private router: Router) { }
-
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    // Récupération de l'utilisateur connecté
-    const isLoggedIn = !isNull(localStorage.getItem('user'));
-
-    if (!isLoggedIn) {
-      // Si pas d'utilisateur connecté : redirection vers la page de home
-      console.log('Vous n\'êtes pas connectés');
-      this.router.navigate(['/home']);
+  ngOnInit(){
+    if (!isNull(JSON.parse(localStorage.getItem('user')))){
+      this.profil = JSON.parse(localStorage.getItem('user'))
+      return this.profil;
     }
-    return isLoggedIn;
+    else {
+      console.log('profil inéxistant');
+    }
   }
+
 }
 
 

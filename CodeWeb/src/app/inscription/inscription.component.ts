@@ -10,6 +10,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class InscriptionComponent implements OnInit {
 
+  model: any = {};
   constructor(private http: HttpClient) {
   }
 
@@ -23,5 +24,5 @@ export class InscriptionComponent implements OnInit {
       );
     alert('inscription completer');
     location.reload();
-  };
+  }
 }

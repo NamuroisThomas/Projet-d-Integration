@@ -38,7 +38,15 @@ export class ConnexionComponent implements OnInit {
                 if (res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
                   res[Object.keys(res)[2]][0].mdpUtilisateur === data.formConnexionMdp) {
                   alert('connexion...');
-                  localStorage.setItem('user', JSON.stringify({nomUtilisateur: this.model.username, mdpUtilisateur: this.model.password}));
+                  localStorage.setItem('user', JSON.stringify({idUtilisateur: res[Object.keys(res)[2]][0].idUtilisateur,
+                    nomUtilisateur: res[Object.keys(res)[2]][0].nomUtilisateur,
+                    prenomUtilisateur: res[Object.keys(res)[2]][0].prenomUtilisateur,
+                    mailUtilisateur: res[Object.keys(res)[2]][0].mailUtilisateur,
+                    telUtilisateur: res[Object.keys(res)[2]][0].telUtilisateur,
+                    mdpUtilisateur: res[Object.keys(res)[2]][0].mdpUtilisateur,
+                    idStatus: res[Object.keys(res)[2]][0].idStatus,
+                    descriptionUtilisateur: res[Object.keys(res)[2]][0].descriptionUtilisateur,
+                    avertissementUtilisateur: res[Object.keys(res)[2]][0].avertissementUtilisateur}));
                   this.role = this.readLocalStorageValue('user');
                   console.log(localStorage.getItem('user'));
                 }

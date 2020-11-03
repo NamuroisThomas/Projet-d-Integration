@@ -18,7 +18,7 @@ const appRoutes: Routes = [
     children: [
       {path: 'home', component: HomeComponent},  /*remplacer HomeComponent ici par EditProfilComponent pour le moment pour eviter le dédoublement*/
       {path: 'listeAide', component: ListeDemandeComponent},
-      {path: 'demandeAide', component: DemandeAideComponent},
+      {path: 'demandeAide', canActivate: [AuthGuard], component: DemandeAideComponent},
       {path: 'inscription', component: InscriptionComponent},
       {path: 'contactPage', component: ContactComponent},
       {path: 'editProfil', canActivate: [AuthGuard], component: EditProfilComponent},
