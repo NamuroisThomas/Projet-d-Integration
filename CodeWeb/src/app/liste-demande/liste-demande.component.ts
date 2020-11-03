@@ -16,6 +16,9 @@ export class ListeDemandeComponent implements OnInit {
     this.api.listeDemandeCall().subscribe((res) => {
       console.log(res[Object.keys(res)[2]]);
       this.listeDemande = res[Object.keys(res)[2]];
+      for (const liste of this.listeDemande){
+        console.log(liste);
+      }
       console.log(this.listeDemande);
     });
   }

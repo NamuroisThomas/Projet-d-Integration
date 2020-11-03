@@ -3,7 +3,7 @@
     <h2>Page de connexion</h2>
     <form *ngIf="role === null" (ngSubmit)="onSignIn(f.value)" #f="ngForm" novalidate>
       <div class="form-group">
-        <label>Identifiant</label>
+        <label>Adresse mail</label>
         <input type="text" class="form-control" name="formConnexionMail" id="username" [(ngModel)]="model.username" #username="ngModel" placeholder='Saisissez votre adresse mail' required />
       </div>
       <div class="form-group">
