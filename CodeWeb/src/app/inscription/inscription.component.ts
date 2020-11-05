@@ -18,18 +18,16 @@ export class InscriptionComponent implements OnInit {
   }
 
   submit(data) {
+    if (data.formInscriptionMdp === data.formInscriptionMdpConfirmation){
     this.http.post('http://62.210.130.145:3000/inscription', data)
       .subscribe((res) =>
-        {
-            if (data.formInscriptionMdp === data.formInscriptionMdpConfirmation) {
-              alert('cool');
-            }
-            else{
-              alert('pas cool');
-            }
-          }
+        console.warn('result', res)
       );
-    console.log(data)
     alert('inscription completer');
+    location.reload();
+    }
+    else {
+      alert('Les mots de passe ne correspondent pas');
+    }
   }
 }
