@@ -67,7 +67,7 @@ router.get('/demandes', function(req,res,next){
 		});
 	} else {
 	    console.log('GET demande all');
-		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal, accpeteDemande FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie;', function(error, results, fields) {
+		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal, accepteDemande FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie;', function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
 				console.log("erreur query");
