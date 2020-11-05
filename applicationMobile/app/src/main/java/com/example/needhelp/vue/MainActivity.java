@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acceuil);
-        this.controle = Controle.getInstance();
+        controle = Controle.getInstance();
         ecouteGoToInscription();
         ecouteGoToConnexion();
     }

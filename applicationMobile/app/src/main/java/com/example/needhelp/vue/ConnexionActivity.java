@@ -21,7 +21,6 @@ public class ConnexionActivity extends AppCompatActivity {
         setContentView(R.layout.connexion_screen);
         init();
         ecouteGoToAcceuil();
-        //ecouteGoToHome();
         ecouteConnexion();
     }
 
@@ -72,71 +71,54 @@ public class ConnexionActivity extends AppCompatActivity {
         ((Button)findViewById(R.id.connexion)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-
-
-                // Variables locales
-                String mail = "";
-                String mdp = "";
-                String mailServer = "";
-                String mdpServer = "";
-
-                try {
-                    mail = (mailEdit.getText().toString());
-                    mdp = (mdpEdit.getText().toString());
+                try{
+                    final Thread t1 = new Thread(){
+                        public void run(){
+                            Log.d("Tread","**************** T1 commence");
+                            recupDB();
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            connexion();
+                        }
+                    };
+                    t1.start();
                 } catch (Exception e) {
-                    Log.d("Recup", "****************** Erreur recuperation donnees connexion\n****" + e);
+                    e.printStackTrace();
                 }
-                Utilisateur user = new Utilisateur(mail, mdp);
-                accesDistant.setMdpUser(mdp);
-                // Envoi de la requête à la DB
-                accesDistant.envoi("connexion", user.connexionConvertToJsonArray());
-
-                //connexion();
             }
-
         });
-        //connexion();
     }
 
-    private void connexion() {
-        String mdpServ = accesDistant.getMdpServeur();
-        String mdp = accesDistant.getMdpUser();
-        // Vérification du mot de passe
-        if (mdpServ.equals(mdp)){
+    public void connexion(){
+        if(accesDistant.isMdpCorrect() == true){
             Intent intent = new Intent(ConnexionActivity.this,HomeActivity.class);
             startActivity(intent);
-            Log.d("Conn", "*************** Connexion reussie");
-        }else{
-            Toast.makeText(ConnexionActivity.this,"Mot de passe incorrect",Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void recupUser() {
-    }
-/*
-    public void boucle() {
-        if (accesDistant.isNotFinished() == false) {
-            Thread thread=  new Thread(){
-                @Override
-                public void run(){
-                    try {
-                        synchronized(this){
-                            wait(3000);
-                        }
-                    }
-                    catch(InterruptedException ex){
-                    }
-
-                    //TODO
-                }
-            };
-            thread.start();
-            boucle();
-        } else {
-            Intent intent = new Intent(ConnexionActivity.this, HomeActivity.class);
-            startActivity(intent);
+        else {
+            Toast.makeText(ConnexionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
         }
-    }
+        Log.d("Tread","**************** T finit");
 
- */
+    }
+    public boolean recupDB(){
+        // Variables locales
+        String mail = "";
+        String mdp = "";
+
+        //Récupération des données dans les champs de connexion
+        try {
+            mail = (mailEdit.getText().toString());
+            mdp = (mdpEdit.getText().toString());
+        } catch (Exception e) {
+            Log.d("Recup", "****************** Erreur recuperation donnees connexion\n****" + e);
+        }
+        Utilisateur user = new Utilisateur(mail, mdp);
+        accesDistant.setMdpUser(mdp);
+        // Envoi de la requête à la DB
+        accesDistant.envoi("connexion", user.connexionConvertToJsonArray());
+        return true;
+    }
 }
