@@ -1,10 +1,8 @@
-
 <div *ngFor="let liste of listeDemande" class="card" style="width: 50rem;">
   <div class="list-group list-group-flush">
-    <div class="list-group-item">Nom utilisateur : {{liste.nom}}</div>
     <div class="list-group-item">Titre de la demande : {{liste.titreDemande}}</div>
     <div class="list-group-item">Catégorie : {{liste.nomCategorie}}</div>
-    <div class="list-group-item">Code postal : {{liste.idCodePostal}}</div>
-    <button class="btn btn-primary" type="submit">Détail</button>
+    <div class="list-group-item">Date : {{liste.dateDemande | date:"dd/MM/yyyy HH:mm"}}</div>
+    <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
   </div>
 </div>
