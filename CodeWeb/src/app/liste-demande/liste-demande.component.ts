@@ -10,6 +10,7 @@ import {HttpClient} from '@angular/common/http';
 export class ListeDemandeComponent implements OnInit {
 
   listeDemande: any;
+  filtre: string;
   demande: any;
   constructor(private api: GetListeDemandeService,
               private http: HttpClient) { }
@@ -25,7 +26,9 @@ export class ListeDemandeComponent implements OnInit {
     this.api.listeDemandeCall().subscribe((res) => {
       console.log(res[Object.keys(res)[2]]);
       this.listeDemande = res[Object.keys(res)[2]];
+      console.log(this.listeDemande);
     });
+    this.filtre = 'all';
   }
 
 }
