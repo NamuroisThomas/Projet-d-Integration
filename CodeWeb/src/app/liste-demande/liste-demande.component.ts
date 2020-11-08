@@ -10,8 +10,15 @@ import {HttpClient} from '@angular/common/http';
 export class ListeDemandeComponent implements OnInit {
 
   listeDemande: any;
+  listeDemande1: any;
+  listeDemande2: any;
   filtre: string;
   demande: any;
+  ordreAsc: any;
+  ordreDesc: any;
+  fa: any;
+  fb: any;
+
   constructor(private api: GetListeDemandeService,
               private http: HttpClient) { }
 
@@ -26,7 +33,20 @@ export class ListeDemandeComponent implements OnInit {
     this.api.listeDemandeCall().subscribe((res) => {
       console.log(res[Object.keys(res)[2]]);
       this.listeDemande = res[Object.keys(res)[2]];
+      this.listeDemande1 = this.listeDemande.slice();
+      this.listeDemande2 = this.listeDemande.slice();
+      this.ordreDesc = this.listeDemande1.sort((a, b) => {
+        this.fa = new Date(a.dateDemande);
+        this.fb = new Date(b.dateDemande);
+        return this.fa - this.fb;
+      });
+      this.ordreAsc =  this.listeDemande2.sort((a, b) => {
+        this.fa = new Date(a.dateDemande);
+        this.fb = new Date(b.dateDemande);
+        return this.fb -  this.fa;
+      });
       console.log(this.listeDemande);
+      console.log(this.ordreDesc);
     });
     this.filtre = 'all';
   }
