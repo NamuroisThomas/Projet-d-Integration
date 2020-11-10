@@ -88,6 +88,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     afficheResult(nom,prenom,mail,tel,mdp);
                     Utilisateur user = new Utilisateur(nom,prenom,mail,tel,mdp);
                     AccesDistant accesDistant = new AccesDistant();
+                    Log.d("envoi inscript","*************" + user.inscriptionConvertToJSONArray());
                     accesDistant.envoi("inscription", user.inscriptionConvertToJSONArray());
 
                     // Bouton pour aller vers la page home

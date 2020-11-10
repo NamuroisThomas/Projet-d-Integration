@@ -20,24 +20,25 @@ import org.json.JSONObject;
 public class AccesDistant implements AsyncResponse {
 
     //constante
-    private static final String SERVEURADDR = "http://192.168.1.9/needhelp/serveurAndroid.php";
+    //private static final String SERVEURADDR = "http://192.168.1.9/needhelp/serveurAndroid.php";
+    private static final String SERVEURADDR = "http://62.210.130.145/serveurAndroid.php";
     //Variables
     private Controle controle;
     private String mailServeur;
     private String mdpServeur;
     private String mdpUser;
-    private boolean finishExecution = false;
-    private Activity activity;
+    private boolean mdpCorrect = false;
 
     /**
      * Constructeur
      */
-    public AccesDistant(){
+    public AccesDistant() {
         controle = Controle.getInstance();
     }
 
     /**
      * retour serveur distant
+     *
      * @param output
      */
     @Override
@@ -49,7 +50,7 @@ public class AccesDistant implements AsyncResponse {
         // dans message[1] : reste du message
 
         // s'il  ya 2 case
-        if(message.length>1) {
+        if (message.length > 1) {
             if (message[0].equals("enreg")) {
                 Log.d("enreg", "***********" + message[1]);
             } else if (message[0].equals("dernier")) {
@@ -61,23 +62,32 @@ public class AccesDistant implements AsyncResponse {
                 } catch (JSONException e) {
                     Log.d("erreur ", "Conversiont JSON impossible ***********" + e.toString());
                 }
-            }else if (message[0].equals("Erreur !")) {
+            } else if (message[0].equals("Erreur !")) {
                 Log.d("Erreur !", "***********" + message[1]);
             } else if (message[0].equals("connexion")) {
                 try {
                     JSONObject info = new JSONObject(message[1]);
-                   mailServeur = info.getString("mailUtilisateur");
-                   mdpServeur = info.getString("mdpUtilisateur");
-                   Log.d("HIT", "***********" + message[1]);
-                   Utilisateur userServ = new Utilisateur(mailServeur,mdpServeur);
-                   Utilisateur user = new Utilisateur(mailServeur,mdpUser);
-                  // activity.setContentView(R.layout.home);
-                   //setFinishExecution(true);
+                    mailServeur = info.getString("mailUtilisateur");
+                    mdpServeur = info.getString("mdpUtilisateur");
+                    Log.d("HIT", "***********" + message[1]);
+                    Utilisateur userServ = new Utilisateur(mailServeur, mdpServeur);
+                    Utilisateur user = new Utilisateur(mailServeur, mdpUser);
+                    //verification(userServ.mdp, user.mdp);
+                    if (mdpServeur.equals(mdpUser) && mdpUser != "") {
+                        //ConnexionActivity conn = new ConnexionActivity();
+                        //conn.connexion();
+                        Log.d("Conn", "*************** Connexion reussie");
+                        setMdpCorrect(true);
+                    } else {
+                        Log.d("ErrConn", "*************** mdp incorrect");
+                        setMdpCorrect(false);
+                    }
+
                 } catch (Exception e) {
                     Log.d("ERREUR", "************** Recup donnee connexions echouee\n****" + e);
                     ConnexionActivity conn = new ConnexionActivity();
                 }
-            }else{
+            } else {
                 Log.d("ERREUR", "*************** Aucun choix valide");
             }
         }
@@ -85,61 +95,29 @@ public class AccesDistant implements AsyncResponse {
 
     /**
      * Methode pour envoyer des donnees à la base de donnees
+     *
      * @param operation
      * @param lesDonneesJSON
      */
-    public void envoi(String operation, JSONArray lesDonneesJSON){
+    public void envoi(String operation, JSONArray lesDonneesJSON) {
         AccessHTTP accesDonnees = new AccessHTTP();
         // lien de délégation
         accesDonnees.delegate = this;
         //ajout parametre
-        accesDonnees.addParam("operation",operation);
+        accesDonnees.addParam("operation", operation);
         accesDonnees.addParam("lesdonnees", lesDonneesJSON.toString());
         // appel au serveur
         accesDonnees.execute(SERVEURADDR);
-    }
-
-    /**
-     * Methode pour recuperer des donnees
-     * @param operation
-     */
-    public void recup(String operation){
-        AccessHTTP accesDonnees = new AccessHTTP();
-        // lien de délégation
-        accesDonnees.delegate = this;
-        //ajout parametre
-        accesDonnees.addParam("operation",operation);
-        // appel au serveur
-        accesDonnees.execute(SERVEURADDR);
-    }
-
-    private void verification(String mdpServ, String mdp) {
-        // Vérification du mot de passe
-        if (mdpServ.equals(mdp) && mdp!=""){
-            ConnexionActivity conn = new ConnexionActivity();
-            finishExecution = true;
-            Log.d("Conn", "*************** Connexion reussie");
-        }else{
-            Log.d("ErrConn", "*************** mdp incorrect");
-        }
     }
 
     public void setMdpUser(String mdpUser) {
         this.mdpUser = mdpUser;
     }
 
-    public String getMdpServeur() {
-        return mdpServeur;
+    public void setMdpCorrect(boolean mdpCorrect) {
+        this.mdpCorrect = mdpCorrect;
     }
-    public String getMdpUser() {
-        return mdpUser;
-    }
-
-    public void setFinishExecution(boolean finishExecution) {
-        this.finishExecution = finishExecution;
-    }
-
-    public boolean isFinishExecution() {
-        return finishExecution;
+    public boolean isMdpCorrect() {
+        return mdpCorrect;
     }
 }

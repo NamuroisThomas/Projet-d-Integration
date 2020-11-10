@@ -39,20 +39,15 @@ public final class Controle {
      * @return instance
      */
     public static final Controle getInstance(){
-        /*
+
         if(contexte!=null){
             Controle.contexte=contexte;
         }
-    */
         if (Controle.instance == null){
             Controle.instance = new Controle();
             accesDistant = new AccesDistant();
             //accesDistant.envoi("dernier", new JSONArray());
         }
         return Controle.instance;
-    }
-    public void setUser(Utilisateur user){
-        Controle.user = user;
-        ((ConnexionActivity)contexte).recupUser();
     }
 }
