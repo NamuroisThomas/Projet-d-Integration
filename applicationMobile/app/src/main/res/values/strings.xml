@@ -10,5 +10,10 @@
     <string name="confirmation">Confirmer le mot de passe</string>
     <string name="retour">Retour</string>
     <string name="deconnexion">Deconnexion</string>
+    <string name="profil">Profil</string>
+    <string name="demandes">Demandes</string>
+    <string name="enCours">En cours</string>
+    <string name="mesDemandes">Mes demandes</string>
+    <string name="ajoutDemandes">Nouvelle demande</string>
 
 </resources>
