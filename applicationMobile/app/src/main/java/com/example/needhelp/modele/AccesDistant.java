@@ -74,8 +74,6 @@ public class AccesDistant implements AsyncResponse {
                     Utilisateur user = new Utilisateur(mailServeur, mdpUser);
                     //verification(userServ.mdp, user.mdp);
                     if (mdpServeur.equals(mdpUser) && mdpUser != "") {
-                        //ConnexionActivity conn = new ConnexionActivity();
-                        //conn.connexion();
                         Log.d("Conn", "*************** Connexion reussie");
                         setMdpCorrect(true);
                     } else {
@@ -87,6 +85,8 @@ public class AccesDistant implements AsyncResponse {
                     Log.d("ERREUR", "************** Recup donnee connexions echouee\n****" + e);
                     ConnexionActivity conn = new ConnexionActivity();
                 }
+            }else if (message[0].equals("demandeTout")){
+                Log.d("demandes","*****************" + message[1]);
             } else {
                 Log.d("ERREUR", "*************** Aucun choix valide");
             }

@@ -13,11 +13,12 @@ import com.example.needhelp.vue.ConnexionActivity;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public final class Controle {
 
     private static Controle instance = null;
-    private static Utilisateur user;
+    private static Demande demande;
     private static AccesDistant accesDistant;
     private static Context contexte;
     private ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
@@ -41,8 +42,24 @@ public final class Controle {
         if (Controle.instance == null){
             Controle.instance = new Controle();
             accesDistant = new AccesDistant();
-            //accesDistant.envoi("dernier", new JSONArray());
+            accesDistant.envoi("demandesTout", new JSONArray());
         }
         return Controle.instance;
+    }
+
+    public void creerDemandes(String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, int idCodePostal){
+        demande = new Demande(new Date(),titreDemande,descriptionDemande,idUtilisateur,idCategorie,defraiement,idCodePostal);
+        /**
+         * A FAIRE!!!!
+         * avec accès distant méthode pour enregistrer une demandes dans la DB
+         */
+    }
+
+    public ArrayList<Demande> getLesDemandes() {
+        return lesDemandes;
+    }
+
+    public void setLesDemandes(ArrayList<Demande> lesDemandes) {
+        this.lesDemandes = lesDemandes;
     }
 }
