@@ -20,7 +20,7 @@ public final class Controle {
     private static Utilisateur user;
     private static AccesDistant accesDistant;
     private static Context contexte;
-    private ArrayList<Demande> lesDemandes = new ArrayList<Demande>()
+    private ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
 
     /**
      * Constructeur
