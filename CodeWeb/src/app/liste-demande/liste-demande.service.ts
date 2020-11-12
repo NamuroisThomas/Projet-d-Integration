@@ -22,6 +22,9 @@ export class GetListeDemandeService {
     return this.demandeDetail;
   };
 
+  listeCategorieCall(){
+    return this.http.get('http://62.210.130.145:3000/categories');
+  }
 
   listeDemandeCall(){
     return this.http.get('http://62.210.130.145:3000/demandes');

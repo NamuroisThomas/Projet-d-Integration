@@ -1,20 +1,30 @@
-<div class="col-md-6 col-md-offset-3">
-  <div class="login-wrapper">
-    <h2>Page de connexion</h2>
-    <form *ngIf="role === null" (ngSubmit)="onSignIn(f.value)" #f="ngForm" novalidate>
-      <div class="form-group">
-        <label>Adresse mail</label>
-        <input type="text" class="form-control" name="formConnexionMail" id="username" [(ngModel)]="model.username" #username="ngModel" placeholder='Saisissez votre adresse mail' required />
+<div class="wrapper-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="login-wrapper">
+          <h2>Page de connexion</h2>
+          <form *ngIf="role === null" (ngSubmit)="onSignIn(f.value)" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label>Adresse mail</label>
+              <input type="text" class="form-control" name="formConnexionMail" id="username"
+                     [(ngModel)]="model.username" #username="ngModel" placeholder='Saisissez votre adresse mail'
+                     required/>
+            </div>
+            <div class="form-group">
+              <label>Mot de passe</label>
+              <input type="password" class="form-control" name="formConnexionMdp" id="password"
+                     [(ngModel)]="model.password" #password="ngModel" placeholder='Saisissez votre mot de passe'
+                     required/>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" [disabled]="!f.form.valid">Connexion</button>
+            </div>
+          </form>
+          <button class="btn btn-primary" *ngIf="role !== null" (click)="onSignOut()">déconnexion</button>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Mot de passe</label>
-        <input type="password" class="form-control" name="formConnexionMdp" id="password" [(ngModel)]="model.password" #password="ngModel" placeholder='Saisissez votre mot de passe' required />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" [disabled]="!f.form.valid">Connexion</button>
-      </div>
-    </form>
-    <button class="btn btn-primary" *ngIf="role !== null" (click)="onSignOut()">déconnexion</button>
+    </div>
   </div>
 </div>
 <!--

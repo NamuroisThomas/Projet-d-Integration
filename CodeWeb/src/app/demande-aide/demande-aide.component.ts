@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import { MessageService } from 'primeng/api';
+import {HttpClient} from '@angular/common/http';
+import {GetListeDemandeService} from '../liste-demande/liste-demande.service';
 
 @Component({
   selector: 'app-demande-aide',
@@ -13,38 +15,49 @@ export class DemandeAideComponent implements OnInit {
 
  public demandeAide: FormGroup;
  public errorMessage: string;
-
- public formDemandeAide = new FormGroup({
-    Title: new FormControl(null),
-    Description: new FormControl(null)
-  })
+ role: any;
+ listeCategorie: any;
+ levelNum: number;
+ booleanNum: number;
+ levels: [
+    {num: 0, name: 'oui'},
+    {num: 1, name: 'non'}
+  ];
 
   constructor(private formBuilder: FormBuilder,
               private messageService: MessageService,
-              private router: Router
+              private router: Router,
+              private http: HttpClient,
+              private api: GetListeDemandeService
               ) { }
 
   ngOnInit(){
-    this.initForm();
+    this.role = JSON.parse(localStorage.getItem('user'));
+    this.api.listeCategorieCall().subscribe((res) => {
+      console.log(res[Object.keys(res)[2]]);
+      this.listeCategorie = res[Object.keys(res)[2]];
+  });
+    console.log(this.listeCategorie);
   }
 
-  initForm(){
-    this.demandeAide = this.formBuilder.group({
-      titre: ['', [Validators.required]],
-      description: ['', [Validators.required]]
-    });
-  }
+
   // onSubmit() {
   //   const titre =  this.demandeAide.get('titre').value;
   //   const description = this.demandeAide.get('description').value;
   //
   //   console.log(titre, description);
   // }
-
-  submit(){
-    console.log(this.formDemandeAide.value);
-    this.messageService.add({severity:'success', summary: 'Success Message', detail:'Order submitted'});
-
+  toNumber(){
+    this.levelNum = +this.levelNum;
+    this.booleanNum = +this.booleanNum;
+    console.log(this.levelNum);
+    console.log(this.booleanNum);
+  }
+  submit(data){
+      this.http.post('https://jsonplaceholder.typicode.com/posts', data)
+        .subscribe((res) =>
+          console.warn('result', res)
+        );
   }
 }
 

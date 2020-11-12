@@ -1,38 +1,46 @@
 
-<p-fieldset>
+
+<div class="container">
   <h1>Créer une nouvelle demande d'aide</h1>
   <div class="row">
-    <div class="col-6">
       <img src="./assets/img/svg/undraw_google_docs_jf93.svg" alt="Image demande d'aide" width="100vw" height="100vh">
-    </div>
     <div class="col-6">
-        <form [formGroup]="formDemandeAide" method="POST" action="62.210.130.145:3000/utilisateur">
-          <div class="row">
+        <form #dPost="ngForm" (ngSubmit)="submit(dPost.value)" >
             <div class="form-group col-lg-12 col-md-12">
-              <label for="titre">Intitulé</label>
+              <label>Intitulé</label>
               <input type="text"
-                     id="titre"
                      class="form-control"
-                     formControlName="Title" placeholder="Ex: Courses">
+                     name="formDemandeTitre" placeholder="Ex: Courses" required ngModel>
+            </div>
+           <div class="form-group col-lg-12 col-md-12">
+              <label>Description</label>
+              <input type="text"
+                     class="form-control"
+                     name="formDemandeDescription" placeholder="ex: besoin d'une aide pour faire des courses mardi" required ngModel>
+            </div>
+          <div class="toggle-group">
+            <label>Categorie</label>
+            <div *ngFor="let choice of listeCategorie">
+              <input type="radio"
+                     name="formDemandeIdCategorie"
+                     value='{{ choice.idCategorie }}'
+                     [(ngModel)]="levelNum"
+                     (ngModelChange)="toNumber()"/>
+              <label class="toggle-button">{{ choice.nomCategorie }}</label>
             </div>
           </div>
-          <div class="row">
-            <div class="form-group col-lg-12 col-md-12">
-              <label for="description">Description</label>
+          <div class="form-group col-lg-12 col-md-12">
+              <label>Code postal</label>
               <input type="text"
-                     id="description"
                      class="form-control"
-                     formControlName="Description" placeholder="ex: besoin d'une aide pour faire des courses mardi" [required]="true">
-            </div>
+                     name="formDemandeIdCodePostal" placeholder="ex: 1390" required ngModel>
           </div>
-          <div class="row">
             <div class="form-group col-lg-12 col-md-12">
               <button class="btn btn-primary"
                       type="submit"
-                      [disabled]="formDemandeAide.invalid" (click)="submit()">Enregistrer</button>
+                      [disabled]="!dPost.form.valid">Enregistrer</button>
             </div>
-          </div>
         </form>
     </div>
   </div>
-</p-fieldset>
+</div>
