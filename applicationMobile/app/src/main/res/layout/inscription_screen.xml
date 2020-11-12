@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_centerHorizontal="true"
-    android:background="#3F51B5"
+    android:background="#1B2AB1"
 
     android:clipToPadding="true"
     android:orientation="vertical">
@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dip"
         android:text="@string/nom"
-
+        android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -41,6 +41,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="@string/prenom"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -65,6 +66,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="@string/mail"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -89,6 +91,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="@string/gsm"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -113,6 +116,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="@string/password"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -137,6 +141,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="@string/confirmation"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
 
