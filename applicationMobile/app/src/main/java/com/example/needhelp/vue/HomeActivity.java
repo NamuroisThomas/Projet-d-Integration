@@ -16,9 +16,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         ecouteGoToAcceuil();
+
     }
     private void ecouteGoToAcceuil(){
-        ((Button)findViewById(R.id.deconnexion)).setOnClickListener(new Button.OnClickListener(){
+        ((Button)findViewById(R.id.buttonDeconnexionHome)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this,MainActivity.class);
