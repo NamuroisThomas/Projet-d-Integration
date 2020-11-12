@@ -9,17 +9,33 @@ router.get('/', function(req, res, next) {
 
 //Test de l'API retoure toutes les catégories
 router.get('/test', function(req,res,next){
-        console.log('API test');
-        res.locals.connection.query('SELECT * FROM categories', function(error, results, fields) {
-            if (error!=null) {
-                res.redirect(529, '/error');
-                console.log("erreur query");
-            }
-            else {
-                res.send({"status": 200, "error": null, "response": results});
-                console.log("query OK");
-            }
-        });
+    console.log('API test');
+    res.locals.connection.query('SELECT * FROM categories', function(error, results, fields) {
+        if (error!=null) {
+            res.redirect(529, '/error');
+            console.log("erreur query");
+        }
+        else {
+            res.send({"status": 200, "error": null, "response": results});
+            console.log("query OK");
+        }
+    });
+});
+
+
+//Retoure toutes les catégories
+router.get('/categories', function(req,res,next){
+    console.log('API test');
+    res.locals.connection.query('SELECT * FROM categories', function(error, results, fields) {
+        if (error!=null) {
+            res.redirect(529, '/error');
+            console.log("erreur query");
+        }
+        else {
+            res.send({"status": 200, "error": null, "response": results});
+            console.log("query OK");
+        }
+    });
 });
 
 
