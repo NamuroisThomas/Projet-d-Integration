@@ -2995,3 +2995,38 @@ ALTER TABLE `evaluations`
 ALTER TABLE `utilisateurs`
   ADD CONSTRAINT `Status` FOREIGN KEY (`idStatus`) REFERENCES `status` (`idStatus`);
 COMMIT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ALTER TABLE utilisateurs MODIFY COLUMN descriptionUtilisateur varchar(400) NOT NULL DEFAULT ' ';
+
+ALTER TABLE utilisateurs MODIFY COLUMN idStatus int DEFAULT 4;
+
+
+ALTER TABLE utilisateurs MODIFY COLUMN avertissementUtilisateur int DEFAULT 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

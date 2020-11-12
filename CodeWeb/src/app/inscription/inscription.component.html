@@ -1,40 +1,34 @@
-<h2>NeedHelp ?</h2>
-<div id="formulaireIncription" class="col-sm-8 col-sm-offset-2">
-  <form >
-
-    <div ><label for="nom">Nom :</label>
-      <input class="form-control"  [(ngModel)]="nom" id="nom" name="nom" type="text" placeholder="ex: Dupont"/></div>
-    <div><label for="prenom">Prénom :</label>
-      <input class="form-control" [(ngModel)]="prenom" id="prenom" name="prenom" type="text" placeholder="ex: Jean"/></div>
-    <div><label for="email">E-mail :</label>
-      <input class="form-control" [(ngModel)]="email" id="email" name="email" type="email" placeholder="ex: jean@dupont.com"/></div>
-    <div><label for="tel">Téléphone :</label>
-      <input class="form-control" [(ngModel)]="telephone" id="tel" name="tel" type="tel" placeholder="ex: 0469696969"></div>
-    <div><label for="mdp">Mot de passe:</label>
-      <input class="form-control" [(ngModel)]="mdp" id="mdp" name="mdp" type="password" required placeholder="*******"></div>
-    <div><label for="mdp">Mot de passe:</label>
-      <input class="form-control" [(ngModel)]="mdpconfirmation" id="mdpconfirmation" name="mdp" type="password" required></div>
-<!--    EN COMMENTAIRE POUR LE MOMENT, PEUT TOUJOURS SERVIR DANS UNE AUTRE ROUTE
-
-    <div id="status">Status :
-
-      <input name="options"  [(ngModel)]="options" type="radio" [value]="false" [checked]="!options" /> PMR
-
-          <input name="options" [(ngModel)]="options" type="radio" [value]="true" [checked]="options"/> Aide
-        </div>
-        <div *ngIf="!options">
-        </div>
-        <div *ngIf="options">
-          <P>Domaine des aides :
-          <UL>
-            <LI><label><INPUT type="checkbox" name="aucun" checked>Aucun </label>
-            <LI><label><INPUT type="checkbox" name="deplacement"> Déplacement </label>
-            <LI><label><INPUT type="checkbox" name="bricolage"> Bricolage </label>
-            <LI><label><INPUT type="checkbox" name="course"> Course </label>
-          </UL>
-        </div>
--->
-
-    <button (click)="afficherConsole()" class="btn btn-success">s'inscrire</button>
-  </form>
+<div class="col-sm-8 col-sm-offset-2">
+  <h2> Inscription </h2>
+  <div class="col-6">
+   <form #userPost="ngForm" (ngSubmit)="submit(userPost.value)">
+     <div class="form-group">
+      <label>Nom</label>
+        <input class="form-control" type="text" name="formInscriptionNom" ngModel placeholder="Labeuh" required>
+     </div>
+     <div class="form-group">
+       <label>Prénom</label>
+        <input class="form-control" type="text" name="formInscriptionPrenom" ngModel placeholder="Pierre" required>
+     </div>
+     <div class="form-group">
+       <label>Adresse mail</label>
+        <input class="form-control" type="text" name="formInscriptionMail" ngModel placeholder="Labeuh@hotmail.com" required>
+     </div>
+     <div class="form-group">
+       <label>Numéro de téléphone</label>
+         <input class="form-control" type="text" name="formInscriptionTel" ngModel placeholder="+3215457865" required>
+     </div>
+     <div class="form-group">
+       <label>Mot de passe</label>
+         <input class="form-control" type="text" name="formInscriptionMdp" ngModel placeholder="******" required>
+     </div>
+     <div class="form-group">
+       <label>Confirmation du mot de passe</label>
+         <input class="form-control" type="text" name="formInscriptionMdpConfirmation" ngModel placeholder="******" required>
+     </div>
+     <div class="form-group">
+       <button class="btn btn-primary" type="submit">Inscription</button>
+     </div>
+   </form>
+  </div>
 </div>
