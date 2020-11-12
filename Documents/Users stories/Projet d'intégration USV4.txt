@@ -1,90 +1,53 @@
 User Stories :
 
-* US01 : inscription
+* US01 :
 
-En tant qu’utilisateur, je souhaite pouvoir m’inscrire, afin de pouvoir me créer un compte et d'accéder aux fonctionnalités du site web.
-
-Description : 
-L’inscription devrait se faire à partir d’un bouton présent sur le site web, il doit rediriger les utilisateurs à une page d’inscription présentant un formulaire où ils pourront rentrer des informations à leur sujet.
-Par exemple : nom, prénom, adresse mail, téléphone, mot de passe ainsi qu’une confirmation du mot de passe pour être sûr de ne pas s’être trompé précédemment.
-L’adresse mail et le numéro de téléphone sont unique donc si l'un d'eux est déjà présent dans la base de données, l'inscription sera refusée. 
-Si le formulaire n’est pas rempli, le bouton d’envoi n’est pas cliquable. 
-En cas de problème au niveau de la complétion du formulaire, le site web affichera un pop-up contenant un message d’erreur.
-Lors de l’envoi, un pop-up avec le message « inscription complété. » et lorsque le bouton ‘ok’ du pop-up est cliqué, la page se refresh 
-
-La méthode utilisé lors de l’inscription est la méthode post Inscription venant de l’API. Cette API demande à l’utilisateur de rentrer les informations suivantes : nom, prénom, téléphone, mail et mot de passe. 
-
-(François Temmerman). 
-
-* US01 Bis : inscription (mobile)
-
-En tant qu’utilisateur, je souhaite pouvoir m’inscrire afin de pouvoir créer mon compte et d’avoir accès aux différentes fonctionnalités de l’application mobile.
+En tant qu’utilisateur, je souhaite pouvoir m’inscrire sur le site web, afin de pouvoir me différencier des autres utilisateurs.
 
 Description : 
-L’inscription devrait se faire à partir d’un bouton présent sur l’application mobile, il doit rediriger les utilisateurs à une page d’inscription présentant un formulaire où ils pourront rentrer des informations à leur sujet.
-Par exemple : nom, prénom, adresse mail, téléphone, mot de passe ainsi qu’une confirmation du mot de passe pour être sûr de ne pas s’être trompé précédemment.
-L’adresse mail et le numéro de téléphone sont unique donc si l'un d'eux est déjà présent dans la base de données, l'inscription sera refusée. 
-Si le formulaire n’est pas rempli, le bouton d’envoi est cliquable, mais un message d’erreur « saisie incorrecte » apparaitra au-dessus du bouton. 
-En cas de problème au niveau de la complétion du formulaire, le site web affichera un message d’erreur « saisie incorrecte ».
+L’inscription devrait se faire à partir d’un bouton présent sur l’application mobile et le site web, il doit rediriger les utilisateurs à une page d’inscription présentant un formulaire où ils pourront rentrer des informations à leur sujet.
+Par exemple : nom, prénom, adresse mail, téléphone, mot de passe ainsi qu’une confirmation du mot de passe pour être sûr de ne pas s’être trompé précédemment   
+(François Temmerman).
 
-La méthode utilisé lors de l’inscription est la méthode post Inscription venant de l’API. Cette API demande à l’utilisateur de rentrer les informations suivantes : nom, prénom, téléphone, mail et mot de passe. 
+* US01 Bis 
 
-
-
-* US02 : connexion (web)
-
-En tant qu’utilisateur, je souhaite pouvoir me connecter au site web, afin d’avoir accès à mon compte et de pouvoir commencer à utiliser le site.
+En tant qu’utilisateur, je souhaite pouvoir m’inscrire sur l’application, afin de pouvoir me différencier des autres utilisateurs.
 
 Description : 
-La connexion devrait se faire à partir d’un bouton présent sur le site web, il doit rediriger les utilisateurs à une page de connexion présentant un formulaire où ils pourront rentrer leur adresse mail et leur mot de passe afin de pouvoir avoir accès à leur compte.
-Si l’un des champs n’est pas complet, le bouton de connexion n’est pas cliquable.
-Si l’adresse mail n’est pas connue, le site affiche un pop-up avec l’information « mail inexistant vous devez créer un compte. ». 
-Si l’adresse est correcte, mais que le mot de passe est incorrect, le site affiche un pop-up avec l’information « mot de passe incorrect. ». 
-Lors de l’envoi, un pop-up s’affiche avec le message « connexion… » lorsque le bouton ‘ok’ du pop-up est cliqué, la page se resfresh et un bouton de déconnexion apparait.  
+L’inscription devrait se faire à partir d’un bouton présent sur l’application mobile et le site web, il doit rediriger les utilisateurs à une page d’inscription présentant un formulaire où ils pourront rentrer des informations à leur sujet.
+Par exemple : nom, prénom, adresse mail, téléphone, mot de passe ainsi qu’une confirmation du mot de passe pour être sûr de ne pas s’être trompé précédemment   
 
-La méthode utilisé lors de la connexion est la méthode GET mailExist de venant de l’API. Cette API va rechercher toutes les informations d’un utilisateur en fonction du mail envoyé. 
+* US02 : 
 
-
-* US02 bis : connexion (mobile)
-
-En tant qu’utilisateur, je souhaite pouvoir me connecter à l’application mobile, afin d’avoir accès à mon compte et de pouvoir commencer à utiliser le site.
+En tant qu’utilisateur, je souhaite pouvoir me connecter au site web, afin d’avoir accès à mes demandes ou de pouvoir commencer à aider des personnes dans le besoin.
 
 Description : 
-La connexion devrait se faire à partir d’un bouton présent sur l’application mobile, il doit rediriger les utilisateurs à une page de connexion présentant un formulaire où ils pourront rentrer leur adresse mail et leur mot de passe afin de pouvoir avoir accès à leur compte.
-Si l’un des champs n’est pas complet, le bouton de connexion est cliquable, mais un message d’erreur apparaîtra « saisie incorrect ».
-Si l’adresse mail n’est pas connue, l’application affiche un message avec l’information « mail inconnu ». 
-Si l’adresse est correcte, mais que le mot de passe est incorrect, l’application affiche un pop-up avec l’information « mot de passe incorrect. ».  
+La connexion devrait se faire à partir d’un bouton présent sur l’application mobile et le site web, il doit rediriger les utilisateurs à une page de connexion présentant un formulaire où ils pourront rentrer leur adresse mail et leur mot de passe afin de pouvoir avoir accès à leur compte.
 
-La méthode utilisé lors de la connexion est la méthode GET mailExist de venant de l’API. Cette API va rechercher toutes les informations d’un utilisateur en fonction du mail envoyé
+
+
+
+
+* US02 Bis : 
+
+En tant qu’utilisateur, je souhaite pouvoir me connecter à l’application mobile, afin d’avoir accès à mes demandes ou de pouvoir commencer à aider des personnes dans le besoin.
+
+Description : 
+La connexion devrait se faire à partir d’un bouton présent sur l’application mobile et le site web, il doit rediriger les utilisateurs à une page de connexion présentant un formulaire où ils pourront rentrer leur adresse mail et leur mot de passe afin de pouvoir avoir accès à leur compte.
 (Simon Magnes)
 
 
 
-
-
-
-
-
-* US03 : Demande d’aide (web)
-
+* US03 :
 En tant qu’utilisateur, je souhaite pouvoir formuler une demande, afin de recevoir l’aide d’une personne utilisant le site web. 
-
 Description : 
-La demande d’aide devrait se faire à partir d’un bouton présent sur le site web, il doit rediriger les utilisateurs à une page présentant un formulaire dans lequel l’utilisateur peut écrire des informations concernant leur demande à savoir nom de tâche, description, catégorie de la tâche, le code postal du lieu dans lequel la tâche a été demandé.
-Si l’un des champs n’est pas rempli, le bouton n’est pas cliquable. 
-Lors de l’envoi aucun pop-up, la tâche est envoyée directement dans la base de données.
-
-La méthode utilisée pour l’inscription des demandes est la méthode POST demande venant de l’API. Cette API demande à l’utilisateur de rentrer les informations suivantes : titre de la demande, description de la demande, 
-
-
-
+La demande d’aide devrait se faire à partir d’un bouton présent sur l’application mobile et le site web, il doit rediriger les utilisateurs à une page présentant un formulaire dans lequel l’utilisateur peut écrire des informations concernant leur demande (nom de tâche, description, catégorie de la tâche, localisation de la tâche).
 (Luk Brian)
 
-* US03 Bis : demande d’aide (mobile)
-
+* US03 Bis :
 En tant qu’utilisateur, je souhaite pouvoir formuler une demande, afin de recevoir l’aide d’une personne utilisant l’application. 
 Description : 
-La demande d’aide devrait se faire à partir d’un bouton présent sur l’application mobile et le site web, il doit rediriger les utilisateurs à une page présentant un formulaire dans lequel l’utilisateur peut écrire des informations concernant leur demande (nom de tâche, description, catégorie de la tâche,).
+La demande d’aide devrait se faire à partir d’un bouton présent sur l’application mobile et le site web, il doit rediriger les utilisateurs à une page présentant un formulaire dans lequel l’utilisateur peut écrire des informations concernant leur demande (nom de tâche, description, catégorie de la tâche, localisation de la tâche).
 
 * US04 :
 
@@ -176,9 +139,6 @@ En tant qu’utilisateur, je souhaite que lorsque je décide d’aider quelqu’un, je 
 
 Description :
 Tout comme la liste de demande, l’utilisateur doit-être capable de voir celle(s) qu’il a acceptée(s), l’affichage sera le même que l’affichage de la liste de demande, avec l’accès à détails si l’utilisateur qui veut aider à oublié la tâche qu’il avait au préalable accepté. 
-
-
-
 
 * US11 :
 
