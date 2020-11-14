@@ -97,11 +97,11 @@ router.get('/demandes', function(req,res,next){
 });
 
 
-//Vérification de l'utilisateur (nom, prenom) et de son mot de passe sur base de l'adresse mail
+//Retourne toutes les informations sur l'utilisateur à partir de son e-mail
 router.get('/utilisateur', function(req,res,next){
     var mailUtilisateur = req.query.mail;
     console.log('GET user + MDP by email '+mailUtilisateur);
-	res.locals.connection.query('SELECT CONCAT(nomUtilisateur, " ", prenomUtilisateur) as utilisateur , mdpUtilisateur as mdp FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur], function(error, results, fields) {
+	res.locals.connection.query('SELECT * FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur], function(error, results, fields) {
 		if (error!=null) {
 			res.redirect(529, '/error');
 			console.log("erreur query");
@@ -114,10 +114,11 @@ router.get('/utilisateur', function(req,res,next){
 });
 
 
-//Verif si mail est deja pris
+//Retourne le nombre de fois que le mail est utilisé dans la base de données
 router.get('/mailExist', function(req,res,next){
     var mailUtilisateur = req.query.mail;
     console.log('GET mail exist');
+    //res.locals.connection.query('SELECT COUNT(mailUtilisateur) AS nbre FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur] , function(error, results, fields) {
     res.locals.connection.query('SELECT * FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur] , function(error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
