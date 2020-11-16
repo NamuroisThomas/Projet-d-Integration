@@ -17,6 +17,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class AccesDistant implements AsyncResponse {
 
     //constante
@@ -87,6 +89,33 @@ public class AccesDistant implements AsyncResponse {
                 }
             }else if (message[0].equals("demandeTout")){
                 Log.d("demandes","*****************" + message[1]);
+                try {
+                    JSONArray jsonInfo = new JSONArray(message[1]);
+                    ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
+                    for(int k=0;k<jsonInfo.length();k++){
+                        JSONObject info = new JSONObject(jsonInfo.get(k).toString());
+
+                        // Ajout des valeur de la demandes
+                        Integer idDemande = info.getInt("idDemande");
+                        String titreDemande = info.getString("titreDemande");
+                        String descriptionDemande = info.getString("descriptionDemande");
+                        String dateDemande = info.getString("dateDemande");
+                        Integer idUtilisateur = info.getInt("idUtilisateur");
+                        Integer idCategorie = info.getInt("idCategorie");
+                        Integer defraiementDemande = info.getInt("defraiementDemande");
+                        Integer idCodePostal = info.getInt("idCodePostal");
+                        Integer accepteDemande = info.getInt("accepteDemande");
+                        Integer acceptePar = info.getInt("acceptePar");
+
+                        // Création de l'objet
+                        Demande demande = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,idCategorie,defraiementDemande,
+                                idCodePostal,accepteDemande,acceptePar);
+                        lesDemandes.add(demande);
+                    }
+                    controle.setLesDemandes(lesDemandes);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             } else {
                 Log.d("ERREUR", "*************** Aucun choix valide");
             }
