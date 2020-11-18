@@ -97,6 +97,7 @@ En tant qu’utilisateur, je souhaite avoir un affichage contenant une liste des
 
 
 Description :
+Les utilisateurs doivent être connecté à leur compte afin de pouvoir modifier leur profil si ils sont pas connecté à leur compte, le bouton permettant d'accéder à la page renvoie à la page d'accueil.
 L’affichage en question ne doit pas contenir toutes les demandes en une seule page, cela ralentirait l’affichage du au nombre conséquent de demandes attendues par le client. 
 Cet affichage doit se faire sous la forme de liste affichant titre, catégorie, date ainsi qu’un bouton pour accéder au détail.
 
@@ -194,7 +195,6 @@ Tout comme la liste de demande, l’utilisateur doit-être capable de voir celle
 
 En tant qu’utilisateur, je souhaite avoir un page ou je pourrais contacter les administrateurs, afin de les prévenir si je rencontre un problème ou un bug. 
 Description :
-Les utilisateurs doivent être connecté à leur compte afin de pouvoir modifier leur profil si ils sont pas connecté à leur compte, le bouton permettant d'accéder à la page renvoie à la page d'accueil.
 À la simple pression d’un bouton l’utilisateur doit pouvoir se rendre sur une page nommé « page de contact » et en rentrant des informations de type adresse mail, nom, Prénom ainsi qu’une description du problème rencontré, doit pouvoir envoyer un mail à l’équipe. 
 
 
