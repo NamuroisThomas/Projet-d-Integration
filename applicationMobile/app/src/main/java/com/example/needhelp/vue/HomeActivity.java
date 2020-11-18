@@ -46,4 +46,13 @@ public class HomeActivity extends AppCompatActivity {
             lstDemandes.setAdapter(adapter);
         }
     }
+    private void ecouteGoToCreerDemandes(){
+        ((Button)findViewById(R.id.buttonAjoutDemande)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,CreeDemandsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 }
