@@ -1,212 +1,207 @@
-User Stories :
+User StoriesÂ :
 
-* US01 : inscription
+* US01Â : inscription
 
-En tant qu’utilisateur, je souhaite pouvoir m’inscrire, afin de pouvoir me créer un compte et d'accéder aux fonctionnalités du site web.
+En tant quâ€™utilisateur, je souhaite pouvoir mâ€™inscrire, afin de pouvoir me crÃ©er un compte et d'accÃ©der aux fonctionnalitÃ©s du site web.
 
-Description : 
-L’inscription devrait se faire à partir d’un bouton présent sur le site web, il doit rediriger les utilisateurs à une page d’inscription présentant un formulaire où ils pourront rentrer des informations à leur sujet.
-Par exemple : nom, prénom, adresse mail, téléphone, mot de passe ainsi qu’une confirmation du mot de passe pour être sûr de ne pas s’être trompé précédemment.
-L’adresse mail et le numéro de téléphone sont unique donc si l'un d'eux est déjà présent dans la base de données, l'inscription sera refusée. 
-Si le formulaire n’est pas rempli, le bouton d’envoi n’est pas cliquable. 
-En cas de problème au niveau de la complétion du formulaire, le site web affichera un pop-up contenant un message d’erreur.
-Lors de l’envoi, un pop-up avec le message « inscription complété. » et lorsque le bouton ‘ok’ du pop-up est cliqué, la page se rafraichi 
+DescriptionÂ : 
+Lâ€™inscription devrait se faire Ã  partir dâ€™un bouton prÃ©sent sur le site web, il doit rediriger les utilisateurs Ã  une page dâ€™inscription prÃ©sentant un formulaire oÃ¹ ils pourront rentrer des informations Ã  leur sujet.
+Par exempleÂ : nom, prÃ©nom, adresse mail, tÃ©lÃ©phone, mot de passe ainsi quâ€™une confirmation du mot de passe pour Ãªtre sÃ»r de ne pas sâ€™Ãªtre trompÃ© prÃ©cÃ©demment.
+Lâ€™adresse mail et le numÃ©ro de tÃ©lÃ©phone sont unique donc si l'un d'eux est dÃ©jÃ  prÃ©sent dans la base de donnÃ©es, l'inscription sera refusÃ©e un message . 
+Si le formulaire nâ€™est pas rempli, le bouton dâ€™envoi nâ€™est pas cliquable. 
+En cas de problÃ¨me au niveau de la complÃ©tion du formulaire, le site web affichera un pop-up contenant un message dâ€™erreur, par exemple si le mot de passe de confirmation ne correspond pas au mot de passe.
+Lors de lâ€™envoi, un pop-up avec le message Â« inscription complÃ©tÃ©. Â» et lorsque le bouton â€˜okâ€™ du pop-up est cliquÃ©, la page se rafraichi.
 
-La méthode utilisé lors de l’inscription est la méthode post Inscription venant de l’API. Cette méthode demande à l’utilisateur de rentrer les informations suivantes : nom, prénom, téléphone, mail et mot de passe. 
+La mÃ©thode utilisÃ© lors de lâ€™inscription est la mÃ©thode post Inscription venant de lâ€™API. Cette mÃ©thode demande Ã  lâ€™utilisateur de rentrer les informations suivantesÂ : nom, prÃ©nom, tÃ©lÃ©phone, mail et mot de passe. 
 
-(François Temmerman). 
+(FranÃ§ois Temmerman). 
 
-* US01 Bis : inscription (mobile)
+* US01 BisÂ : inscription (mobile)
 
-En tant qu’utilisateur, je souhaite pouvoir m’inscrire afin de pouvoir créer mon compte et d’avoir accès aux différentes fonctionnalités de l’application mobile.
+En tant quâ€™utilisateur, je souhaite pouvoir mâ€™inscrire afin de pouvoir crÃ©er mon compte et dâ€™avoir accÃ¨s aux diffÃ©rentes fonctionnalitÃ©s de lâ€™application mobile.
 
-Description : 
-L’inscription devrait se faire à partir d’un bouton présent sur l’application mobile, il doit rediriger les utilisateurs à une page d’inscription présentant un formulaire où ils pourront rentrer des informations à leur sujet.
-Par exemple : nom, prénom, adresse mail, téléphone, mot de passe ainsi qu’une confirmation du mot de passe pour être sûr de ne pas s’être trompé précédemment.
-L’adresse mail et le numéro de téléphone sont unique donc si l'un d'eux est déjà présent dans la base de données, l'inscription sera refusée. 
-Si le formulaire n’est pas rempli, le bouton d’envoi est cliquable, mais un message d’erreur « saisie incorrecte » apparaitra au-dessus du bouton. 
-En cas de problème au niveau de la complétion du formulaire, le site web affichera un message d’erreur « saisie incorrecte ».
+DescriptionÂ : 
+Lâ€™inscription devrait se faire Ã  partir dâ€™un bouton prÃ©sent sur lâ€™application mobile, il doit rediriger les utilisateurs Ã  une page dâ€™inscription prÃ©sentant un formulaire oÃ¹ ils pourront rentrer des informations Ã  leur sujet.
+Par exempleÂ : nom, prÃ©nom, adresse mail, tÃ©lÃ©phone, mot de passe ainsi quâ€™une confirmation du mot de passe pour Ãªtre sÃ»r de ne pas sâ€™Ãªtre trompÃ© prÃ©cÃ©demment.
+Lâ€™adresse mail et le numÃ©ro de tÃ©lÃ©phone sont unique donc si l'un d'eux est dÃ©jÃ  prÃ©sent dans la base de donnÃ©es, l'inscription sera refusÃ©e. 
+Si le formulaire nâ€™est pas rempli, le bouton dâ€™envoi est cliquable, mais un message dâ€™erreur Â«Â saisie incorrecteÂ Â»Â apparaitra au-dessus du bouton. 
+En cas de problÃ¨me au niveau de la complÃ©tion du formulaire, le site web affichera un message dâ€™erreur Â« saisie incorrecteÂ Â».
 
-La méthode utilisé lors de l’inscription est la méthode post Inscription venant de l’API. Cette méthode demande à l’utilisateur de rentrer les informations suivantes : nom, prénom, téléphone, mail et mot de passe. 
-
-
-
-* US02 : connexion (web)
-
-En tant qu’utilisateur, je souhaite pouvoir me connecter au site web, afin d’avoir accès à mon compte et de pouvoir commencer à utiliser le site.
-
-Description : 
-La connexion devrait se faire à partir d’un bouton présent sur le site web, il doit rediriger les utilisateurs à une page de connexion présentant un formulaire où ils pourront rentrer leur adresse mail et leur mot de passe afin de pouvoir avoir accès à leur compte.
-Si l’un des champs n’est pas complet, le bouton de connexion n’est pas cliquable.
-Si l’adresse mail n’est pas connue, le site affiche un pop-up avec l’information « mail inexistant vous devez créer un compte. ». 
-Si l’adresse est correcte, mais que le mot de passe est incorrect, le site affiche un pop-up avec l’information « mot de passe incorrect. ». 
-Lors de l’envoi, un pop-up s’affiche avec le message « connexion… » lorsque le bouton ‘ok’ du pop-up est cliqué, la page se rafraichi et un bouton de déconnexion apparait.  
-
-La méthode utilisé lors de la connexion est la méthode GET mailExist de venant de l’API. Cette API va rechercher toutes les informations d’un utilisateur en fonction du mail envoyé. 
+La mÃ©thode utilisÃ© lors de lâ€™inscription est la mÃ©thode post Inscription venant de lâ€™API. Cette mÃ©thode demande Ã  lâ€™utilisateur de rentrer les informations suivantesÂ : nom, prÃ©nom, tÃ©lÃ©phone, mail et mot de passe. 
 
 
-* US02 bis : connexion (mobile)
 
-En tant qu’utilisateur, je souhaite pouvoir me connecter à l’application mobile, afin d’avoir accès à mon compte et de pouvoir commencer à utiliser le site.
+* US02Â : connexion (web)
 
-Description : 
-La connexion devrait se faire à partir d’un bouton présent sur l’application mobile, il doit rediriger les utilisateurs à une page de connexion présentant un formulaire où ils pourront rentrer leur adresse mail et leur mot de passe afin de pouvoir avoir accès à leur compte.
-Si l’un des champs n’est pas complet, le bouton de connexion est cliquable, mais un message d’erreur apparaîtra « saisie incorrect ».
-Si l’adresse mail n’est pas connue, l’application affiche un message avec l’information « mail inconnu ». 
-Si l’adresse est correcte, mais que le mot de passe est incorrect, l’application affiche un pop-up avec l’information « mot de passe incorrect. ».  
+En tant quâ€™utilisateur, je souhaite pouvoir me connecter au site web, afin dâ€™avoir accÃ¨s Ã  mon compte et de pouvoir commencer Ã  utiliser le site.
 
-La méthode utilisé lors de la connexion est la méthode GET mailExist de venant de l’API. Cette méthode va rechercher toutes les informations d’un utilisateur en fonction du mail envoyé
+DescriptionÂ : 
+La connexion devrait se faire Ã  partir dâ€™un bouton prÃ©sent sur le site web, il doit rediriger les utilisateurs Ã  une page de connexion prÃ©sentant un formulaire oÃ¹ ils pourront rentrer leur adresse mail et leur mot de passe afin de pouvoir avoir accÃ¨s Ã  leur compte.
+Si lâ€™un des champs nâ€™est pas complet, le bouton de connexion nâ€™est pas cliquable.
+Si lâ€™adresse mail nâ€™est pas connue, le site affiche un pop-up d'information disant que le mail n'a pas Ã©tÃ© crÃ©e. 
+Si lâ€™adresse est correcte, mais que le mot de passe est incorrect, le site affiche un pop-up avec lâ€™information Â« mot de passe incorrect.Â Â».Â 
+Lors de lâ€™envoi, un pop-up sâ€™affiche avec un message de connexion lorsque le bouton de confirmation du pop-up est cliquÃ©, la page se rafraichi et un bouton de dÃ©connexion apparait Ã  la place du formulaire de connexion.  
+
+La mÃ©thode utilisÃ© lors de la connexion est la mÃ©thode GET mailExist de venant de lâ€™API. Cette API va rechercher toutes les informations dâ€™un utilisateur en fonction du mail envoyÃ©. 
+
+
+* US02Â bis : connexion (mobile)
+
+En tant quâ€™utilisateur, je souhaite pouvoir me connecter Ã  lâ€™application mobile, afin dâ€™avoir accÃ¨s Ã  mon compte et de pouvoir commencer Ã  utiliser le site.
+
+DescriptionÂ : 
+La connexion devrait se faire Ã  partir dâ€™un bouton prÃ©sent sur lâ€™application mobile, il doit rediriger les utilisateurs Ã  une page de connexion prÃ©sentant un formulaire oÃ¹ ils pourront rentrer leur adresse mail et leur mot de passe afin de pouvoir avoir accÃ¨s Ã  leur compte.
+Si lâ€™un des champs nâ€™est pas complet, le bouton de connexion est cliquable, mais un message dâ€™erreur apparaÃ®tra Â«Â saisie incorrectÂ Â».
+Si lâ€™adresse mail nâ€™est pas connue, lâ€™application affiche un message avec lâ€™information Â« mail inconnuÂ Â». 
+Si lâ€™adresse est correcte, mais que le mot de passe est incorrect, lâ€™application affiche un pop-up avec lâ€™information Â« mot de passe incorrect.Â Â».Â  
+
+La mÃ©thode utilisÃ© lors de la connexion est la mÃ©thode GET mailExist de venant de lâ€™API. Cette mÃ©thode va rechercher toutes les informations dâ€™un utilisateur en fonction du mail envoyÃ©
 (Simon Magnes)
 
 
+* US03Â : Demande dâ€™aide (web)
+
+En tant quâ€™utilisateur, je souhaite pouvoir formuler une demande, afin de recevoir lâ€™aide dâ€™une personne utilisant le site web. 
+
+DescriptionÂ : 
+La demande dâ€™aide devrait se faire Ã  partir dâ€™un bouton prÃ©sent sur le site web, il doit rediriger les utilisateurs Ã  une page prÃ©sentant un formulaire dans lequel lâ€™utilisateur peut Ã©crire des informations concernant leur demande Ã  savoir nom de tÃ¢che, description, catÃ©gorie de la tÃ¢che, le code postal du lieu dans lequel la tÃ¢che a Ã©tÃ© demandÃ©.
+Si lâ€™un des champs nâ€™est pas rempli, le bouton nâ€™est pas cliquable. 
+Lors de lâ€™envoi aucun pop-up, la tÃ¢che est envoyÃ©e directement dans la base de donnÃ©es.
+
+La mÃ©thode utilisÃ©e pour lâ€™inscription des demandes est la mÃ©thode POST demande venant de lâ€™API. Cette mÃ©thode demande Ã  lâ€™utilisateur de rentrer les informations suivantesÂ : titre de la demande, description de la demande, catÃ©gorie et code postal.
+
+
+(GaÃ«tan Gortz)
+
+* US03Â Bis : demande dâ€™aide (mobile)
+
+En tant quâ€™utilisateur, je souhaite pouvoir formuler une demande, afin de recevoir lâ€™aide dâ€™une personne utilisant lâ€™application. 
+
+DescriptionÂ : 
+La demande dâ€™aide devrait se faire Ã  partir dâ€™un bouton prÃ©sent sur le site web, il doit rediriger les utilisateurs Ã  une page prÃ©sentant un formulaire dans lequel lâ€™utilisateur peut Ã©crire des informations concernant leur demande Ã  savoir nom de tÃ¢che, description, catÃ©gorie de la tÃ¢che, le code postal du lieu dans lequel la tÃ¢che a Ã©tÃ© demandÃ©.
+
+La mÃ©thode utilisÃ©e pour lâ€™inscription des demandes est la mÃ©thode POST demande venant de lâ€™API. Cette mÃ©thode demande Ã  lâ€™utilisateur de rentrer les informations suivantesÂ : titre de la demande, description de la demande, catÃ©gorie et code postal.
 
 
 
 
 
 
-* US03 : Demande d’aide (web)
 
-En tant qu’utilisateur, je souhaite pouvoir formuler une demande, afin de recevoir l’aide d’une personne utilisant le site web. 
 
-Description : 
-La demande d’aide devrait se faire à partir d’un bouton présent sur le site web, il doit rediriger les utilisateurs à une page présentant un formulaire dans lequel l’utilisateur peut écrire des informations concernant leur demande à savoir nom de tâche, description, catégorie de la tâche, le code postal du lieu dans lequel la tâche a été demandé.
-Si l’un des champs n’est pas rempli, le bouton n’est pas cliquable. 
-Lors de l’envoi aucun pop-up, la tâche est envoyée directement dans la base de données.
 
-La méthode utilisée pour l’inscription des demandes est la méthode POST demande venant de l’API. Cette méthode demande à l’utilisateur de rentrer les informations suivantes : titre de la demande, description de la demande, catégorie et code postal.
 
+* US04Â : Liste demande dâ€™aide
+
+En tant quâ€™utilisateur, je souhaite avoir un affichage contenant une liste des demandes faites par les autres utilisateurs, afin de pouvoir entreprendre les dÃ©marches pour pouvoir les aider.
+
+
+DescriptionÂ :
+Lâ€™affichage en question ne doit pas contenir toutes les demandes en une seule page, cela ralentirait lâ€™affichage du au nombre consÃ©quent de demandes attendues par le client. 
+Cet affichage doit se faire sous la forme de liste affichant titre, catÃ©gorie, date ainsi quâ€™un bouton pour accÃ©der au dÃ©tail.
+
+Les mÃ©thodes utilisÃ©es pour lâ€™affichage de la liste sont les mÃ©thodes GET demandes et GET categories venant de lâ€™API. Ces mÃ©thodes renvoient respectivement toutes les demandes et toutes les catÃ©gories.  
 
 (Luk Brian)
 
-* US03 Bis : demande d’aide (mobile)
+* US04.1Â : DÃ©tail liste
 
-En tant qu’utilisateur, je souhaite pouvoir formuler une demande, afin de recevoir l’aide d’une personne utilisant l’application. 
+En tant quâ€™utilisateur, je souhaite pouvoir recevoir plus dâ€™information au sujet dâ€™une demande dans la liste de demande dâ€™aide, afin dâ€™avoir une idÃ©e concrÃ¨te de la tÃ¢che Ã  accomplir ou encore de pouvoir entrer en communication avec lâ€™utilisateur.
 
-Description : 
-La demande d’aide devrait se faire à partir d’un bouton présent sur le site web, il doit rediriger les utilisateurs à une page présentant un formulaire dans lequel l’utilisateur peut écrire des informations concernant leur demande à savoir nom de tâche, description, catégorie de la tâche, le code postal du lieu dans lequel la tâche a été demandé.
+DescriptionÂ :
+Lors de lâ€™affichage de la liste des demandes dâ€™aide, un bouton dÃ©tail prÃ©sent dans chaque demande est cliquable pour rÃ©unir plus dâ€™information sur la demande.
+Ce bouton mÃ¨ne vers une page contenant toutes les informations de la demande, ainsi que des informations sur lâ€™utilisateur (nom, prÃ©nom). 
+Un bouton permettant de retourner sur la liste des demandes est prÃ©sent sur la page afin de faciliter le la navigation de lâ€™utilisateur.
 
-La méthode utilisée pour l’inscription des demandes est la méthode POST demande venant de l’API. Cette méthode demande à l’utilisateur de rentrer les informations suivantes : titre de la demande, description de la demande, catégorie et code postal.
+La mÃ©thode utilisÃ©e pour lâ€™affichage des dÃ©tails est la mÃ©thode GET demande by id venant de lâ€™API. Cette mÃ©thode renvoi toutes les informations dâ€™une demande via son id. 
 
+(Luk Brian)
 
+* US04.2Â : Tri liste
 
+En tant quâ€™utilisateur, je souhaite pouvoir trier les demandes dâ€™aide, afin de pouvoir plus facilement choisir parmi les demandes celles que je peux accomplir. 
 
+DescriptionÂ :
+Ce tri doit se faire sous plusieurs critÃ¨res soit par catÃ©gorie de demande, soit la compensation ou non de la tÃ¢che, soit par date (croissant ou dÃ©croissant) dâ€™inscription de la tÃ¢che.  
 
+La mÃ©thode utilisÃ©e pour le tri est la mÃ©thode GET demande (avec ou sans paramÃ¨tre) venant de lâ€™API. Cette mÃ©thode renvoi toutes les demandes trier dans lâ€™ordre dâ€™inscription de la tÃ¢che dans la base de donnÃ©es lorsque lâ€™on introduit aucun paramÃ¨tre. Un tri est faisable sur les catÃ©gories, les codes postaux, les id de tache et les dates.   
 
+(Luk Brian)
 
+* US05.1Â : chat
+En tant quâ€™utilisateur, je souhaite pouvoir entrer en communication avec la personne que jâ€™aide/ qui mâ€™aide, afin de pouvoir discuter avec lui de ses disponibilitÃ©s, de la compensation ou encore de pouvoir communiquer plus prÃ©cisÃ©ment mon adresse.
+DescriptionÂ :
+Lâ€™utilisateur doit pouvoir entrer en contact avec un autre utilisateur par le biais dâ€™un chat de communication Ã©crit.
 
+* US05.2Â : chat vocal
+En tant quâ€™utilisateur, je souhaite pouvoir discuter avec la personne qui mâ€™aide/ que jâ€™aide par le biais de message ou dâ€™appel vocaux ou vidÃ©o, afin de me faire une idÃ©e plus concrÃ¨te de qui est la personne que jâ€™aide/ qui mâ€™aide.
 
+DescriptionÂ :
+Lâ€™idÃ©e ici est de faire en sorte que dans le chat, il y ait moyen dâ€™envoyer des messages vocaux et de passer des appels vocaux/vidÃ©o. 
 
-* US04 : Liste demande d’aide
+* US06Â : profil
 
-En tant qu’utilisateur, je souhaite avoir un affichage contenant une liste des demandes faites par les autres utilisateurs, afin de pouvoir entreprendre les démarches pour pouvoir les aider.
+En tant quâ€™utilisateur, je souhaite pouvoir modifier ma page de profil, afin de modifier mes informations ou ajouter de nouvelle information Ã  mon sujet. 
 
+DescriptionÂ :
+Les utilisateurs doivent Ãªtre connectÃ© Ã  leur compte afin de pouvoir modifier leur profil, ils pourront modifier leur information Ã  propos de leur mot de passe, description, numÃ©ro de tÃ©lÃ©phone et adresse mail.
 
-Description :
-L’affichage en question ne doit pas contenir toutes les demandes en une seule page, cela ralentirait l’affichage du au nombre conséquent de demandes attendues par le client. 
-Cet affichage doit se faire sous la forme de liste affichant titre, catégorie, date ainsi qu’un bouton pour accéder au détail.
-
-Les méthodes utilisées pour l’affichage de la liste sont les méthodes GET demandes et GET categories venant de l’API. Ces méthodes renvoient respectivement toutes les demandes et toutes les catégories.  
-
-
-* US04.1 : Détail liste
-
-En tant qu’utilisateur, je souhaite pouvoir recevoir plus d’information au sujet d’une demande dans la liste de demande d’aide, afin d’avoir une idée concrète de la tâche à accomplir ou encore de pouvoir entrer en communication avec l’utilisateur.
-
-Description :
-Lors de l’affichage de la liste des demandes d’aide, un bouton détail présent dans chaque demande est cliquable pour réunir plus d’information sur la demande.
-Ce bouton mène vers une page contenant toutes les informations de la demande, ainsi que des informations sur l’utilisateur (nom, prénom). 
-Un bouton permettant de retourner sur la liste des demandes est présent sur la page afin de faciliter le la navigation de l’utilisateur.
-
-La méthode utilisée pour l’affichage des détails est la méthode GET demande by id venant de l’API. Cette méthode renvoi toutes les informations d’une demande via son id. 
-
-
-
-
-* US04.2 : Tri liste
-
-En tant qu’utilisateur, je souhaite pouvoir trier les demandes d’aide, afin de pouvoir plus facilement choisir parmi les demandes celles que je peux accomplir. 
-
-Description :
-Ce tri doit se faire sous plusieurs critères soit par catégorie de demande, soit la compensation ou non de la tâche, soit par date (croissant ou décroissant) d’inscription de la tâche.  
-
-La méthode utilisée pour le tri est la méthode GET demande (avec ou sans paramètre) venant de l’API. Cette méthode renvoi toutes les demandes trier dans l’ordre d’inscription de la tâche dans la base de données lorsque l’on introduit aucun paramètre. Un tri est faisable sur les catégories, les codes postaux, les id de tache et les dates.   
-(Gaëtan Gortz)
-
-* US05.1 : chat
-En tant qu’utilisateur, je souhaite pouvoir entrer en communication avec la personne que j’aide/ qui m’aide, afin de pouvoir discuter avec lui de ses disponibilités, de la compensation ou encore de pouvoir communiquer plus précisément mon adresse.
-Description :
-L’utilisateur doit pouvoir entrer en contact avec un autre utilisateur par le biais d’un chat de communication écrit.
-
-* US05.2 : chat vocal
-En tant qu’utilisateur, je souhaite pouvoir discuter avec la personne qui m’aide/ que j’aide par le biais de message ou d’appel vocaux ou vidéo, afin de me faire une idée plus concrète de qui est la personne que j’aide/ qui m’aide.
-
-Description :
-L’idée ici est de faire en sorte que dans le chat, il y ait moyen d’envoyer des messages vocaux et de passer des appels vocaux/vidéo. 
-
-* US06 : profil
-
-En tant qu’utilisateur, je souhaite pouvoir modifier ma page de profil, afin de modifier mes informations ou ajouter de nouvelle information à mon sujet. 
-
-Description :
-Les utilisateurs doivent être connecté à leur compte afin de pouvoir modifier leur profil, ils pourront modifier leur information à propos de leur mot de passe, description, numéro de téléphone et adresse mail.
-
-La méthode utilisée pour l’affichage du profil est la même que pour la connexion à savoir GET mailExist qui renvoi toutes les informations de l’utilisateur en fonction de son mail.
+La mÃ©thode utilisÃ©e pour lâ€™affichage du profil est la mÃªme que pour la connexion Ã  savoir GET mailExist qui renvoi toutes les informations de lâ€™utilisateur en fonction de son mail.
 
 
-* US07 : localisation 
-En tant qu’utilisateur, je souhaite avec son accord obtenir des informations plus précises au sujet de la localisation de la personne que j’aide afin de pouvoir me rendre plus facilement au lieu de rendez-vous.
-Description :
-Les utilisateurs doivent avoir accès à une information de géolocalisation et un guidage GPS doit pouvoir se lancer lorsque la personne qui aide veut pouvoir se rendre chez la personne qu’il/elle aide. 
+* US07Â : localisation 
+En tant quâ€™utilisateur, je souhaite avec son accord obtenir des informations plus prÃ©cises au sujet de la localisation de la personne que jâ€™aide afin de pouvoir me rendre plus facilement au lieu de rendez-vous.
+DescriptionÂ :
+Les utilisateurs doivent avoir accÃ¨s Ã  une information de gÃ©olocalisation et un guidage GPS doit pouvoir se lancer lorsque la personne qui aide veut pouvoir se rendre chez la personne quâ€™il/elle aide. 
 (Maxime De Cock)
 
-* US08 : clôture tache
+* US08Â : clÃ´ture tache
 
-En tant qu’utilisateur, je souhaite pouvoir conclure une demande lorsque la personne qui m’a aidé à fini la tâche, afin que cette tâche n’apparaisse dans les tâches en cours de l’utilisateur.
+En tant quâ€™utilisateur, je souhaite pouvoir conclure une demande lorsque la personne qui mâ€™a aidÃ© Ã  fini la tÃ¢che, afin que cette tÃ¢che nâ€™apparaisse dans les tÃ¢ches en cours de lâ€™utilisateur.
 
-Description :
-L’utilisateur doit-être capable de stopper la tâche qu’il a donné à un autre utilisateur lorsque celle-ci est finie. 
+DescriptionÂ :
+Lâ€™utilisateur doit-Ãªtre capable de stopper la tÃ¢che quâ€™il a donnÃ© Ã  un autre utilisateur lorsque celle-ci est finie. 
 
-* US09 : accepte demande
+* US09Â : accepte demande
 
-En tant qu’utilisateur, je souhaite pouvoir accepter une demande formulée par un autre utilisateur, afin de commencer à aider mon prochain.
+En tant quâ€™utilisateur, je souhaite pouvoir accepter une demande formulÃ©e par un autre utilisateur, afin de commencer Ã  aider mon prochain.
 
-Description :
-Lorsque l’utilisateur est en train de parcourir la liste de demande, l’utilisateur peut entrer dans les détails d’une demande et accepter la demande dans cette page 
+DescriptionÂ :
+Lorsque lâ€™utilisateur est en train de parcourir la liste de demande, lâ€™utilisateur peut entrer dans les dÃ©tails dâ€™une demande et accepter la demande dans cette page 
 
 
-* US10 : signalisation 
+* US10Â : signalisation 
 
-En tant qu’utilisateur, je souhaite pouvoir signaler un autre utilisateur, afin de prévenir un abus ou un acte inapproprié.
+En tant quâ€™utilisateur, je souhaite pouvoir signaler un autre utilisateur, afin de prÃ©venir un abus ou un acte inappropriÃ©.
 
-Description :
-L’utilisateur doit pouvoir envoyer un signalement aux administrateurs avec une description de la raison du signalement. 
-Après coup, les administrateurs décideront de bannir ou bloquer l’utilisateur en question 
-En cas de signalement abusif l’utilisateur pourrait voir son compte supprimé ou bloqué.
+DescriptionÂ :
+Lâ€™utilisateur doit pouvoir envoyer un signalement aux administrateurs avec une description de la raison du signalement. 
+AprÃ¨s coup, les administrateurs dÃ©cideront de bannir ou bloquer lâ€™utilisateur en question 
+En cas de signalement abusif lâ€™utilisateur pourrait voir son compte supprimÃ© ou bloquÃ©.
 (Thomas Namurois) 
 
 
-* US10 : demande acceptée
+* US10Â : demande acceptÃ©e
 
-En tant qu’utilisateur, je souhaite que lorsque je décide d’aider quelqu’un, je puisse afficher les demandes que j’ai accepté dans une liste, afin de savoir quelles tâches il me reste à accomplir.
+En tant quâ€™utilisateur, je souhaite que lorsque je dÃ©cide dâ€™aider quelquâ€™un, je puisse afficher les demandes que jâ€™ai acceptÃ© dans une liste, afin de savoir quelles tÃ¢ches il me reste Ã  accomplir.
 
-Description :
-Tout comme la liste de demande, l’utilisateur doit-être capable de voir celle(s) qu’il a acceptée(s), l’affichage sera le même que l’affichage de la liste de demande, avec l’accès à détails si l’utilisateur qui veut aider à oublier la tâche qu’il avait au préalable accepté. 
-
-
+DescriptionÂ :
+Tout comme la liste de demande, lâ€™utilisateur doit-Ãªtre capable de voir celle(s) quâ€™il a acceptÃ©e(s), lâ€™affichage sera le mÃªme que lâ€™affichage de la liste de demande, avec lâ€™accÃ¨s Ã  dÃ©tails si lâ€™utilisateur qui veut aider Ã  oublier la tÃ¢che quâ€™il avait au prÃ©alable acceptÃ©. 
 
 
-* US11 : notation
 
-En tant qu’utilisateur, je souhaite pouvoir noter la personne qui m’a aidé lorsque je conclu la tâche, afin de pouvoir valoriser son travail aux autres utilisateurs.
 
-Description :
-Lorsque l’utilisateur arrête la tâche il faut qu’un pop-up ou un message apparaisse afin de pouvoir noter la personne qui l’a aidé. 
+* US11Â : notation
 
-* US12 :
+En tant quâ€™utilisateur, je souhaite pouvoir noter la personne qui mâ€™a aidÃ© lorsque je conclu la tÃ¢che, afin de pouvoir valoriser son travail aux autres utilisateurs.
 
-En tant qu’utilisateur, je souhaite avoir un page ou je pourrais contacter les administrateurs, afin de les prévenir si je rencontre un problème ou un bug. 
-Description :
-À la simple pression d’un bouton l’utilisateur doit pouvoir se rendre sur une page nommé « page de contact » et en rentrant des informations de type adresse mail, nom, Prénom ainsi qu’une description du problème rencontré, doit pouvoir envoyer un mail à l’équipe. 
+DescriptionÂ :
+Lorsque lâ€™utilisateur arrÃªte la tÃ¢che il faut quâ€™un pop-up ou un message apparaisse afin de pouvoir noter la personne qui lâ€™a aidÃ©. 
+
+* US12Â :
+
+En tant quâ€™utilisateur, je souhaite avoir un page ou je pourrais contacter les administrateurs, afin de les prÃ©venir si je rencontre un problÃ¨me ou un bug. 
+DescriptionÂ :
+Ã€ la simple pression dâ€™un bouton lâ€™utilisateur doit pouvoir se rendre sur une page nommÃ© Â«Â page de contactÂ Â» et en rentrant des informations de type adresse mail, nom, PrÃ©nom ainsi quâ€™une description du problÃ¨me rencontrÃ©, doit pouvoir envoyer un mail Ã  lâ€™Ã©quipe. 
 
 
