@@ -16,9 +16,9 @@ import com.example.needhelp.modele.Utilisateur;
 
 public class ConnexionActivity extends AppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.connexion_screen);
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.connexion_screen);
         init();
         ecouteGoToAcceuil();
         ecouteConnexion();

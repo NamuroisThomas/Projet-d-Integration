@@ -49,7 +49,10 @@ public class AccesDistant implements AsyncResponse {
         if (message.length > 1) {
             if (message[0].equals("enreg")) {
                 Log.d("enreg", "***********" + message[1]);
-            } else if (message[0].equals("dernier")) {
+            } else if (message[0].equals("enregDemande")) {
+                Log.d("insert","********** insertion reussie normalement");
+            }
+            else if (message[0].equals("dernier")) {
                 Log.d("dernier", "***********" + message[1]);
                 try {
                     JSONObject info = new JSONObject(message[1]);
@@ -97,7 +100,7 @@ public class AccesDistant implements AsyncResponse {
                         Integer idUtilisateur = info.getInt("idUtilisateur");
                         Integer idCategorie = info.getInt("idCategorie");
                         Integer defraiementDemande = info.getInt("defraiementDemande");
-                        Integer idCodePostal = info.getInt("idCodePostal");
+                        String idCodePostal = info.getString("idCodePostal");
                         Integer accepteDemande = info.getInt("accepteDemande");
                         Integer acceptePar = info.getInt("acceptePar");
 

@@ -1,5 +1,10 @@
 package com.example.needhelp.modele;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Demande {
 
     // Variables locales
@@ -10,12 +15,12 @@ public class Demande {
     private int idUtilisateur;
     private int idCategorie;
     private int defraiement;
-    private int idCodePostal;
+    private String idCodePostal;
     private int accepteDemande;
     private int acceptePar;
 
     public Demande(int idDemande, String titreDemande, String descriptionDemande, String dateDemande,
-                   int idUtilisateur, int idCategorie, int defraiement, int idCodePostal, int accepteDemande, int acceptePar) {
+                   int idUtilisateur, int idCategorie, int defraiement, String idCodePostal, int accepteDemande, int acceptePar) {
         this.idDemande = idDemande;
         this.titreDemande = titreDemande;
         this.DescriptionDemande = descriptionDemande;
@@ -28,7 +33,7 @@ public class Demande {
         this.acceptePar = acceptePar;
     }
 
-    public Demande(String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, int idCodePostal) {
+    public Demande(String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, String idCodePostal) {
         this.titreDemande = titreDemande;
         this.DescriptionDemande = descriptionDemande;
         this.idUtilisateur = idUtilisateur;
@@ -37,7 +42,7 @@ public class Demande {
         this.idCodePostal = idCodePostal;
     }
 
-    public Demande(String dateDemande, String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, int idCodePostal) {
+    public Demande(String dateDemande, String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, String idCodePostal) {
         this.titreDemande = titreDemande;
         this.DescriptionDemande = descriptionDemande;
         this.dateDemande = dateDemande;
@@ -45,6 +50,26 @@ public class Demande {
         this.idCategorie = idCategorie;
         this.defraiement = defraiement;
         this.idCodePostal = idCodePostal;
+    }
+
+    public Demande(String titre, String description, String defraiement, String categorie, String codePostal) {
+        this.titreDemande = titre;
+        this.DescriptionDemande = description;
+        this.idUtilisateur = 18;
+        this.idCategorie = 24;
+        this.defraiement = 10;
+        this.idCodePostal = codePostal;
+    }
+
+    public JSONArray nouvelleDemandeConvertToJSONArray(){
+        List laListe = new ArrayList();
+        laListe.add(titreDemande);
+        laListe.add(DescriptionDemande);
+        laListe.add(1);
+        laListe.add(idCategorie);
+        laListe.add(defraiement);
+        laListe.add(idCodePostal);
+        return new JSONArray(laListe);
     }
 
     public int getIdDemande() {

@@ -23,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.home);
         this.controle = Controle.getInstance(this);
         ecouteGoToAcceuil();
+        ecouteGoToNouvelleDemande();
         creerListe();
     }
     private void ecouteGoToAcceuil(){
@@ -30,6 +31,15 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    private void ecouteGoToNouvelleDemande(){
+        ((Button)findViewById(R.id.buttonAjoutDemande)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,CreerDemandeActivity.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         ((Button)findViewById(R.id.buttonAjoutDemande)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this,CreeDemandsActivity.class);
+                Intent intent = new Intent(HomeActivity.this,CreerDemandeActivity.class);
                 startActivity(intent);
             }
         });
