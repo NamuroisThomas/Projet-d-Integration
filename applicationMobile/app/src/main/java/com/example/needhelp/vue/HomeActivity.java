@@ -34,6 +34,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+    private void ecouteGoToNouvelleDemande(){
+        ((Button)findViewById(R.id.buttonAjoutDemande)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,CreeDemandsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     /**
      * Cette méthode va permettre de créer la iste des demandes

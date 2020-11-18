@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#1B2AB1">
+    <TextView
+        android:id="@+id/titreDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dip"
+        android:text="Titre"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/valueTitreDescription"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titreDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:hint="Titre"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/champDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/valueTitreDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/prenom"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/valueChampDescription"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/champDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="top"
+        android:hint="@string/prenom"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/defraiement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/valueChampDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="defraiement"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/valueDefraiement"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/defraiement"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:hint="@string/mail"
+        android:inputType="textWebEmailAddress" />
+
+    <TextView
+        android:id="@+id/categorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/valueDefraiement"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="categorie"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/liste"
+        android:layout_below="@+id/categorie"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/defaultValue"/>
+
+
+
+</RelativeLayout>
