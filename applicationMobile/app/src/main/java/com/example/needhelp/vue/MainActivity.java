@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Ecoute du bouton menant à la page d'inscription.
      */
-    /*private void ecouteGoToInscription(){
+    private void ecouteGoToInscription(){
         ((Button)findViewById(R.id.boutonGoToInscription)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -48,6 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }*/
+    }
 
 }
