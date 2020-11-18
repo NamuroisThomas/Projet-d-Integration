@@ -198,7 +198,7 @@ En tant qu’utilisateur, je souhaite pouvoir noter la personne qui m’a aidé 
 Description :
 Lorsque l’utilisateur arrête la tâche il faut qu’un pop-up ou un message apparaisse afin de pouvoir noter la personne qui l’a aidé. 
 
-* US12 :
+* US12 : contact
 
 En tant qu’utilisateur, je souhaite avoir un page ou je pourrais contacter les administrateurs, afin de les prévenir si je rencontre un problème ou un bug. 
 Description :
