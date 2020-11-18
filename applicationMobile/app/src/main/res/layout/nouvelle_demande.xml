@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1B2AB1">
     <TextView
@@ -9,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dip"
-        android:text="Titre"
+        android:text="Titre Description"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -34,7 +33,7 @@
         android:layout_below="@id/valueTitreDescription"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="@string/prenom"
+        android:text="Champ Description"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -42,14 +41,14 @@
     <EditText
         android:id="@+id/valueChampDescription"
         android:layout_width="250dp"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:layout_below="@id/champDescription"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:autofillHints=""
         android:background="@drawable/backgroundtext"
         android:gravity="top"
-        android:hint="@string/prenom"
+        android:hint="Description"
         android:inputType="text" />
 
     <TextView
@@ -74,8 +73,8 @@
         android:autofillHints=""
         android:background="@drawable/backgroundtext"
         android:gravity="center"
-        android:hint="@string/mail"
-        android:inputType="textWebEmailAddress" />
+        android:hint="defraiement"
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/categorie"
@@ -97,6 +96,41 @@
         android:layout_height="wrap_content"
         android:entries="@array/defaultValue"/>
 
+    <TextView
+        android:id="@+id/codePostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/liste"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="code Postal"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/valueCodePostal"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/codePostal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:hint="Code Postal"
+        android:inputType="number" />
+    <Button
+        android:id="@+id/buttonAjoutDemande"
+        android:layout_below="@id/valueCodePostal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ajoutDemandes" />
 
+    <Button
+        android:id="@+id/buttonDeconnexionHome"
+        android:layout_below="@id/buttonAjoutDemande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/deconnexion" />
 
 </RelativeLayout>

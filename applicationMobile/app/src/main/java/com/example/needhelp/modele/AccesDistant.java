@@ -97,7 +97,7 @@ public class AccesDistant implements AsyncResponse {
                         Integer idUtilisateur = info.getInt("idUtilisateur");
                         Integer idCategorie = info.getInt("idCategorie");
                         Integer defraiementDemande = info.getInt("defraiementDemande");
-                        Integer idCodePostal = info.getInt("idCodePostal");
+                        String idCodePostal = info.getString("idCodePostal");
                         Integer accepteDemande = info.getInt("accepteDemande");
                         Integer acceptePar = info.getInt("acceptePar");
 

@@ -46,24 +46,6 @@ public final class Controle {
         return Controle.instance;
     }
 
-    /**
-     * Création de la demande
-     * @param titreDemande
-     * @param descriptionDemande
-     * @param idUtilisateur
-     * @param idCategorie
-     * @param defraiement
-     * @param idCodePostal
-     */
-    public void creerDemandes(String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, int idCodePostal){
-        demande = new Demande(titreDemande,descriptionDemande,idUtilisateur,idCategorie,defraiement,idCodePostal);
-        lesDemandes.add(demande);
-        /**
-         * A FAIRE!!!!
-         * avec accès distant méthode pour enregistrer une demandes dans la DB
-         */
-    }
-
     public ArrayList<Demande> getLesDemandes() {
         return lesDemandes;
     }
@@ -72,3 +54,21 @@ public final class Controle {
         this.lesDemandes = lesDemandes;
     }
 }
+/*
+*     /**
+ * Création de la demande
+ * @param titreDemande
+ * @param descriptionDemande
+ * @param idUtilisateur
+ * @param idCategorie
+ * @param defraiement
+ * @param idCodePostal
+
+public void creerDemandes(String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, int idCodePostal){
+    demande = new Demande(titreDemande,descriptionDemande,idUtilisateur,idCategorie,defraiement,idCodePostal);
+    lesDemandes.add(demande);
+    /**
+     * A FAIRE!!!!
+     * avec accès distant méthode pour enregistrer une demandes dans la DB
+
+}*/
