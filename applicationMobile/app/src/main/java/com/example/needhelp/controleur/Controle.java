@@ -21,7 +21,7 @@ public final class Controle {
     /**
      * Constructeur
      */
-    private Controle(){
+    public Controle(){
         super();
     }
 
@@ -38,6 +38,7 @@ public final class Controle {
         if (Controle.instance == null){
             Controle.instance = new Controle();
             accesDistant = new AccesDistant();
+
             accesDistant.envoi("demandesTout", new JSONArray());
             //accesDistant.envoi("categorie",new JSONArray());
 
