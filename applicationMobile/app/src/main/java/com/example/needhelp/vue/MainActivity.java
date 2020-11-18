@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.needhelp.R;
@@ -20,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acceuil);
-
         controle = Controle.getInstance(this);
         ecouteGoToInscription();
         ecouteGoToConnexion();
@@ -49,5 +46,3 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-}
