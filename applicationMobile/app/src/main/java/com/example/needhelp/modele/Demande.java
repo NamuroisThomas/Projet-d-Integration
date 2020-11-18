@@ -65,8 +65,9 @@ public class Demande {
         List laListe = new ArrayList();
         laListe.add(titreDemande);
         laListe.add(DescriptionDemande);
-        laListe.add(defraiement);
+        laListe.add(1);
         laListe.add(idCategorie);
+        laListe.add(defraiement);
         laListe.add(idCodePostal);
         return new JSONArray(laListe);
     }
