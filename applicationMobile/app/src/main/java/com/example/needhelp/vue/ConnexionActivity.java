@@ -114,6 +114,7 @@ public class ConnexionActivity extends AppCompatActivity {
             mdp = (mdpEdit.getText().toString());
         } catch (Exception e) {
             Log.d("Recup", "****************** Erreur recuperation donnees connexion\n****" + e);
+            Toast.makeText(ConnexionActivity.this,"mail inconnu",Toast.LENGTH_SHORT).show();
         }
         Utilisateur user = new Utilisateur(mail, mdp);
         accesDistant.setMdpUser(mdp);

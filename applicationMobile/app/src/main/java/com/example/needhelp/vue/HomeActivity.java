@@ -4,19 +4,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.needhelp.R;
 import com.example.needhelp.controleur.Controle;
+import com.example.needhelp.modele.Demande;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
+    private Controle controle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+        this.controle = Controle.getInstance(this);
         ecouteGoToAcceuil();
-
+        creerListe();
     }
     private void ecouteGoToAcceuil(){
         ((Button)findViewById(R.id.buttonDeconnexionHome)).setOnClickListener(new Button.OnClickListener(){
@@ -26,5 +33,17 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    /**
+     * Cette méthode va permettre de créer la iste des demandes
+     */
+    private void creerListe(){
+        ArrayList<Demande> lesDemandes = controle.getLesDemandes();
+        if (lesDemandes != null){
+            ListView lstDemandes = (ListView)findViewById(R.id.lstDemandes);
+            DemandeListeAdapter adapter = new DemandeListeAdapter(this,lesDemandes);
+            lstDemandes.setAdapter(adapter);
+        }
     }
 }

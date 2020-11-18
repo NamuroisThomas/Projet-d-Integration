@@ -22,7 +22,7 @@ public class InscriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inscription_screen);
         init();
-        this.controle = Controle.getInstance();
+        this.controle = Controle.getInstance(this);
         ecouteInscription();
         ecouteGoToAcceuil();
     }
