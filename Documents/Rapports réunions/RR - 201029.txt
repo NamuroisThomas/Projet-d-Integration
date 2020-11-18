@@ -1,0 +1,14 @@
+champ libre inscription --> à modif car ça s'envoit alors qu'on le veut pas 
+
+user stories à revoir.
+
+commencer à travailler en regardant les cotations ça peut aider pour se fixer des choses à travailler. 
+ 
+--> à faire sprint 4
+
+connexion et test asgard (synchronicité profil etdemande avec la connexion).
+début formulaire demande d'aide 
+page de profil
+filtre sur liste demande 
+deconnexion 
+

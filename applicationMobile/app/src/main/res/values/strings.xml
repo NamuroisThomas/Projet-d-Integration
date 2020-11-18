@@ -13,5 +13,11 @@
     <string name="titre">Titre</string>
     <string name="titreDescription">Description de la demande</string>
     <string name="champDescription">Description</string>
+    <string name="profil">Profil</string>
+    <string name="demandes">Demandes</string>
+    <string name="enCours">En cours</string>
+    <string name="mesDemandes">Mes demandes</string>
+    <string name="ajoutDemandes">Nouvelle demande</string>
+
 
 </resources>

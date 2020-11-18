@@ -7,11 +7,11 @@ import java.util.List;
 
 
 public class Utilisateur {
-    String nomUser;
-    String prenomUser;
-    String mail;
-    String telephone;
-    String mdp;
+    private String nomUser;
+    private String prenomUser;
+    private String mail;
+    private String telephone;
+    private String mdp;
 
     /**
      * Constructeur complet
