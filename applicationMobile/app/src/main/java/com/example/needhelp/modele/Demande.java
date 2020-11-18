@@ -46,4 +46,28 @@ public class Demande {
         this.defraiement = defraiement;
         this.idCodePostal = idCodePostal;
     }
+
+    public int getIdDemande() {
+        return idDemande;
+    }
+
+    public void setIdDemande(int idDemande) {
+        this.idDemande = idDemande;
+    }
+
+    public String getTitreDemande() {
+        return titreDemande;
+    }
+
+    public void setTitreDemande(String titreDemande) {
+        this.titreDemande = titreDemande;
+    }
+
+    public String getDateDemande() {
+        return dateDemande;
+    }
+
+    public void setDateDemande(String dateDemande) {
+        this.dateDemande = dateDemande;
+    }
 }

@@ -43,6 +43,8 @@ public final class Controle {
             Controle.instance = new Controle();
             accesDistant = new AccesDistant();
             accesDistant.envoi("demandesTout", new JSONArray());
+            //accesDistant.envoi("categorie",new JSONArray());
+
         }
         return Controle.instance;
     }
@@ -57,7 +59,7 @@ public final class Controle {
      * @param idCodePostal
      */
     public void creerDemandes(String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, int idCodePostal){
-        demande = new Demande(new Date(),titreDemande,descriptionDemande,idUtilisateur,idCategorie,defraiement,idCodePostal);
+        demande = new Demande(titreDemande,descriptionDemande,idUtilisateur,idCategorie,defraiement,idCodePostal);
         lesDemandes.add(demande);
         /**
          * A FAIRE!!!!
