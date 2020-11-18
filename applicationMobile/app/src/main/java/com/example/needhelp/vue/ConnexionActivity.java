@@ -51,7 +51,7 @@ public class ConnexionActivity extends AppCompatActivity {
         ((Button)findViewById(R.id.connexion)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ConnexionActivity.this,HomeActivity.class);
+                Intent intent = new Intent(ConnexionActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
