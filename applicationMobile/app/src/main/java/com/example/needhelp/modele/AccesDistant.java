@@ -1,17 +1,11 @@
 package com.example.needhelp.modele;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.example.needhelp.R;
 import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.outils.AccessHTTP;
 import com.example.needhelp.outils.AsyncResponse;
 import com.example.needhelp.vue.ConnexionActivity;
-import com.example.needhelp.vue.HomeActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +29,7 @@ public class AccesDistant implements AsyncResponse {
      * Constructeur
      */
     public AccesDistant() {
-        controle = Controle.getInstance();
+        controle = Controle.getInstance(null);
     }
 
     /**
@@ -87,7 +81,7 @@ public class AccesDistant implements AsyncResponse {
                     Log.d("ERREUR", "************** Recup donnee connexions echouee\n****" + e);
                     ConnexionActivity conn = new ConnexionActivity();
                 }
-            }else if (message[0].equals("demandeTout")){
+            }else if (message[0].equals("demandesTout")){
                 Log.d("demandes","*****************" + message[1]);
                 try {
                     JSONArray jsonInfo = new JSONArray(message[1]);
@@ -111,6 +105,7 @@ public class AccesDistant implements AsyncResponse {
                         Demande demande = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,idCategorie,defraiementDemande,
                                 idCodePostal,accepteDemande,acceptePar);
                         lesDemandes.add(demande);
+                        Log.d("Ajout","********************* Demande ajoutéé");
                     }
                     controle.setLesDemandes(lesDemandes);
                 } catch (JSONException e) {

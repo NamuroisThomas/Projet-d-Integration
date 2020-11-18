@@ -1,19 +1,14 @@
 package com.example.needhelp.controleur;
 
 import android.content.Context;
-import android.util.Log;
-import android.widget.EditText;
+import android.view.View;
 
-import com.example.needhelp.R;
 import com.example.needhelp.modele.Demande;
-import com.example.needhelp.modele.Utilisateur;
 import com.example.needhelp.modele.AccesDistant;
-import com.example.needhelp.vue.ConnexionActivity;
 
 import org.json.JSONArray;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public final class Controle {
 
@@ -33,8 +28,9 @@ public final class Controle {
     /**
      * Creation de l'instance
      * @return instance
+     * @param context
      */
-    public static final Controle getInstance(){
+    public static final Controle getInstance(Context context){
 
         if(contexte!=null){
             Controle.contexte=contexte;
