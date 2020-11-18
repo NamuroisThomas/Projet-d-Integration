@@ -30,7 +30,7 @@ public final class Controle {
     /**
      * Constructeur
      */
-    private Controle(){
+    public Controle(){
         super();
     }
 
@@ -47,6 +47,7 @@ public final class Controle {
             Controle.instance = new Controle();
             accesDistant = new AccesDistant();
             //accesDistant.envoi("dernier", new JSONArray());
+            accesDistant.envoi("categorie",new JSONArray());
         }
         return Controle.instance;
     }

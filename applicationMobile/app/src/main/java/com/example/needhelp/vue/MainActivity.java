@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -21,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acceuil);
         controle = Controle.getInstance();
-        ecouteGoToInscription();
-        ecouteGoToConnexion();
+        /*ecouteGoToInscription();
+        ecouteGoToConnexion();*/
     }
 
     private Controle controle;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Ecoute du bouton menant à la page d'inscription.
      */
-    private void ecouteGoToInscription(){
+    /*private void ecouteGoToInscription(){
         ((Button)findViewById(R.id.boutonGoToInscription)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -47,5 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
+    }*/
+
 }

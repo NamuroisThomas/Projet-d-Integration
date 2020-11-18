@@ -10,5 +10,8 @@
     <string name="confirmation">Confirmer le mot de passe</string>
     <string name="retour">Retour</string>
     <string name="deconnexion">Deconnexion</string>
+    <string name="titre">Titre</string>
+    <string name="titreDescription">Description de la demande</string>
+    <string name="champDescription">Description</string>
 
 </resources>
