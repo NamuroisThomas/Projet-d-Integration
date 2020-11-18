@@ -10,9 +10,9 @@ Par exemple : nom, prénom, adresse mail, téléphone, mot de passe ainsi qu’une co
 L’adresse mail et le numéro de téléphone sont unique donc si l'un d'eux est déjà présent dans la base de données, l'inscription sera refusée. 
 Si le formulaire n’est pas rempli, le bouton d’envoi n’est pas cliquable. 
 En cas de problème au niveau de la complétion du formulaire, le site web affichera un pop-up contenant un message d’erreur.
-Lors de l’envoi, un pop-up avec le message « inscription complété. » et lorsque le bouton ‘ok’ du pop-up est cliqué, la page se rafraichi 
+Lors de l’envoi, un pop-up avec le message « inscription complété. » et lorsque le bouton ‘ok’ du pop-up est cliqué, la page se refresh 
 
-La méthode utilisé lors de l’inscription est la méthode post Inscription venant de l’API. Cette méthode demande à l’utilisateur de rentrer les informations suivantes : nom, prénom, téléphone, mail et mot de passe. 
+La méthode utilisé lors de l’inscription est la méthode post Inscription venant de l’API. Cette API demande à l’utilisateur de rentrer les informations suivantes : nom, prénom, téléphone, mail et mot de passe. 
 
 (François Temmerman). 
 
@@ -27,7 +27,7 @@ L’adresse mail et le numéro de téléphone sont unique donc si l'un d'eux est déjà
 Si le formulaire n’est pas rempli, le bouton d’envoi est cliquable, mais un message d’erreur « saisie incorrecte » apparaitra au-dessus du bouton. 
 En cas de problème au niveau de la complétion du formulaire, le site web affichera un message d’erreur « saisie incorrecte ».
 
-La méthode utilisé lors de l’inscription est la méthode post Inscription venant de l’API. Cette méthode demande à l’utilisateur de rentrer les informations suivantes : nom, prénom, téléphone, mail et mot de passe. 
+La méthode utilisé lors de l’inscription est la méthode post Inscription venant de l’API. Cette API demande à l’utilisateur de rentrer les informations suivantes : nom, prénom, téléphone, mail et mot de passe. 
 
 
 
@@ -40,7 +40,7 @@ La connexion devrait se faire à partir d’un bouton présent sur le site web, il d
 Si l’un des champs n’est pas complet, le bouton de connexion n’est pas cliquable.
 Si l’adresse mail n’est pas connue, le site affiche un pop-up avec l’information « mail inexistant vous devez créer un compte. ». 
 Si l’adresse est correcte, mais que le mot de passe est incorrect, le site affiche un pop-up avec l’information « mot de passe incorrect. ». 
-Lors de l’envoi, un pop-up s’affiche avec le message « connexion… » lorsque le bouton ‘ok’ du pop-up est cliqué, la page se rafraichi et un bouton de déconnexion apparait.  
+Lors de l’envoi, un pop-up s’affiche avec le message « connexion… » lorsque le bouton ‘ok’ du pop-up est cliqué, la page se resfresh et un bouton de déconnexion apparait.  
 
 La méthode utilisé lors de la connexion est la méthode GET mailExist de venant de l’API. Cette API va rechercher toutes les informations d’un utilisateur en fonction du mail envoyé. 
 
@@ -55,7 +55,7 @@ Si l’un des champs n’est pas complet, le bouton de connexion est cliquable, mais
 Si l’adresse mail n’est pas connue, l’application affiche un message avec l’information « mail inconnu ». 
 Si l’adresse est correcte, mais que le mot de passe est incorrect, l’application affiche un pop-up avec l’information « mot de passe incorrect. ».  
 
-La méthode utilisé lors de la connexion est la méthode GET mailExist de venant de l’API. Cette méthode va rechercher toutes les informations d’un utilisateur en fonction du mail envoyé
+La méthode utilisé lors de la connexion est la méthode GET mailExist de venant de l’API. Cette API va rechercher toutes les informations d’un utilisateur en fonction du mail envoyé
 (Simon Magnes)
 
 
@@ -74,7 +74,8 @@ La demande d’aide devrait se faire à partir d’un bouton présent sur le site web,
 Si l’un des champs n’est pas rempli, le bouton n’est pas cliquable. 
 Lors de l’envoi aucun pop-up, la tâche est envoyée directement dans la base de données.
 
-La méthode utilisée pour l’inscription des demandes est la méthode POST demande venant de l’API. Cette méthode demande à l’utilisateur de rentrer les informations suivantes : titre de la demande, description de la demande, catégorie et code postal.
+La méthode utilisée pour l’inscription des demandes est la méthode POST demande venant de l’API. Cette API demande à l’utilisateur de rentrer les informations suivantes : titre de la demande, description de la demande, 
+
 
 
 (Luk Brian)
@@ -82,92 +83,62 @@ La méthode utilisée pour l’inscription des demandes est la méthode POST demande 
 * US03 Bis : demande d’aide (mobile)
 
 En tant qu’utilisateur, je souhaite pouvoir formuler une demande, afin de recevoir l’aide d’une personne utilisant l’application. 
-
 Description : 
-La demande d’aide devrait se faire à partir d’un bouton présent sur le site web, il doit rediriger les utilisateurs à une page présentant un formulaire dans lequel l’utilisateur peut écrire des informations concernant leur demande à savoir nom de tâche, description, catégorie de la tâche, le code postal du lieu dans lequel la tâche a été demandé.
+La demande d’aide devrait se faire à partir d’un bouton présent sur l’application mobile et le site web, il doit rediriger les utilisateurs à une page présentant un formulaire dans lequel l’utilisateur peut écrire des informations concernant leur demande (nom de tâche, description, catégorie de la tâche,).
 
-La méthode utilisée pour l’inscription des demandes est la méthode POST demande venant de l’API. Cette méthode demande à l’utilisateur de rentrer les informations suivantes : titre de la demande, description de la demande, catégorie et code postal.
-
-
-
-
-
-
-
-
-
-
-* US04 : Liste demande d’aide
+* US04 :
 
 En tant qu’utilisateur, je souhaite avoir un affichage contenant une liste des demandes faites par les autres utilisateurs, afin de pouvoir entreprendre les démarches pour pouvoir les aider.
 
 
 Description :
 L’affichage en question ne doit pas contenir toutes les demandes en une seule page, cela ralentirait l’affichage du au nombre conséquent de demandes attendues par le client. 
-Cet affichage doit se faire sous la forme de liste affichant titre, catégorie, date ainsi qu’un bouton pour accéder au détail.
+Cet affichage doit se faire sous la forme de block contenant les informations de la demande.
 
-Les méthodes utilisées pour l’affichage de la liste sont les méthodes GET demandes et GET categories venant de l’API. Ces méthodes renvoient respectivement toutes les demandes et toutes les catégories.  
-
-
-* US04.1 : Détail liste
+* US04.1 :
 
 En tant qu’utilisateur, je souhaite pouvoir recevoir plus d’information au sujet d’une demande dans la liste de demande d’aide, afin d’avoir une idée concrète de la tâche à accomplir ou encore de pouvoir entrer en communication avec l’utilisateur.
 
 Description :
-Lors de l’affichage de la liste des demandes d’aide, un bouton détail présent dans chaque demande est cliquable pour réunir plus d’information sur la demande.
-Ce bouton mène vers une page contenant toutes les informations de la demande, ainsi que des informations sur l’utilisateur (nom, prénom). 
-Un bouton permettant de retourner sur la liste des demandes est présent sur la page afin de faciliter le la navigation de l’utilisateur.
+Lors de l’affichage de la liste des demandes d’aide, chaque demande sera cliquable pour réunir plus d’information sur la demande. 
+Un bouton devrait aussi permettre de mettre en contact via le chat l’aidant et l’aidé.  
 
-La méthode utilisée pour l’affichage des détails est la méthode GET demande by id venant de l’API. Cette méthode renvoi toutes les informations d’une demande via son id. 
-
-
-
-
-* US04.2 : Tri liste
-
+* US04.2 :
 En tant qu’utilisateur, je souhaite pouvoir trier les demandes d’aide, afin de pouvoir plus facilement choisir parmi les demandes celles que je peux accomplir. 
-
 Description :
-Ce tri doit se faire sous plusieurs critères soit par catégorie de demande, soit la compensation ou non de la tâche, soit par date (croissant ou décroissant) d’inscription de la tâche.  
-
-La méthode utilisée pour le tri est la méthode GET demande (avec ou sans paramètre) venant de l’API. Cette méthode renvoi toutes les demandes trier dans l’ordre d’inscription de la tâche dans la base de données lorsque l’on introduit aucun paramètre. Un tri est faisable sur les catégories, les codes postaux, les id de tache et les dates.   
+Ce tri doit se faire sous plusieurs critères soit par catégorie de demande, soit la localisation ou soit la compensation ou non (sous forme de rémunération ou autres, les utilisateurs peuvent en parler entre eux) de la tâche.  
 (Gaëtan Gortz)
 
-* US05.1 : chat
-En tant qu’utilisateur, je souhaite pouvoir entrer en communication avec la personne que j’aide/ qui m’aide, afin de pouvoir discuter avec lui de ses disponibilités, de la compensation ou encore de pouvoir communiquer plus précisément mon adresse.
+* US05.1 :
+En temps qu’utilisateur, je souhaite pouvoir entrer en communication avec la personne que j’aide/ qui m’aide, afin de pouvoir discuter avec lui de ses disponibilités, de la compensation ou encore de pouvoir communiquer plus précisément mon adresse.
 Description :
 L’utilisateur doit pouvoir entrer en contact avec un autre utilisateur par le biais d’un chat de communication écrit.
 
-* US05.2 : chat vocal
+* US05.2 :
 En tant qu’utilisateur, je souhaite pouvoir discuter avec la personne qui m’aide/ que j’aide par le biais de message ou d’appel vocaux ou vidéo, afin de me faire une idée plus concrète de qui est la personne que j’aide/ qui m’aide.
 
 Description :
 L’idée ici est de faire en sorte que dans le chat, il y ait moyen d’envoyer des messages vocaux et de passer des appels vocaux/vidéo. 
 
-* US06 : profil
-
-En tant qu’utilisateur, je souhaite pouvoir modifier ma page de profil, afin de modifier mes informations ou ajouter de nouvelle information à mon sujet. 
-
+* US06 : 
+En tant qu’utilisateur, je souhaite pouvoir modifier ma page de profil, afin de remplir/changer des informations complémentaires à mon sujet. 
 Description :
-Les utilisateurs doivent être connecté à leur compte afin de pouvoir modifier leur profil, ils pourront modifier leur information à propos de leur mot de passe, description, numéro de téléphone et adresse mail.
+Les utilisateurs doivent être capable de modifier leur profil lorsqu’ils sont connectés à leur compte, ils pourront modifier leur information à propos de leur mot de passe. (Le reste est à voir ensembe).  
 
-La méthode utilisée pour l’affichage du profil est la même que pour la connexion à savoir GET mailExist qui renvoi toutes les informations de l’utilisateur en fonction de son mail.
-
-
-* US07 : localisation 
+* US07 : 
 En tant qu’utilisateur, je souhaite avec son accord obtenir des informations plus précises au sujet de la localisation de la personne que j’aide afin de pouvoir me rendre plus facilement au lieu de rendez-vous.
 Description :
 Les utilisateurs doivent avoir accès à une information de géolocalisation et un guidage GPS doit pouvoir se lancer lorsque la personne qui aide veut pouvoir se rendre chez la personne qu’il/elle aide. 
 (Maxime De Cock)
 
-* US08 : clôture tache
+* US08 : 
 
 En tant qu’utilisateur, je souhaite pouvoir conclure une demande lorsque la personne qui m’a aidé à fini la tâche, afin que cette tâche n’apparaisse dans les tâches en cours de l’utilisateur.
 
 Description :
 L’utilisateur doit-être capable de stopper la tâche qu’il a donné à un autre utilisateur lorsque celle-ci est finie. 
 
-* US09 : accepte demande
+* US09 : 
 
 En tant qu’utilisateur, je souhaite pouvoir accepter une demande formulée par un autre utilisateur, afin de commencer à aider mon prochain.
 
@@ -175,28 +146,41 @@ Description :
 Lorsque l’utilisateur est en train de parcourir la liste de demande, l’utilisateur peut entrer dans les détails d’une demande et accepter la demande dans cette page 
 
 
-* US10 : signalisation 
+* US10 :
 
 En tant qu’utilisateur, je souhaite pouvoir signaler un autre utilisateur, afin de prévenir un abus ou un acte inapproprié.
 
 Description :
-L’utilisateur doit pouvoir envoyer un signalement aux administrateurs avec une description de la raison du signalement. 
+L’utilisateur doit pouvoir envoyer un signalement aux administrateurs avec un description de la raison du signalement. 
 Après coup, les administrateurs décideront de bannir ou bloquer l’utilisateur en question 
 En cas de signalement abusif l’utilisateur pourrait voir son compte supprimé ou bloqué.
 (Thomas Namurois) 
 
+* US09.1 :
 
-* US10 : demande acceptée
+En tant qu'utilisateur, je souhaite pouvoir signaler un utilisateur en un clic afin de dénoncer plus facilement un acte abusif.
+
+Description :
+L’accès à la signalisation doit se faire en un clic sur un bouton « signaliser »
+
+* US09.2 : 
+
+En tant qu'utilisateur, je souhaite pouvoir décrire l'acte abusive ou/et comportement d'un utilisateur.
+
+Description :
+La description de la signalisation peut se faire dans un écran pop-ups 
+
+* US10 :
 
 En tant qu’utilisateur, je souhaite que lorsque je décide d’aider quelqu’un, je puisse afficher les demandes que j’ai accepté dans une liste, afin de savoir quelles tâches il me reste à accomplir.
 
 Description :
-Tout comme la liste de demande, l’utilisateur doit-être capable de voir celle(s) qu’il a acceptée(s), l’affichage sera le même que l’affichage de la liste de demande, avec l’accès à détails si l’utilisateur qui veut aider à oublier la tâche qu’il avait au préalable accepté. 
+Tout comme la liste de demande, l’utilisateur doit-être capable de voir celle(s) qu’il a acceptée(s), l’affichage sera le même que l’affichage de la liste de demande, avec l’accès à détails si l’utilisateur qui veut aider à oublié la tâche qu’il avait au préalable accepté. 
 
 
 
 
-* US11 : notation
+* US11 :
 
 En tant qu’utilisateur, je souhaite pouvoir noter la personne qui m’a aidé lorsque je conclu la tâche, afin de pouvoir valoriser son travail aux autres utilisateurs.
 
