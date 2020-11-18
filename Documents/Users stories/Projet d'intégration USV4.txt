@@ -144,7 +144,7 @@ L’idée ici est de faire en sorte que dans le chat, il y ait moyen d’envoyer
 En tant qu’utilisateur, je souhaite pouvoir modifier ma page de profil, afin de modifier mes informations ou ajouter de nouvelle information à mon sujet. 
 
 Description :
-Les utilisateurs doivent être connecté à leur compte afin de pouvoir modifier leur profil, ils pourront modifier leur information à propos de leur mot de passe, description, numéro de téléphone et adresse mail.
+Les utilisateurs doivent être connecté à leur compte afin de pouvoir modifier leur profil si ils sont pas connecté à leur compte, le bouton permettant d'accéder à la page renvoie à la page d'accueil, ils pourront modifier leur information à propos de leur mot de passe, description, numéro de téléphone et adresse mail.
 
 La méthode utilisée pour l’affichage du profil est la même que pour la connexion à savoir GET mailExist qui renvoi toutes les informations de l’utilisateur en fonction de son mail.
 
@@ -181,7 +181,7 @@ En cas de signalement abusif l’utilisateur pourrait voir son compte supprimé 
 (Thomas Namurois) 
 
 
-* US10 : demande acceptée
+* US11 : demande acceptée
 
 En tant qu’utilisateur, je souhaite que lorsque je décide d’aider quelqu’un, je puisse afficher les demandes que j’ai accepté dans une liste, afin de savoir quelles tâches il me reste à accomplir.
 
@@ -190,18 +190,17 @@ Tout comme la liste de demande, l’utilisateur doit-être capable de voir celle
 
 
 
+* US12 : contact
 
-* US11 : notation
+En tant qu’utilisateur, je souhaite avoir un page ou je pourrais contacter les administrateurs, afin de les prévenir si je rencontre un problème ou un bug. 
+Description :
+Les utilisateurs doivent être connecté à leur compte afin de pouvoir modifier leur profil si ils sont pas connecté à leur compte, le bouton permettant d'accéder à la page renvoie à la page d'accueil.
+À la simple pression d’un bouton l’utilisateur doit pouvoir se rendre sur une page nommé « page de contact » et en rentrant des informations de type adresse mail, nom, Prénom ainsi qu’une description du problème rencontré, doit pouvoir envoyer un mail à l’équipe. 
+
+
+* US13 : notation
 
 En tant qu’utilisateur, je souhaite pouvoir noter la personne qui m’a aidé lorsque je conclu la tâche, afin de pouvoir valoriser son travail aux autres utilisateurs.
 
 Description :
 Lorsque l’utilisateur arrête la tâche il faut qu’un pop-up ou un message apparaisse afin de pouvoir noter la personne qui l’a aidé. 
-
-* US12 : contact
-
-En tant qu’utilisateur, je souhaite avoir un page ou je pourrais contacter les administrateurs, afin de les prévenir si je rencontre un problème ou un bug. 
-Description :
-À la simple pression d’un bouton l’utilisateur doit pouvoir se rendre sur une page nommé « page de contact » et en rentrant des informations de type adresse mail, nom, Prénom ainsi qu’une description du problème rencontré, doit pouvoir envoyer un mail à l’équipe. 
-
-
