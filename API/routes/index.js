@@ -169,6 +169,22 @@ router.post('/demande', function (req, res, next) {
 });
 
 
+router.post('/profil',function (req, res, next){
+	console.log(req.body);
+	console.log("POST profil");
+	res.locals.connection.query("UPDATE utilisateurs SET mailUtilisateur=?, telUtilisateur=?, descriptionUtilisateur=? WHERE idUtilisateur=?", [req.body.formProfilMailUtilisateur, req.body.formProfilTelUtilisateur, req.body.formProfilDescriptionUtilisateur, req.body.formProfilIdUtilisateur], function (error, results, fields) {
+		if(error!=null){
+			res.redirect(529, '/error');
+			console.log(error);
+		}
+		else{
+			console.log("utilisateur updaté");
+			res.send({"status":201, "error":null, "response":results});
+		}
+	});
+});
+
+
 
 
 
