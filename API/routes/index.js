@@ -187,6 +187,25 @@ router.post('/profil',function (req, res, next){
 
 
 
+router.post('/accepteDemande',function (req, res, next){
+    console.log(req.body);
+    console.log("POST accepteDemande");
+    res.locals.connection.query("UPDATE demandes SET accepteDemande=1, acceptePar=? WHERE idDemande=?", [req.body.formAccepteDemandeIdAccepteur, req.body.formAccepteDemandeIdDemande], function (error, results, fields) {
+        if(error!=null){
+            res.redirect(529, '/error');
+            console.log(error);
+        }
+        else{
+            console.log("demande updaté acceptée");
+            res.send({"status":201, "error":null, "response":results});
+        }
+    });
+});
+
+
+
+
+
 
 
 module.exports = router;
