@@ -95,6 +95,9 @@ public class CreerDemandeActivity extends AppCompatActivity {
                     Log.d("enregDemande", "*************" + demande.nouvelleDemandeConvertToJSONArray());
                     accesDistant.envoi("enregDemande", demande.nouvelleDemandeConvertToJSONArray());
 
+                    //controle.getLesDemandes().add(demande);
+
+
                     // Bouton pour aller vers la page home
                     Intent intent = new Intent(CreerDemandeActivity.this, HomeActivity.class);
                     startActivity(intent);
