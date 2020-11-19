@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { isNull } from 'util';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-profil',
@@ -14,7 +15,7 @@ import { isNull } from 'util';
 
 export class EditProfilComponent implements OnInit{
   profil: any
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(){
     if (!isNull(JSON.parse(localStorage.getItem('user')))){
@@ -25,6 +26,19 @@ export class EditProfilComponent implements OnInit{
       console.log('profil inéxistant');
     }
   }
+
+  submit(data) {
+      this.http.post('http://62.210.130.145:3000/profil', data)
+        .subscribe((res) =>
+          console.warn('result', res)
+        );
+      let existing = localStorage.getItem('user');
+      existing = existing ? JSON.parse(existing) : {};
+      existing['descriptionUtilisateur'] = data.formProfilDescriptionUtilisateur;
+      localStorage.setItem('user', JSON.stringify(existing));
+      console.log(existing['descriptionUtilisateur']);
+      alert('profile mis à jour');
+    }
 
 }
 

@@ -7,13 +7,31 @@
             <div>{{profil.nomUtilisateur}}</div>
             <label>Prénom</label>
             <div>{{profil.prenomUtilisateur}}</div>
+        <form #userPut="ngForm" (ngSubmit)="submit(userPut.value)">
+          <div class="form-group" hidden>
+            <label>id</label>
+            <input class="form-control" type="number" size="3" name="formProfilIdUtilisateur" ngModel
+                   [(ngModel)]="profil.idUtilisateur"
+                   required>
+          </div>
+          <div class="form-group">
             <label>Adresse mail</label>
-            <div>{{profil.mailUtilisateur}}</div>
+            <input class="form-control" type="text" size="50" name="formProfilMailUtilisateur" ngModel
+                   [(ngModel)]="profil.mailUtilisateur"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          </div>
+          <div class="form-group">
             <label>Numéro de téléphone</label>
-            <div>{{profil.telUtilisateur}}</div>
+            <input class="form-control" type="text" size="20" name="formProfilTelUtilisateur" ngModel
+                   [(ngModel)]="profil.telUtilisateur" pattern="[./+0-9]+" required>
+          </div>
+          <div class="form-group">
             <label>Description</label>
-            <div class="form-control">{{profil.descriptionUtilisateur}}</div>
+            <input class="form-control" type="text" size="50" name="formProfilDescriptionUtilisateur" ngModel
+                   [(ngModel)]="profil.descriptionUtilisateur" required>
+          </div>
             <button class="btn btn-primary">Modifiez description</button>
+        </form>
 
 
       </div>
