@@ -7,8 +7,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dip"
-        android:text="Titre Description"
+        android:layout_marginTop="10dp"
+        android:text="@string/titreDemande"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -23,7 +23,7 @@
         android:autofillHints=""
         android:background="@drawable/backgroundtext"
         android:gravity="center"
-        android:hint="Titre"
+        android:hint="@string/titre"
         android:inputType="text" />
 
     <TextView
@@ -33,7 +33,7 @@
         android:layout_below="@id/valueTitreDescription"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="Champ Description"
+        android:text="@string/champDescription"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -46,10 +46,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:autofillHints=""
-        android:background="@drawable/backgroundtext"
+        android:background="@color/white"
         android:gravity="top"
-        android:hint="Description"
-        android:inputType="text" />
+        android:hint="@string/valueChampDescription"
+        android:inputType="textMultiLine" />
 
     <TextView
         android:id="@+id/defraiement"
@@ -58,7 +58,7 @@
         android:layout_below="@id/valueChampDescription"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="defraiement"
+        android:text="@string/defraiement"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -73,7 +73,7 @@
         android:autofillHints=""
         android:background="@drawable/backgroundtext"
         android:gravity="center"
-        android:hint="defraiement"
+        android:hint="@string/Montant"
         android:inputType="number" />
 
     <TextView
@@ -83,7 +83,7 @@
         android:layout_below="@id/valueDefraiement"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="categorie"
+        android:text="@string/Categorie"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -94,6 +94,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:entries="@array/defaultValue"/>
 
     <TextView
@@ -103,13 +104,13 @@
         android:layout_below="@id/liste"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="code Postal"
+        android:text="@string/codePostal"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
     <EditText
         android:id="@+id/valueCodePostal"
-        android:layout_width="250dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/codePostal"
         android:layout_centerHorizontal="true"
@@ -117,20 +118,26 @@
         android:autofillHints=""
         android:background="@drawable/backgroundtext"
         android:gravity="center"
-        android:hint="Code Postal"
+        android:hint="@string/codePostal"
         android:inputType="number" />
     <Button
         android:id="@+id/buttonAjoutDemande"
         android:layout_below="@id/valueCodePostal"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/backgroundbouton"
         android:text="@string/ajoutDemandes" />
 
     <Button
         android:id="@+id/buttonDeconnexionHome"
         android:layout_below="@id/buttonAjoutDemande"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/backgroundbouton"
         android:text="@string/deconnexion" />
 
 </RelativeLayout>
