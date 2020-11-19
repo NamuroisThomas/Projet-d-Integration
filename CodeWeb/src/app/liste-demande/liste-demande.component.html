@@ -3,12 +3,13 @@
   <button type="button" class="btn btn-secondary" (click)="filtre = 'oui'">Défraiment</button>
   <button type="button" class="btn btn-secondary" (click)="filtre = 'desc'">Ordre par date</button>
   <button type="button" class="btn btn-secondary" (click)="filtre = 'asc'">Désordre par date</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'all0'">Demande accepté</button>
   <div class="btn-group" role="group">
     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Catégorie
     </button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <a class="dropdown-item" (click)="filtre = 'aide ménagères'">Aides ménagères</a>
+      <a class="dropdown-item" (click)="filtre = 'aide men'">Aides ménagères</a>
       <a class="dropdown-item" (click)="filtre = 'courses'">Courses</a>
       <a class="dropdown-item" (click)="filtre = 'couture'">Couture</a>
       <a class="dropdown-item" (click)="filtre = 'cuisine'">Cuisine</a>
@@ -29,7 +30,6 @@
       <th>Catégorie</th>
       <th>Date</th>
       <th>Actions</th>
-      <th>Accepté par</th>
     </tr>
     </thead>
     <tbody *ngIf="filtre === 'all'">
@@ -40,6 +40,19 @@
       <td *ngIf="liste.accepteDemande === 0">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
+      <td *ngIf="liste.accepteDemande === 0">{{liste.accepte}}</td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'all0'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 1">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 1"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 1"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 1">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 1">{{liste.accepte}}</td>
     </tr>
     </tbody>
 
@@ -118,7 +131,7 @@
       </td>
     </tr>
     </tbody>
-    <tbody *ngIf="filtre === 'aides ménagères'">
+    <tbody *ngIf="filtre === 'aide men'">
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'"> {{ liste.nomCategorie }}</td>
