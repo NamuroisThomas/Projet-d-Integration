@@ -11,8 +11,13 @@
     <string name="retour">Retour</string>
     <string name="deconnexion">Deconnexion</string>
     <string name="titre">Titre</string>
-    <string name="titreDescription">Description de la demande</string>
-    <string name="champDescription">Description</string>
+    <string name="titreDemande">Titre Demande</string>
+    <string name="champDescription">Champ Description</string>
+    <string name="valueChampDescription">Description</string>
+    <string name="defraiement">Defraiement</string>
+    <string name="Montant">Montant</string>
+    <string name="Categorie">Categorie</string>
+    <string name="codePostal">Code Postal</string>
     <string name="profil">Profil</string>
     <string name="demandes">Demandes</string>
     <string name="enCours">En cours</string>
