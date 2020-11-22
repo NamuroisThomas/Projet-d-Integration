@@ -202,10 +202,20 @@ router.post('/accepteDemande',function (req, res, next){
     });
 });
 
-
-
-
-
+//Retourne les codes postaux
+router.get('/codePostal', function(req,res,next){
+    console.log('GET codes postaux');
+    res.locals.connection.query('SELECT * FROM codePostal', function(error, results, fields) {
+        if (error!=null) {
+            res.redirect(529, '/error');
+            console.log("erreur query");
+        }
+        else {
+            res.send({"status": 200, "error": null, "response": results});
+            console.log("query OK");
+        }
+    });
+});
 
 
 module.exports = router;
