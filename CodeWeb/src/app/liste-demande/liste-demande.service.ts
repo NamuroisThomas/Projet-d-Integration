@@ -25,6 +25,10 @@ export class GetListeDemandeService {
   listeCategorieCall(){
     return this.http.get('http://62.210.130.145:3000/categories');
   }
+  
+  listeCodePostauxCall(){
+    return this.http.get('http://62.210.130.145:3000/codePostal');
+  }
 
   listeDemandeCall(){
     return this.http.get('http://62.210.130.145:3000/demandes');
