@@ -12,35 +12,39 @@ import {GetListeDemandeService} from '../liste-demande/liste-demande.service';
   providers: [MessageService]
 })
 export class DemandeAideComponent implements OnInit {
-
- public demandeAide: FormGroup;
- public errorMessage: string;
- role: any;
- listeCategorie: any;
- levelNum: number;
- booleanNum: number;
- levels: [
+  
+  public demandeAide: FormGroup;
+  public errorMessage: string;
+  role: any;
+  listeCategorie: any;
+  listeCodePostaux: any;
+  levelNum: number;
+  booleanNum: number;
+  levels: [
     {num: 0, name: 'oui'},
     {num: 1, name: 'non'}
-  ];
-
+    ];
+  ONDefraiement: any;
+  
   constructor(private formBuilder: FormBuilder,
               private messageService: MessageService,
               private router: Router,
               private http: HttpClient,
               private api: GetListeDemandeService
-              ) { }
-
+  ) { }
+  
   ngOnInit(){
     this.role = JSON.parse(localStorage.getItem('user'));
+    this.ONDefraiement = [{val: 1, desc: "Oui"}, {val: 0, desc: "Non"}];
     this.api.listeCategorieCall().subscribe((res) => {
-      console.log(res[Object.keys(res)[2]]);
+      //console.log(res[Object.keys(res)[2]]);
       this.listeCategorie = res[Object.keys(res)[2]];
-  });
+    });
+    this.api.listeCodePostauxCall().subscribe(res => {this.listeCodePostaux = res[Object.keys(res)[2]];});
     console.log(this.listeCategorie);
   }
-
-
+  
+  
   // onSubmit() {
   //   const titre =  this.demandeAide.get('titre').value;
   //   const description = this.demandeAide.get('description').value;
@@ -53,11 +57,17 @@ export class DemandeAideComponent implements OnInit {
     console.log(this.levelNum);
     console.log(this.booleanNum);
   }
+  
+  
   submit(data){
-      this.http.post('https://jsonplaceholder.typicode.com/posts', data)
-        .subscribe((res) =>
-          console.warn('result', res)
-        );
+    //console.log(form.value.formDemandeCategorie);
+    console.log(data);
+    this.http.post('http://62.210.130.145:3000/demande', data)
+      .subscribe((res) =>
+        console.warn('result', res)
+      );
+    // alert('Demande introduite');
+    // location.reload();
   }
 }
 
