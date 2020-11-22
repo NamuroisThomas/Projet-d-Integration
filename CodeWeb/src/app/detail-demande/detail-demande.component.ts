@@ -12,6 +12,7 @@ export class DetailDemandeComponent implements OnInit {
 
   routeDemande: number;
   detail: any;
+  defraiment: boolean;
 
   constructor(private route: ActivatedRoute,
               private api: GetListeDemandeService,
@@ -24,6 +25,12 @@ export class DetailDemandeComponent implements OnInit {
     this.http.get('http://62.210.130.145:3000/demandes?idDemande=' + this.routeDemande).subscribe((res) => {
       this.detail = res[Object.keys(res)[2]][0];
     });
+    if (this.detail.defraimentDemande === 1){
+      this.defraiment = true;
+    }
+    else{
+      this.defraiment = false;
+    }
 }
 
 }
