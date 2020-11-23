@@ -23,7 +23,7 @@ export class InscriptionComponent implements OnInit {
       .subscribe((res) =>
         console.warn('result', res)
       );
-    alert('inscription completer');
+    alert('Inscription complétée');
     location.reload();
     }
     else {
