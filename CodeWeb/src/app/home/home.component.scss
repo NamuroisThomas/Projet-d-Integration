@@ -32,3 +32,43 @@
     width: 100%;
   }
 }
+
+
+
+h1{
+  height: auto;
+}
+
+h3{
+  padding: 0.55em;
+}
+
+h4{
+  padding-bottom: 0.5em;
+  padding-left: 2em;
+}
+
+p{
+  padding-bottom: 0.5em;
+  padding-left: 4em;
+}
+
+dl {
+  overflow: hidden;
+  padding: 1em;
+}
+dt {
+  float: left;
+  width: 20%;
+}
+dd {
+  float: left;
+  width: 80%;
+}
+
+button{
+  background-color: transparent;
+  color: black;
+  border-color: black;
+  padding: 0.2%;
+}
