@@ -68,7 +68,7 @@ export class ListeDemandeComponent implements OnInit {
       });
     });
     this.filtre = 'all';
-    this.profil = JSON.parse(localStorage.getItem('user'))
+    this.profil = JSON.parse(localStorage.getItem('user'));
   }
 
 }
