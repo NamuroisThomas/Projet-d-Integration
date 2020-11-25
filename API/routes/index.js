@@ -219,7 +219,7 @@ router.post('/accepteDemande',function (req, res, next){
 
 router.post('/desaccepteDemande',function (req, res, next){
     console.log(req.body);
-    console.log("POST accepteDemande");
+    console.log("POST desaccepteDemande");
     res.locals.connection.query("UPDATE demandes SET accepteDemande=0, acceptePar=0 WHERE idDemande=?", [req.body.formAccepteDemandeIdDemande], function (error, results, fields) {
         if(error!=null){
             res.redirect(529, '/error');
@@ -251,7 +251,21 @@ router.get('/codePostal', function(req,res,next){
     });
 });
 
+router.delete('/demande', function(req, res,next) {
+    var idDemande = req.query.idDemande;
+    console.log("DELETE demande")+idDemande;
+    res.locals.connection.query("DELETE FROM demandes WHERE idDemande=?", [idDemande], function (error, results, fields) {
+        if(error!=null){
+            res.redirect(529, '/error');
+            console.log(error);
+        }
+        else{
+            console.log("demande supprimée");
+            res.send({"status":201, "error":null, "response":results});
+        }
+    });
 
+});
 
 
 
