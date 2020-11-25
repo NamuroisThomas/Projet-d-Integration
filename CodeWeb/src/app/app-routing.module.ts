@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {AuthGuard} from './service/auth/auth.guard';
 import { Routes, RouterModule } from '@angular/router';
 import {DemandeAideComponent} from './demande-aide/demande-aide.component';
 import {InscriptionComponent} from './inscription/inscription.component';
@@ -8,6 +9,10 @@ import {ConnexionComponent} from './connexion/connexion.component';
 import {EditProfilComponent} from './edit-profil/edit-profil.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {ContactComponent} from './contact/contact.component';
+import {ListeDemandeComponent} from './liste-demande/liste-demande.component';
+import {DetailDemandeComponent} from './detail-demande/detail-demande.component';
+import {MaListeComponent} from './ma-liste/ma-liste.component';
+import {MesDemandesComponent} from './mes-demandes/mes-demandes.component';
 
 
 const appRoutes: Routes = [
@@ -15,10 +20,14 @@ const appRoutes: Routes = [
     path: '', component: NavbarComponent,
     children: [
       {path: 'home', component: HomeComponent},  /*remplacer HomeComponent ici par EditProfilComponent pour le moment pour eviter le dédoublement*/
-      {path: 'demandeAide', component: DemandeAideComponent},
+      {path: 'listeAide', component: ListeDemandeComponent},
+      {path: 'listeAide/:idDemande', component: DetailDemandeComponent},
+      {path: 'demandeAide', canActivate: [AuthGuard], component: DemandeAideComponent},
+      {path: 'maListe', canActivate: [AuthGuard], component: MaListeComponent},
+      {path: 'mesDemandes', canActivate: [AuthGuard], component: MesDemandesComponent},
       {path: 'inscription', component: InscriptionComponent},
       {path: 'contactPage', component: ContactComponent},
-      {path: 'editProfil', component: EditProfilComponent},
+      {path: 'editProfil', canActivate: [AuthGuard], component: EditProfilComponent},
       {path: 'connexion', component: ConnexionComponent},
       {path: 'not-found', component: PageNotFoundComponent},
       {path: '**', redirectTo: 'home'}
@@ -28,6 +37,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

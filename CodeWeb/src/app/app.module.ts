@@ -18,12 +18,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import {SidebarModule} from 'primeng/sidebar';
-
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactComponent } from './contact/contact.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-
 import {HttpClientModule} from '@angular/common/http';
+import {ConnexionService} from './connexion/connexion.service';
+import { ContactService } from './contact/contact.service';
+import { DetailDemandeComponent } from './detail-demande/detail-demande.component';
+import { MaListeComponent } from './ma-liste/ma-liste.component';
+import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
 
 
 
@@ -41,7 +44,10 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     NavbarComponent,
     ContactComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    DetailDemandeComponent,
+    MaListeComponent,
+    MesDemandesComponent
 
   ],
   imports: [
@@ -65,7 +71,10 @@ import {HttpClientModule} from '@angular/common/http';
     RouterModule
 
   ],
-  providers: [],
+  providers: [
+    ConnexionService,
+    ContactService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

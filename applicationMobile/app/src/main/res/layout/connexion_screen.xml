@@ -1,58 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1B2AB1"
     >
     <TextView
-        android:id="@+id/inscriptionMailTexte"
+        android:id="@+id/connexionMailTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="@string/mail"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_marginTop="35dip"
+        android:textColor="#ffffff"
+        android:layout_marginTop="150dip"
         />
     <EditText
-        android:id="@+id/inscriptionMailEdit"
-        android:layout_width="wrap_content"
+        android:id="@+id/connexionMailEdit"
+        android:layout_width="252dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:hint="@string/mail"
         android:inputType="textWebEmailAddress"
-        android:layout_below="@id/inscriptionMailTexte"
-        />
+        android:layout_below="@id/connexionMailTexte"
+        android:background="@drawable/backgroundtext"
+        android:autofillHints="" />
     <TextView
-        android:id="@+id/inscriptionPSWTexte"
+        android:id="@+id/connexionPSWTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="@string/password"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_below="@id/inscriptionMailEdit"
+        android:textColor="#ffffff"
+        android:layout_below="@id/connexionMailEdit"
         />
     <EditText
-        android:id="@+id/inscriptionPSWEdit"
-        android:layout_width="wrap_content"
+        android:id="@+id/connexionPSWEdit"
+        android:layout_width="252dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:layout_below="@id/inscriptionPSWTexte"
-        />
+        android:layout_below="@id/connexionPSWTexte"
+        android:background="@drawable/backgroundtext"
+        android:autofillHints="" />
     <Button
-        android:layout_width="fill_parent"
+        android:id="@+id/connexion"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/connexionPSWEdit"
+        android:background="@drawable/backgroundbouton"
+        android:layout_marginTop="15dip"
         android:text="@string/connexion"
         android:onClick="goHome"
         />
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/deconnexion"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/connexion"
+        android:background="@drawable/backgroundbouton"
+        android:layout_marginTop="15dip"
         android:text="@string/retour"
         android:onClick="back"
-        />
+        tools:ignore="RelativeOverlap" />
 </RelativeLayout>

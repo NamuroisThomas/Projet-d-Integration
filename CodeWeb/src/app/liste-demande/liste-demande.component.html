@@ -1,12 +1,244 @@
-<div class="container">
-  <div class="jumbotron">
-    <h1>Welcome</h1>
-    <h2>Angular & Bootstrap Demo</h2>
-  </div>
-  <div class="panel panel-primary">
-    <div class="panel-heading">Status</div>
-    <div class="panel-body">
-      <h3>{{title}}</h3>
+<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'all'">Tout</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'oui'">Défraiment</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'desc'">Ordre par date</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'asc'">Désordre par date</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'all0'">Demande accepté</button>
+  <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Catégorie
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" (click)="filtre = 'aide men'">Aides ménagères</a>
+      <a class="dropdown-item" (click)="filtre = 'courses'">Courses</a>
+      <a class="dropdown-item" (click)="filtre = 'couture'">Couture</a>
+      <a class="dropdown-item" (click)="filtre = 'cuisine'">Cuisine</a>
+      <a class="dropdown-item" (click)="filtre = 'electricité'">Electricité</a>
+      <a class="dropdown-item" (click)="filtre = 'jardinage'">Jardinage</a>
+      <a class="dropdown-item" (click)="filtre = 'peinture'">Peinture</a>
+      <a class="dropdown-item" (click)="filtre = 'petits travaux'">Petits travaux</a>
+      <a class="dropdown-item" (click)="filtre = 'transport'">Transport</a>
     </div>
   </div>
 </div>
+
+<div class="container" style="margin-top: 70px;" >
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Catégorie</th>
+      <th>Date</th>
+      <th>Détail</th>
+      <th *ngIf="filtre === 'all0'">Accepteur</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="filtre === 'all'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
+      <td *ngIf="liste.accepteDemande === 0">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null">
+          <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'all0'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 1">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 1"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 1"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
+      <td *ngIf="liste.accepteDemande === 1">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 1">{{liste.accepte}}</td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'asc'">
+    <tr *ngFor="let liste of ordreAsc">
+      <td *ngIf="liste.accepteDemande === 0">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
+      <td *ngIf="liste.accepteDemande === 0">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'desc'">
+    <tr *ngFor="let liste of ordreDesc">
+      <td *ngIf="liste.accepteDemande === 0">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
+      <td *ngIf="liste.accepteDemande === 0">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'oui'">
+    <tr *ngFor="let liste of listeDemande ">
+      <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.defraiementDemande === 1">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+
+
+    <tbody *ngIf="filtre === 'electricité'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Electricité'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'cuisine'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Cuisine'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'peinture'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Peinture'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'courses'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Courses'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'aide men'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Aides ménagères'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'petits travaux'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Petits travaux'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Petits travaux'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Petits travaux'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Petits travaux'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Petits travaux'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'Transport'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Transport'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+
+    <tbody *ngIf="filtre === 'couture'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Couture'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+    <tbody *ngIf="filtre === 'jardinage'">
+    <tr *ngFor="let liste of listeDemande">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Jardinage'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<!--<div *ngFor="let liste of listeDemande" class="card" style="width: 50rem;" >
+  <div class="list-group list-group-flush" *ngIf="liste.accepteDemande === 0">
+    <div class="list-group-item">Titre de la demande : {{liste.titreDemande}}</div>
+    <div class="list-group-item">Catégorie : {{liste.nomCategorie}}</div>
+    <div class="list-group-item">Date : {{liste.dateDemande | date:"yyyy/MM/dd "}}</div>
+    <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+  </div>
+</div>-->

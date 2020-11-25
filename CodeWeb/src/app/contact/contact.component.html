@@ -1,3 +1,55 @@
+<div class="wrapper-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2>Contactez-nous !</h2>
+        <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
+          <div class="form-group">
+            <label for="Email">Adresse mail</label>
+            <input
+              type="email"
+              class="form-control"
+              name="Email"
+              aria-describedby="emailHelp"
+              placeholder="Labeuh@hotmail.com"
+              formControlName="Email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="fullname">Nom et prénom</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Fullname"
+              placeholder="Pierre Labeuh"
+              formControlName="Fullname"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="comment">Commentaire</label>
+            <textarea
+              class="form-control"
+              formControlName="Comment"
+              name="Comment"
+            >
+            </textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!FormData.valid"
+          >
+            Envoyez
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
 <p-fieldset>
   <h1>Contactez-nous !</h1>
   <div class="row">
@@ -44,3 +96,4 @@
     </div>
   </div>
 </p-fieldset>
+-->

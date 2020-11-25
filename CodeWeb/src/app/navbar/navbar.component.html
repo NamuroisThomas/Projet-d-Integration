@@ -1,14 +1,45 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav">
-      <li routerLinkActive="active"><a routerLink="/home">Accueil </a></li>
-      <li routerLinkActive="active"><a routerLink="/demandeAide">Demander une aide </a></li>
-      <li routerLinkActive="active"><a routerLink="/contactPage">Page de contact </a> </li>
-      <li routerLinkActive="active"><a routerLink="/editProfil">Profil </a> </li>
-      <li routerLinkActive="active"><a routerLink="/inscription">Inscription </a></li>
-      <li routerLinkActive="active"><a routerLink="/connexion">Connexion </a> </li>
-    </ul>
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarText">
+    <div class="navbar-nav ">
+        <a class="nav-item nav-link" routerLink="/home">Accueil</a>
+        <a class="nav-item nav-link" routerLink="/listeAide">Liste des aides</a>
+        <a class="nav-item nav-link" routerLink="/maListe">Demande accepté</a>
+        <a class="nav-item nav-link" routerLink="/mesDemandes">Mes offres</a>
+        <a class="nav-item nav-link" routerLink="/demandeAide">Demander une aide</a>
+        <a class="nav-item nav-link" routerLink="/contactPage">Page de contact</a>
+        <a class="nav-item nav-link" routerLink="/editProfil">Profil </a>
+        <a class="nav-item nav-link" routerLink="/inscription">Inscription </a>
+        <a class="nav-item nav-link" routerLink="/connexion">Connexion </a>
+    </div>
   </div>
 </nav>
+
+<!--<nav class="navbar navbar-dark bg-primary">
+  <form class="form-inline">
+    <ul class="nav navbar-nav mr-auto">
+      <li routerLinkActive="active" class="nav-item active">
+        <a class="nav-link" routerLink="/home">Accueil</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/listeAide">Liste des aides</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/demandeAide">Demander une aideg</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/contactPage">Page de contact</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/editProfil">Profil </a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/inscription">Inscription </a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/connexion">Connexion </a>
+      </li>
+    </ul>
+  </form>
+</nav>-->
 
 <router-outlet></router-outlet>
