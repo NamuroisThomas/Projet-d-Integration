@@ -36,11 +36,27 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
       <td *ngIf="liste.accepteDemande === 0">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
-      <td *ngIf="liste.accepteDemande === 0">{{liste.accepte}}</td>
+      <td *ngIf="liste.accepteDemande === 0">
+        <!--<form #accepte="ngForm" (ngSubmit)="submit(accepte.value)">-->
+<!--          <div class="form-group" hidden>
+            <label>id</label>
+            <input class="form-control" type="number" size="3" name="formAccepteDemandeIdAccepteur" ngModel
+                   [(ngModel)]="profil.idUtilisateur"
+                   required>
+          </div>
+          <div class="form-group" hidden>
+            <label>idDemande</label>
+            <input class="form-control" type="number" size="3" name="formAccepteDemandeIdDemande" ngModel
+                   [(ngModel)]="liste.idDemande"
+                   required>
+          </div>-->
+          <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+        <!--</form>-->
+      </td>
     </tr>
     </tbody>
 
@@ -48,7 +64,7 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 1">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 1"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 1"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 1"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
       <td *ngIf="liste.accepteDemande === 1">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -60,7 +76,7 @@
     <tr *ngFor="let liste of ordreAsc">
       <td *ngIf="liste.accepteDemande === 0">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
       <td *ngIf="liste.accepteDemande === 0">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -71,7 +87,7 @@
     <tr *ngFor="let liste of ordreDesc">
       <td *ngIf="liste.accepteDemande === 0">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
       <td *ngIf="liste.accepteDemande === 0">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -82,7 +98,7 @@
     <tr *ngFor="let liste of listeDemande ">
       <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -95,7 +111,7 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -105,7 +121,7 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -115,7 +131,7 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -125,7 +141,7 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -135,7 +151,7 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -155,7 +171,7 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -165,7 +181,7 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -175,7 +191,7 @@
     <tr *ngFor="let liste of listeDemande">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'"> {{ liste.nomCategorie }}</td>
-      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
@@ -192,7 +208,7 @@
   <div class="list-group list-group-flush" *ngIf="liste.accepteDemande === 0">
     <div class="list-group-item">Titre de la demande : {{liste.titreDemande}}</div>
     <div class="list-group-item">Catégorie : {{liste.nomCategorie}}</div>
-    <div class="list-group-item">Date : {{liste.dateDemande | date:"yyyy/MM/dd HH:mm"}}</div>
+    <div class="list-group-item">Date : {{liste.dateDemande | date:"yyyy/MM/dd "}}</div>
     <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
   </div>
 </div>-->
