@@ -26,6 +26,7 @@ import {ConnexionService} from './connexion/connexion.service';
 import { ContactService } from './contact/contact.service';
 import { DetailDemandeComponent } from './detail-demande/detail-demande.component';
 import { MaListeComponent } from './ma-liste/ma-liste.component';
+import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
 
 
 
@@ -45,7 +46,8 @@ import { MaListeComponent } from './ma-liste/ma-liste.component';
     ContactComponent,
     ConnexionComponent,
     DetailDemandeComponent,
-    MaListeComponent
+    MaListeComponent,
+    MesDemandesComponent
 
   ],
   imports: [
