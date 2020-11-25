@@ -15,7 +15,17 @@ export class MaListeComponent implements OnInit {
   constructor(private api: GetListeDemandeService,
               private http: HttpClient)
   { }
-
+  desaccepterDemande(data){
+    this.http.post('http://62.210.130.145:3000/desaccepteDemande',
+      {formAccepteDemandeIdAccepteur: this.profil.idUtilisateur,
+        formAccepteDemandeIdDemande: data
+      })
+      .subscribe( (res) => {
+          alert('demande rejeté');
+          location.reload();
+        }
+      );
+  }
   ngOnInit(): void {
     this.profil = JSON.parse(localStorage.getItem('user'));
     this.api.listeDemandeCall().subscribe((res) => {

@@ -21,6 +21,7 @@ export class ListeDemandeComponent implements OnInit {
   fa: any;
   fb: any;
   profil: any;
+  accepteDemande:any;
 
   constructor(private api: GetListeDemandeService,
               private http: HttpClient) { }
@@ -33,7 +34,15 @@ export class ListeDemandeComponent implements OnInit {
     });
   }
   accepterDemande(data){
-    alert(data);
+    this.http.post('http://62.210.130.145:3000/accepteDemande',
+      {formAccepteDemandeIdAccepteur: this.profil.idUtilisateur,
+        formAccepteDemandeIdDemande: data
+      })
+      .subscribe( (res) => {
+          alert('demande accepté');
+          location.reload();
+        }
+      );
   }
   submit(data){
     this.http.post('http://62.210.130.145:3000/accepteDemande', data)
@@ -59,6 +68,7 @@ export class ListeDemandeComponent implements OnInit {
       });
     });
     this.filtre = 'all';
+    this.profil = JSON.parse(localStorage.getItem('user'))
   }
 
 }

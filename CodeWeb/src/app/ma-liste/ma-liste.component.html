@@ -22,6 +22,9 @@
       <td *ngIf="liste.accepte == nomPrenom">
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
+      <td *ngIf="liste.accepte == nomPrenom">
+        <button class="btn btn-success" type="submit" (click)="desaccepterDemande(liste.idDemande)" >Retirer votre acceptation</button>
+      </td>
     </tr>
     </tbody>
   </table>
