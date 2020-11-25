@@ -10,6 +10,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class InscriptionComponent implements OnInit {
 
+  model: any = {};
   constructor(private http: HttpClient) {
   }
 
@@ -17,11 +18,16 @@ export class InscriptionComponent implements OnInit {
   }
 
   submit(data) {
+    if (data.formInscriptionMdp === data.formInscriptionMdpConfirmation){
     this.http.post('http://62.210.130.145:3000/inscription', data)
-      .subscribe((result) =>
-        console.warn('result', result)
+      .subscribe((res) =>
+        console.warn('result', res)
       );
-    alert('inscription completer');
+    alert('Inscription complétée');
     location.reload();
-  };
+    }
+    else {
+      alert('Les mots de passe ne correspondent pas');
+    }
+  }
 }
