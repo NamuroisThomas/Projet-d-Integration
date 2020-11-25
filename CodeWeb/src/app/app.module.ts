@@ -25,6 +25,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ConnexionService} from './connexion/connexion.service';
 import { ContactService } from './contact/contact.service';
 import { DetailDemandeComponent } from './detail-demande/detail-demande.component';
+import { MaListeComponent } from './ma-liste/ma-liste.component';
 
 
 
@@ -43,7 +44,8 @@ import { DetailDemandeComponent } from './detail-demande/detail-demande.componen
     NavbarComponent,
     ContactComponent,
     ConnexionComponent,
-    DetailDemandeComponent
+    DetailDemandeComponent,
+    MaListeComponent
 
   ],
   imports: [

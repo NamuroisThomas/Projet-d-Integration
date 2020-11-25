@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {GetListeDemandeService} from '../liste-demande/liste-demande.service';
 import {HttpClient} from '@angular/common/http';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-detail-demande',
@@ -12,12 +13,17 @@ export class DetailDemandeComponent implements OnInit {
 
   routeDemande: number;
   detail: any;
-  defraiment: boolean;
+  defraiment: any;
 
   constructor(private route: ActivatedRoute,
               private api: GetListeDemandeService,
-              private http: HttpClient) { }
+              private http: HttpClient,
+              private location: Location)
+  { }
 
+  backClicked() {
+    this.location.back();
+  }
   ngOnInit(){
     /* tslint:disable:no-string-literal */
     this.routeDemande = this.route.snapshot.params['idDemande'];
@@ -31,6 +37,7 @@ export class DetailDemandeComponent implements OnInit {
     else{
       this.defraiment = false;
     }
+    alert(this.defraiment);
 }
 
 }

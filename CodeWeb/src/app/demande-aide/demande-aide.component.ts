@@ -36,7 +36,6 @@ export class DemandeAideComponent implements OnInit {
     this.api.listeCodePostauxCall().subscribe(res => {this.listeCodePostaux = res[Object.keys(res)[2]];});
     console.log(this.listeCategorie);
   }
-  
 
   submit(data){
     this.http.post('http://62.210.130.145:3000/demande', data)

@@ -11,6 +11,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ContactComponent} from './contact/contact.component';
 import {ListeDemandeComponent} from './liste-demande/liste-demande.component';
 import {DetailDemandeComponent} from './detail-demande/detail-demande.component';
+import {MaListeComponent} from './ma-liste/ma-liste.component';
 
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
       {path: 'listeAide', component: ListeDemandeComponent},
       {path: 'listeAide/:idDemande', component: DetailDemandeComponent},
       {path: 'demandeAide', canActivate: [AuthGuard], component: DemandeAideComponent},
+      {path: 'maListe', canActivate: [AuthGuard], component: MaListeComponent},
       {path: 'inscription', component: InscriptionComponent},
       {path: 'contactPage', component: ContactComponent},
       {path: 'editProfil', canActivate: [AuthGuard], component: EditProfilComponent},
