@@ -9,9 +9,47 @@ router.get('/', function(req, res, next) {
 
 //Test de l'API retoure toutes les catégories
 router.get('/test', function(req,res,next){
-        console.log('API test');
-        res.locals.connection.query('SELECT * FROM categories', function(error, results, fields) {
-            if (error!=null) {
+    console.log('API test');
+    res.locals.connection.query('SELECT * FROM categories', function(error, results, fields) {
+        if (error!=null) {
+            res.redirect(529, '/error');
+            console.log("erreur query");
+        }
+        else {
+            res.send({"status": 200, "error": null, "response": results});
+            console.log("query OK");
+        }
+    });
+});
+
+
+//Retoure toutes les catégories
+router.get('/categories', function(req,res,next){
+    console.log('API test');
+    res.locals.connection.query('SELECT * FROM categories', function(error, results, fields) {
+        if (error!=null) {
+            res.redirect(529, '/error');
+            console.log("erreur query");
+        }
+        else {
+            res.send({"status": 200, "error": null, "response": results});
+            console.log("query OK");
+        }
+    });
+});
+
+
+//récupération des demandes par id, par id de catégorie et code postal si spécifié, sinon revoie toutes les demandes
+router.get('/demandes', function(req,res,next) {
+    var demande_id = req.query.idDemande;
+    var categ_id = req.query.idCateg;
+    var codePostal = req.query.codePostal;
+    var idUtilisateur = req.query.utilisateur;
+    console.log('GET demande');
+    if (demande_id != undefined) {
+        console.log('GET demande by id ' + demande_id);
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE idDemande=?', [demande_id], function (error, results, fields) {
+            if (error != null) {
                 res.redirect(529, '/error');
                 console.log("erreur query");
             }
@@ -20,57 +58,49 @@ router.get('/test', function(req,res,next){
                 console.log("query OK");
             }
         });
-});
-
-
-//récupération des demandes par id, par id de catégorie et code postal si spécifié, sinon revoie toutes les demandes
-router.get('/demandes', function(req,res,next){
-	var demande_id = req.query.idDemande;
-	var categ_id = req.query.idCateg;
-	var codePostal = req.query.codePostal;
-    console.log('GET demande');
-	if (demande_id != undefined){
-	    console.log('GET demande by id '+demande_id);
-		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE idDemande=?',[demande_id], function(error, results, fields) {
-			if (error!=null) {
-				res.redirect(529, '/error');
-				console.log("erreur query");
-			}
-			else {
-				res.send({"status": 200, "error": null, "response": results});
-				console.log("query OK");
-			}
-		});
-	} else if(categ_id != undefined) {
-		console.log('GET demande by idCateg'+categ_id);
-		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal, accepteDemande FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE demandes.idCategorie=?',[categ_id], function(error, results, fields) {
-			if (error!=null) {
-				res.redirect(529, '/error');
-				console.log("erreur query");
-			}
-			else {
-				res.send({"status": 200, "error": null, "response": results});
-				console.log("query OK");
-			}
-		});
-	} else if(codePostal != undefined) {
-		console.log('GET demande by codePostal'+codePostal);
-		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal, accepteDemande FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie WHERE demandes.idCodePostal=?',[codePostal], function(error, results, fields) {
-			if (error!=null) {
-				res.redirect(529, '/error');
-				console.log("erreur query");
-			}
-			else {
-				res.send({"status": 200, "error": null, "response": results});
-				console.log("query OK");
-			}
-		});
-	} else {
+    } else if (categ_id != undefined) {
+        console.log('GET demande by idCateg' + categ_id);
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCategorie=?', [categ_id], function (error, results, fields) {
+            if (error != null) {
+                res.redirect(529, '/error');
+                console.log("erreur query");
+            }
+            else {
+                res.send({"status": 200, "error": null, "response": results});
+                console.log("query OK");
+            }
+        });
+    } else if (codePostal != undefined) {
+        console.log('GET demande by codePostal' + codePostal);
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCodePostal=?', [codePostal], function (error, results, fields) {
+            if (error != null) {
+                res.redirect(529, '/error');
+                console.log("erreur query");
+            }
+            else {
+                res.send({"status": 200, "error": null, "response": results});
+                console.log("query OK");
+            }
+        });
+    } else if (idUtilisateur != undefined) {
+        console.log('GET demande by utilisateur' + idUtilisateur);
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idUtilisateur=?', [idUtilisateur], function (error, results, fields) {
+            if (error != null) {
+                res.redirect(529, '/error');
+                console.log("erreur query");
+            }
+            else {
+                res.send({"status": 200, "error": null, "response": results});
+                console.log("query OK");
+            }
+        });
+      
+    }else {
 	    console.log('GET demande all');
-		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(nomUtilisateur, " " , prenomUtilisateur) AS nom, nomCategorie, idCodePostal, accepteDemande FROM demandes JOIN utilisateurs on demandes.idUtilisateur = utilisateurs.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie;', function(error, results, fields) {
+		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande,  CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur', function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
-				console.log("erreur query");
+				console.log("erreur query" + error);
 			}
 			else {
 				res.send({"status": 200, "error": null, "response": results});
@@ -81,11 +111,11 @@ router.get('/demandes', function(req,res,next){
 });
 
 
-//Vérification de l'utilisateur (nom, prenom) et de son mot de passe sur base de l'adresse mail
+//Retourne toutes les informations sur l'utilisateur à partir de son e-mail
 router.get('/utilisateur', function(req,res,next){
     var mailUtilisateur = req.query.mail;
     console.log('GET user + MDP by email '+mailUtilisateur);
-	res.locals.connection.query('SELECT CONCAT(nomUtilisateur, " ", prenomUtilisateur) as utilisateur , mdpUtilisateur as mdp FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur], function(error, results, fields) {
+	res.locals.connection.query('SELECT * FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur], function(error, results, fields) {
 		if (error!=null) {
 			res.redirect(529, '/error');
 			console.log("erreur query");
@@ -98,10 +128,11 @@ router.get('/utilisateur', function(req,res,next){
 });
 
 
-//Verif si mail est deja pris
+//Retourne le nombre de fois que le mail est utilisé dans la base de données
 router.get('/mailExist', function(req,res,next){
     var mailUtilisateur = req.query.mail;
     console.log('GET mail exist');
+    //res.locals.connection.query('SELECT COUNT(mailUtilisateur) AS nbre FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur] , function(error, results, fields) {
     res.locals.connection.query('SELECT * FROM utilisateurs where mailUtilisateur=?',[mailUtilisateur] , function(error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
@@ -152,6 +183,89 @@ router.post('/demande', function (req, res, next) {
 });
 
 
+router.post('/profil',function (req, res, next){
+	console.log(req.body);
+	console.log("POST profil");
+	res.locals.connection.query("UPDATE utilisateurs SET mailUtilisateur=?, telUtilisateur=?, descriptionUtilisateur=? WHERE idUtilisateur=?", [req.body.formProfilMailUtilisateur, req.body.formProfilTelUtilisateur, req.body.formProfilDescriptionUtilisateur, req.body.formProfilIdUtilisateur], function (error, results, fields) {
+		if(error!=null){
+			res.redirect(529, '/error');
+			console.log(error);
+		}
+		else{
+			console.log("utilisateur updaté");
+			res.send({"status":201, "error":null, "response":results});
+		}
+	});
+});
+
+
+
+
+router.post('/accepteDemande',function (req, res, next){
+    console.log(req.body);
+    console.log("POST accepteDemande");
+    res.locals.connection.query("UPDATE demandes SET accepteDemande=1, acceptePar=? WHERE idDemande=?", [req.body.formAccepteDemandeIdAccepteur, req.body.formAccepteDemandeIdDemande], function (error, results, fields) {
+        if(error!=null){
+            res.redirect(529, '/error');
+            console.log(error);
+        }
+        else{
+            console.log("demande updaté acceptée");
+            res.send({"status":201, "error":null, "response":results});
+        }
+    });
+});
+
+
+router.post('/desaccepteDemande',function (req, res, next){
+    console.log(req.body);
+    console.log("POST desaccepteDemande");
+    res.locals.connection.query("UPDATE demandes SET accepteDemande=0, acceptePar=0 WHERE idDemande=?", [req.body.formAccepteDemandeIdDemande], function (error, results, fields) {
+        if(error!=null){
+            res.redirect(529, '/error');
+            console.log(error);
+        }
+        else{
+            console.log("demande updaté acceptée");
+            res.send({"status":201, "error":null, "response":results});
+        }
+    });
+});
+
+
+
+
+
+//Retourne les codes postaux
+router.get('/codePostal', function(req,res,next){
+    console.log('GET codes postaux');
+    res.locals.connection.query('SELECT * FROM codepostal', function(error, results, fields) {
+        if (error!=null) {
+            res.redirect(529, '/error');
+            console.log("erreur query");
+        }
+        else {
+            res.send({"status": 200, "error": null, "response": results});
+            console.log("query OK");
+        }
+    });
+});
+
+router.delete('/demande', function(req, res,next) {
+    var idDemande = req.query.idDemande;
+    console.log("DELETE demande")+idDemande;
+    res.locals.connection.query("DELETE FROM demandes WHERE idDemande=?", [idDemande], function (error, results, fields) {
+        if(error!=null){
+            res.redirect(529, '/error');
+            console.log(error);
+        }
+        else{
+            console.log("demande supprimée");
+            res.send({"status":201, "error":null, "response":results});
+        }
+    });
+
+});
 
 
 
