@@ -220,7 +220,7 @@ router.post('/accepteDemande',function (req, res, next){
 router.post('/desaccepteDemande',function (req, res, next){
     console.log(req.body);
     console.log("POST accepteDemande");
-    res.locals.connection.query("UPDATE demandes SET accepteDemande=0, acceptePar=? WHERE idDemande=?", [req.body.formAccepteDemandeIdAccepteur, req.body.formAccepteDemandeIdDemande], function (error, results, fields) {
+    res.locals.connection.query("UPDATE demandes SET accepteDemande=0, acceptePar=0 WHERE idDemande=?", [req.body.formAccepteDemandeIdDemande], function (error, results, fields) {
         if(error!=null){
             res.redirect(529, '/error');
             console.log(error);
