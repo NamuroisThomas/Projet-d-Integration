@@ -246,6 +246,10 @@
   </table>
 </div>
 
+<div *ngIf="allListe === undefined">
+  <h3>La base de donnée est surchargé... Veuillez réessayer plus tard.</h3>
+  <img class="img" src="../../assets/img/svg/417114-200.png">
+</div>
 
 
 <pagination-controls (pageChange)="page =$event">
