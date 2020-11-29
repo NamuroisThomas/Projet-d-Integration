@@ -1,23 +1,24 @@
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-  <button type="button" class="btn btn-secondary" (click)="filtre = 'all'">Tout</button>
-  <button type="button" class="btn btn-secondary" (click)="filtre = 'oui'">Défraiment</button>
-  <button type="button" class="btn btn-secondary" (click)="filtre = 'desc'">Ordre par date</button>
-  <button type="button" class="btn btn-secondary" (click)="filtre = 'asc'">Désordre par date</button>
-  <button type="button" class="btn btn-secondary" (click)="filtre = 'all0'">Demande accepté</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'all'; page = 1">Tout</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'oui'; page = 1">Défraiment</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'desc'; page = 1">Date(récent -> ancien)</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'asc'; page = 1">Désordre par date</button>
+  <button type="button" class="btn btn-secondary" (click)="filtre = 'all0'; page = 1">Demande accepté</button>
   <div class="btn-group" role="group">
     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Catégorie
     </button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <a class="dropdown-item" (click)="filtre = 'aide men'">Aides ménagères</a>
-      <a class="dropdown-item" (click)="filtre = 'courses'">Courses</a>
-      <a class="dropdown-item" (click)="filtre = 'couture'">Couture</a>
-      <a class="dropdown-item" (click)="filtre = 'cuisine'">Cuisine</a>
-      <a class="dropdown-item" (click)="filtre = 'electricité'">Electricité</a>
-      <a class="dropdown-item" (click)="filtre = 'jardinage'">Jardinage</a>
-      <a class="dropdown-item" (click)="filtre = 'peinture'">Peinture</a>
-      <a class="dropdown-item" (click)="filtre = 'petits travaux'">Petits travaux</a>
-      <a class="dropdown-item" (click)="filtre = 'transport'">Transport</a>
+      <a class="dropdown-item" (click)="filtre = 'aide men'; page = 1">Aides ménagères</a>
+      <a class="dropdown-item" (click)="filtre = 'courses'; page = 1">Courses</a>
+      <a class="dropdown-item" (click)="filtre = 'couture'; page = 1">Couture</a>
+      <a class="dropdown-item" (click)="filtre = 'cuisine'; page = 1">Cuisine</a>
+      <a class="dropdown-item" (click)="filtre = 'electricité'; page = 1">Electricité</a>
+      <a class="dropdown-item" (click)="filtre = 'jardinage'; page = 1">Jardinage</a>
+      <a class="dropdown-item" (click)="filtre = 'peinture'; page = 1">Peinture</a>
+      <a class="dropdown-item" (click)="filtre = 'petits travaux'; page = 1">Petits travaux</a>
+      <a class="dropdown-item" (click)="filtre = 'transport'; page = 1">Transport</a>
+      <a class="dropdown-item" (click)="filtre = 'autre'; page = 1">Autre</a>
     </div>
   </div>
 </div>
@@ -34,7 +35,7 @@
     </tr>
     </thead>
     <tbody *ngIf="filtre === 'all'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of allListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
@@ -48,7 +49,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'all0'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of nonListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 1">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 1"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 1"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
@@ -60,7 +61,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'asc'">
-    <tr *ngFor="let liste of ordreAsc">
+    <tr *ngFor="let liste of ordreAsc| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
@@ -74,7 +75,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'desc'">
-    <tr *ngFor="let liste of ordreDesc">
+    <tr *ngFor="let liste of ordreDesc| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
@@ -88,7 +89,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'oui'">
-    <tr *ngFor="let liste of listeDemande ">
+    <tr *ngFor="let liste of defraiementListe| paginate: { itemsPerPage: 10, currentPage: page };index as i ">
       <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.defraiementDemande === 1"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
@@ -104,7 +105,7 @@
 
 
     <tbody *ngIf="filtre === 'electricité'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of elecliste| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Electricité'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
@@ -118,7 +119,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'cuisine'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of cuisineListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Cuisine'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
@@ -132,7 +133,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'peinture'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of peintureListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Peinture'"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
@@ -146,7 +147,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'courses'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of courseListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Courses'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
@@ -160,7 +161,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'aide men'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of aideMenListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Aides ménagères'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
@@ -174,7 +175,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'petits travaux'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of travauxListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Petits travaux'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Petits travaux'"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Petits travaux'"> {{liste.dateDemande | date:"yyyy/MM/dd HH:mm" }}</td>
@@ -188,7 +189,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'Transport'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of transportListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Transport'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
@@ -202,7 +203,7 @@
     </tbody>
 
     <tbody *ngIf="filtre === 'couture'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of coutureListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Couture'"> {{liste.dateDemande | date:"yyyy/MM/dd " }}</td>
@@ -214,8 +215,9 @@
       </td>
     </tr>
     </tbody>
+
     <tbody *ngIf="filtre === 'jardinage'">
-    <tr *ngFor="let liste of listeDemande">
+    <tr *ngFor="let liste of jardinageListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'">{{liste.titreDemande}}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'"> {{ liste.nomCategorie }}</td>
       <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Jardinage'"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
@@ -227,10 +229,27 @@
       </td>
     </tr>
     </tbody>
+
+    <tbody *ngIf="filtre === 'autre'">
+    <tr *ngFor="let liste of autreListe| paginate: { itemsPerPage: 10, currentPage: page };index as i">
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Autre'">{{liste.titreDemande}}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Autre'"> {{ liste.nomCategorie }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Autre'"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
+      <td *ngIf="liste.accepteDemande === 0 && liste.nomCategorie === 'Autre'">
+        <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
+      </td>
+      <td *ngIf="liste.accepteDemande === 0 && profil != null && liste.nomCategorie === 'Autre'">
+        <button class="btn btn-success" type="submit" (click)="accepterDemande(liste.idDemande)" >Accepté demande</button>
+      </td>
+    </tr>
+    </tbody>
   </table>
 </div>
 
 
+
+<pagination-controls (pageChange)="page =$event">
+</pagination-controls>
 
 
 
