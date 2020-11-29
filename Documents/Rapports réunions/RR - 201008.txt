@@ -1,0 +1,19 @@
+Pistes pour communication appli-db
+	-Script PHP
+		apprendre
+		ajout d'un hébergement apache
+		
+	-Mettre l'API en HTTPS
+		achat d'un nom de domaine
+		trouver des certificats pas cher/gratuit
+		Mise en place des certificats
+		
+
+Le web continue sur l'inscription et la connexion
+
+
+Faire la doc et les tests pour API une fois problème réglé
+
+
+
+
