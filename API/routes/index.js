@@ -60,7 +60,7 @@ router.get('/demandes', function(req,res,next) {
         });
     } else if (categ_id != undefined) {
         console.log('GET demande by idCateg' + categ_id);
-        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCategorie=?', [categ_id], function (error, results, fields) {
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCategorie=? AND accepteDemande = 0', [categ_id], function (error, results, fields) {
             if (error != null) {
                 res.redirect(529, '/error');
                 console.log("erreur query");
@@ -72,7 +72,7 @@ router.get('/demandes', function(req,res,next) {
         });
     } else if (codePostal != undefined) {
         console.log('GET demande by codePostal' + codePostal);
-        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCodePostal=?', [codePostal], function (error, results, fields) {
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCodePostal=? AND accepteDemande = 0', [codePostal], function (error, results, fields) {
             if (error != null) {
                 res.redirect(529, '/error');
                 console.log("erreur query");
