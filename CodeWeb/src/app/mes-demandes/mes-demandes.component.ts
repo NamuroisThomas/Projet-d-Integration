@@ -12,6 +12,7 @@ export class MesDemandesComponent implements OnInit {
   profil: any;
   listeDemande: any;
   nomPrenom: string;
+  allListe: Array<any>;
   constructor(private api: GetListeDemandeService,
               private http: HttpClient)
   { }
@@ -27,6 +28,9 @@ export class MesDemandesComponent implements OnInit {
     this.profil = JSON.parse(localStorage.getItem('user'));
     this.api.listeDemandeCall().subscribe((res) => {
       this.listeDemande = res[Object.keys(res)[2]];
+    });
+    this.api.listeDemandeAllCall().subscribe((res) => {
+      this.allListe = res[Object.keys(res)[2]];
     });
     this.nomPrenom = this.profil.nomUtilisateur + ' ' + this.profil.prenomUtilisateur;
     console.log(this.nomPrenom);
