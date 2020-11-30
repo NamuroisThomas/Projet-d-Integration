@@ -27,7 +27,7 @@ import { ContactService } from './contact/contact.service';
 import { DetailDemandeComponent } from './detail-demande/detail-demande.component';
 import { MaListeComponent } from './ma-liste/ma-liste.component';
 import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -68,7 +68,8 @@ import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    NgxPaginationModule
 
   ],
   providers: [
