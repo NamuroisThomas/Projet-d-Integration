@@ -7,14 +7,16 @@ import java.util.List;
 
 
 public class Utilisateur {
+    private String idUtilisateur;
     private String nomUser;
     private String prenomUser;
     private String mail;
     private String telephone;
     private String mdp;
+    private String descriptionUtilisateur;
 
     /**
-     * Constructeur complet
+     * Constructeur complet inscription
      * @param nomUser
      * @param prenomUser
      * @param mail
@@ -27,6 +29,28 @@ public class Utilisateur {
         this.mail = mail;
         this.telephone = telephone;
         this.mdp = mdp;
+    }
+
+    /**
+     * Construction complet
+     * @param idUtilisateur
+     * @param nomUser
+     * @param prenomUser
+     * @param mail
+     * @param telephone
+     * @param mdp
+     * @param descriptionUtilisateur
+     */
+
+    public Utilisateur(String idUtilisateur, String nomUser, String prenomUser, String mail, String telephone,
+                       String mdp, String descriptionUtilisateur){
+        this.idUtilisateur = idUtilisateur;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.mail = mail;
+        this.telephone = telephone;
+        this.mdp = mdp;
+        this.descriptionUtilisateur = descriptionUtilisateur;
     }
 
     /**
