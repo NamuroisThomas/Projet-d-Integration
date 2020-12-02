@@ -7,7 +7,8 @@ import java.util.List;
 
 
 public class Utilisateur {
-    private String idUtilisateur;
+
+    private int idUtilisateur;
     private String nomUser;
     private String prenomUser;
     private String mail;
@@ -42,7 +43,7 @@ public class Utilisateur {
      * @param descriptionUtilisateur
      */
 
-    public Utilisateur(String idUtilisateur, String nomUser, String prenomUser, String mail, String telephone,
+    public Utilisateur(int idUtilisateur, String nomUser, String prenomUser, String mail, String telephone,
                        String mdp, String descriptionUtilisateur){
         this.idUtilisateur = idUtilisateur;
         this.nomUser = nomUser;
@@ -87,5 +88,8 @@ public class Utilisateur {
         laListe.add(mdp);
 
         return new JSONArray(laListe);
+    }
+    public int getIdUtilisateur() {
+        return idUtilisateur;
     }
 }

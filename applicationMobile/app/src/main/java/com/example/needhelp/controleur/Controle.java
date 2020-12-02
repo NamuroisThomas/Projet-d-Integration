@@ -60,6 +60,19 @@ public final class Controle {
     public void setConnexionUtilisateurs(Utilisateur connexionUtilisateurs) {
         this.connexionUtilisateurs = connexionUtilisateurs;
     }
+
+    public Utilisateur getConnexionUtilisateurs() {
+        return connexionUtilisateurs;
+    }
+
+    public int getIdUtilisateur(){
+        return connexionUtilisateurs.getIdUtilisateur();
+    }
+
+    public void accepter(int idDemande, int accepterDemande){
+        int utilisateur = getIdUtilisateur();
+
+    }
 }
 /*
 *     /**
