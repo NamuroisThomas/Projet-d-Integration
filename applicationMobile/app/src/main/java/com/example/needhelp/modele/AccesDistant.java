@@ -129,6 +129,36 @@ public class AccesDistant implements AsyncResponse {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }else if (message[0].equals("demandesEnCours")){
+                Log.d("demandes","*****************" + message[1]);
+                try {
+                    JSONArray jsonInfo = new JSONArray(message[1]);
+                    ArrayList<Demande> lesDemandesEnCours = new ArrayList<Demande>();
+                    for(int k=0;k<jsonInfo.length();k++){
+                        JSONObject info = new JSONObject(jsonInfo.get(k).toString());
+
+                        // Ajout des valeur de la demandes
+                        Integer idDemande = info.getInt("idDemande");
+                        String titreDemande = info.getString("titreDemande");
+                        String descriptionDemande = info.getString("descriptionDemande");
+                        String dateDemande = info.getString("dateDemande");
+                        Integer idUtilisateur = info.getInt("idUtilisateur");
+                        Integer idCategorie = info.getInt("idCategorie");
+                        Integer defraiementDemande = info.getInt("defraiementDemande");
+                        String idCodePostal = info.getString("idCodePostal");
+                        Integer accepteDemande = info.getInt("accepteDemande");
+                        Integer acceptePar = info.getInt("acceptePar");
+
+                        // Création de l'objet
+                        Demande demandeEnCours = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,idCategorie,defraiementDemande,
+                                idCodePostal,accepteDemande,acceptePar);
+                        lesDemandesEnCours.add(demandeEnCours);
+                        Log.d("Ajout","********************* Demande en cours ajoutéé");
+                    }
+                    controle.setLesDemandesEnCours(lesDemandesEnCours);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
             else {
                 Log.d("ERREUR", "*************** Aucun choix valide");
