@@ -22,14 +22,14 @@ import com.example.needhelp.controleur.Controle;
 
 public class EnCoursActivity extends AppCompatActivity{
 
-    private Controle controle;
+    private Controle controle = new Controle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.en_cours);
         //ecouteRetour();
-        //creerListeEnCours();
+        creerListeEnCours();
     }
 
     private void creerListeEnCours(){
