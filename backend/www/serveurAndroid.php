@@ -147,6 +147,31 @@
                 print ("Erreur !").$e->getMessage();
                 die();
             }
+        }elseif($_REQUEST["operation"]=="modificationUtilisateur"){
+            try{
+                // recuperation des donnees en post
+                $lesdonnees = $_REQUEST["lesdonnees"];
+                $donnee = json_decode($lesdonnees);
+                $idUtilisateur = $donnee[0];
+                $nomUtilisateur = $donnee[1];
+                $prenomUtilisateur = $donnee[2];
+                $mailUtilisateur = $donnee[3];
+                $telUtilisateur = $donnee[4];
+                $mdpUtilisateur = $donnee[5];
+                // insertion dans la base de donnees
+                print("modificationUtilisateur%");
+                $cnx = connexionPDO();
+                $larequete = "UPDATE utilisateurs SET nomUtilisateur='$nomUtilisateur', prenomUtilisateur='$prenomUtilisateur' mailUtilisateur='$mailUtilisateur'";
+                $larequete .= "telUtilisateur='$telUtilisateur', mdpUtilisateur='$mdpUtilisateur' WHERE idUtilisateur='$idUtilisateur'";
+                print ($larequete);
+                $req = $cnx->prepare($larequete);
+                $req->execute();
+
+            }catch(PDOException $e){
+                print ("Erreur !").$e->getMessage();
+                die();
+            }
+        // Tentative de connexion
         }else{
             print("Erreur php requete");
         }
