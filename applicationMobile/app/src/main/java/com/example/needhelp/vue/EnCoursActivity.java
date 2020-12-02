@@ -28,8 +28,8 @@ public class EnCoursActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.en_cours);
-        ecouteRetour();
-
+        //ecouteRetour();
+        //creerListeEnCours();
     }
 
     private void creerListeEnCours(){

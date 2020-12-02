@@ -1,6 +1,7 @@
 package com.example.needhelp.controleur;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import com.example.needhelp.modele.Demande;
@@ -10,6 +11,7 @@ import com.example.needhelp.modele.Utilisateur;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public final class Controle {
 
@@ -35,7 +37,6 @@ public final class Controle {
      * @return instance
      */
     public static final Controle getInstance(Context context) {
-
         if (contexte != null) {
             Controle.contexte = contexte;
         }
@@ -44,8 +45,7 @@ public final class Controle {
             accesDistant = new AccesDistant();
 
             accesDistant.envoi("demandesTout", new JSONArray());
-            //accesDistant.envoi("categorie",new JSONArray());
-
+            //accesDistant.envoi("demandeEnCours",new JSONArray());
         }
         return Controle.instance;
     }
@@ -67,6 +67,7 @@ public final class Controle {
     }
 
     public int getIdUtilisateur(){
+        //Log.d("idUser","******************" + connexionUtilisateurs.getIdUtilisateur());
         return connexionUtilisateurs.getIdUtilisateur();
     }
 
@@ -75,5 +76,11 @@ public final class Controle {
     }
     public void setLesDemandesEnCours(ArrayList<Demande> lesDemandesEnCours) {
         this.lesDemandesEnCours = lesDemandesEnCours;
+    }
+    public JSONArray idUtilisateurConvertToJSONArray(){
+        List laListe = new ArrayList();
+        laListe.add(getIdUtilisateur());
+        Log.d("idUser","****************" + getIdUtilisateur());
+        return new JSONArray(laListe);
     }
 }
