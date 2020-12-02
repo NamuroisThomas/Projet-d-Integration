@@ -23,6 +23,7 @@
     <string name="enCours">En cours</string>
     <string name="mesDemandes">Mes demandes</string>
     <string name="ajoutDemandes">Nouvelle demande</string>
+    <string name="modifierProfil">Modifier mon profil</string>
 
 
 </resources>
