@@ -69,10 +69,6 @@ public final class Controle {
         return connexionUtilisateurs.getIdUtilisateur();
     }
 
-    public void accepter(int idDemande, int accepterDemande){
-        int utilisateur = getIdUtilisateur();
-
-    }
 }
 /*
 *     /**
