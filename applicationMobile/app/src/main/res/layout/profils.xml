@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioProfil"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/profil" />
+
+        <RadioButton
+            android:id="@+id/radioDemandesToutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/demandes" />
+
+        <RadioButton
+            android:id="@+id/radioEnCours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/enCours" />
+
+        <RadioButton
+            android:id="@+id/radioMesDemandes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mesDemandes" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="358dp"
+        android:layout_weight="1"
+        android:background="@color/backgroundApp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/inscriptionNomTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dip"
+            android:text="@string/nom"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inscriptionNomEdit"
+            android:layout_width="252dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inscriptionNomTexte"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:autofillHints=""
+            android:background="@drawable/backgroundtext"
+            android:gravity="center"
+            android:hint="@string/nom"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/inscriptionPrenomTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inscriptionNomEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/prenom"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inscriptionPrenomEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inscriptionPrenomTexte"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:autofillHints=""
+            android:background="@drawable/backgroundtext"
+            android:gravity="center"
+            android:hint="@string/prenom"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/inscriptionMailTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inscriptionPrenomEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/mail"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inscriptionMailEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inscriptionMailTexte"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:autofillHints=""
+            android:background="@drawable/backgroundtext"
+            android:gravity="center"
+            android:hint="@string/mail"
+            android:inputType="textWebEmailAddress" />
+
+        <TextView
+            android:id="@+id/inscriptionGSMTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inscriptionMailEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/gsm"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inscriptionGSMEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inscriptionGSMTexte"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:autofillHints=""
+            android:background="@drawable/backgroundtext"
+            android:gravity="center"
+            android:hint="@string/gsm"
+            android:inputType="phone" />
+
+        <TextView
+            android:id="@+id/inscriptionPSWTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inscriptionGSMEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/password"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inscriptionPSWEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inscriptionPSWTexte"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:autofillHints=""
+            android:background="@drawable/backgroundtext"
+            android:gravity="center"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_weight="0.25"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonDeconnexionHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/modifierProfil" />
+    </LinearLayout>
+</LinearLayout>
