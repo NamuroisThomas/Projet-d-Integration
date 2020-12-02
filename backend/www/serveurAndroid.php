@@ -127,6 +127,26 @@
                 print ("Erreur !").$e->getMessage();
                 die();
             }
+        }
+        elseif($_REQUEST["operation"]=="demandesEnCours"){
+            try{
+                print("demandesEnCours%");
+                $lesdonnees = $_REQUEST["lesdonnees"];
+                $donnee = json_decode($lesdonnees);
+                $idUtilisateur = $donnee[0];
+                $cnx= connexionPDO();
+                $larequete = "SELECT * FROM demandes WHERE acceptePar='$idUtilisateur'";
+                $req = $cnx->prepare($larequete);
+                $req->execute();
+                // recuperation de toutes les demandes
+                while($ligne = $req->fetch(PDO::FETCH_ASSOC)){
+                   $resultat[]=$ligne;
+                }
+                 print(json_encode($resultat));
+            }catch(PDOException $e){
+                print ("Erreur !").$e->getMessage();
+                die();
+            }
         }else{
             print("Erreur php requete");
         }

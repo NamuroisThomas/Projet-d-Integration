@@ -72,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
                         public void run(){
                             Log.d("Tread","**************** T1 commence");
                             AccesDistant accesDistant = new AccesDistant();
-                            accesDistant.envoi("demandeEnCours", controle.idUtilisateurConvertToJSONArray());
+                            accesDistant.envoi("demandesEnCours", controle.idUtilisateurConvertToJSONArray());
                             try {
                                 Thread.sleep(3000);
                             } catch (InterruptedException e) {
