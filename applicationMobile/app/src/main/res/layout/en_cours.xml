@@ -5,7 +5,6 @@
     android:orientation="vertical">
 
     <RadioGroup
-        android:id="@+id/Radiogroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
@@ -47,28 +46,9 @@
         android:orientation="vertical">
 
         <ListView
-            android:id="@+id/lstDemandes"
+            android:id="@+id/lstDemandesEnCours"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_weight="0.25"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/buttonAjoutDemande"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ajoutDemandes" />
-
-        <Button
-            android:id="@+id/buttonDeconnexionHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/deconnexion" />
-    </LinearLayout>
 </LinearLayout>

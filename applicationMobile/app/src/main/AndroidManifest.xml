@@ -20,13 +20,18 @@
         </activity>
         <activity android:name=".vue.HomeActivity">
         </activity>
+        <activity android:name=".vue.ProfilActivity">
+        </activity>
         <activity android:name=".vue.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".vue.CreerDemandeActivity" />
+        <activity android:name=".vue.CreerDemandeActivity" >
+        </activity>
+        <activity android:name=".vue.EnCoursActivity">
+        </activity>
 
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
     </application>

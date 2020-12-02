@@ -1,6 +1,8 @@
 package com.example.needhelp.vue;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.needhelp.R;
+import com.example.needhelp.controleur.Controle;
+import com.example.needhelp.modele.AccesDistant;
 import com.example.needhelp.modele.Demande;
 
 import java.util.ArrayList;
@@ -17,10 +21,14 @@ public class DemandeListeAdapter extends BaseAdapter {
 
     private ArrayList<Demande> lesDemandes;
     private LayoutInflater inflater;
+    private Controle controle;
+    private Demande demande;
+    private AccesDistant accesDistant = new AccesDistant();
 
     public DemandeListeAdapter(Context context,ArrayList<Demande> lesDemandes){
         this.lesDemandes = lesDemandes;
         this.inflater = LayoutInflater.from(context);
+        this.controle = Controle.getInstance(null);
     }
 
     @Override
@@ -78,6 +86,16 @@ public class DemandeListeAdapter extends BaseAdapter {
         holder.txtTitreDemande.setText(lesDemandes.get(position).getTitreDemande().toString());
         holder.txtDate.setText(lesDemandes.get(position).getDateDemande());
         holder.btnAccepter.setTag(position);
+        //Clique sur le bouton pour accepter la demande
+        holder.btnAccepter.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                int ligne = (int) v.getTag();
+                lesDemandes.get(ligne).setAccepteDemande(1);
+                lesDemandes.get(ligne).setAcceptePar(controle.getIdUtilisateur());
+                accesDistant.envoi("accepter", lesDemandes.get(ligne).accepterConvertToJSONArray() );
+            }
+        });
         return view;
     }
 

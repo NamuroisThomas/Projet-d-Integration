@@ -25,6 +25,8 @@ public class AccesDistant implements AsyncResponse {
     private String mdpUser;
     private boolean mdpCorrect = false;
 
+
+
     /**
      * Constructeur
      */
@@ -51,8 +53,9 @@ public class AccesDistant implements AsyncResponse {
                 Log.d("enreg", "***********" + message[1]);
             } else if (message[0].equals("enregDemande")) {
                 Log.d("insert","********** insertion reussie normalement");
-            }
-            else if (message[0].equals("dernier")) {
+            }else if (message[0].equals("modificationUtilisateur")) {
+                Log.d("insert","********** Modification réussie");
+            } else if (message[0].equals("dernier")) {
                 Log.d("dernier", "***********" + message[1]);
                 try {
                     JSONObject info = new JSONObject(message[1]);
@@ -79,11 +82,24 @@ public class AccesDistant implements AsyncResponse {
                         Log.d("ErrConn", "*************** mdp incorrect");
                         setMdpCorrect(false);
                     }
+                    Utilisateur connexionUtilisateurs = new Utilisateur(
+                            Integer.parseInt(info.getString("idUtilisateur")),
+                            info.getString("nomUtilisateur"),
+                            info.getString("prenomUtilisateur"),
+                            info.getString("mailUtilisateur"),
+                            info.getString("telUtilisateur"),
+                            info.getString("mdpUtilisateur"),
+                            info.getString("descriptionUtilisateur")
+                    );
+
+                    controle.setConnexionUtilisateurs(connexionUtilisateurs);
 
                 } catch (Exception e) {
                     Log.d("ERREUR", "************** Recup donnee connexions echouee\n****" + e);
                     ConnexionActivity conn = new ConnexionActivity();
                 }
+            } else if (message[0].equals("accepter")) {
+                Log.d("insert","********** Changement réussi");
             }else if (message[0].equals("demandesTout")){
                 Log.d("demandes","*****************" + message[1]);
                 try {
@@ -114,7 +130,38 @@ public class AccesDistant implements AsyncResponse {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } else {
+            }else if (message[0].equals("demandesEnCours")){
+                Log.d("demandes","*****************" + message[1]);
+                try {
+                    JSONArray jsonInfo = new JSONArray(message[1]);
+                    ArrayList<Demande> lesDemandesEnCours = new ArrayList<Demande>();
+                    for(int k=0;k<jsonInfo.length();k++){
+                        JSONObject info = new JSONObject(jsonInfo.get(k).toString());
+
+                        // Ajout des valeur de la demandes
+                        Integer idDemande = info.getInt("idDemande");
+                        String titreDemande = info.getString("titreDemande");
+                        String descriptionDemande = info.getString("descriptionDemande");
+                        String dateDemande = info.getString("dateDemande");
+                        Integer idUtilisateur = info.getInt("idUtilisateur");
+                        Integer idCategorie = info.getInt("idCategorie");
+                        Integer defraiementDemande = info.getInt("defraiementDemande");
+                        String idCodePostal = info.getString("idCodePostal");
+                        Integer accepteDemande = info.getInt("accepteDemande");
+                        Integer acceptePar = info.getInt("acceptePar");
+
+                        // Création de l'objet
+                        Demande demandeEnCours = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,idCategorie,defraiementDemande,
+                                idCodePostal,accepteDemande,acceptePar);
+                        lesDemandesEnCours.add(demandeEnCours);
+                        Log.d("Ajout","********************* Demande en cours ajoutéé");
+                    }
+                    controle.setLesDemandesEnCours(lesDemandesEnCours);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
                 Log.d("ERREUR", "*************** Aucun choix valide");
             }
         }

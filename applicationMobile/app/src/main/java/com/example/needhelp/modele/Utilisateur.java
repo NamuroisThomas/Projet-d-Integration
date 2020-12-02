@@ -7,14 +7,19 @@ import java.util.List;
 
 
 public class Utilisateur {
+
+
+
+    private int idUtilisateur;
     private String nomUser;
     private String prenomUser;
     private String mail;
     private String telephone;
     private String mdp;
+    private String descriptionUtilisateur;
 
     /**
-     * Constructeur complet
+     * Constructeur complet inscription
      * @param nomUser
      * @param prenomUser
      * @param mail
@@ -27,6 +32,45 @@ public class Utilisateur {
         this.mail = mail;
         this.telephone = telephone;
         this.mdp = mdp;
+    }
+    /**
+     * Constructeur complet modification
+     * @param idUtilisateur
+     * @param nomUser
+     * @param prenomUser
+     * @param mail
+     * @param telephone
+     * @param mdp
+     */
+    public Utilisateur(int idUtilisateur,String nomUser, String prenomUser, String mail, String telephone, String mdp) {
+        this.idUtilisateur = idUtilisateur;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.mail = mail;
+        this.telephone = telephone;
+        this.mdp = mdp;
+    }
+
+    /**
+     * Construction complet
+     * @param idUtilisateur
+     * @param nomUser
+     * @param prenomUser
+     * @param mail
+     * @param telephone
+     * @param mdp
+     * @param descriptionUtilisateur
+     */
+
+    public Utilisateur(int idUtilisateur, String nomUser, String prenomUser, String mail, String telephone,
+                       String mdp, String descriptionUtilisateur){
+        this.idUtilisateur = idUtilisateur;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.mail = mail;
+        this.telephone = telephone;
+        this.mdp = mdp;
+        this.descriptionUtilisateur = descriptionUtilisateur;
     }
 
     /**
@@ -54,6 +98,21 @@ public class Utilisateur {
     }
 
     /**
+     * Conversion de la modification au format JSONArray
+     * @return
+     */
+    public JSONArray modificationConvertToJSONArray(){
+        List laListe = new ArrayList();
+        laListe.add(idUtilisateur);
+        laListe.add(nomUser);
+        laListe.add(prenomUser);
+        laListe.add(mail);
+        laListe.add(telephone);
+        laListe.add(mdp);
+        return new JSONArray(laListe);
+    }
+
+    /**
      * Conversion de la connexion au format JSONArray
      * @return
      */
@@ -64,4 +123,30 @@ public class Utilisateur {
 
         return new JSONArray(laListe);
     }
+    public int getIdUtilisateur() {
+        return idUtilisateur;
+    }
+        public String getNomUser() {
+            return nomUser;
+        }
+
+        public String getPrenomUser() {
+            return prenomUser;
+        }
+
+        public String getMail() {
+            return mail;
+        }
+
+        public String getTelephone() {
+            return telephone;
+        }
+
+        public String getMdp() {
+            return mdp;
+        }
+
+        public String getDescriptionUtilisateur() {
+            return descriptionUtilisateur;
+        }
 }

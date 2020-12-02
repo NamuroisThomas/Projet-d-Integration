@@ -1,5 +1,7 @@
 package com.example.needhelp.modele;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 
 import java.util.ArrayList;
@@ -72,6 +74,15 @@ public class Demande {
         return new JSONArray(laListe);
     }
 
+    public JSONArray accepterConvertToJSONArray(){
+        List laListe = new ArrayList();
+        laListe.add(idDemande);
+        laListe.add(accepteDemande);
+        laListe.add(acceptePar);
+        Log.d("test","*****************" + laListe);
+        return new JSONArray(laListe);
+    }
+
     public int getIdDemande() {
         return idDemande;
     }
@@ -94,5 +105,12 @@ public class Demande {
 
     public void setDateDemande(String dateDemande) {
         this.dateDemande = dateDemande;
+    }
+
+    public void setAccepteDemande(int accepteDemande) {
+        this.accepteDemande = accepteDemande;
+    }
+    public void setAcceptePar(int acceptePar){
+        this.acceptePar = acceptePar;
     }
 }
