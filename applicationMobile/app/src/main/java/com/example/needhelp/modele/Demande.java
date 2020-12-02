@@ -80,7 +80,7 @@ public class Demande {
         laListe.add(accepteDemande);
         laListe.add(acceptePar);
         Log.d("test","*****************" + laListe);
-        return new JSONArray();
+        return new JSONArray(laListe);
     }
 
     public int getIdDemande() {
