@@ -8,6 +8,8 @@ import java.util.List;
 
 public class Utilisateur {
 
+
+
     private int idUtilisateur;
     private String nomUser;
     private String prenomUser;
@@ -92,4 +94,27 @@ public class Utilisateur {
     public int getIdUtilisateur() {
         return idUtilisateur;
     }
+        public String getNomUser() {
+            return nomUser;
+        }
+
+        public String getPrenomUser() {
+            return prenomUser;
+        }
+
+        public String getMail() {
+            return mail;
+        }
+
+        public String getTelephone() {
+            return telephone;
+        }
+
+        public String getMdp() {
+            return mdp;
+        }
+
+        public String getDescriptionUtilisateur() {
+            return descriptionUtilisateur;
+        }
 }

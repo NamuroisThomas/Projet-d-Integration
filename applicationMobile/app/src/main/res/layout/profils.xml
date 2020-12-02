@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:checkedButton="@id/radioProfil">
 
         <RadioButton
             android:id="@+id/radioProfil"

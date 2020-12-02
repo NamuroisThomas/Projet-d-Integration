@@ -2,10 +2,14 @@ package com.example.needhelp.vue;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +21,8 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
     private Controle controle;
+    RadioGroup Radiogroup;
+    RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,7 @@ public class HomeActivity extends AppCompatActivity {
         ecouteGoToAcceuil();
         ecouteGoToNouvelleDemande();
         creerListe();
+        ecouteBoutonProfil();
     }
     private void ecouteGoToAcceuil(){
         ((Button)findViewById(R.id.buttonDeconnexionHome)).setOnClickListener(new Button.OnClickListener(){
@@ -65,5 +72,16 @@ public class HomeActivity extends AppCompatActivity {
             DemandeListeAdapter adapter = new DemandeListeAdapter(this,lesDemandes);
             lstDemandes.setAdapter(adapter);
         }
+    }
+
+    public void  ecouteBoutonProfil(){
+        ((Button)findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ProfilActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
 }

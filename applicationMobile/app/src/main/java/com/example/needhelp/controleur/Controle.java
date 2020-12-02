@@ -1,6 +1,7 @@
 package com.example.needhelp.controleur;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import com.example.needhelp.modele.Demande;
@@ -18,7 +19,7 @@ public final class Controle {
     private static AccesDistant accesDistant;
     private static Context contexte;
     private ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
-    private Utilisateur connexionUtilisateurs;
+    private static Utilisateur connexionUtilisateurs;
 
     /**
      * Constructeur
@@ -68,7 +69,6 @@ public final class Controle {
     public int getIdUtilisateur(){
         return connexionUtilisateurs.getIdUtilisateur();
     }
-
 }
 /*
 *     /**
