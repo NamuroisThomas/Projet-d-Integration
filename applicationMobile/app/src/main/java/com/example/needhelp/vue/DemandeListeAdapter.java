@@ -20,6 +20,7 @@ public class DemandeListeAdapter extends BaseAdapter {
 
     public DemandeListeAdapter(Context context,ArrayList<Demande> lesDemandes){
         this.lesDemandes = lesDemandes;
+        System.out.print(lesDemandes);
         this.inflater = LayoutInflater.from(context);
     }
 
