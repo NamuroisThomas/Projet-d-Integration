@@ -1,0 +1,5 @@
+retour démo 29/10/2020
+
+La US01 inscription n'est pas entièrement satisfaite pour le web
+champ libre inscription --> à modif car ça s'envoit alors qu'on le veut pas 
+Il faut vérifier que l'email soit unique
