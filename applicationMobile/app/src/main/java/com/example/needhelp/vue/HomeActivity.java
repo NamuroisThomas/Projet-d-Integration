@@ -120,10 +120,4 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-    private void recupDemandesEnCours() {
-            Controle controle = new Controle();
-            AccesDistant accesDistant = new AccesDistant();
-            accesDistant.envoi("demandesEnCours", controle.idUtilisateurConvertToJSONArray());
-
-    }
 }
