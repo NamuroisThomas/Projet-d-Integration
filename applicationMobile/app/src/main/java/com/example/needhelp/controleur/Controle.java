@@ -21,7 +21,7 @@ public final class Controle {
     private static Context contexte;
     private ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
     private ArrayList<Demande> lesDemandesEnCours = new ArrayList<Demande>();
-    private Utilisateur connexionUtilisateurs;
+    private static Utilisateur connexionUtilisateurs;
 
     /**
      * Constructeur
