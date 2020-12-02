@@ -28,6 +28,17 @@ public class EnCoursActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.en_cours);
+        ecouteRetour();
+
+    }
+
+    private void creerListeEnCours(){
+        ArrayList<Demande> lesDemandesEnCours = controle.getLesDemandesEnCours();
+        if (lesDemandesEnCours != null){
+            ListView lstDemandesEnCours = (ListView)findViewById(R.id.lstDemandesEnCours);
+            DemandeListeAdapter adapter = new DemandeListeAdapter(this,lesDemandesEnCours);
+            lstDemandesEnCours.setAdapter(adapter);
+        }
     }
 
     private void ecouteRetour(){

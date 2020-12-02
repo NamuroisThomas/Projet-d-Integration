@@ -18,6 +18,7 @@ public final class Controle {
     private static AccesDistant accesDistant;
     private static Context contexte;
     private ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
+    private ArrayList<Demande> lesDemandesEnCours = new ArrayList<Demande>();
     private Utilisateur connexionUtilisateurs;
 
     /**
@@ -69,22 +70,10 @@ public final class Controle {
         return connexionUtilisateurs.getIdUtilisateur();
     }
 
+    public ArrayList<Demande> getLesDemandesEnCours() {
+        return lesDemandesEnCours;
+    }
+    public void setLesDemandesEnCours(ArrayList<Demande> lesDemandesEnCours) {
+        this.lesDemandesEnCours = lesDemandesEnCours;
+    }
 }
-/*
-*     /**
- * Création de la demande
- * @param titreDemande
- * @param descriptionDemande
- * @param idUtilisateur
- * @param idCategorie
- * @param defraiement
- * @param idCodePostal
-
-public void creerDemandes(String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, int idCodePostal){
-    demande = new Demande(titreDemande,descriptionDemande,idUtilisateur,idCategorie,defraiement,idCodePostal);
-    lesDemandes.add(demande);
-    /**
-     * A FAIRE!!!!
-     * avec accès distant méthode pour enregistrer une demandes dans la DB
-
-}*/
