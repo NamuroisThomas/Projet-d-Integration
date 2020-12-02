@@ -181,7 +181,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/buttonDeconnexionHome"
+            android:id="@+id/modifierBouton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/modifierProfil" />

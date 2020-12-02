@@ -110,8 +110,8 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    public void  ecouteBoutonProfil(){
-        ((Button)findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener(){
+    public void  ecouteBoutonProfil() {
+        ((Button) findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ProfilActivity.class);
@@ -119,8 +119,8 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-      
-    private void recupDemandesEnCours() {
+    }
+    private void recupDemandesEnCours(){
         Controle controle = new Controle();
         AccesDistant accesDistant = new AccesDistant();
         accesDistant.envoi("demandesEnCours", controle.idUtilisateurConvertToJSONArray());
