@@ -53,8 +53,9 @@ public class AccesDistant implements AsyncResponse {
                 Log.d("enreg", "***********" + message[1]);
             } else if (message[0].equals("enregDemande")) {
                 Log.d("insert","********** insertion reussie normalement");
-            }
-            else if (message[0].equals("dernier")) {
+            }else if (message[0].equals("modificationUtilisateur")) {
+                Log.d("insert","********** Modification réussie");
+            } else if (message[0].equals("dernier")) {
                 Log.d("dernier", "***********" + message[1]);
                 try {
                     JSONObject info = new JSONObject(message[1]);
