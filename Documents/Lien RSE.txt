@@ -1,0 +1,77 @@
+
+
+1) Economie circulaire
+	Peu présent dans notre projet car pas de produit 
+	Cependant, le serveur ne sera pas jeter à la poubelle à la fin du projet car celui-ci sera réutilisé pour nos potfolios
+	
+	
+	
+2) Economie de partage
+	Service pour aider toutes personnes dans le besoin, de manière plus simple et plus rapide qu'avec des ouvriers ou des titres services, car pas de nécessité de prendre rendez-vous et d'attendre une place de libre dans leur agenda et moins cher car sur base bénévole avec une possibilité de défraiement
+	Au plus il y aura d'utilisateurs, au plus le service pourra être rapide (plus de disponibilité partagée) et complet (plus de diversité de talents)
+	Favorise également l'intergénérationnel car ce sont en général des plus jeunes qui aideront des plus agés pour le jardinage, petits travaux, transports et inversément pour la couture, cuisine
+
+	Cibles
+		- personnes handicapées longue durée
+		- personnes handicapées temporaire
+		- personnes agées
+		- personnes dans le besoin
+		- 
+		
+		
+	Besoins
+		- aide pour le ménage
+		- aide pour tondre la pelouse
+		- aide pour faire des bas de pantalons
+		- aide pour se déplacer
+		- aide pour faire des grosses courses
+		- aide pour refixer un cadre
+		- ...
+		
+		
+		
+	Business model a évolué en agrandissant le panel de personnes concernées, à la base c'était pour des personnes handicapées pour au final être disponible pour toutes personnes ayant besoin d'aide
+	ce qui implique plus de comptes, de demandes donc il faudra un serveur plus puissant
+	
+	Juridique
+		Masquer un maximum les informations personnelles des utilisateurs tant qu'aucun accord n'a été trouvé entre demandeur et aidant
+		Vérification des comptes au moyen d'un numéro de téléphonne pour limiter les personnes malveyantes et système de report pour signaler ceux-circulaire
+		
+		
+3) Le consomacteur
+	Les personnes qui proposent leur aide sont directement acteurs car ce sont eux qui vont fournir les services
+	Les personnes pourront créer des liens afin de ne plus utiliser l'appli à terme s'ils deviennent de bon amis
+	impact social très fort car création de lien entre l'aidant et le demandeur surtout si échange régulier entre eux, possibilté de chat / appel via l'appli, la page web
+	Si des indépendants peuvent consacrer un peu de leur temps libre pour des petits travaux nécessitant du matériel pro, ce serait un plus sans que cela ne coute au demandeur
+	
+
+
+4) Le green-it
+	Faire une interface la plus simple pour que tout le monde s'y retrouve
+	Mettre une FAQ pour aider aux problèmes courants
+	Police de caractère et taille suffisament grande pour personne malvoyante
+	
+	
+	
+Remarques apres coaching
+- Se différencier du groupe 4 en ciblant exclusivement les personens handicapées et leur famille dans un premier temps et ouvrir aux personnes agées dans un second temps
+- Il ne faudra pas hésiter à dire que nous ne sommes pas en concurence avec le groupe 4 mais plutot une complémentarité
+- Contacter des familles qui sont dans ce créneau la pour avoir leur besoins et retour sur l'application
+- Définir que nous voulons avant tout toucher des personnes en wallonie car principalement en francais
+	Calculer cette population sur base de chiffre (nbre de famille avec enfant handicapé)
+
+- Quel campagne de pub sera mise en place pour les demandeurs et les aidants
+	-demandeurs : via des établissements qui les acceuilles
+	-aideurs : les personnes qui les aide deja, voir les différents centre/action daide locale et leur proposer le projet
+	- bouche à oreille pour la confiance
+	
+- Possibilité de subside ? via la région wallone, les mutuelles
+- 
+
+- Comparaison avec le vrai Needhelp et en quoi on se démarque
+- Comparaison habitatkangourou 
+
+
+- GreenIT : comment peut-on limiter notre impact? Go planter des arbres à chaque demande ^^
+
+

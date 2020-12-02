@@ -1,0 +1,40 @@
+Retour coaching 26/11
+
+Présentation des US personnelles
+- Simon M (US01 Mobile)
+	Fonctionnel
+	Manque les critères d'acceptation
+	Pas de tests unitaires présents pour la vérification de mot de passe
+	
+	Est le product owner
+	
+- Brian L (US04 Web)
+	Fonctionnel
+	Manque les critères d'acceptation dans une section propre, ils sont mélangés dans la définition de l'US
+	Pas d'URL pour l'API, juste une mention
+	Mettre en place une pagination (pas dans la US de base)
+	Mettre la maquette à jour
+	
+	Est gestionnaire du Trello quand les gens oublient
+	S'est occupé de la page contact et du service externe avec la création d'un mail spécifique
+	
+	
+- François T (US01 Web)
+	Fonctionnel
+	Pas de tests unitaires
+	Manque les critères d'acceptation dans une section propre, ils sont mélangés dans la définition de l'US
+	Détailler les boutons et leur emplacement
+	Pas d'URL pour l'API, juste une mention
+	Pas de popup qui signale que le mail ne va pas
+	Mettre la maquette à jour
+	
+	
+	
+- Gaëtan G (US03 Web)
+	Fonctionnel
+	Pas de tests unitaires
+	Manque les critères d'acceptation dans une section propre, ils sont mélangés dans la définition de l'US
+	Détailler les boutons et leur emplacement
+	Pas d'URL pour l'API, juste une mention
+	Mettre la maquette à jour
+

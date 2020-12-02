@@ -1,0 +1,6 @@
+Réunion 22 octobre
+
+
+La mise en place d'HTTPS n'avance pas, personne n'est assez calé en réseau pour mettre en place le DNS et les SSL
+Le script PHP devient la solution que nous allons utiliser. Simon la teste en local, Gaëtan devra la mettre sur le serveur
+n-ème rappel pour avoir une page d'acceuil web mais la liste des demandes est plus importante
