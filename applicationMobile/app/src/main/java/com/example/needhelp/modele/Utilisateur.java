@@ -33,6 +33,23 @@ public class Utilisateur {
         this.telephone = telephone;
         this.mdp = mdp;
     }
+    /**
+     * Constructeur complet modification
+     * @param idUtilisateur
+     * @param nomUser
+     * @param prenomUser
+     * @param mail
+     * @param telephone
+     * @param mdp
+     */
+    public Utilisateur(int idUtilisateur,String nomUser, String prenomUser, String mail, String telephone, String mdp) {
+        this.idUtilisateur = idUtilisateur;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.mail = mail;
+        this.telephone = telephone;
+        this.mdp = mdp;
+    }
 
     /**
      * Construction complet
@@ -72,6 +89,21 @@ public class Utilisateur {
      */
     public JSONArray inscriptionConvertToJSONArray(){
         List laListe = new ArrayList();
+        laListe.add(nomUser);
+        laListe.add(prenomUser);
+        laListe.add(mail);
+        laListe.add(telephone);
+        laListe.add(mdp);
+        return new JSONArray(laListe);
+    }
+
+    /**
+     * Conversion de la modification au format JSONArray
+     * @return
+     */
+    public JSONArray modificationConvertToJSONArray(){
+        List laListe = new ArrayList();
+        laListe.add(idUtilisateur);
         laListe.add(nomUser);
         laListe.add(prenomUser);
         laListe.add(mail);
