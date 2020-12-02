@@ -138,7 +138,7 @@
                 $larequete = "SELECT * FROM demandes WHERE acceptePar='$idUtilisateur'";
                 $req = $cnx->prepare($larequete);
                 $req->execute();
-                // recuperation de toutes les demandes
+                // recuperation des demandes en cours
                 while($ligne = $req->fetch(PDO::FETCH_ASSOC)){
                    $resultat[]=$ligne;
                 }
