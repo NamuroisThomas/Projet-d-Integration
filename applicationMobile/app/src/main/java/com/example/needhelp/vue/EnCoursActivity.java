@@ -22,14 +22,15 @@ import com.example.needhelp.controleur.Controle;
 
 public class EnCoursActivity extends AppCompatActivity{
 
-    private Controle controle;
+    private Controle controle = new Controle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.en_cours);
-        //ecouteRetour();
-        //creerListeEnCours();
+        ecouteGoToLesDemandes();
+        ecouteBoutonProfil();
+        creerListeEnCours();
     }
 
     private void creerListeEnCours(){
@@ -41,12 +42,23 @@ public class EnCoursActivity extends AppCompatActivity{
         }
     }
 
-    private void ecouteRetour(){
-        ((Button)findViewById(R.id.deconnexion)).setOnClickListener(new Button.OnClickListener(){
+    private void ecouteGoToLesDemandes(){
+        ((Button)findViewById(R.id.radioDemandesToutes)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EnCoursActivity.this,HomeActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    public void  ecouteBoutonProfil() {
+        ((Button) findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EnCoursActivity.this, ProfilActivity.class);
+                startActivity(intent);
+
             }
         });
     }
