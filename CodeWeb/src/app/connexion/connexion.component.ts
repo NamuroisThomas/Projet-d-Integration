@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ConnexionService} from './connexion.service';
 import {HttpClient} from '@angular/common/http';
-import {catchError, map, filter, mergeMap} from 'rxjs/operators';
-import {throwError, Observable, pipe, of} from 'rxjs';
-import {error} from 'selenium-webdriver';
 
 @Component({
   selector: 'app-connexion',
@@ -11,13 +8,19 @@ import {error} from 'selenium-webdriver';
   styleUrls: ['./connexion.component.scss']
 })
 export class ConnexionComponent implements OnInit {
-
+  model: any = {};
   connexionStatus: boolean;
+  role: string;
 
   constructor(private connexionService: ConnexionService, private http: HttpClient) { }
 
   ngOnInit() {
-    this.connexionStatus = this.connexionService.isAuth;
+    this.role = this.readLocalStorageValue('user');
+    console.log(this.role);
+  }
+
+  readLocalStorageValue(key: string): string {
+    return localStorage.getItem(key);
   }
 
   onSignIn(data){
@@ -27,22 +30,29 @@ export class ConnexionComponent implements OnInit {
           .subscribe(
             (res) =>
             {
-              if (res[Object.keys(res)[2]][0].mailUtilisateur === '' || res[Object.keys(res)[2]][0].mdpUtilisateur === '' ){
-                alert('le champ mail et/ou mot de passe vide');
+              try {
+                if (res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
+                  res[Object.keys(res)[2]][0].mdpUtilisateur !== data.formConnexionMdp) {
+                  alert('mot de passe incorrect');
+                }
+                if (res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
+                  res[Object.keys(res)[2]][0].mdpUtilisateur === data.formConnexionMdp) {
+                  alert('connexion...');
+                  localStorage.setItem('user', JSON.stringify({idUtilisateur: res[Object.keys(res)[2]][0].idUtilisateur,
+                    nomUtilisateur: res[Object.keys(res)[2]][0].nomUtilisateur,
+                    prenomUtilisateur: res[Object.keys(res)[2]][0].prenomUtilisateur,
+                    mailUtilisateur: res[Object.keys(res)[2]][0].mailUtilisateur,
+                    telUtilisateur: res[Object.keys(res)[2]][0].telUtilisateur,
+                    mdpUtilisateur: res[Object.keys(res)[2]][0].mdpUtilisateur,
+                    idStatus: res[Object.keys(res)[2]][0].idStatus,
+                    descriptionUtilisateur: res[Object.keys(res)[2]][0].descriptionUtilisateur,
+                    avertissementUtilisateur: res[Object.keys(res)[2]][0].avertissementUtilisateur}));
+                  this.role = this.readLocalStorageValue('user');
+                  console.log(localStorage.getItem('user'));
+                }
               }
-              if (res[Object.keys(res)[2]][0].mailUtilisateur !== '' && res[Object.keys(res)[2]][0].mdpUtilisateur !== '' &&
-                res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
-                res[Object.keys(res)[2]][0].mdpUtilisateur !== data.formConnexionMdp ) {
-              alert('mot de passe incorrect');
-              }
-              if (res[Object.keys(res)[2]][0].mailUtilisateur !== '' && res[Object.keys(res)[2]][0].mdpUtilisateur !== '' &&
-                res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
-                res[Object.keys(res)[2]][0].mdpUtilisateur === data.formConnexionMdp ){
-                alert('connexion...');
-                this.connexionStatus = this.connexionService.isAuth;
-              }
-              else{
-                alert('erreur');
+              catch (e) {
+                alert('mail inéxistant, Vous devez créer un compte');
               }
             }
           );
@@ -64,9 +74,10 @@ export class ConnexionComponent implements OnInit {
   }
 
   onSignOut() {
+    localStorage.clear();
     this.connexionService.signOut();
     alert('Déconnexion');
-    this.connexionStatus = this.connexionService.isAuth;
+    this.role = this.readLocalStorageValue('user');
   }
 /*  onSubmit(){
   }*/
