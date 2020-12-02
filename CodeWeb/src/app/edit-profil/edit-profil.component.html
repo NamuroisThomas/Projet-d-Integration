@@ -11,7 +11,7 @@
         <form #userPut="ngForm" (ngSubmit)="submit(userPut.value)">
           <div class="form-group" hidden>
             <label>id</label>
-            <input class="form-control" type="number" size="3" name="formProfilIdUtilisateur" ngModel
+            <input disabled="true" class="form-control" type="number" size="3" name="formProfilIdUtilisateur" ngModel
                    [(ngModel)]="profil.idUtilisateur"
                    required>
           </div>
