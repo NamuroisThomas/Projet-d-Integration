@@ -1,5 +1,6 @@
 package com.example.needhelp.vue;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,7 +34,9 @@ public class ProfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profils);
         init();
+        ecouteGoToEncours();
         ecouterBoutonModifier();
+        ecouteGoToLesDemandes();
     }
 
     public void init(){
@@ -93,13 +96,49 @@ public class ProfilActivity extends AppCompatActivity {
                     Log.d("envoi modif","*************" + user.modificationConvertToJSONArray());
                     accesDistant.envoi("modificationUtilisateur", user.modificationConvertToJSONArray());
 
-                    // Bouton pour aller vers la page home
-                    Intent intent = new Intent(ProfilActivity.this,HomeActivity.class);
-                    startActivity(intent);
                 }
 
             }
 
+        });
+    }
+
+    @SuppressLint("WrongViewCast")
+    private void ecouteGoToEncours(){
+        ((Button)findViewById(R.id.radioEnCours)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                try {
+                    final Thread t1 = new Thread() {
+                        public void run() {
+                            Log.d("Tread", "**************** T1 commence");
+                            AccesDistant accesDistant = new AccesDistant();
+                            accesDistant.envoi("demandesEnCours", controle.idUtilisateurConvertToJSONArray());
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            Intent intent = new Intent(ProfilActivity.this, EnCoursActivity.class);
+                            startActivity(intent);
+                        }
+                    };
+                    t1.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void  ecouteGoToLesDemandes() {
+        ((Button) findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfilActivity.this, HomeActivity.class);
+                startActivity(intent);
+
+            }
         });
     }
 }
