@@ -25,6 +25,8 @@ public class AccesDistant implements AsyncResponse {
     private String mdpUser;
     private boolean mdpCorrect = false;
 
+
+
     /**
      * Constructeur
      */
@@ -79,6 +81,17 @@ public class AccesDistant implements AsyncResponse {
                         Log.d("ErrConn", "*************** mdp incorrect");
                         setMdpCorrect(false);
                     }
+                    Utilisateur connexionUtilisateurs = new Utilisateur(
+                            info.getString("idUtilisateurs"),
+                            info.getString("nomUtilisateur"),
+                            info.getString("prenomUtilisateur"),
+                            info.getString("mailUtilisateur"),
+                            info.getString("telUtilisateur"),
+                            info.getString("mdpUtilisateur"),
+                            info.getString("descriptionUtilisateur")
+                    );
+
+                    controle.setConnexionUtilisateurs(connexionUtilisateurs);
 
                 } catch (Exception e) {
                     Log.d("ERREUR", "************** Recup donnee connexions echouee\n****" + e);

@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.example.needhelp.modele.Demande;
 import com.example.needhelp.modele.AccesDistant;
+import com.example.needhelp.modele.Utilisateur;
 
 import org.json.JSONArray;
 
@@ -17,25 +18,27 @@ public final class Controle {
     private static AccesDistant accesDistant;
     private static Context contexte;
     private ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
+    private Utilisateur connexionUtilisateurs;
 
     /**
      * Constructeur
      */
-    public Controle(){
+    public Controle() {
         super();
     }
 
     /**
      * Creation de l'instance
-     * @return instance
+     *
      * @param context
+     * @return instance
      */
-    public static final Controle getInstance(Context context){
+    public static final Controle getInstance(Context context) {
 
-        if(contexte!=null){
-            Controle.contexte=contexte;
+        if (contexte != null) {
+            Controle.contexte = contexte;
         }
-        if (Controle.instance == null){
+        if (Controle.instance == null) {
             Controle.instance = new Controle();
             accesDistant = new AccesDistant();
 
@@ -52,6 +55,10 @@ public final class Controle {
 
     public void setLesDemandes(ArrayList<Demande> lesDemandes) {
         this.lesDemandes = lesDemandes;
+    }
+
+    public void setConnexionUtilisateurs(Utilisateur connexionUtilisateurs) {
+        this.connexionUtilisateurs = connexionUtilisateurs;
     }
 }
 /*
