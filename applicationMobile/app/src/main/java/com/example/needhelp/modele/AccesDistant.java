@@ -82,7 +82,7 @@ public class AccesDistant implements AsyncResponse {
                         setMdpCorrect(false);
                     }
                     Utilisateur connexionUtilisateurs = new Utilisateur(
-                            info.getString("idUtilisateurs"),
+                            Integer.parseInt(info.getString("idUtilisateur")),
                             info.getString("nomUtilisateur"),
                             info.getString("prenomUtilisateur"),
                             info.getString("mailUtilisateur"),
@@ -97,6 +97,8 @@ public class AccesDistant implements AsyncResponse {
                     Log.d("ERREUR", "************** Recup donnee connexions echouee\n****" + e);
                     ConnexionActivity conn = new ConnexionActivity();
                 }
+            } else if (message[0].equals("accepter")) {
+                Log.d("insert","********** Changement réussi");
             }else if (message[0].equals("demandesTout")){
                 Log.d("demandes","*****************" + message[1]);
                 try {
@@ -127,7 +129,8 @@ public class AccesDistant implements AsyncResponse {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } else {
+            }
+            else {
                 Log.d("ERREUR", "*************** Aucun choix valide");
             }
         }

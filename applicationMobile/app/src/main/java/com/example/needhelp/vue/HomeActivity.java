@@ -2,6 +2,7 @@ package com.example.needhelp.vue;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -45,6 +46,15 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    private void ecouteAccepter(){
+        ((Button)findViewById(R.id.btnAccepterDemande)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Log.d("test", "*******************************Le bouton réagi");
+            }
+        });
+    }
+
     /**
      * Cette méthode va permettre de créer la iste des demandes
      */
@@ -55,14 +65,5 @@ public class HomeActivity extends AppCompatActivity {
             DemandeListeAdapter adapter = new DemandeListeAdapter(this,lesDemandes);
             lstDemandes.setAdapter(adapter);
         }
-    }
-    private void ecouteGoToCreerDemandes(){
-        ((Button)findViewById(R.id.buttonAjoutDemande)).setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this,CreerDemandeActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }
