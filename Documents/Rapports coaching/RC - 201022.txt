@@ -1,0 +1,12 @@
+Retour coaching 22 octobre
+
+
+Nous sommes une des équipes les moins avancées
+Les maquettes doivent être ajoutées sur Trello
+Les choix technologiques doivent être défendu dans le wiki
+
+Le déploiement automatique est une bonne chose pour voir directement le site et le tester. L'ajout d'une vérification des tests avant déploiement serait une bonne manière pour éviter les crashs en production
+
+
+
+

@@ -19,8 +19,8 @@ public final class Controle {
     private static Demande demande;
     private static AccesDistant accesDistant;
     private static Context contexte;
-    private ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
-    private ArrayList<Demande> lesDemandesEnCours = new ArrayList<Demande>();
+    private static ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
+    private static ArrayList<Demande> lesDemandesEnCours = new ArrayList<Demande>();
     private static Utilisateur connexionUtilisateurs;
 
     /**
@@ -74,6 +74,7 @@ public final class Controle {
     public ArrayList<Demande> getLesDemandesEnCours() {
         return lesDemandesEnCours;
     }
+
     public void setLesDemandesEnCours(ArrayList<Demande> lesDemandesEnCours) {
         this.lesDemandesEnCours = lesDemandesEnCours;
     }

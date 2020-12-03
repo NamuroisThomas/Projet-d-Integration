@@ -1,5 +1,17 @@
 Démonstration
 	Le client a pu voir 
+	WEB : 
+		- inscription US01
+		- connexion US02
+		- liste des demandes US04
+		- profil US06
+		- acceptation d'une aide US09
+		- contatc support US12
+		
+	Appli : 
+		- inscription US01
+		- connexion US02
+		- liste des demandes US04
 
 
 

@@ -25,3 +25,31 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.footer {
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  overflow: visible;
+  color: #FFFFFF80;
+  font-weight: bold;
+  height: 14rem;
+  background-color: #343a40;
+}
+
+
+body,
+html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("assets/img/svg/white-unsplash-9d0375d2.jpg");
+  /* Full height */
+  height: 135%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
