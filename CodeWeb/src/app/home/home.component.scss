@@ -17,30 +17,34 @@ h1{
 }
 
 h3{
-  padding: 0.55em;
+  padding-top: 0.50em;
+  padding-bottom: 0.5em;
+  padding-left: 2.55em;
 }
 
 h4{
   padding-bottom: 0.5em;
-  padding-left: 2em;
+  padding-left: 4em;
 }
 
 p{
   padding-bottom: 0.5em;
-  padding-left: 4em;
+  padding-left: 8em;
 }
 
 dl {
   overflow: hidden;
-  padding: 1em;
+  padding: 0.5em;
 }
 dt {
   float: left;
   width: 20%;
+  padding-left: 6em;
 }
 dd {
   float: left;
-  width: 80%;
+  width: 70%;
+  padding-left: 10em;
 }
 
 button{
