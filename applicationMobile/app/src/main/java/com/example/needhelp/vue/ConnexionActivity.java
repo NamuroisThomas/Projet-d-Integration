@@ -14,6 +14,8 @@ import com.example.needhelp.R;
 import com.example.needhelp.modele.AccesDistant;
 import com.example.needhelp.modele.Utilisateur;
 
+import java.util.regex.Pattern;
+
 public class ConnexionActivity extends AppCompatActivity {
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +98,7 @@ public class ConnexionActivity extends AppCompatActivity {
         if(accesDistant.isMdpCorrect() == true){
             Intent intent = new Intent(ConnexionActivity.this,HomeActivity.class);
             startActivity(intent);
-        }
-        else {
+        }else {
             Toast.makeText(ConnexionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
         }
         Log.d("Tread","**************** T finit");
@@ -121,5 +122,20 @@ public class ConnexionActivity extends AppCompatActivity {
         // Envoi de la requête à la DB
         accesDistant.envoi("connexion", user.connexionConvertToJsonArray());
         return true;
+    }
+
+    public final static Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
+            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+"
+    );
+
+    public static boolean isValiEmail(String email)
+    {
+        return EMAIL_ADDRESS_PATTERN.matcher(email).matches();
     }
 }

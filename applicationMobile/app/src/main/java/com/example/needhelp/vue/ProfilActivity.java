@@ -18,6 +18,8 @@ import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.modele.AccesDistant;
 import com.example.needhelp.modele.Utilisateur;
 
+import java.util.regex.Pattern;
+
 public class ProfilActivity extends AppCompatActivity {
 
     Controle controle = new Controle();
@@ -89,6 +91,10 @@ public class ProfilActivity extends AppCompatActivity {
                 // Controle des données saisie
                 if((nomModifier.equals(""))||(prenomModifier.equals(""))||(mailModifier.equals(""))||(telModifier.equals(""))||(mdpModifier.equals(""))){
                     Toast.makeText(ProfilActivity.this,"Saisie incorrect",Toast.LENGTH_SHORT).show();
+                }else if (telModifier.length() != 10){
+                    Toast.makeText(ProfilActivity.this,"Numéro de téléphone incorrect",Toast.LENGTH_SHORT).show();
+                }else if (!isValiEmail(mailModifier)){
+                    Toast.makeText(ProfilActivity.this,"Format de l'adresse mail incorrect",Toast.LENGTH_SHORT).show();
                 }else {
                     // si la saisie est correcte, envoie les informations à la base de données pour l'inscription
                     Utilisateur user = new Utilisateur(idUtilisateur,nomModifier,prenomModifier,mailModifier,telModifier,mdpModifier);
@@ -140,5 +146,20 @@ public class ProfilActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public final static Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
+            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+"
+    );
+
+    public static boolean isValiEmail(String email)
+    {
+        return EMAIL_ADDRESS_PATTERN.matcher(email).matches();
     }
 }
