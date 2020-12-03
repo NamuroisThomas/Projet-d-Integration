@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,7 @@ public class EnCoursActivity extends AppCompatActivity{
 
     private Controle controle = new Controle();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +39,8 @@ public class EnCoursActivity extends AppCompatActivity{
         ArrayList<Demande> lesDemandesEnCours = controle.getLesDemandesEnCours();
         if (lesDemandesEnCours != null){
             ListView lstDemandesEnCours = (ListView)findViewById(R.id.lstDemandesEnCours);
-            DemandeListeAdapter adapter = new DemandeListeAdapter(this,lesDemandesEnCours);
-            lstDemandesEnCours.setAdapter(adapter);
+            EnCoursListAdapter adapter = new EnCoursListAdapter(this,lesDemandesEnCours);
+            lstDemandesEnCours.setAdapter((ListAdapter) adapter);
         }
     }
 

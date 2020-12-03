@@ -99,7 +99,7 @@ public class DemandeListeAdapter extends BaseAdapter {
         return view;
     }
 
-    private class ViewHolder{
+    static class ViewHolder{
         Button btnAccepter;
         TextView txtDate;
         TextView txtTitreDemande;
