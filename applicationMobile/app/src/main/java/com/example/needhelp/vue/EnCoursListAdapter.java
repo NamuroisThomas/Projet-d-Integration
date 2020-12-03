@@ -71,11 +71,11 @@ public class EnCoursListAdapter extends BaseAdapter {
         if(view==null){
             holder = new ViewHolder();
             // la ligne est construite avec un formatage (inflater) relié à layout_liste_demande
-            view = inflater.inflate(R.layout.layout_liste_demandes, null);
+            view = inflater.inflate(R.layout.layout_liste_encours, null);
             // chauqe propriété du holder est relié à une propriété classique
             holder.txtDate = (TextView)view.findViewById(R.id.txtDate);
             holder.txtTitreDemande = (TextView)view.findViewById(R.id.txtTitreDemande);
-            holder.btnAccepter = (Button) view.findViewById(R.id.btnAccepterDemande);
+            holder.btnRefuser = (Button) view.findViewById(R.id.btnRefuserDemande);
             // affecter le holder à la vue
             view.setTag(holder);
         }else{
@@ -85,9 +85,9 @@ public class EnCoursListAdapter extends BaseAdapter {
         //valorisation du contenu du holder donc de la ligne
         holder.txtTitreDemande.setText(lesDemandes.get(position).getTitreDemande().toString());
         holder.txtDate.setText(lesDemandes.get(position).getDateDemande());
-        holder.btnAccepter.setTag(position);
+        holder.btnRefuser.setTag(position);
         //Clique sur le bouton pour accepter la demande
-        holder.btnAccepter.setOnClickListener(new View.OnClickListener(){
+        holder.btnRefuser.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 int ligne = (int) v.getTag();
@@ -100,7 +100,7 @@ public class EnCoursListAdapter extends BaseAdapter {
     }
 
     static class ViewHolder{
-        Button btnAccepter;
+        Button btnRefuser;
         TextView txtDate;
         TextView txtTitreDemande;
     }
