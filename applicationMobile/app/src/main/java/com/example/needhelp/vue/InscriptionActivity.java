@@ -75,6 +75,9 @@ public class InscriptionActivity extends AppCompatActivity {
                     tel = telInscription.getText().toString();
                     mdp = mdpInscription.getText().toString();
                     confMdp = mdpConfirmation.getText().toString();
+
+                    Utilisateur connexionUtilisateurs = new Utilisateur(nom,prenom,mail,tel,mdp);
+                    controle.setConnexionUtilisateurs(connexionUtilisateurs);
                 }catch (Exception e){
                     Log.d("Recup", "****************** Erreur reuperation donnees inscription\n****" + e);
                 }
