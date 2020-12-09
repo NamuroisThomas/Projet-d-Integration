@@ -30,7 +30,7 @@ export class ContactService {
   }
 
   sendToken(token){
-    return this.http.post<any>('/token_validate', {recaptcha: token});
+    return this.http.post<any>('http://62.210.130.145:3000/token_validate', {recaptcha: token});
   }
 
 }
