@@ -321,42 +321,34 @@ router.delete('/demande', function(req, res,next) {
 
 });
 
-router.post('/token_validate', (req, res)=>{​​
-  var token = req.body.recaptcha;
-    const secretkey = "SECRET_KEY"; //the secret key from your google admin console;
+router.post('/token_validate', function(req, res){
 
-    //token validation url is URL: https://www.google.com/recaptcha/api/siteverify
-    // METHOD used is: POST
+    var token = req.body.recaptcha;
+    const secretkey ="6Lf-Uv8ZAAAAACAuy6qp6M7ezg-nP9R5JG0t5wHp";
 
-    const url =  'https://www.google.com/recaptcha/api/siteverify?secret=${​​secretKey}​​&response=${​​token}​​&remoteip=${​​req.connection.remoteAddress}​​';
+    const url =  "https://www.google.com/recaptcha/api/siteverify?secret="+secretkey+"&response="+token;
 
-    //note that remoteip is the users ip address and it is optional
-    // in node req.connection.remoteAddress gives the users ip address
-
-    if(token === null || token === undefined){​​
-    res.send({"status":201, "error":false, "message": "Token is empty or invalid"}​​);
+    if(token === null || token === undefined){
+        res.status(201).send({success: false, message: "Token is empty or invalid"})
         return console.log("token empty");
-    }​​
+    }
 
-  request(url, function(err, response, body){​​
-      //the body is the data that contains success message
-      body = JSON.parse(body);
+    request(url, function(err, response, body){
+        //the body is the data that contains success message
+        body = JSON.parse(body);
 
-      //check if the validation failed
-      if(body.success !== undefined && !data.success){​​
-         res.send({​​"status":204, "error":false, "message":'recaptcha failed'}​​);
-          return console.log("failed")
-      }​​
+        //check if the validation failed
+        if(body.success != undefined){
+            res.send({success: false, 'message': "recaptcha failed"});
+            return console.log("failed")
+        }
 
-      //if passed response success message to client
-      res.send({​​"status":204, "success": true, 'message': "recaptcha passed"}​​);
+        //if passed response success message to client
+        res.send({"success": true, 'message': "recaptcha passed"});
 
-  }​​);
+    });
 
-}​​);
-
-
-
+});
 
 
 
