@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var request = require("request");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -181,7 +182,7 @@ router.get('/utilisateur', function(req,res,next){
 });
 
 
-//Retourne le nombre de fois que le mail est utilisé dans la base de données
+//Retourne  toutes les informations sur l'utilisateur à partir de son e-mail si le mail existe
 router.get('/mailExist', function(req,res,next){
     var mailUtilisateur = req.query.mail;
     console.log('GET mail exist');
@@ -319,6 +320,44 @@ router.delete('/demande', function(req, res,next) {
     });
 
 });
+
+router.post('/token_validate', (req, res)=>{​​
+  var token = req.body.recaptcha;
+    const secretkey = "SECRET_KEY"; //the secret key from your google admin console;
+
+    //token validation url is URL: https://www.google.com/recaptcha/api/siteverify
+    // METHOD used is: POST
+
+    const url =  'https://www.google.com/recaptcha/api/siteverify?secret=${​​secretKey}​​&response=${​​token}​​&remoteip=${​​req.connection.remoteAddress}​​';
+
+    //note that remoteip is the users ip address and it is optional
+    // in node req.connection.remoteAddress gives the users ip address
+
+    if(token === null || token === undefined){​​
+    res.send({"status":201, "error":false, "message": "Token is empty or invalid"}​​);
+        return console.log("token empty");
+    }​​
+
+  request(url, function(err, response, body){​​
+      //the body is the data that contains success message
+      body = JSON.parse(body);
+
+      //check if the validation failed
+      if(body.success !== undefined && !data.success){​​
+         res.send({​​"status":204, "error":false, "message":'recaptcha failed'}​​);
+          return console.log("failed")
+      }​​
+
+      //if passed response success message to client
+      res.send({​​"status":204, "success": true, 'message': "recaptcha passed"}​​);
+
+  }​​);
+
+}​​);
+
+
+
+
 
 
 
