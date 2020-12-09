@@ -37,7 +37,7 @@ const appRoutes: Routes = [
       {path: 'chat', component: ChatComponent},
       {path: 'conversations', component: ConversationsComponent},
       {path: 'ajoutContact', component: AjoutContactComponent},
-      {path: 'chatroom', component: ChatroomComponent},
+      {path: 'chatroom/:nickname/:roomname', component: ChatroomComponent},
       {path: 'not-found', component: PageNotFoundComponent},
       {path: '**', redirectTo: 'home'}
     ]

@@ -38,6 +38,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatTableModule} from "@angular/material/table";
 import {DatePipe} from "@angular/common";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -88,7 +90,9 @@ import {DatePipe} from "@angular/common";
     MatInputModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    MatSidenavModule,
+    MatCardModule
   ],
   providers: [
     ConnexionService,
