@@ -24,8 +24,21 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  resolved(captchaResponse: string) {
-    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  async resolved(captchaResponse) {
+    console.log(`Resolved response token: ${captchaResponse}`);
+    await this.sendTokenToBackend(captchaResponse);
+  }
+
+  sendTokenToBackend(tok){
+    this.contact.sendToken(tok).subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      },
+      () => {}
+    );
   }
 
   onSubmit(FormData) {

@@ -29,4 +29,8 @@ export class ContactService {
       )
   }
 
+  sendToken(token){
+    return this.http.post<any>('/token_validate', {recaptcha: token});
+  }
+
 }
