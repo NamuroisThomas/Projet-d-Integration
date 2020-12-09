@@ -28,7 +28,7 @@ import { DetailDemandeComponent } from './detail-demande/detail-demande.componen
 import { MaListeComponent } from './ma-liste/ma-liste.component';
 import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import { RecaptchaModule,RecaptchaFormsModule } from 'ng-recaptcha';
 
 
 @NgModule({
@@ -69,8 +69,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule,
-    NgxPaginationModule
-
+    NgxPaginationModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
   providers: [
     ConnexionService,
