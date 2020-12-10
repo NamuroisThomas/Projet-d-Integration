@@ -15,7 +15,7 @@ import com.example.needhelp.modele.Demande;
 
 import java.util.ArrayList;
 
-public class MesDemandes extends AppCompatActivity {
+public class MesDemandesActivity extends AppCompatActivity {
 
     private Controle controle = new Controle();
 
@@ -41,7 +41,7 @@ public class MesDemandes extends AppCompatActivity {
         ((Button)findViewById(R.id.radioDemandesToutes)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MesDemandes.this,HomeActivity.class);
+                Intent intent = new Intent(MesDemandesActivity.this,HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +51,7 @@ public class MesDemandes extends AppCompatActivity {
         ((Button) findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MesDemandes.this, ProfilActivity.class);
+                Intent intent = new Intent(MesDemandesActivity.this, ProfilActivity.class);
                 startActivity(intent);
 
             }

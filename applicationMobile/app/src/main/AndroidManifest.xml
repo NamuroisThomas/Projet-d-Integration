@@ -32,6 +32,8 @@
         </activity>
         <activity android:name=".vue.EnCoursActivity">
         </activity>
+        <activity android:name=".vue.MesDemandesActivity" >
+        </activity>
 
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
     </application>
