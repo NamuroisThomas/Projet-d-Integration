@@ -71,7 +71,7 @@ public class MesDemandesListAdapter extends BaseAdapter {
             holder = new MesDemandesListAdapter.ViewHolder();
             // la ligne est construite avec un formatage (inflater) relié à layout_liste_demande
             view = inflater.inflate(R.layout.layout_liste_mes_demandes, null);
-            // chauqe propriété du holder est relié à une propriété classique
+            // chanqe propriété du holder est relié à une propriété classique
             holder.txtDate = (TextView)view.findViewById(R.id.txtDate);
             holder.txtTitreDemande = (TextView)view.findViewById(R.id.txtTitreDemande);
             holder.txtAcceptePar = (TextView) view.findViewById(R.id.txtAcceptePar);

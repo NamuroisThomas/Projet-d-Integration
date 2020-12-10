@@ -81,6 +81,7 @@ public class HomeActivity extends AppCompatActivity {
                             Log.d("Tread","**************** T1 commence");
                             AccesDistant accesDistant = new AccesDistant();
                             accesDistant.envoi("demandesEnCours", controle.idUtilisateurConvertToJSONArray());
+                            Log.d("test","************* ID:" + controle.idUtilisateurConvertToJSONArray());
                             try {
                                 Thread.sleep(3000);
                             } catch (InterruptedException e) {
@@ -108,6 +109,7 @@ public class HomeActivity extends AppCompatActivity {
                             Log.d("Tread","**************** T1 commence");
                             AccesDistant accesDistant = new AccesDistant();
                             accesDistant.envoi("mesDemandes", controle.idUtilisateurConvertToJSONArray());
+                            Log.d("test","************* ID:" + controle.idUtilisateurConvertToJSONArray());
                             try {
                                 Thread.sleep(3000);
                             } catch (InterruptedException e) {

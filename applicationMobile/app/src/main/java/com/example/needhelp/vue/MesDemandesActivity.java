@@ -22,7 +22,7 @@ public class MesDemandesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.en_cours);
+        setContentView(R.layout.mes_demandes);
         ecouteGoToLesDemandes();
         ecouteBoutonProfil();
         creerListeMesDemandes();
@@ -31,7 +31,7 @@ public class MesDemandesActivity extends AppCompatActivity {
     private void creerListeMesDemandes(){
         ArrayList<Demande> mesDemandes = controle.getLesDemandesEnCours();
         if (mesDemandes != null){
-            ListView lstMesDemandes = (ListView)findViewById(R.id.lstDemandesEnCours);
+            ListView lstMesDemandes = (ListView)findViewById(R.id.lstMesDemandes);
             MesDemandesListAdapter adapter = new MesDemandesListAdapter(this,mesDemandes);
             lstMesDemandes.setAdapter((ListAdapter) adapter);
         }
