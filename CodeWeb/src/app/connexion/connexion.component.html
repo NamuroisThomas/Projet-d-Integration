@@ -21,7 +21,9 @@
               <button class="btn btn-primary" [disabled]="!f.form.valid">Connexion</button>
             </div>
           </form>
+          <div class="hauteur">
           <button class="btn btn-primary" *ngIf="role !== null" (click)="onSignOut()">déconnexion</button>
+          </div>
         </div>
       </div>
     </div>

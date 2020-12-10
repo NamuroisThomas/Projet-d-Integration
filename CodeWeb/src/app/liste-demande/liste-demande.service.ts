@@ -17,7 +17,6 @@ export class GetListeDemandeService {
   detail(id: number){
     this.http.get('http://62.210.130.145:3000/demandes?idDemande=' + id).subscribe((res) => {
       this.demandeDetail = res[Object.keys(res)[2]][0];
-      console.log(this.demandeDetail);
     });
     return this.demandeDetail;
   };
@@ -25,7 +24,7 @@ export class GetListeDemandeService {
   listeCategorieCall(){
     return this.http.get('http://62.210.130.145:3000/categories');
   }
-  
+
   listeCodePostauxCall(){
     return this.http.get('http://62.210.130.145:3000/codePostal');
   }
@@ -85,12 +84,5 @@ export class GetListeDemandeService {
   listeDemandeAutreCall(){
     return this.http.get('http://62.210.130.145:3000/demandes?idCateg=24');
   }
-/*  this.api.listeDemandeCall().subscribe((res) => {
-  console.log(res[Object.keys(res)[2]]);
-  this.listeDemande = res[Object.keys(res)[2]];
-  for (const liste of this.listeDemande){
-  console.log(liste);
-}
-console.log(this.listeDemande);
-});*/
+
 }

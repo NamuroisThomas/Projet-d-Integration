@@ -1,3 +1,4 @@
+<div class="hauteur">
 <div class="wrapper-box">
   <div class="container">
     <h2>Liste des demandes acceptées par {{nomPrenom}}</h2>
@@ -5,9 +6,9 @@
 </div>
 
 <div class="container" style="margin-top: 70px;" >
-  <table class="table table-hover">
+  <table class="table table-hover jaune">
     <thead>
-    <tr>
+    <tr >
       <th>Titre</th>
       <th>Catégorie</th>
       <th>Date</th>
@@ -30,9 +31,11 @@
   </table>
 </div>
 
+<div class="container">
 <div *ngIf="allListe === undefined">
   <h3>La base de donnée est surchargé... Veuillez réessayer plus tard.</h3>
   <img class="img" src="../../assets/img/svg/417114-200.png">
+</div>
 </div>
 <!--
 <div class="container" style="margin-top: 70px;" >
@@ -54,3 +57,4 @@
         <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
       </td>
       <td *ngIf="liste.accepteDemande === 0">-->
+</div>

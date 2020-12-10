@@ -1,23 +1,24 @@
+<div class="hauteur">
 <div class="wrapper-box">
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2">
             <div class="col-10">
           <h2>Informations générales</h2>
-            <label>Nom</label>
-            <div>{{profil.nomUtilisateur}}</div>
-            <label>Prénom</label>
-            <div>{{profil.prenomUtilisateur}}</div>
+            <label>Nom :</label>
+            <div class="text-white">{{profil.nomUtilisateur}}</div>
+            <label>Prénom :</label>
+            <div class="text-white">{{profil.prenomUtilisateur}}</div>
         <form #userPut="ngForm" (ngSubmit)="submit(userPut.value)">
           <div class="form-group" hidden>
             <label>id</label>
-            <input disabled="true" class="form-control" type="number" size="3" name="formProfilIdUtilisateur" ngModel
+            <input readonly="readonly" class="form-control" type="number" size="3" name="formProfilIdUtilisateur" ngModel
                    [(ngModel)]="profil.idUtilisateur"
                    required>
           </div>
           <div class="form-group">
             <label>Adresse mail</label>
-            <input class="form-control" type="text" size="50" name="formProfilMailUtilisateur" ngModel
+            <input  class="form-control" type="text" size="50" name="formProfilMailUtilisateur" ngModel
                    [(ngModel)]="profil.mailUtilisateur"
                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
           </div>
@@ -37,4 +38,5 @@
           </div>
         </div>
       </div>
+</div>
 </div>

@@ -9,13 +9,11 @@ import { TestServices} from '../test.service';
 })
 export class HomeComponent implements OnInit {
 
+  welcome = 'Bienvenue sur NeedHelp!';
 
-  constructor( private test: TestServices) { }
+  constructor() { }
 
   ngOnInit(){
-    this.test.getTest().subscribe((result) =>{
-      console.warn('result', result);
-    })
   }
 
 }

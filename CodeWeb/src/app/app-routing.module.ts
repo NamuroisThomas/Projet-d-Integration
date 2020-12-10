@@ -13,6 +13,7 @@ import {ListeDemandeComponent} from './liste-demande/liste-demande.component';
 import {DetailDemandeComponent} from './detail-demande/detail-demande.component';
 import {MaListeComponent} from './ma-liste/ma-liste.component';
 import {MesDemandesComponent} from './mes-demandes/mes-demandes.component';
+import {ChartModule} from 'primeng/chart';
 
 
 const appRoutes: Routes = [

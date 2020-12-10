@@ -40,16 +40,16 @@
 
 body,
 html {
-  height: 100%;
+  min-height: 100%;
 }
 
 .bg {
   /* The image used */
-  background-image: url("assets/img/svg/white-unsplash-9d0375d2.jpg");
+  background-image: url("assets/img/svg/1B1B1B.png");
   /* Full height */
-  height: 135%;
+  height: 165%;
   /* Center and scale the image nicely */
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  color: #ffc119;
 }

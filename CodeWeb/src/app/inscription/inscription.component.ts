@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import {HttpClient} from '@angular/common/http';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-inscription',
@@ -10,7 +11,6 @@ import {HttpClient} from '@angular/common/http';
 })
 export class InscriptionComponent implements OnInit {
 
-  model: any = {};
   constructor(private http: HttpClient) {
   }
 
@@ -19,12 +19,13 @@ export class InscriptionComponent implements OnInit {
 
   submit(data) {
     if (data.formInscriptionMdp === data.formInscriptionMdpConfirmation){
-    this.http.post('http://62.210.130.145:3000/inscription', data)
+      data.formInscriptionMdp = 'pi7' + CryptoJS.SHA256(data.formInscriptionMdp).toString(CryptoJS.enc.Hex) + 'sel';
+      this.http.post('http://62.210.130.145:3000/inscription', data)
       .subscribe((res) =>
         console.warn('result', res)
       );
-    alert('Inscription complétée');
-    location.reload();
+      alert('Inscription complétée');
+      location.reload();
     }
     else {
       alert('Les mots de passe ne correspondent pas');
