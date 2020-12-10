@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { DemandeAideComponent } from './demande-aide/demande-aide.component';
-import { ChatComponent } from './chat/chat.component';
 import { ListeDemandeComponent } from './liste-demande/liste-demande.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { AvisReportComponent } from './avis-report/avis-report.component';
@@ -28,22 +27,7 @@ import { DetailDemandeComponent } from './detail-demande/detail-demande.componen
 import { MaListeComponent } from './ma-liste/ma-liste.component';
 import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-<<<<<<< HEAD
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
-=======
-import { RecaptchaModule,RecaptchaFormsModule } from 'ng-recaptcha';
-import { ConversationsComponent } from './chat/conversations/conversations.component';
-import { AjoutContactComponent } from './chat/ajout-contact/ajout-contact.component';
-import { ChatroomComponent } from './chat/chatroom/chatroom.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatIconModule} from "@angular/material/icon";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {MatTableModule} from "@angular/material/table";
-import {DatePipe} from "@angular/common";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatCardModule} from "@angular/material/card";
->>>>>>> 4e6c48e65faea8c593db7fac931fb7119b8d860b
 
 
 @NgModule({
@@ -51,7 +35,6 @@ import {MatCardModule} from "@angular/material/card";
     AppComponent,
     InscriptionComponent,
     DemandeAideComponent,
-    ChatComponent,
     ListeDemandeComponent,
     EditProfilComponent,
     AvisReportComponent,
@@ -62,10 +45,7 @@ import {MatCardModule} from "@angular/material/card";
     ConnexionComponent,
     DetailDemandeComponent,
     MaListeComponent,
-    MesDemandesComponent,
-    ConversationsComponent,
-    AjoutContactComponent,
-    ChatroomComponent
+    MesDemandesComponent
 
   ],
   imports: [
@@ -89,19 +69,11 @@ import {MatCardModule} from "@angular/material/card";
     RouterModule,
     NgxPaginationModule,
     RecaptchaModule,
-    RecaptchaFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatTableModule,
-    MatSidenavModule,
-    MatCardModule
+    RecaptchaFormsModule
   ],
   providers: [
     ConnexionService,
-    ContactService,
-    DatePipe
+    ContactService
   ],
   bootstrap: [AppComponent]
 })
