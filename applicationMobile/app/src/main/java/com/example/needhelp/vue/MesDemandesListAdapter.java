@@ -74,7 +74,7 @@ public class MesDemandesListAdapter extends BaseAdapter {
             // chauqe propriété du holder est relié à une propriété classique
             holder.txtDate = (TextView)view.findViewById(R.id.txtDate);
             holder.txtTitreDemande = (TextView)view.findViewById(R.id.txtTitreDemande);
-            holder.btnRefuser = (Button) view.findViewById(R.id.btnRefuserDemande);
+            holder.txtAcceptePar = (TextView) view.findViewById(R.id.txtAcceptePar);
             // affecter le holder à la vue
             view.setTag(holder);
         }else{
@@ -84,9 +84,10 @@ public class MesDemandesListAdapter extends BaseAdapter {
         //valorisation du contenu du holder donc de la ligne
         holder.txtTitreDemande.setText(MesDemandes.get(position).getTitreDemande().toString());
         holder.txtDate.setText(MesDemandes.get(position).getDateDemande());
-        holder.btnRefuser.setTag(position);
+        holder.txtAcceptePar.setText(MesDemandes.get(position).getAcceptePar());
+        /*
         //Clique sur le bouton pour accepter la demande
-        holder.btnRefuser.setOnClickListener(new View.OnClickListener(){
+        holder.txtAcceptePar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 int ligne = (int) v.getTag();
@@ -94,12 +95,16 @@ public class MesDemandesListAdapter extends BaseAdapter {
                 MesDemandes.get(ligne).setAcceptePar(controle.getIdUtilisateur());
                 accesDistant.envoi("mesDemandes", MesDemandes.get(ligne).accepterConvertToJSONArray() );
             }
+
         });
+
+         */
         return view;
     }
 
+
     static class ViewHolder{
-        Button btnRefuser;
+        TextView txtAcceptePar;
         TextView txtDate;
         TextView txtTitreDemande;
     }
