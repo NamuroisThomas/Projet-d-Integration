@@ -35,7 +35,6 @@
         
         <div class="form-group">
           <label>Code postal</label>
-          <!--   <input type="text" class="form-control" name="formDemandeIdCodePostal" placeholder="ex: 1390" required ngModel>   -->
           <select class="form-control" [(ngModel)]="formDemandeIdCodePostal" name="formDemandeIdCodePostal">
             <option *ngFor="let copo of listeCodePostaux" [ngValue]="copo.idCodePostal">{{copo.idCodePostal}} {{copo.nomVille}}</option>
           </select>

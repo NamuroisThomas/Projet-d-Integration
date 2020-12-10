@@ -42,15 +42,14 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit(FormData) {
-    console.log(FormData)
     const donnee = JSON.parse('{ "nom":"' + FormData.Fullname + '", "email":"' + FormData.Email + '", "commentaire":"' + FormData.Comment + '"}')
         this.contact.PostMessage(donnee)
           .subscribe(response => {
-            location.href = 'https://mailthis.to/confirm'
-            console.log(response)
+            location.href = 'https://mailthis.to/confirm';
+            console.log(response);
           }, error => {
-            console.warn(error.responseText)
-            console.log({ error })
-          })
+            console.warn(error.responseText);
+            console.log({ error });
+          });
   }
 }

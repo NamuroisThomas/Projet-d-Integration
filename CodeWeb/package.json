@@ -22,6 +22,7 @@
     "@angular/router": "~9.1.3",
     "angular-captcha": "^3.7.4",
     "bootstrap": "^4.0.0",
+    "crypto-js": "^4.0.0",
     "jw-angular-pagination": "^1.2.0",
     "ng-captcha": "^1.0.4",
     "ng-recaptcha": "^6.1.0",
