@@ -32,7 +32,7 @@ public class MesDemandes extends AppCompatActivity {
         ArrayList<Demande> mesDemandes = controle.getLesDemandesEnCours();
         if (mesDemandes != null){
             ListView lstMesDemandes = (ListView)findViewById(R.id.lstDemandesEnCours);
-            EnCoursListAdapter adapter = new MesDemandesListAdapter(this,mesDemandes);
+            MesDemandesListAdapter adapter = new MesDemandesListAdapter(this,mesDemandes);
             lstMesDemandes.setAdapter((ListAdapter) adapter);
         }
     }
@@ -57,6 +57,4 @@ public class MesDemandes extends AppCompatActivity {
             }
         });
     }
-}
-
 }

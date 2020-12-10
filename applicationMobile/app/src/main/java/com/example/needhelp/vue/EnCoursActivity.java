@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import android.content.Intent;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -17,9 +16,6 @@ import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.modele.Demande;
 
 import java.util.ArrayList;
-
-import com.example.needhelp.R;
-import com.example.needhelp.controleur.Controle;
 
 public class EnCoursActivity extends AppCompatActivity{
 
