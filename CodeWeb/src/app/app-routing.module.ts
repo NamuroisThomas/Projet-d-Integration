@@ -13,6 +13,11 @@ import {ListeDemandeComponent} from './liste-demande/liste-demande.component';
 import {DetailDemandeComponent} from './detail-demande/detail-demande.component';
 import {MaListeComponent} from './ma-liste/ma-liste.component';
 import {MesDemandesComponent} from './mes-demandes/mes-demandes.component';
+import {ChatComponent} from './chat/chat.component';
+import {ConversationsComponent} from './chat/conversations/conversations.component';
+import {ChartModule} from 'primeng/chart';
+import {ChatroomComponent} from './chat/chatroom/chatroom.component';
+import {AjoutContactComponent} from './chat/ajout-contact/ajout-contact.component';
 
 
 const appRoutes: Routes = [
@@ -29,6 +34,10 @@ const appRoutes: Routes = [
       {path: 'contactPage', component: ContactComponent},
       {path: 'editProfil', canActivate: [AuthGuard], component: EditProfilComponent},
       {path: 'connexion', component: ConnexionComponent},
+      {path: 'chat', component: ChatComponent},
+      {path: 'conversations', component: ConversationsComponent},
+      {path: 'ajoutContact', component: AjoutContactComponent},
+      {path: 'chatroom/:nickname/:roomname', component: ChatroomComponent},
       {path: 'not-found', component: PageNotFoundComponent},
       {path: '**', redirectTo: 'home'}
     ]

@@ -1,0 +1,17 @@
+<p>ajout-contact works!</p>
+<div class="container">
+  <form class="example-form" [formGroup]="contactForm" (ngSubmit)="onFormSubmit(contactForm.value)">
+    <h2>Entrez un nom d'utilisateur</h2>
+    <mat-form-field class="example-full-width">
+      <mat-label>ex Marie</mat-label>
+      <input matInput placeholder="nom d'utilisateur" formControlName="contactname"
+             [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!contactForm.get('contactname').valid && contactForm.get('contactname').touched">Nom d'utilisateur</span>
+      </mat-error>
+    </mat-form-field>
+    <div class="button-row">
+      <button type="submit" [disabled]="!contactForm.valid" mat-fab color="primary">Save</button>
+    </div>
+  </form>
+</div>

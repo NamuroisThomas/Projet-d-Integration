@@ -28,7 +28,22 @@ import { DetailDemandeComponent } from './detail-demande/detail-demande.componen
 import { MaListeComponent } from './ma-liste/ma-liste.component';
 import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+<<<<<<< HEAD
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+=======
+import { RecaptchaModule,RecaptchaFormsModule } from 'ng-recaptcha';
+import { ConversationsComponent } from './chat/conversations/conversations.component';
+import { AjoutContactComponent } from './chat/ajout-contact/ajout-contact.component';
+import { ChatroomComponent } from './chat/chatroom/chatroom.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatTableModule} from "@angular/material/table";
+import {DatePipe} from "@angular/common";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatCardModule} from "@angular/material/card";
+>>>>>>> 4e6c48e65faea8c593db7fac931fb7119b8d860b
 
 
 @NgModule({
@@ -47,7 +62,10 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
     ConnexionComponent,
     DetailDemandeComponent,
     MaListeComponent,
-    MesDemandesComponent
+    MesDemandesComponent,
+    ConversationsComponent,
+    AjoutContactComponent,
+    ChatroomComponent
 
   ],
   imports: [
@@ -71,11 +89,19 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
     RouterModule,
     NgxPaginationModule,
     RecaptchaModule,
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatSidenavModule,
+    MatCardModule
   ],
   providers: [
     ConnexionService,
-    ContactService
+    ContactService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
