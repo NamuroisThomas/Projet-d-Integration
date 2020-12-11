@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var request = require("request");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -182,7 +181,7 @@ router.get('/utilisateur', function(req,res,next){
 });
 
 
-//Retourne  toutes les informations sur l'utilisateur à partir de son e-mail si le mail existe
+//Retourne le nombre de fois que le mail est utilisé dans la base de données
 router.get('/mailExist', function(req,res,next){
     var mailUtilisateur = req.query.mail;
     console.log('GET mail exist');
@@ -320,36 +319,6 @@ router.delete('/demande', function(req, res,next) {
     });
 
 });
-
-router.post('/token_validate', function(req, res){
-
-    var token = req.body.recaptcha;
-    const secretkey ="6Lf-Uv8ZAAAAACAuy6qp6M7ezg-nP9R5JG0t5wHp";
-
-    const url =  "https://www.google.com/recaptcha/api/siteverify?secret="+secretkey+"&response="+token;
-
-    if(token === null || token === undefined){
-        res.status(201).send({success: false, message: "Token is empty or invalid"})
-        return console.log("token empty");
-    }
-
-    request(url, function(err, response, body){
-        //the body is the data that contains success message
-        body = JSON.parse(body);
-
-        //check if the validation failed
-        if(body.success != undefined && !data.success){
-            res.send({success: false, 'message': "recaptcha failed"});
-            return console.log("failed")
-        }
-
-        //if passed response success message to client
-        res.send({"success": true, 'message': "recaptcha passed"});
-
-    });
-
-});
-
 
 
 
