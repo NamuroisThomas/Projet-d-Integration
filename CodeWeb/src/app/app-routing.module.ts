@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   {
     path: '', component: NavbarComponent,
     children: [
-      {path: 'home', component: HomeComponent},  /*remplacer HomeComponent ici par EditProfilComponent pour le moment pour eviter le dédoublement*/
+      {path: 'home', component: HomeComponent},
       {path: 'listeAide', component: ListeDemandeComponent},
       {path: 'listeAide/:idDemande', component: DetailDemandeComponent},
       {path: 'demandeAide', canActivate: [AuthGuard], component: DemandeAideComponent},
