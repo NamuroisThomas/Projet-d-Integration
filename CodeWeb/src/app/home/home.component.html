@@ -14,9 +14,19 @@
     c'est pourquoi cette plateforme est accessible à tous.</p>
 </section>
 
-
 <div class="container-">
-  <h3>Comment cela fonctionne ?</h3>
+  <div class="information" *ngIf="100 > nombreListe > 0">
+    <h3>Infomation</h3>
+    <p>Nous avons actuellement {{ nombreListe }} demandes qui ont besoin de votre aide.
+  </div>
+
+  <div class="information2" *ngIf="nombreListe > 100">
+    <h3>Important</h3>
+    <p>Nous avons actuellement {{ nombreListe }} demandes qui ont besoin de votre aide. Nous devons vite réagir pour aider ses personnes
+    en détresse.
+  </div>
+
+  <h3>{{works}}</h3>
   <div id="accordion">
     <div id="headingOne">
       <p>En tant que visiteur du site
@@ -75,6 +85,8 @@
 
   <h3>Et maintenant ?</h3>
   <p>Si c'est votre première fois sur le site, rendez-vous sur l'onglet inscription
+
+
     <button class="btn btn-info" routerLink="/inscription">Inscription</button>
   </p>
   <p>Si vous êtes famillier, accédez à votre espace personnel en vous connectant

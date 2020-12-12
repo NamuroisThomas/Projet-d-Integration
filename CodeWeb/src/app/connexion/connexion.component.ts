@@ -12,6 +12,7 @@ export class ConnexionComponent implements OnInit {
   model: any = {};
   connexionStatus: boolean;
   role: string;
+  pageC = 'Page de connexion'
 
   constructor(private connexionService: ConnexionService, private http: HttpClient) { }
 
