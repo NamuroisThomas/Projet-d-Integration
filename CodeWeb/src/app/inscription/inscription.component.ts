@@ -10,6 +10,7 @@ import * as CryptoJS from 'crypto-js';
   providers: [MessageService]
 })
 export class InscriptionComponent implements OnInit {
+  titre = 'Inscription';
 
   constructor(private http: HttpClient) {
   }

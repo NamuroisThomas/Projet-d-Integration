@@ -19,7 +19,7 @@ export class EditProfilComponent implements OnInit{
 
   ngOnInit(){
     if (!isNull(JSON.parse(localStorage.getItem('user')))){
-      this.profil = JSON.parse(localStorage.getItem('user'))
+      this.profil = JSON.parse(localStorage.getItem('user'));
       return this.profil;
     }
     else {

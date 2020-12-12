@@ -19,7 +19,7 @@ export class GetListeDemandeService {
       this.demandeDetail = res[Object.keys(res)[2]][0];
     });
     return this.demandeDetail;
-  };
+  }
 
   listeCategorieCall(){
     return this.http.get('http://62.210.130.145:3000/categories');

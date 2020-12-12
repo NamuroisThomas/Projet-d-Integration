@@ -42,8 +42,8 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit(FormData) {
-    const donnee = JSON.parse('{ "nom":"' + FormData.Fullname + '", "email":"' + FormData.Email + '", "commentaire":"' + FormData.Comment + '"}')
-        this.contact.PostMessage(donnee)
+    const donnee = JSON.parse('{ "nom":"' + FormData.Fullname + '", "email":"' + FormData.Email + '", "commentaire":"' + FormData.Comment + '"}');
+    this.contact.PostMessage(donnee)
           .subscribe(response => {
             location.href = 'https://mailthis.to/confirm';
             console.log(response);
