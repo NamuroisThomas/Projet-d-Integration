@@ -1,5 +1,5 @@
-<section class="text-centerp">
-  <h1 class="h1">{{welcome}}</h1>
+<div class="text-centerp">
+  <h1>{{welcome}}</h1>
   <p>Ce site a comme objectif de mettre en lien les personnes ayant besoin d'aide avec des personnes pouvant répondre à
     ces demandes</p>
   <h3>Comment le projet est né ?</h3>
@@ -12,24 +12,24 @@
     nous nous sommes rendus compte qu'il n'y avait pas que les personnes porteur de handicap qui avait besoin d'aide,
     <br>
     c'est pourquoi cette plateforme est accessible à tous.</p>
-</section>
+</div>
 
 <div class="container-">
-  <div class="information" *ngIf="100 > nombreListe > 0">
+  <div class="information tex" *ngIf="nombreListe < 100">
     <h3>Infomation</h3>
-    <p>Nous avons actuellement {{ nombreListe }} demandes qui ont besoin de votre aide.
+    <p class="text-white">Nous avons actuellement {{ nombreListe }} demandes qui ont besoin de votre aide.
   </div>
 
   <div class="information2" *ngIf="nombreListe > 100">
     <h3>Important</h3>
-    <p>Nous avons actuellement {{ nombreListe }} demandes qui ont besoin de votre aide. Nous devons vite réagir pour aider ses personnes
+    <p class="text-white">Nous avons actuellement {{ nombreListe }} demandes qui ont besoin de votre aide. Nous devons vite réagir pour aider ses personnes
     en détresse.
   </div>
 
   <h3>{{works}}</h3>
   <div id="accordion">
     <div id="headingOne">
-      <p>En tant que visiteur du site
+      <p class="text-white">En tant que visiteur du site
         <button class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
                 aria-controls="collapseOne">
           ▼
@@ -37,7 +37,7 @@
       </p>
     </div>
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-      <div class="card-header">
+      <div class="card-header text-white pad">
         Si vous ne possédez pas de compte, vos options se limiteront uniquement à voir la liste des différentes demandes
         sans avoir la possibilité de les accepter, à leurs détails et à la page de contact.
         Il est donc impératif de vite créer un compte pour vous connecté et d'avoir accès à toutes les
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div id="headingTwo">
-      <p>En tant que demandeur d'aide
+      <p class="text-white">En tant que demandeur d'aide
         <button class="btn btn-info" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
                 aria-controls="collapseTwo">
           ▼
@@ -53,7 +53,7 @@
       </p>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
-      <div class="card-header">
+      <div class="card-header text-white pad">
         Dans un premier temps, il vous faudra un compte afin de pouvoir créer une demande d'aide via le formulaire de
         demande. Pour s'inscrire il suffit juste
         d'aller vers la barre de navigation en haut de la page et de cliquer sur "inscription", il suffira juste de
@@ -63,7 +63,7 @@
       </div>
     </div>
     <div id="headingThree">
-      <p>En tant qu'offreur d'aide
+      <p class="text-white">En tant qu'offreur d'aide
         <button class="btn btn-info" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
                 aria-controls="collapseThree">
           ▼
@@ -71,7 +71,7 @@
       </p>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
-      <div class="card-header">
+      <div class="card-header text-white pad">
         Dans un premier temps, il vous faudra un compte afin de pouvoir accepter une demande d'aide présente dans la
         liste de demandes. Pour se connecter, il suffit juste
         d'aller vers la barre de navigation en haut de la page et de cliquer sur "connexion", remplit le mail où on
@@ -84,18 +84,18 @@
 
 
   <h3>Et maintenant ?</h3>
-  <p>Si c'est votre première fois sur le site, rendez-vous sur l'onglet inscription
+  <p class="text-white">Si c'est votre première fois sur le site, rendez-vous sur l'onglet inscription
 
 
     <button class="btn btn-info" routerLink="/inscription">Inscription</button>
   </p>
-  <p>Si vous êtes famillier, accédez à votre espace personnel en vous connectant
+  <p class="text-white">Si vous êtes famillier, accédez à votre espace personnel en vous connectant
     <button class="btn btn-info" routerLink="/connexion">Connexion</button>
   </p>
 
 
   <h3>L'équipe</h3>
-  <dl>
+  <dl class="text-white">
     <dt>Maxime DE COCK</dt>
     <dd>Developpeur back-end + VoIP</dd>
 
