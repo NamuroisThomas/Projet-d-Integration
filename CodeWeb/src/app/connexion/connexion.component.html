@@ -20,8 +20,8 @@
               <button class="btn btn-primary co" [disabled]="!f.form.valid">Connexion</button>
             </div>
           </form>
-          <div class="col-md-6 col-md-offset-3 text-white" *ngIf="role !== null">
-            <p>Veuillez vous déconnecté une fois </p>
+          <div class="hauteur text-white" *ngIf="role !== null">
+            <p>Veuillez vous déconnecté une fois votre tâche terminé pour éviter le vol de compte</p>
           <button class="btn btn-primary"  (click)="onSignOut()">déconnexion</button>
           </div>
         </div>

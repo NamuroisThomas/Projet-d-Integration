@@ -28,6 +28,7 @@ import { MaListeComponent } from './ma-liste/ma-liste.component';
 import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
     ConnexionComponent,
     DetailDemandeComponent,
     MaListeComponent,
-    MesDemandesComponent
+    MesDemandesComponent,
+    FooterComponent
 
   ],
   imports: [
