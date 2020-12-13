@@ -36,6 +36,7 @@ describe('HomeComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
   it('test ngif div non cachée si demande > 0', () => {
     expect(fixture.debugElement.query(By.css('.information'))).toBeDefined();
   });
