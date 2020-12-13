@@ -1,9 +1,8 @@
-<div class="wrapper-box">
-  <div class="container">
+ <div class="container">
+   <h2>{{pageC}}</h2>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="login-wrapper">
-          <h2>{{pageC}}</h2>
           <form *ngIf="role === null" (ngSubmit)="onSignIn(f.value)" #f="ngForm" novalidate>
             <div class="form-group">
               <label>Adresse mail</label>
@@ -18,14 +17,15 @@
                      required/>
             </div>
             <div class="form-group">
-              <button class="btn btn-primary" [disabled]="!f.form.valid">Connexion</button>
+              <button class="btn btn-primary co" [disabled]="!f.form.valid">Connexion</button>
             </div>
           </form>
-          <div class="hauteur">
-          <button class="btn btn-primary" *ngIf="role !== null" (click)="onSignOut()">déconnexion</button>
+          <div class="col-md-6 col-md-offset-3 text-white" *ngIf="role !== null">
+            <p>Veuillez vous déconnecté une fois </p>
+          <button class="btn btn-primary"  (click)="onSignOut()">déconnexion</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
