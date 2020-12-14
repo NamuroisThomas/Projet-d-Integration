@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import android.content.Intent;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.needhelp.R;
 import com.example.needhelp.controleur.Controle;
+import com.example.needhelp.modele.AccesDistant;
 import com.example.needhelp.modele.Demande;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class EnCoursActivity extends AppCompatActivity{
         ecouteGoToLesDemandes();
         ecouteBoutonProfil();
         creerListeEnCours();
+        ecouteGoToMesDemande();
     }
 
     private void creerListeEnCours(){
@@ -57,6 +60,33 @@ public class EnCoursActivity extends AppCompatActivity{
                 Intent intent = new Intent(EnCoursActivity.this, ProfilActivity.class);
                 startActivity(intent);
 
+            }
+        });
+    }
+    private void ecouteGoToMesDemande(){
+        ((Button)findViewById(R.id.radioMesDemandes)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                try{
+                    final Thread t1 = new Thread(){
+                        public void run(){
+                            Log.d("Tread","**************** T1 commence");
+                            AccesDistant accesDistant = new AccesDistant();
+                            accesDistant.envoi("mesDemandes", controle.idUtilisateurConvertToJSONArray());
+                            Log.d("test","************* ID:" + controle.idUtilisateurConvertToJSONArray());
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            Intent intent = new Intent(EnCoursActivity.this,MesDemandesActivity.class);
+                            startActivity(intent);
+                        }
+                    };
+                    t1.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
