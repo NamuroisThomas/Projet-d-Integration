@@ -6,36 +6,92 @@
 </head>
 
 <body>
-  
-  <p>Demo jenkins</p>
-  <h1> API de l'application NeedHelp</h1>
-
-  <div>
-    <h2>Méthodes GET</h2>
-      <h3>GET demandes</h3>
-        <p>Retourne toutes les demandes présentes dans la base de données</p>
-
-      <h3>GET demande by ID</h3>
-        <p>Retourne la demande avec l'ID donné</p>
-  </div>
-
-  <div>
-    <h2>Méthodes POST</h2>
-      <h3>POST user</h3>
-        <p>Permet d'ajouter un nouvel utilisateur dans la base de données</p>
-
-      <h3>POST demande</h3>
-        <p>Permet d'ajouter une demande dans la base de données</p>
-  </div>
-
-  <div>
-    <h2>Méthodes PUT</h2>
-  </div>
-
-  <div>
-    <h2>Méthodes DELETE</h2>
-  </div>
-
+<h2 id="racine-de-l-api">Racine de l&#39;API</h2>
+<p>Notre API se trouve sur notre serveur, elle est accesible via le port 3000 de celui-ci. <br>
+  L&#39;URL d&#39;accès est : <code>http://62.210.130.145:3000/</code>  ou  <code>needhelpephec.site:3000/</code></p>
+<h2 id="api-m-thodes-get">API méthodes GET</h2>
+<p>Les requêtes GET vont permettre d&#39;obtenir les informations stockées dans la base de données, parfois il est possible de spécifier des paramètres afin de limiter les données qui sont retournées. Les informations retournées sont au format JSON avec un champ pour le code, le message d&#39;erreur le cas échéant et les données.</p>
+<h3 id="get-user-by-mail">GET user by mail</h3>
+<p>Cette méthode permet de retourner les informations sur un utilisateur à partir de son adresse mail.<br>
+  L&#39;URL d&#39;accès est : <code>http://62.210.130.145:3000/utilisateur?mail=[mailUtilisateur]</code> <br>
+  Le paramètre qu&#39;il faut fournir est l&#39;email de l&#39;utilisateur &#39;&#39;[mailUtilisateur]&#39;&#39; dont on veut les informations.<br>
+  Les informations retournées sont l&#39;<em>idUtilisateur</em>, le <em>nomUtilisateur</em>, le <em>prenomUtilisateur</em>, le <em>mailUtilisateur</em>, le <em>telUtilisateur</em>, le <em>mdpUtilisateur</em>, l&#39;<em>idStatus</em>, la <em>descriptionUtilisateur</em> et le nombre d&#39;<em>avertissementUtilisateur</em> .</p>
+<h3 id="get-mail-exist">GET mail Exist</h3>
+<p>Cette méthode permet de savoir si le mail passé en argument est déjà présent dans la base de données.<br>
+  L&#39;API GET mail Exist se trouve sur l&#39;URL : <code>http://62.210.130.145:3000/mailExist?mail=[mailUtilisateur]</code> <br>
+  Les informations retournées sont l&#39;<em>idUtilisateur</em>, le <em>nomUtilisateur</em>, le <em>prenomUtilisateur</em>, le <em>mailUtilisateur</em>, le <em>telUtilisateur</em>, le <em>mdpUtilisateur</em>, l&#39;<em>idStatus</em>, la <em>descriptionUtilisateur</em> et le nombre d&#39;<em>avertissementUtilisateur</em> si le mail existe déjà, sinon un code erreur est retourné pour signifier que le mail n&#39;existe pas dans la base de données.</p>
+<h3 id="get-demandes">GET demandes</h3>
+<p>Cette méthode permet de récupérer les différentes demandes présentes en base de données. Elle peut prendre des paramètre ou non. Son URL principale est  <code>http://62.210.130.145:3000/demandes</code>.
+  Aucun paramètre n&#39;étant spécifié, toutes les demandes seront retournées.</p>
+<p>Les informations retournées pour chaque demande sont l&#39;<em>idDemande</em>, le <em>titreDemande</em>, la <em>descriptionDemande</em>, la <em>dateDemande</em>, le <em>nom et prénom</em> de l&#39;utilisateur faisant la demande, le <em>nomCatégorie</em> à laquelle la demande appartient, l&#39;<em>idCodePostal</em>, le <em>defraiementDemande</em>, le status <em>accepteDemande</em>, le <em>nom et prénom</em> de l&#39;utilisateur ayant accepté la demande.</p>
+<p>Afin de limiter les résultats, on peut spécifier des paramètres : </p>
+<ul>
+  <li>l&#39;id de la demande</li>
+  <li>l&#39;id de la catégorie à laquelle les demandes appartiennent</li>
+  <li>l&#39;id du code postal auquel les demandes apparatiennent</li>
+  <li>l&#39;id de l&#39;utilisateur ayant fait la demande</li>
+</ul>
+<h4 id="get-demandes-by-id">GET demandes by id</h4>
+<p>Cette méthode permet de récupérer les données sur une demande particulière sur base de son id.<br>
+  L&#39;API GET demandes by id se trouve sur l&#39;URL : <code>http://62.210.130.145:3000/demandes?idDemande=[id]</code>, le paramètre [id] permet de spécifier l&#39;id de la demande.</p>
+<h4 id="get-demandes-by-idcategorie">GET demandes by idCategorie</h4>
+<p>Cette méthode permet de récupérer les différentes demandes qui ont une catégorie spécifiée.<br>
+  L&#39;API GET demandes by idCateg se trouve à l&#39;URL : <code>http://62.210.130.145:3000/demandes?idCateg=[idCateg]</code>, le paramètre [idCateg] est l&#39;id de la catégorie dont on souhaite les demandes.</p>
+<h4 id="get-demandes-by-idcodepostal">GET demandes by idCodePostal</h4>
+<p>Cette méthode permet de récupérer les différentes demandes qui ont un code postal spécifique.<br>
+  L&#39;API GET demandes by idCodePostal se trouve à l&#39;URL : <code>http://62.210.130.145:3000/demandes?codePostal=[idCodePostal]</code>, le paramètre [idCodePostal] est le code postal dont on souhaite les demandes.</p>
+<h4 id="get-demandes-by-idutilisateur">GET demandes by idUtilisateur</h4>
+<p>Cette méthode permet de récupérer les différentes demandes d&#39;un utilisateur spécifique.<br>
+  L&#39;API GET demandes by idUtilisateur se trouve à l&#39;URL : <code>http://62.210.130.145:3000/demandes?utilisateur=[idUtilisateur]</code>, le paramètre [idUtilisateur] est l&#39;id de l&#39;utilisateur dont on souhaite les demandes.</p>
+<h2 id="api-post">API POST</h2>
+<h3 id="post-inscription">POST inscription</h3>
+<p>Cette méthode permet d&#39;inscrire un nouvel utilisateur dans la base de données.<br>
+  L&#39;API POST inscription se trouve sur l&#39;URL : <code>http://62.210.130.145:3000/inscription</code>. Le formulaire passé en argument doit contenir les champs suivants : </p>
+<ul>
+  <li>formInscriptionNom : qui contient le nom du nouvel utilisateur</li>
+  <li>formInscriptionPrenom : qui contient le prénom du nouvel utilisateur</li>
+  <li>formInscriptionMail : qui contient le mail du nouvel utilisateur</li>
+  <li>formInscriptionTel : qui contient le numéro de télephonne du nouvel utilisateur</li>
+  <li>formInscriptionMdp : qui contient le condensat du mot de passe du nouvel utilisateur</li>
+</ul>
+<h3 id="post-profil">POST profil</h3>
+<p>Cette méthode permet à un utilisateur de modifier certaines données de son profil.<br>
+  L&#39;API POST profil se trouve à l&#39;URL : <code>http://62.210.130.145:3000/profil</code>. Le formulaire passé en argument doit contenir les champs suivants :</p>
+<ul>
+  <li>formProfilIdUtilisateur : l&#39;id de l&#39;utilisateur dont il faut changer les données </li>
+  <li>formProfilMailUtilisateur : permettant de changer son adresse mail</li>
+  <li>formProfilTelUtilisateur : permettant de changer son numéro de téléphone</li>
+  <li>formProfilDescriptionUtilisateur : permettant de changer sa description</li>
+</ul>
+<h3 id="post-demande">POST demande</h3>
+<p>Cette méthode permet d&#39;ajouter une demande dans la base de données.<br>
+  L&#39;API POST demande se trouve sur l&#39;URL : <code>http://62.210.130.145:3000/demande</code>. Le formulaire passé en argument doit contenir les champs suivants : </p>
+<ul>
+  <li>formDemandeTitre : le titre de la demande</li>
+  <li>formDemandeDescription : la description plus précise de la demande</li>
+  <li>formDemandeDate : la date pour laquelle on souhaite que la demande soit faite</li>
+  <li>formDemandeIdUtilisateur : l&#39;id de l&#39;utilisateur qui fait la demande</li>
+  <li>formDemandeIdCategorie : l&#39;id de la catégorie à laquelle la demande appartient</li>
+  <li>formDemandeDefraiement : si la demande propose un défraiement ou non</li>
+  <li>formDemandeIdCodePostal : le code postal du lieu où la demande se fait</li>
+</ul>
+<h3 id="post-acceptedemande-by-iddemande">POST accepteDemande by idDemande</h3>
+<p>Cette méthode permet d&#39;attribuer une demande à un aidant.<br>
+  L&#39;API POST accepteDemande se trouve à l&#39;URL :  <code>http://62.210.130.145:3000/accepteDemande</code>. Le formulaire passé en argument doit contenir les champs suivants : </p>
+<ul>
+  <li>formAccepteDemandeIdAccepteur: l&#39;id de l&#39;utilisateur qui accepte la demande</li>
+  <li>formAccepteDemandeIdDemande : l&#39;id de la demande qui est acceptée</li>
+</ul>
+<h3 id="post-desacceptedemande-by-iddemande">POST desaccepteDemande by idDemande</h3>
+<p>Cette méthode permet de désattribuer une demande.<br>
+  L&#39;API POST desaccepteDemande se trouve à l&#39;URL :  <code>http://62.210.130.145:3000/desaccepteDemande</code>. Le formulaire passé en argument doit contenir les champs suivants : </p>
+<ul>
+  <li>formAccepteDemandeIdDemande : l&#39;id de la demande qui est acceptée</li>
+</ul>
+<h2 id="api-delete">API DELETE</h2>
+<h3 id="delete-demande-by-id">DELETE demande by id</h3>
+<p>Cette méthode permet de supprimer une demande de la base de données.<br>
+  L&#39;API DELETE demande se trouve à l&#39;URL : <code>http://62.210.130.145:3000/demande?idDemande=[idDemande]</code> , le paramètre [idDemande] permet de spécifier l&#39;id de la demande que l&#39;on souhaite supprimer.</p>
 
 </body>
 
