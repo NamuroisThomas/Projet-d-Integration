@@ -35,7 +35,7 @@ const appRoutes: Routes = [
       {path: 'contactPage', component: ContactComponent},
       {path: 'editProfil', canActivate: [AuthGuard], component: EditProfilComponent},
       {path: 'connexion', component: ConnexionComponent},
-      {path: 'chatroom', component: ChatroomComponent},
+      {path: 'chatroom/:nickname/:contactname', component: ChatroomComponent},
       {path: 'ajoutContact', component: AjoutContactComponent},
       {path: 'conversations', component: ConversationsComponent},
       {path: 'chat', component: ChatComponent},

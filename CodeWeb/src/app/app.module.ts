@@ -37,6 +37,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {DatePipe} from '@angular/common';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -86,7 +88,9 @@ import {DatePipe} from '@angular/common';
     RecaptchaFormsModule,
     MatInputModule,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatCardModule
   ],
   providers: [
     ConnexionService,
