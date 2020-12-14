@@ -33,6 +33,7 @@
         <activity android:name=".vue.EnCoursActivity">
         </activity>
         <activity android:name=".vue.MesDemandesActivity" >
+        </activity>
         <activity android:name=".vue.DetailsDemandeActivity">
         </activity>
 
