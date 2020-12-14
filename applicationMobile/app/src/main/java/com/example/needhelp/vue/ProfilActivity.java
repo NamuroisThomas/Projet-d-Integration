@@ -22,14 +22,14 @@ import java.util.regex.Pattern;
 
 public class ProfilActivity extends AppCompatActivity {
 
-    Controle controle = new Controle();
-    Utilisateur utilisateur;
+    public Controle controle = new Controle();
+    public Utilisateur utilisateur;
     int idUtilisateur;
-    EditText nom;
-    EditText prenom;
-    EditText email;
-    EditText telephone;
-    EditText mdp;
+    public EditText nom;
+    public EditText prenom;
+    public EditText email;
+    public EditText telephone;
+    public EditText mdp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

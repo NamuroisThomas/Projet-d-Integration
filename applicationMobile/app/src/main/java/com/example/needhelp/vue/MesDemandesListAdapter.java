@@ -1,14 +1,11 @@
 package com.example.needhelp.vue;
 
-import android.widget.BaseAdapter;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.needhelp.R;
@@ -18,23 +15,24 @@ import com.example.needhelp.modele.Demande;
 
 import java.util.ArrayList;
 
-public class EnCoursListAdapter extends BaseAdapter {
+public class MesDemandesListAdapter extends BaseAdapter {
 
-    private ArrayList<Demande> lesDemandes;
+
+    private ArrayList<Demande> mesDemandes;
     private LayoutInflater inflater;
     private Controle controle;
     private Demande demande;
     private AccesDistant accesDistant = new AccesDistant();
 
-    public EnCoursListAdapter(Context context,ArrayList<Demande> lesDemandes){
-        this.lesDemandes = lesDemandes;
+    public MesDemandesListAdapter(Context context, ArrayList<Demande> lesDemandes){
+        this.mesDemandes = lesDemandes;
         this.inflater = LayoutInflater.from(context);
         this.controle = Controle.getInstance(null);
     }
 
     @Override
     public int getCount() {
-        return lesDemandes.size();
+        return mesDemandes.size();
     }
 
     /**
@@ -44,7 +42,7 @@ public class EnCoursListAdapter extends BaseAdapter {
      */
     @Override
     public Object getItem(int position) {
-        return lesDemandes.get(position);
+        return mesDemandes.get(position);
     }
 
     /**
@@ -67,43 +65,53 @@ public class EnCoursListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         // declaration d'un Holder
-        ViewHolder holder;
+        MesDemandesListAdapter.ViewHolder holder;
         // si la ligne n'existe pas encore
         if(view==null){
-            holder = new ViewHolder();
+            holder = new MesDemandesListAdapter.ViewHolder();
             // la ligne est construite avec un formatage (inflater) relié à layout_liste_demande
-            view = inflater.inflate(R.layout.layout_liste_encours, null);
-            // chauqe propriété du holder est relié à une propriété classique
+            view = inflater.inflate(R.layout.layout_liste_mes_demandes, null);
+            // chanqe propriété du holder est relié à une propriété classique
             holder.txtDate = (TextView)view.findViewById(R.id.txtDate);
             holder.txtTitreDemande = (TextView)view.findViewById(R.id.txtTitreDemande);
-            holder.btnRefuser = (Button) view.findViewById(R.id.btnRefuserDemande);
+            //Log.d("txtTitreDemande","************" + holder.txtTitreDemande);
+            holder.txtAcceptePar = (TextView) view.findViewById(R.id.txtAcceptePar);
+            Log.d("acceptePar","************" + holder.txtAcceptePar.getText());
+
             // affecter le holder à la vue
             view.setTag(holder);
         }else{
             // recupération du  holder dans le ligne existante
-            holder = (ViewHolder)view.getTag();
+            holder = (MesDemandesListAdapter.ViewHolder)view.getTag();
         }
         //valorisation du contenu du holder donc de la ligne
-        holder.txtTitreDemande.setText(lesDemandes.get(position).getTitreDemande().toString());
-        holder.txtDate.setText(lesDemandes.get(position).getDateDemande());
-        holder.btnRefuser.setTag(position);
+        holder.txtTitreDemande.setText(mesDemandes.get(position).getTitreDemande().toString());
+        holder.txtDate.setText(mesDemandes.get(position).getDateDemande());
+        Log.d("txtTitreDemande","************" + holder.txtTitreDemande.getText());
+        holder.txtAcceptePar.setText("     ID: "+mesDemandes.get(position).getAcceptePar());
+        //Log.d("acceptePar","************" + holder.txtAcceptePar);
+
+        /*
         //Clique sur le bouton pour accepter la demande
-        holder.btnRefuser.setOnClickListener(new View.OnClickListener(){
+        holder.txtAcceptePar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 int ligne = (int) v.getTag();
-                lesDemandes.get(ligne).setAccepteDemande(1);
-                lesDemandes.get(ligne).setAcceptePar(controle.getIdUtilisateur());
-                accesDistant.envoi("accepter", lesDemandes.get(ligne).accepterConvertToJSONArray() );
+                MesDemandes.get(ligne).setAccepteDemande(1);
+                MesDemandes.get(ligne).setAcceptePar(controle.getIdUtilisateur());
+                accesDistant.envoi("mesDemandes", MesDemandes.get(ligne).accepterConvertToJSONArray() );
             }
+
         });
+
+         */
         return view;
     }
 
+
     static class ViewHolder{
-        Button btnRefuser;
+        TextView txtAcceptePar;
         TextView txtDate;
         TextView txtTitreDemande;
     }
 }
-

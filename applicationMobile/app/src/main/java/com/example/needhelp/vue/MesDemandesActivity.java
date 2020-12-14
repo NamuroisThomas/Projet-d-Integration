@@ -1,9 +1,8 @@
 package com.example.needhelp.vue;
 
-import android.os.Bundle;
-
 import android.content.Intent;
-
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -17,26 +16,26 @@ import com.example.needhelp.modele.Demande;
 
 import java.util.ArrayList;
 
-public class EnCoursActivity extends AppCompatActivity{
+public class MesDemandesActivity extends AppCompatActivity {
 
     private Controle controle = new Controle();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.en_cours);
+        setContentView(R.layout.mes_demandes);
         ecouteGoToLesDemandes();
         ecouteBoutonProfil();
-        creerListeEnCours();
+        creerListeMesDemandes();
     }
 
-    private void creerListeEnCours(){
-        ArrayList<Demande> lesDemandesEnCours = controle.getLesDemandesEnCours();
-        if (lesDemandesEnCours != null){
-            ListView lstDemandesEnCours = (ListView)findViewById(R.id.lstDemandesEnCours);
-            EnCoursListAdapter adapter = new EnCoursListAdapter(this,lesDemandesEnCours);
-            lstDemandesEnCours.setAdapter((ListAdapter) adapter);
+    private void creerListeMesDemandes(){
+        ArrayList<Demande> mesDemandes = controle.getMesDemandes();
+        Log.d("Mes demandes","******************" + mesDemandes);
+        if (mesDemandes != null){
+            ListView lstMesDemandes = (ListView)findViewById(R.id.lstMesDemandes);
+            MesDemandesListAdapter adapter = new MesDemandesListAdapter(this,mesDemandes);
+            lstMesDemandes.setAdapter((ListAdapter) adapter);
         }
     }
 
@@ -44,7 +43,7 @@ public class EnCoursActivity extends AppCompatActivity{
         ((Button)findViewById(R.id.radioDemandesToutes)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EnCoursActivity.this,HomeActivity.class);
+                Intent intent = new Intent(MesDemandesActivity.this,HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -54,7 +53,7 @@ public class EnCoursActivity extends AppCompatActivity{
         ((Button) findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EnCoursActivity.this, ProfilActivity.class);
+                Intent intent = new Intent(MesDemandesActivity.this, ProfilActivity.class);
                 startActivity(intent);
 
             }

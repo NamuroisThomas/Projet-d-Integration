@@ -21,6 +21,7 @@ public final class Controle {
     private static Context contexte;
     private static ArrayList<Demande> lesDemandes = new ArrayList<Demande>();
     private static ArrayList<Demande> lesDemandesEnCours = new ArrayList<Demande>();
+    private static ArrayList<Demande> mesDemandes = new ArrayList<Demande>();
     private static Utilisateur connexionUtilisateurs;
 
     /**
@@ -58,6 +59,21 @@ public final class Controle {
         this.lesDemandes = lesDemandes;
     }
 
+    public static ArrayList<Demande> getMesDemandes() {
+        return mesDemandes;
+    }
+
+    public static void setMesDemandes(ArrayList<Demande> mesDemandes) {
+        Controle.mesDemandes = mesDemandes;
+    }
+    public ArrayList<Demande> getLesDemandesEnCours() {
+        return lesDemandesEnCours;
+    }
+
+    public void setLesDemandesEnCours(ArrayList<Demande> lesDemandesEnCours) {
+        this.lesDemandesEnCours = lesDemandesEnCours;
+    }
+
     public void setConnexionUtilisateurs(Utilisateur connexionUtilisateurs) {
         this.connexionUtilisateurs = connexionUtilisateurs;
     }
@@ -71,13 +87,6 @@ public final class Controle {
         return connexionUtilisateurs.getIdUtilisateur();
     }
 
-    public ArrayList<Demande> getLesDemandesEnCours() {
-        return lesDemandesEnCours;
-    }
-
-    public void setLesDemandesEnCours(ArrayList<Demande> lesDemandesEnCours) {
-        this.lesDemandesEnCours = lesDemandesEnCours;
-    }
     public JSONArray idUtilisateurConvertToJSONArray(){
         List laListe = new ArrayList();
         laListe.add(getIdUtilisateur());
