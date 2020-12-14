@@ -33,6 +33,10 @@ import { ChatComponent } from './chat/chat.component';
 import { AjoutContactComponent } from './chat/ajout-contact/ajout-contact.component';
 import { ChatroomComponent } from './chat/chatroom/chatroom.component';
 import { ConversationsComponent } from './chat/conversations/conversations.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -79,11 +83,15 @@ import { ConversationsComponent } from './chat/conversations/conversations.compo
     RouterModule,
     NgxPaginationModule,
     RecaptchaModule,
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    MatInputModule,
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     ConnexionService,
-    ContactService
+    ContactService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

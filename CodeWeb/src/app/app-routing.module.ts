@@ -15,6 +15,9 @@ import {MaListeComponent} from './ma-liste/ma-liste.component';
 import {MesDemandesComponent} from './mes-demandes/mes-demandes.component';
 import {ChartModule} from 'primeng/chart';
 import {ChatComponent} from './chat/chat.component';
+import {ChatroomComponent} from './chat/chatroom/chatroom.component';
+import {AjoutContactComponent} from './chat/ajout-contact/ajout-contact.component';
+import {ConversationsComponent} from './chat/conversations/conversations.component';
 
 
 
@@ -32,6 +35,9 @@ const appRoutes: Routes = [
       {path: 'contactPage', component: ContactComponent},
       {path: 'editProfil', canActivate: [AuthGuard], component: EditProfilComponent},
       {path: 'connexion', component: ConnexionComponent},
+      {path: 'chatroom', component: ChatroomComponent},
+      {path: 'ajoutContact', component: AjoutContactComponent},
+      {path: 'conversations', component: ConversationsComponent},
       {path: 'chat', component: ChatComponent},
       {path: 'not-found', component: PageNotFoundComponent},
       {path: '**', redirectTo: 'home'}

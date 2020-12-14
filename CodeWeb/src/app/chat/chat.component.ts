@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import firebase from 'firebase';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }}
 
 @Component({
   selector: 'app-chat',
@@ -7,9 +17,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  loginForm: FormGroup;
+  nickname = '';
+  ref = firebase.database().ref('users/');
+  matcher = new MyErrorStateMatcher();
 
-  ngOnInit(): void {
+  constructor(private router: Router, private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    if (localStorage.getItem('nickname')) {
+      this.router.navigate(['/conversations']);
+      console.log('n', this.nickname);
+    }
+    this.loginForm = this.formBuilder.group({
+      'nickname' : [null, Validators.required]
+    });
   }
+  onFormSubmit(form: any) {
+    const login = form;
+    this.ref.orderByChild('nickname').equalTo(login.nickname).once('value', snapshot => {
+      if (snapshot.exists()) {
+        localStorage.setItem('nickname', login.nickname);
+        this.router.navigate(['/conversations', login.nickname]);
+        console.log(login.nickname);
+      } else {
+        const newUser = firebase.database().ref('users/').push();
+        newUser.set(login);
+        localStorage.setItem('nickname', login.nickname);
+        this.router.navigate(['/conversations']);
+      }
+    });
+  }
+
 
 }

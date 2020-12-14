@@ -1,1 +1,17 @@
-<p>chat works!</p>
+<div class="container">
+  <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+    <h2>Entrez votre nom</h2>
+    <mat-form-field class="example-full-width">
+      <mat-label>ex : Pierre</mat-label>
+      <input matInput placeholder="Enter your nickname" formControlName="nickname"
+             [errorStateMatcher]="matcher">
+      <mat-error>
+        <span *ngIf="!loginForm.get('nickname').valid && loginForm.get('nickname').touched">Rentrez un nom</span>
+      </mat-error>
+    </mat-form-field>
+    <div class="button-row">
+      <button type="submit" [disabled]="!loginForm.valid" mat-fab color="primary">login</button>
+    </div>
+  </form>
+</div>
+<!--TODO bug d'affichage du formulaire -> illisible-->
