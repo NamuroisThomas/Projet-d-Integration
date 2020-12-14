@@ -1,11 +1,11 @@
 package com.example.needhelp.vue;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.needhelp.R;
@@ -18,21 +18,21 @@ import java.util.ArrayList;
 public class MesDemandesListAdapter extends BaseAdapter {
 
 
-    private ArrayList<Demande> MesDemandes;
+    private ArrayList<Demande> mesDemandes;
     private LayoutInflater inflater;
     private Controle controle;
     private Demande demande;
     private AccesDistant accesDistant = new AccesDistant();
 
     public MesDemandesListAdapter(Context context, ArrayList<Demande> lesDemandes){
-        this.MesDemandes = lesDemandes;
+        this.mesDemandes = lesDemandes;
         this.inflater = LayoutInflater.from(context);
         this.controle = Controle.getInstance(null);
     }
 
     @Override
     public int getCount() {
-        return MesDemandes.size();
+        return mesDemandes.size();
     }
 
     /**
@@ -42,7 +42,7 @@ public class MesDemandesListAdapter extends BaseAdapter {
      */
     @Override
     public Object getItem(int position) {
-        return MesDemandes.get(position);
+        return mesDemandes.get(position);
     }
 
     /**
@@ -74,7 +74,10 @@ public class MesDemandesListAdapter extends BaseAdapter {
             // chanqe propriété du holder est relié à une propriété classique
             holder.txtDate = (TextView)view.findViewById(R.id.txtDate);
             holder.txtTitreDemande = (TextView)view.findViewById(R.id.txtTitreDemande);
+            //Log.d("txtTitreDemande","************" + holder.txtTitreDemande);
             holder.txtAcceptePar = (TextView) view.findViewById(R.id.txtAcceptePar);
+            Log.d("acceptePar","************" + holder.txtAcceptePar.getText());
+
             // affecter le holder à la vue
             view.setTag(holder);
         }else{
@@ -82,9 +85,12 @@ public class MesDemandesListAdapter extends BaseAdapter {
             holder = (MesDemandesListAdapter.ViewHolder)view.getTag();
         }
         //valorisation du contenu du holder donc de la ligne
-        holder.txtTitreDemande.setText(MesDemandes.get(position).getTitreDemande().toString());
-        holder.txtDate.setText(MesDemandes.get(position).getDateDemande());
-        holder.txtAcceptePar.setText(MesDemandes.get(position).getAcceptePar());
+        holder.txtTitreDemande.setText(mesDemandes.get(position).getTitreDemande().toString());
+        holder.txtDate.setText(mesDemandes.get(position).getDateDemande());
+        Log.d("txtTitreDemande","************" + holder.txtTitreDemande.getText());
+        holder.txtAcceptePar.setText("     ID: "+mesDemandes.get(position).getAcceptePar());
+        //Log.d("acceptePar","************" + holder.txtAcceptePar);
+
         /*
         //Clique sur le bouton pour accepter la demande
         holder.txtAcceptePar.setOnClickListener(new View.OnClickListener(){

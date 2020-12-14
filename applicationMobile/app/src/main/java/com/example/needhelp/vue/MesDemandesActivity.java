@@ -2,6 +2,7 @@ package com.example.needhelp.vue;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -29,7 +30,8 @@ public class MesDemandesActivity extends AppCompatActivity {
     }
 
     private void creerListeMesDemandes(){
-        ArrayList<Demande> mesDemandes = controle.getLesDemandesEnCours();
+        ArrayList<Demande> mesDemandes = controle.getMesDemandes();
+        Log.d("Mes demandes","******************" + mesDemandes);
         if (mesDemandes != null){
             ListView lstMesDemandes = (ListView)findViewById(R.id.lstMesDemandes);
             MesDemandesListAdapter adapter = new MesDemandesListAdapter(this,mesDemandes);
