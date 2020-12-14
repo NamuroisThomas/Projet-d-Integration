@@ -70,7 +70,6 @@ export class ConversationsComponent implements OnInit {
     });
 
     this.router.navigate(['/chatroom', this.nickname, contactname]);
-    console.log(this.nickname, contactname);
 
   }
 

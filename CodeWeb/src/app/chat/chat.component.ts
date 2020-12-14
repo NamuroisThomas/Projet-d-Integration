@@ -26,8 +26,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('nickname')) {
-      this.router.navigate(['/conversations']);
-      console.log('n', this.nickname);
+      this.router.navigate(['/conversations/', localStorage.getItem('nickname')]);
     }
     this.loginForm = this.formBuilder.group({
       'nickname' : [null, Validators.required]
@@ -44,7 +43,7 @@ export class ChatComponent implements OnInit {
         const newUser = firebase.database().ref('users/').push();
         newUser.set(login);
         localStorage.setItem('nickname', login.nickname);
-        this.router.navigate(['/conversations']);
+        this.router.navigate(['/conversations/', login.nickname]);
       }
     });
   }

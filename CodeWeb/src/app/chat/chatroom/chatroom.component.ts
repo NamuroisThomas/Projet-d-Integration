@@ -70,7 +70,7 @@ export class ChatroomComponent implements OnInit {
     chat.contactname = this.contactname;
     chat.nickname = this.nickname;
     console.log(this.contactname);
-    chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
+    // chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
     chat.type = 'message';
     const newMessage = firebase.database().ref('chats/').push();
     newMessage.set(chat);
@@ -82,7 +82,7 @@ export class ChatroomComponent implements OnInit {
     const chat = { contactname: '', nickname: '', message: '', date: '', type: '' };
     chat.contactname = this.contactname;
     chat.nickname = this.nickname;
-    chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
+    // chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
     // chat.message = `${this.nickname} leave the room`;
     chat.type = 'exit';
     const newMessage = firebase.database().ref('chats/').push();
@@ -98,6 +98,7 @@ export class ChatroomComponent implements OnInit {
       }
     });
 
-    this.router.navigate(['/conversations']);
+    console.log(this.nickname);
+    this.router.navigate(['/conversations/', this.nickname]);
   }
 }
