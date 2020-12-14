@@ -29,6 +29,10 @@ import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 import { FooterComponent } from './footer/footer.component';
+import { ChatComponent } from './chat/chat.component';
+import { AjoutContactComponent } from './chat/ajout-contact/ajout-contact.component';
+import { ChatroomComponent } from './chat/chatroom/chatroom.component';
+import { ConversationsComponent } from './chat/conversations/conversations.component';
 
 
 @NgModule({
@@ -47,7 +51,11 @@ import { FooterComponent } from './footer/footer.component';
     DetailDemandeComponent,
     MaListeComponent,
     MesDemandesComponent,
-    FooterComponent
+    FooterComponent,
+    ChatComponent,
+    AjoutContactComponent,
+    ChatroomComponent,
+    ConversationsComponent
 
   ],
   imports: [
