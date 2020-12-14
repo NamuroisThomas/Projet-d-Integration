@@ -1,11 +1,12 @@
-<div class="wrapper-box">
-  <div class="container">
+ <div class="container">
+   <div class="row-cols-6">
+   <h2>Contactez-nous !</h2>
+   </div>
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <h2>Contactez-nous !</h2>
         <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
           <div class="form-group">
-            <label for="Email">Adresse mail</label>
+            <label>Adresse mail</label>
             <input
               type="email"
               class="form-control"
@@ -16,7 +17,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="fullname">Nom et prénom</label>
+            <label>Nom et prénom</label>
             <input
               type="text"
               class="form-control"
@@ -27,7 +28,7 @@
           </div>
 
           <div class="form-group">
-            <label for="comment">Commentaire</label>
+            <label>Commentaire</label>
             <textarea
               class="form-control"
               formControlName="Comment"
@@ -35,6 +36,13 @@
             >
             </textarea>
           </div>
+          <div class="form-group">
+          <re-captcha (resolved)="resolved($event)"
+                      formControlName="recaptchaReactive"
+                      siteKey="6Lf-Uv8ZAAAAACEPjgTLhsGvOBz0R6UpiesdZgzY">
+          </re-captcha>
+          </div>
+          <div class="hauteur">
           <button
             type="submit"
             class="btn btn-primary"
@@ -42,58 +50,9 @@
           >
             Envoyez
           </button>
+          </div>
         </form>
       </div>
     </div>
   </div>
-</div>
 
-
-<!--
-<p-fieldset>
-  <h1>Contactez-nous !</h1>
-  <div class="row">
-    <div class="col-6">
-      <form [formGroup]="">
-        <div class="row">
-          <div class="form-group col-lg-12 col-md-12">
-            <label for="nom">Nom et prénom :</label>
-            <input type="text"
-                   id="nom"
-                   class="form-control"
-                   formControlName="Nom" placeholder="Ex: Pierre Lebrun">
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-lg-12 col-md-12">
-            <label for="email">Email :</label>
-            <input type="text"
-                   id="email"
-                   class="form-control"
-                   formControlName="Email" placeholder="ex: 123@gmail.com" [required]="true">
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-lg-12 col-md-12">
-            <label for="message">Message :</label>
-            <textarea
-                   id="message"
-                   class="form-control"
-                   formControlName="Message" cols = "40" rows="10">
-            </textarea>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-lg-12 col-md-12">
-            <button class="btn btn-primary"
-                    type="submit"
-
-                    >Enregistrer</button>
-
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</p-fieldset>
--->

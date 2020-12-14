@@ -3,19 +3,6 @@
   margin: 0;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 100vh;
-  flex-wrap: no-wrap;
-}
-
-.container div {
-  width: 50%;
-  height: 200px;
-}
-
 .picture {
   background: #4451c2;
 }
@@ -24,51 +11,42 @@
   background: #f451c2;
 }
 
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-  }
-  .container div {
-    width: 100%;
-  }
-}
-
-
 
 h1{
   height: auto;
 }
 
 h3{
-  padding: 0.55em;
+  padding-top: 0.50em;
+  padding-bottom: 0.5em;
+  padding-left: 2.55em;
 }
 
 h4{
   padding-bottom: 0.5em;
-  padding-left: 2em;
+  padding-left: 4em;
 }
 
 p{
   padding-bottom: 0.5em;
-  padding-left: 4em;
+  padding-left: 8em;
 }
 
 dl {
-  overflow: hidden;
-  padding: 1em;
+  overflow: auto;
 }
 dt {
   float: left;
-  width: 20%;
+  width: 40%;
+  padding-left: 6em;
 }
 dd {
-  float: left;
-  width: 80%;
+  float: right;
+  width: 55%;
 }
 
 button{
-  background-color: transparent;
-  color: black;
+  color: #ffffff;
   border-color: black;
   padding: 0.2%;
 }
@@ -94,13 +72,19 @@ button{
   100% { transform: rotate(360deg); }
 }
 
-/*
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  left: 50%;
-  margin-left: -50px;
-  top: 50%;
-  margin-top: -50px;
-*/
+.text-centerp {
 
+  text-align: center;
+  /* The image used */
+  background-image: url("../../assets/img/svg/help2.jpg");
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-position: initial;
+  background-size: cover;
+  color: lightgrey;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1.5px 0 #000, -1.5px 0 0 #000;
+}
+
+.pad{
+  padding-bottom: 20px;
+}

@@ -15,7 +15,6 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     // Récupération de l'utilisateur connecté
     const isLoggedIn = !isNull(localStorage.getItem('user'));
-    console.log(localStorage.getItem('user'));
 
     if (!isLoggedIn) {
       // Si pas d'utilisateur connecté : redirection vers la page de login

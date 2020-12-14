@@ -1,9 +1,8 @@
-<div class="wrapper-box">
-  <div class="container">
+ <div class="container">
+   <h2>{{pageC}}</h2>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="login-wrapper">
-          <h2>Page de connexion</h2>
           <form *ngIf="role === null" (ngSubmit)="onSignIn(f.value)" #f="ngForm" novalidate>
             <div class="form-group">
               <label>Adresse mail</label>
@@ -18,35 +17,15 @@
                      required/>
             </div>
             <div class="form-group">
-              <button class="btn btn-primary" [disabled]="!f.form.valid">Connexion</button>
+              <button class="btn btn-primary co" [disabled]="!f.form.valid">Connexion</button>
             </div>
           </form>
-          <button class="btn btn-primary" *ngIf="role !== null" (click)="onSignOut()">déconnexion</button>
+          <div class="col-md-6 col-md-offset-3 text-white" *ngIf="role !== null">
+            <p>Veuillez vous déconnecté une fois </p>
+          <button class="btn btn-primary"  (click)="onSignOut()">déconnexion</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<!--
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <h2>Se connecter</h2>
-    <div class="col-6">
-      <form *ngIf="!connexionStatus" #userGet="ngForm" (ngSubmit)="onSignIn(userGet.value)">
-        <div class="form-group">
-          <label>Adresse mail</label>
-          <input class="form-control" type="text" name="formConnexionMail" ngModel placeholder="Labefefeuh@hotmail.com" required>
-        </div>
-        <div class="form-group">
-          <label>Mot de passe</label>
-          <input class="form-control" type="password" name="formConnexionMdp" ngModel placeholder="******" required>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-success">connexion</button>
-        </div>
-      </form>
-    </div>
-    <button class="btn btn-success" *ngIf="connexionStatus" (click)="onSignOut()">déconnexion</button>
-  </div>
-</div>
--->
+

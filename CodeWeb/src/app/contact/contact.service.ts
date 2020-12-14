@@ -9,7 +9,7 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ContactService {
-  private mailApi = 'https://mailthis.to/needhelp'
+  private mailApi = 'https://mailthis.to/needhelp';
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +26,11 @@ export class ContactService {
             return error;
           }
         )
-      )
+      );
+  }
+
+  sendToken(token){
+    return this.http.post<any>('http://62.210.130.145:3000/token_validate', {recaptcha: token});
   }
 
 }

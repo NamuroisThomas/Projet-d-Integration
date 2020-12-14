@@ -150,6 +150,13 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
+    /*public void afficherDetailDemande(Demande demande){
+        Log.d("test", "********************"+ demande.getTitreDemande());
+        Intent intent = new Intent(HomeActivity.this,DetailsDemandeActivity.class);
+        startActivity(intent);
+    }*/
+
     private void recupDemandesEnCours(){
         Controle controle = new Controle();
         AccesDistant accesDistant = new AccesDistant();

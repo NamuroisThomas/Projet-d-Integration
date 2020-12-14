@@ -17,7 +17,7 @@ export class PageNotFoundComponent implements OnInit {
   public formContact = new FormGroup({
     Title: new FormControl(null),
     Description: new FormControl(null)
-  })
+  });
 
   constructor(private formBuilder: FormBuilder,
               private messageService: MessageService,
@@ -38,7 +38,7 @@ export class PageNotFoundComponent implements OnInit {
 
   submit(){
     console.log(this.formContact.value);
-    this.messageService.add({severity:'success', summary: 'Success Message', detail:'Message envoyé !'});
+    this.messageService.add({severity: 'success', summary: 'Success Message', detail: 'Message envoyé !'});
 
   }
 
