@@ -129,14 +129,14 @@ public class AccesDistant implements AsyncResponse {
                         String descriptionDemande = info.getString("descriptionDemande");
                         String dateDemande = info.getString("dateDemande");
                         Integer idUtilisateur = info.getInt("idUtilisateur");
-                        String idCategorie = info.getString("idCategorie");
+                        String categorie = info.getString("idCategorie");
                         String defraiementDemande = info.getString("defraiementDemande");
                         String idCodePostal = info.getString("idCodePostal");
                         Integer accepteDemande = info.getInt("accepteDemande");
                         Integer acceptePar = info.getInt("acceptePar");
 
                         // Création de l'objet
-                        Demande demande = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,idCategorie,defraiementDemande,
+                        Demande demande = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,categorie,defraiementDemande,
                                 idCodePostal,accepteDemande,acceptePar);
                         lesDemandes.add(demande);
                         Log.d("Ajout","********************* Demande ajoutéé");
@@ -163,14 +163,14 @@ public class AccesDistant implements AsyncResponse {
                         String descriptionDemande = info.getString("descriptionDemande");
                         String dateDemande = info.getString("dateDemande");
                         Integer idUtilisateur = info.getInt("idUtilisateur");
-                        String idCategorie = info.getString("idCategorie");
+                        String categorie = info.getString("idCategorie");
                         String defraiementDemande = info.getString("defraiementDemande");
                         String idCodePostal = info.getString("idCodePostal");
                         Integer accepteDemande = info.getInt("accepteDemande");
                         Integer acceptePar = info.getInt("acceptePar");
 
                         // Création de l'objet
-                        Demande demandeEnCours = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,idCategorie,defraiementDemande,
+                        Demande demandeEnCours = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,categorie,defraiementDemande,
                                 idCodePostal,accepteDemande,acceptePar);
                         lesDemandesEnCours.add(demandeEnCours);
                         Log.d("Ajout","********************* Demande en cours ajoutéé");
@@ -197,14 +197,14 @@ public class AccesDistant implements AsyncResponse {
                         String descriptionDemande = info.getString("descriptionDemande");
                         String dateDemande = info.getString("dateDemande");
                         Integer idUtilisateur = info.getInt("idUtilisateur");
-                        String idCategorie = info.getString("idCategorie");
+                        String categorie = info.getString("idCategorie");
                         String defraiementDemande = info.getString("defraiementDemande");
                         String idCodePostal = info.getString("idCodePostal");
                         Integer accepteDemande = info.getInt("accepteDemande");
                         Integer acceptePar = info.getInt("acceptePar");
 
                         // Création de l'objet
-                        Demande mesDemandes = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,idCategorie,defraiementDemande,
+                        Demande mesDemandes = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,categorie,defraiementDemande,
                                 idCodePostal,accepteDemande,acceptePar);
                         lstMesDemandes.add(mesDemandes);
                         Log.d("Ajout","********************* Demande en cours ajoutéé");
