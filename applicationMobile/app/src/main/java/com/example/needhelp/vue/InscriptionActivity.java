@@ -15,8 +15,9 @@ import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.modele.AccesDistant;
 import com.example.needhelp.modele.Utilisateur;
 
-public class InscriptionActivity extends AppCompatActivity {
+import java.util.regex.Pattern;
 
+public class InscriptionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +75,9 @@ public class InscriptionActivity extends AppCompatActivity {
                     tel = telInscription.getText().toString();
                     mdp = mdpInscription.getText().toString();
                     confMdp = mdpConfirmation.getText().toString();
+
+                    Utilisateur connexionUtilisateurs = new Utilisateur(nom,prenom,mail,tel,mdp);
+                    controle.setConnexionUtilisateurs(connexionUtilisateurs);
                 }catch (Exception e){
                     Log.d("Recup", "****************** Erreur reuperation donnees inscription\n****" + e);
                 }
@@ -82,7 +86,11 @@ public class InscriptionActivity extends AppCompatActivity {
                 if((nom.equals(""))||(prenom.equals(""))||(mail.equals(""))||(tel.equals(""))||(mdp.equals(""))||(confMdp.equals(""))){
                     Toast.makeText(InscriptionActivity.this,"Saisie incorrect",Toast.LENGTH_SHORT).show();
                 }else if (!(mdp.equals(confMdp))){
-                    Toast.makeText(InscriptionActivity.this,"mdp incorrect",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InscriptionActivity.this,"mots de passe incorrect",Toast.LENGTH_SHORT).show();
+                }else if (tel.length() != 10){
+                    Toast.makeText(InscriptionActivity.this,"Numéro de téléphone incorrect",Toast.LENGTH_SHORT).show();
+                }else if (!isValiEmail(mail)){
+                    Toast.makeText(InscriptionActivity.this,"Format de l'adresse mail incorrect",Toast.LENGTH_SHORT).show();
                 }else {
                     // si la saisie est correcte, envoie les informations à la base de données pour l'inscription
                     afficheResult(nom,prenom,mail,tel,mdp);
@@ -129,5 +137,20 @@ public class InscriptionActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public final static Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
+            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+"
+    );
+
+    public static boolean isValiEmail(String email)
+    {
+        return EMAIL_ADDRESS_PATTERN.matcher(email).matches();
     }
 }

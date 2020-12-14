@@ -34,6 +34,5 @@ export class MesDemandesComponent implements OnInit {
       this.allListe = res[Object.keys(res)[2]];
     });
     this.nomPrenom = this.profil.nomUtilisateur + ' ' + this.profil.prenomUtilisateur;
-    console.log(this.nomPrenom);
   }
 }

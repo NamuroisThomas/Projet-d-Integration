@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ConnexionService} from './connexion.service';
 import {HttpClient} from '@angular/common/http';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-connexion',
@@ -11,12 +12,12 @@ export class ConnexionComponent implements OnInit {
   model: any = {};
   connexionStatus: boolean;
   role: string;
+  pageC = 'Page de connexion'
 
   constructor(private connexionService: ConnexionService, private http: HttpClient) { }
 
   ngOnInit() {
     this.role = this.readLocalStorageValue('user');
-    console.log(this.role);
   }
 
   readLocalStorageValue(key: string): string {
@@ -24,6 +25,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   onSignIn(data){
+    const test = 'pi7' + CryptoJS.SHA256(data.formConnexionMdp).toString(CryptoJS.enc.Hex) + 'sel';
     this.connexionService.signIn().then(
       () => {
         this.http.get('http://62.210.130.145:3000/mailExist?mail=' + data.formConnexionMail)
@@ -32,11 +34,11 @@ export class ConnexionComponent implements OnInit {
             {
               try {
                 if (res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
-                  res[Object.keys(res)[2]][0].mdpUtilisateur !== data.formConnexionMdp) {
+                  res[Object.keys(res)[2]][0].mdpUtilisateur !== test) {
                   alert('mot de passe incorrect');
                 }
                 if (res[Object.keys(res)[2]][0].mailUtilisateur === data.formConnexionMail &&
-                  res[Object.keys(res)[2]][0].mdpUtilisateur === data.formConnexionMdp) {
+                  res[Object.keys(res)[2]][0].mdpUtilisateur === test) {
                   alert('connexion...');
                   localStorage.setItem('user', JSON.stringify({idUtilisateur: res[Object.keys(res)[2]][0].idUtilisateur,
                     nomUtilisateur: res[Object.keys(res)[2]][0].nomUtilisateur,
@@ -48,7 +50,6 @@ export class ConnexionComponent implements OnInit {
                     descriptionUtilisateur: res[Object.keys(res)[2]][0].descriptionUtilisateur,
                     avertissementUtilisateur: res[Object.keys(res)[2]][0].avertissementUtilisateur}));
                   this.role = this.readLocalStorageValue('user');
-                  console.log(localStorage.getItem('user'));
                 }
               }
               catch (e) {
@@ -58,19 +59,6 @@ export class ConnexionComponent implements OnInit {
           );
       }
     );
-    /*
-    this.connexionService.signIn().then(
-      () => {
-        this.http.get('http://62.210.130.145:3000/utilisateur?mail=' + data.formConnexionMail)
-          .subscribe(
-            (res) =>
-              console.warn(res[Object.keys(res)[2]][0].utilisateur)
-        )
-        alert('connexion...');
-        this.connexionStatus = this.connexionService.isAuth;
-      }
-    );
-    */
   }
 
   onSignOut() {
@@ -79,7 +67,4 @@ export class ConnexionComponent implements OnInit {
     alert('Déconnexion');
     this.role = this.readLocalStorageValue('user');
   }
-/*  onSubmit(){
-  }*/
-
 }

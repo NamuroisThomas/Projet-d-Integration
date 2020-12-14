@@ -6,20 +6,10 @@
   <base href="/">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
-<style>
-  body, html {
-    height: 100%;
-  }
-  .bg {
-    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),url(assets/img/svg/white-unsplash-9d0375d2.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 2000px;
-    min-height: 100%;
-  }
-
-</style>
 <body>
 <div class="bg">
 <app-root>
@@ -28,6 +18,49 @@
     </div>
 </app-root>
 </div>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mx-auto">
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Comment nous contactez ?</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="/contactPage">Page de contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2 col-lg-3 mx-auto my-md-6 my-0 mt-4 mb-1">
+        <h5 class="font-weight-bold text-uppercase mb-4">Application mobile</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a>bientôt disponible</a>
+          </li>
+        </ul>
+      </div>
+      <hr class="clearfix w-100 d-md-none">
+      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+        <h5 class="font-weight-bold text-uppercase mb-4">Liens utiles</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://github.com/NamuroisThomas/Projet-d-Integration/wiki">github</a>
+          </li>
+          <li>
+            <a href="https://clockify.me/shared/5f6b3df440e1787995ae272d">clockify</a>
+          </li>
+          <li>
+            <a href="https://trello.com/b/EK9LyOYb/projet-dintégration">trello</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center">Copyright &copy;
+      <script>type="text/javascript">document.write(new Date().getFullYear());</script>
+      NeedHelp!
+    </div>
+  </div>
+</footer>
+
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

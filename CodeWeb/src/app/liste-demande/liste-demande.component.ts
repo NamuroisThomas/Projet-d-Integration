@@ -35,6 +35,8 @@ export class ListeDemandeComponent implements OnInit {
   accepteDemande: any;
   page: number;
   collection = [];
+  test: Array<any>;
+
   constructor(private api: GetListeDemandeService,
               private http: HttpClient) {
     for (let i = 1; i <= 1000; i++) {

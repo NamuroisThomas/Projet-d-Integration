@@ -24,9 +24,11 @@ public class DemandeListeAdapter extends BaseAdapter {
     private Controle controle;
     private Demande demande;
     private AccesDistant accesDistant = new AccesDistant();
+    private Context contexte;
 
     public DemandeListeAdapter(Context context,ArrayList<Demande> lesDemandes){
         this.lesDemandes = lesDemandes;
+        this.contexte = context;
         this.inflater = LayoutInflater.from(context);
         this.controle = Controle.getInstance(null);
     }
@@ -64,7 +66,7 @@ public class DemandeListeAdapter extends BaseAdapter {
      * @return
      */
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, ViewGroup viewGroup) {
         // declaration d'un Holder
         ViewHolder holder;
         // si la ligne n'existe pas encore
@@ -96,10 +98,34 @@ public class DemandeListeAdapter extends BaseAdapter {
                 accesDistant.envoi("accepter", lesDemandes.get(ligne).accepterConvertToJSONArray() );
             }
         });
+       /* holder.txtTitreDemande.setTag(position);
+        //Clique sur le reste de la ligne
+        holder.txtTitreDemande.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                int ligne = (int) v.getTag();
+                //Demande de l'affichage de la demande
+                HomeActivity home = new HomeActivity();
+                home.afficherDetailDemande(lesDemandes.get(ligne));
+
+            }
+        });
+        holder.txtDate.setTag(position);
+        //Clique sur le reste de la ligne
+        holder.txtDate.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                int ligne = (int) v.getTag();
+                //Demande de l'affichage de la demande
+                HomeActivity home = new HomeActivity();
+                home.afficherDetailDemande(lesDemandes.get(ligne));
+
+            }
+        });*/
         return view;
     }
 
-    private class ViewHolder{
+    static class ViewHolder{
         Button btnAccepter;
         TextView txtDate;
         TextView txtTitreDemande;

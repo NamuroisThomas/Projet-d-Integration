@@ -15,14 +15,14 @@ public class Demande {
     private String DescriptionDemande;
     private String dateDemande;
     private int idUtilisateur;
-    private int idCategorie;
-    private int defraiement;
+    private String idCategorie;
+    private String defraiement;
     private String idCodePostal;
     private int accepteDemande;
     private int acceptePar;
 
     public Demande(int idDemande, String titreDemande, String descriptionDemande, String dateDemande,
-                   int idUtilisateur, int idCategorie, int defraiement, String idCodePostal, int accepteDemande, int acceptePar) {
+                   int idUtilisateur, String idCategorie, String defraiement, String idCodePostal, int accepteDemande, int acceptePar) {
         this.idDemande = idDemande;
         this.titreDemande = titreDemande;
         this.DescriptionDemande = descriptionDemande;
@@ -33,23 +33,71 @@ public class Demande {
         this.idCodePostal = idCodePostal;
         this.accepteDemande = accepteDemande;
         this.acceptePar = acceptePar;
+
+       /* switch (idCategorie){
+            case "Courses" :
+                this.idCategorie = 1;
+            case "Aides ménagères" :
+                this.idCategorie = 2;
+            case "Petits travaux" :
+                this.idCategorie = 3;
+            case "Transport" :
+                this.idCategorie = 4;
+            case "Couture" :
+                this.idCategorie = 5;
+            case "Jardinage" :
+                this.idCategorie = 6;
+            case "Electricité" :
+                this.idCategorie = 7;
+            case "Peinture" :
+                this.idCategorie = 8;
+            case "Cuisine" :
+                this.idCategorie = 9;
+            case "Autre" :
+                this.idCategorie = 24;
+
+        }*/
     }
 
-    public Demande(String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, String idCodePostal) {
+    public Demande(String titreDemande, String descriptionDemande, int idUtilisateur, String idCategorie, String defraiement, String idCodePostal) {
         this.titreDemande = titreDemande;
         this.DescriptionDemande = descriptionDemande;
         this.idUtilisateur = idUtilisateur;
         this.idCategorie = idCategorie;
         this.defraiement = defraiement;
         this.idCodePostal = idCodePostal;
+
+        /*switch (categorie){
+            case "Courses" :
+                this.idCategorie = 1;
+            case "Aides ménagères" :
+                this.idCategorie = 2;
+            case "Petits travaux" :
+                this.idCategorie = 3;
+            case "Transport" :
+                this.idCategorie = 4;
+            case "Couture" :
+                this.idCategorie = 5;
+            case "Jardinage" :
+                this.idCategorie = 6;
+            case "Electricité" :
+                this.idCategorie = 7;
+            case "Peinture" :
+                this.idCategorie = 8;
+            case "Cuisine" :
+                this.idCategorie = 9;
+            case "Autre" :
+                this.idCategorie = 24;
+
+        }*/
     }
 
-    public Demande(String dateDemande, String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, int defraiement, String idCodePostal) {
+    public Demande(String dateDemande, String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, String defraiement, String idCodePostal) {
         this.titreDemande = titreDemande;
         this.DescriptionDemande = descriptionDemande;
         this.dateDemande = dateDemande;
         this.idUtilisateur = idUtilisateur;
-        this.idCategorie = idCategorie;
+        //this.idCategorie = idCategorie;
         this.defraiement = defraiement;
         this.idCodePostal = idCodePostal;
     }
@@ -58,8 +106,8 @@ public class Demande {
         this.titreDemande = titre;
         this.DescriptionDemande = description;
         this.idUtilisateur = 18;
-        this.idCategorie = 24;
-        this.defraiement = 10;
+        //this.idCategorie = 24;
+        this.defraiement = "18";
         this.idCodePostal = codePostal;
     }
 
@@ -67,7 +115,7 @@ public class Demande {
         List laListe = new ArrayList();
         laListe.add(titreDemande);
         laListe.add(DescriptionDemande);
-        laListe.add(1);
+        laListe.add(idUtilisateur);
         laListe.add(idCategorie);
         laListe.add(defraiement);
         laListe.add(idCodePostal);

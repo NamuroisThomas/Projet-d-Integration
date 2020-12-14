@@ -20,7 +20,9 @@ import com.example.needhelp.modele.Utilisateur;
 
 public class CreerDemandeActivity extends AppCompatActivity {
 
-    private Controle controle;
+    public Controle controle = new Controle();
+    Utilisateur utilisateur;
+    int idUtilisateur;
 
     //variable layout
     private EditText nouveauTitreDescription;
@@ -28,6 +30,7 @@ public class CreerDemandeActivity extends AppCompatActivity {
     private EditText nouveauDefraiement;
     private Spinner nouvelleCategorie;
     private EditText nouveauCodePostal;
+    private String idCategorie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,8 @@ public class CreerDemandeActivity extends AppCompatActivity {
         nouvelleCategorie = (Spinner) findViewById(R.id.liste);
         nouveauCodePostal = (EditText) findViewById(R.id.valueCodePostal);
 
+        utilisateur = controle.getConnexionUtilisateurs();
+        Log.d("utilisateur", "****************************"+ utilisateur);
 
     }
 
@@ -65,6 +70,7 @@ public class CreerDemandeActivity extends AppCompatActivity {
                 //Toast.makeText(MainActivity.this, "test",Toast.LENGTH_SHORT).show();
 
                 //variables locales
+                int idDemandeur = 0;
                 String titre = "";
                 String description = "";
                 String defraiement = "";
@@ -73,24 +79,59 @@ public class CreerDemandeActivity extends AppCompatActivity {
 
                 //Recupération des données saisies
                 try {
+                    utilisateur = controle.getConnexionUtilisateurs();
+                    idUtilisateur = controle.getIdUtilisateur();
                     titre = nouveauTitreDescription.getText().toString();
                     description = nouvelleDescription.getText().toString();
                     defraiement = nouveauDefraiement.getText().toString();
                     categorie = nouvelleCategorie.getSelectedItem().toString();
+                    Log.d("categ", "**********************"+categorie);
                     codePostal = nouveauCodePostal.getText().toString();
 
+                    switch (categorie){
+                        case "Courses" :
+                            idCategorie = "1";
+                            break;
+                        case "Aides ménagères" :
+                            idCategorie = "2";
+                            break;
+                        case "Petits travaux" :
+                            idCategorie = "3";
+                            break;
+                        case "Transport" :
+                            idCategorie = "4";
+                            break;
+                        case "Couture" :
+                            idCategorie = "5";
+                            break;
+                        case "Jardinage" :
+                            idCategorie = "6";
+                            break;
+                        case "Electricité" :
+                            idCategorie = "7";
+                            break;
+                        case "Peinture" :
+                            idCategorie = "8";
+                            break;
+                        case "Cuisine" :
+                            idCategorie = "9";
+                            break;
+
+                    }
+                    Log.d("categ", "**********************"+idCategorie);
                 } catch (Exception e) {
-                    Log.d("Recup", "****************** Erreur reuperation donnees validation\n****" + e);
+                    Log.d("Recup", "****************** Erreur recuperation donnees validation\n****" + e);
                 }
 
                 // Controle des données saisie
-                if ((titre.equals("")) || (description.equals("")) || (defraiement.equals("")) || (categorie.equals("")) || (codePostal.equals(""))) {
+                if ((titre.equals("")) || (description.equals(""))|| (defraiement.equals("")) || (categorie.equals("")) || (codePostal.equals(""))) {
                     Toast.makeText(CreerDemandeActivity.this, "Saisie incorrect", Toast.LENGTH_SHORT).show();
                 } else {
                     // si la saisie est correcte, envoie les informations à la base de données pour l'inscription
                     afficheResult(titre, description, defraiement, categorie, codePostal);
                     //Utilisateur user = new Utilisateur(nom, prenom, mail, tel, mdp);
-                    Demande demande = new Demande(titre, description, defraiement, categorie, codePostal);
+                    Demande demande = new Demande(titre, description, idUtilisateur, idCategorie, defraiement, codePostal);
+                    Log.d("Demande", "***********************"+demande);
                     AccesDistant accesDistant = new AccesDistant();
                     Log.d("enregDemande", "*************" + demande.nouvelleDemandeConvertToJSONArray());
                     accesDistant.envoi("enregDemande", demande.nouvelleDemandeConvertToJSONArray());
