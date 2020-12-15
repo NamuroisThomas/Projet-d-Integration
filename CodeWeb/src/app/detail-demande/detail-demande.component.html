@@ -1,10 +1,10 @@
 <div class="container">
-<h2>Page détail de la demande {{detail.titreDemande}}</h2>
-<div class="row">
-  <h4>
-  Description de la demande : {{detail.descriptionDemande}}
-  </h4>
-</div>
+  <h2>Page détail de la demande {{detail.titreDemande}}</h2>
+  <div class="row">
+    <p class="text-white">
+      Description de la demande : {{detail.descriptionDemande}}
+    </p>
+  </div>
   <table class="table table-striped table-dark">
     <tbody>
     <tr>
@@ -24,7 +24,7 @@
       <td>{{detail.idCodePostal}}</td>
     </tr>
     <tr>
-      <th>Demande acceptée par </th>
+      <th>Demande acceptée par</th>
       <td>{{detail.accepte}}</td>
     </tr>
     <tr *ngIf="defraiment">
@@ -37,5 +37,5 @@
     </tr>
     </tbody>
   </table>
-<button class="btn btn-primary" (click)="backClicked()">Retour à la liste</button>
+  <button class="btn btn-primary" (click)="backClicked()">Retour à la liste</button>
 </div>

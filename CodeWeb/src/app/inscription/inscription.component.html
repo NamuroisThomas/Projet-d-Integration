@@ -1,45 +1,45 @@
- <div class="container">
-   <h2> {{titre}} </h2>
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <div class="col-10">
-          <form #userPost="ngForm" (ngSubmit)="submit(userPost.value)">
-            <div class="form-group">
-              <label>Nom</label>
-              <input class="form-control" type="text" name="formInscriptionNom" ngModel
-                     placeholder="Saisissez votre nom" required>
-            </div>
-            <div class="form-group">
-              <label>Prénom</label>
-              <input class="form-control" type="text" name="formInscriptionPrenom" ngModel
-                     placeholder="Saisissez votre prénom" required>
-            </div>
-            <div class="form-group">
-              <label>Adresse mail</label>
-              <input class="form-control" type="email" size="50" name="formInscriptionMail" ngModel
-                     placeholder="Saisissez votre adresse mail  ex:rogerrabbit@gmail.com"
-                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-            </div>
-            <div class="form-group">
-              <label>Numéro de téléphone</label>
-              <input class="form-control" type="text" size="20" name="formInscriptionTel" ngModel
-                     placeholder="Saisissez votre numéro de téléphone ex:+32458756415" pattern="[./+0-9]+" required>
-            </div>
-            <div class="form-group">
-              <label>Mot de passe</label>
-              <input class="form-control" type="password" name="formInscriptionMdp" ngModel
-                     placeholder="Saisissez votre mot de passe" required>
-            </div>
-            <div class="form-group">
-              <label>Confirmation du mot de passe</label>
-              <input class="form-control" type="password" name="formInscriptionMdpConfirmation" ngModel
-                     placeholder="Confirmez votre mot de passe" required>
-            </div>
-            <div class="form-group">
-              <button class="btn btn-primary" type="submit" [disabled]="!userPost.form.valid">Inscription</button>
-            </div>
-          </form>
-        </div>
+<div class="container">
+  <h2> {{titre}} </h2>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-10">
+        <form #userPost="ngForm" (ngSubmit)="submit(userPost.value)">
+          <div class="form-group">
+            <label>Nom</label>
+            <input class="form-control" type="text" name="formInscriptionNom" ngModel
+                   placeholder="Saisissez votre nom" required>
+          </div>
+          <div class="form-group">
+            <label>Prénom</label>
+            <input class="form-control" type="text" name="formInscriptionPrenom" ngModel
+                   placeholder="Saisissez votre prénom" required>
+          </div>
+          <div class="form-group">
+            <label>Adresse mail</label>
+            <input class="form-control" type="email" size="50" name="formInscriptionMail" ngModel
+                   placeholder="Saisissez votre adresse mail  ex:rogerrabbit@gmail.com"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          </div>
+          <div class="form-group">
+            <label>Numéro de téléphone</label>
+            <input class="form-control" type="text" size="20" name="formInscriptionTel" ngModel
+                   placeholder="Saisissez votre numéro de téléphone ex:+32458756415" pattern="[./+0-9]+" required>
+          </div>
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input class="form-control" type="password" name="formInscriptionMdp" ngModel
+                   placeholder="Saisissez votre mot de passe" required>
+          </div>
+          <div class="form-group">
+            <label>Confirmation du mot de passe</label>
+            <input class="form-control" type="password" name="formInscriptionMdpConfirmation" ngModel
+                   placeholder="Confirmez votre mot de passe" required>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit" [disabled]="!userPost.form.valid">Inscription</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>

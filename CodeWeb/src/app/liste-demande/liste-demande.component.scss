@@ -15,3 +15,42 @@ img.img {
 .hauteur {
   padding-bottom: 300px;
 }
+
+table {
+  width: 100%;
+}
+
+td, th {
+  padding: 6px;
+  text-align: left;
+}
+
+@media
+only screen and (max-width: 530px)  {
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+  }
+
+  tr { border: 1px solid #ccc; }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 95%;
+    padding-right: 10px;
+  }
+
+}

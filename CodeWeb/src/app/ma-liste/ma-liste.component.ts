@@ -8,10 +8,12 @@ import {GetListeDemandeService} from '../liste-demande/liste-demande.service';
   styleUrls: ['./ma-liste.component.scss']
 })
 export class MaListeComponent implements OnInit {
+
   profil: any;
   listeDemande: any;
   nomPrenom: string;
   allListe: Array<any>;
+
   constructor(private api: GetListeDemandeService,
               private http: HttpClient)
   { }

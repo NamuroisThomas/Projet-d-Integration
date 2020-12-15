@@ -1,12 +1,29 @@
-#footer {
-  width: 100%;
-  font-size: 1.5rem;
-  text-align: center;
-  overflow: visible;
-  color: #FFFFFF80;
-  font-weight: bold;
-  height: auto;
+.espace{
+  padding-top: 50px;
   background-color: #343a40;
-  position: relative;
+  overflow: hidden;
 }
 
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: deepskyblue;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
