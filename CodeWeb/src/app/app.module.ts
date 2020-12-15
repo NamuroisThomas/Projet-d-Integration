@@ -39,6 +39,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {DatePipe} from '@angular/common';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
+import { GdprComponent } from './gdpr/gdpr.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import {MatCardModule} from '@angular/material/card';
     ChatComponent,
     AjoutContactComponent,
     ChatroomComponent,
-    ConversationsComponent
+    ConversationsComponent,
+    GdprComponent
 
   ],
   imports: [

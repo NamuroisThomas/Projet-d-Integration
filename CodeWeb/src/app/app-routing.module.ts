@@ -18,6 +18,7 @@ import {ChatComponent} from './chat/chat.component';
 import {ChatroomComponent} from './chat/chatroom/chatroom.component';
 import {AjoutContactComponent} from './chat/ajout-contact/ajout-contact.component';
 import {ConversationsComponent} from './chat/conversations/conversations.component';
+import {GdprComponent} from './gdpr/gdpr.component';
 
 
 
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
       {path: 'conversations/:nickname', component: ConversationsComponent},
       {path: 'chat', component: ChatComponent},
       {path: 'not-found', component: PageNotFoundComponent},
+      {path: 'gdpr', component: GdprComponent},
       {path: '**', redirectTo: 'home'}
     ]
   }
