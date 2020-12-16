@@ -131,28 +131,12 @@ public class Demande {
         return new JSONArray(laListe);
     }
 
-    public int getIdDemande() {
-        return idDemande;
-    }
-
-    public void setIdDemande(int idDemande) {
-        this.idDemande = idDemande;
-    }
-
     public String getTitreDemande() {
         return titreDemande;
     }
 
-    public void setTitreDemande(String titreDemande) {
-        this.titreDemande = titreDemande;
-    }
-
     public String getDateDemande() {
         return dateDemande;
-    }
-
-    public void setDateDemande(String dateDemande) {
-        this.dateDemande = dateDemande;
     }
 
     public void setAccepteDemande(int accepteDemande) {

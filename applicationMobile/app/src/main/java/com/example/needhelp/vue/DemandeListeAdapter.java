@@ -98,7 +98,7 @@ public class DemandeListeAdapter extends BaseAdapter {
                 accesDistant.envoi("accepter", lesDemandes.get(ligne).accepterConvertToJSONArray() );
             }
         });
-       /* holder.txtTitreDemande.setTag(position);
+        holder.txtTitreDemande.setTag(position);
         //Clique sur le reste de la ligne
         holder.txtTitreDemande.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -121,7 +121,7 @@ public class DemandeListeAdapter extends BaseAdapter {
                 home.afficherDetailDemande(lesDemandes.get(ligne));
 
             }
-        });*/
+        });
         return view;
     }
 

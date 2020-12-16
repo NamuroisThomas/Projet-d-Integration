@@ -76,7 +76,7 @@ public final class Controle {
     }
 
     public void setLesDemandesEnCours(ArrayList<Demande> lesDemandesEnCours) {
-        this.lesDemandesEnCours = lesDemandesEnCours;
+        Controle.lesDemandesEnCours = lesDemandesEnCours;
     }
     public JSONArray idUtilisateurConvertToJSONArray(){
         List laListe = new ArrayList();
