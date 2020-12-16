@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class AccesDistant implements AsyncResponse {
 
     //constante
-    //private static final String SERVEURADDR = "http://192.168.1.9/needhelp/serveurAndroid.php";
     private static final String SERVEURADDR = "http://62.210.130.145/serveurAndroid.php";
     //Variables
     private Controle controle;
@@ -240,13 +239,23 @@ public class AccesDistant implements AsyncResponse {
         accesDonnees.execute(SERVEURADDR);
     }
 
+    /**
+     * Setter
+     * @param mdpUser
+     */
     public void setMdpUser(String mdpUser) {
         this.mdpUser = mdpUser;
     }
-
+    /**
+     * Setter
+     * @param mdpCorrect
+     */
     public void setMdpCorrect(boolean mdpCorrect) {
         this.mdpCorrect = mdpCorrect;
     }
+    /**
+     * Getter boolean
+     */
     public boolean isMdpCorrect() {
         return mdpCorrect;
     }
