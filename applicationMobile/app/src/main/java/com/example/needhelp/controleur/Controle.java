@@ -87,6 +87,13 @@ public final class Controle {
         return connexionUtilisateurs.getIdUtilisateur();
     }
 
+    public ArrayList<Demande> getLesDemandesEnCours() {
+        return lesDemandesEnCours;
+    }
+
+    public void setLesDemandesEnCours(ArrayList<Demande> lesDemandesEnCours) {
+        Controle.lesDemandesEnCours = lesDemandesEnCours;
+    }
     public JSONArray idUtilisateurConvertToJSONArray(){
         List laListe = new ArrayList();
         laListe.add(getIdUtilisateur());

@@ -138,6 +138,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:background="@drawable/backgroundbouton"
-        android:text="@string/deconnexion" />
+        android:text="@string/retour" />
 
 </RelativeLayout>
