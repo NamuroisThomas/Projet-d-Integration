@@ -25,7 +25,6 @@ export class ContactComponent implements OnInit {
   }
 
   async resolved(captchaResponse) {
-    console.log(`Resolved response token: ${captchaResponse}`);
     await this.sendTokenToBackend(captchaResponse);
   }
 
