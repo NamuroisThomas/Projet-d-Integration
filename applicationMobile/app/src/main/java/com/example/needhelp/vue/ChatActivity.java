@@ -9,7 +9,7 @@ import com.example.needhelp.controleur.Controle;
 
 public class ChatActivity extends AppCompatActivity {
     Controle controle;
-    int utilisateur = controle.getIdUtilisateur();
+    //int utilisateur = controle.getIdUtilisateur();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -104,17 +104,15 @@ public class EnCoursListAdapter extends BaseAdapter {
         holder.txtTitreDemande.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                int ligne = (int) v.getTag();
                 //Demande de l'affichage de la demande
-                ((HomeActivity)context).afficherDetailDemande(lesDemandes.get(ligne));
+                ((EnCoursActivity)context).ecouteGoToChat();
             }
         });
         holder.txtDate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                int ligne = (int) v.getTag();
                 //Demande de l'affichage de la demande
-                ((HomeActivity)context).afficherDetailDemande(lesDemandes.get(ligne));
+                ((EnCoursActivity)context).ecouteGoToChat();
             }
         });
         return view;

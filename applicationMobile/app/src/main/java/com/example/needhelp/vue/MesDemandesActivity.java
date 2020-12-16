@@ -91,4 +91,9 @@ public class MesDemandesActivity extends AppCompatActivity {
             }
         });
     }
+
+    void ecouteGoToChat(){
+        Intent intent = new Intent(MesDemandesActivity.this,ChatActivity.class);
+        startActivity(intent);
+    }
 }
