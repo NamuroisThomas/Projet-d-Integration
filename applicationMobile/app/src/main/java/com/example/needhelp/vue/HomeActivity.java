@@ -156,10 +156,4 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(HomeActivity.this,DetailsDemandeActivity.class);
         startActivity(intent);
     }
-
-    private void recupDemandesEnCours(){
-        Controle controle = new Controle();
-        AccesDistant accesDistant = new AccesDistant();
-        accesDistant.envoi("demandesEnCours", controle.idUtilisateurConvertToJSONArray());
-    }
 }
