@@ -338,7 +338,7 @@ router.post('/token_validate', function(req, res){
         body = JSON.parse(body);
 
         //check if the validation failed
-        if(body.success != undefined && !data.success){
+        if(body.success != undefined && !response.success){
             res.send({success: false, 'message': "recaptcha failed"});
             return console.log("failed")
         }
