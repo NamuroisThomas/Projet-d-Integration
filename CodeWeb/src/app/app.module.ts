@@ -8,7 +8,7 @@ import { ListeDemandeComponent } from './liste-demande/liste-demande.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { AvisReportComponent } from './avis-report/avis-report.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';

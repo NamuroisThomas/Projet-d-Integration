@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MessageService} from 'primeng/api';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-page-not-found',
@@ -12,7 +11,6 @@ export class PageNotFoundComponent implements OnInit {
 
 
   public contact: FormGroup;
-  public errorMessage: string;
 
   public formContact = new FormGroup({
     Title: new FormControl(null),
@@ -20,8 +18,7 @@ export class PageNotFoundComponent implements OnInit {
   });
 
   constructor(private formBuilder: FormBuilder,
-              private messageService: MessageService,
-              private router: Router
+              private messageService: MessageService
   ) { }
 
   ngOnInit(){

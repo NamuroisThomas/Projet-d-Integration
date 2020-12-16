@@ -13,7 +13,6 @@ import {ListeDemandeComponent} from './liste-demande/liste-demande.component';
 import {DetailDemandeComponent} from './detail-demande/detail-demande.component';
 import {MaListeComponent} from './ma-liste/ma-liste.component';
 import {MesDemandesComponent} from './mes-demandes/mes-demandes.component';
-import {ChartModule} from 'primeng/chart';
 import {ChatComponent} from './chat/chat.component';
 import {ChatroomComponent} from './chat/chatroom/chatroom.component';
 import {AjoutContactComponent} from './chat/ajout-contact/ajout-contact.component';

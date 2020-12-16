@@ -13,6 +13,7 @@ export class MaListeComponent implements OnInit {
   listeDemande: any;
   nomPrenom: string;
   allListe: Array<any>;
+  id: any;
 
   constructor(private api: GetListeDemandeService,
               private http: HttpClient)
@@ -22,7 +23,7 @@ export class MaListeComponent implements OnInit {
       {formAccepteDemandeIdAccepteur: this.profil.idUtilisateur,
         formAccepteDemandeIdDemande: data
       })
-      .subscribe( (res) => {
+      .subscribe( () => {
           alert('demande rejeté');
           location.reload();
         }
@@ -30,6 +31,7 @@ export class MaListeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.profil = JSON.parse(localStorage.getItem('user'));
+    this.id = this.profil.idUtilisateur;
     this.api.listeDemandeCall().subscribe((res) => {
       this.listeDemande = res[Object.keys(res)[2]];
       });
