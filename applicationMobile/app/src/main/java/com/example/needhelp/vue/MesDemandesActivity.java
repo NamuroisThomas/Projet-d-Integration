@@ -92,7 +92,8 @@ public class MesDemandesActivity extends AppCompatActivity {
         });
     }
 
-    void ecouteGoToChat(){
+    void ecouteGoToChat(Demande demande){
+        controle.setDemande(demande);
         Intent intent = new Intent(MesDemandesActivity.this,ChatActivity.class);
         startActivity(intent);
     }

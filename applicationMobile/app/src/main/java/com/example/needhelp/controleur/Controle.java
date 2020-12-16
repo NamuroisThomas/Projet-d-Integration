@@ -78,10 +78,16 @@ public final class Controle {
         this.connexionUtilisateurs = connexionUtilisateurs;
     }
 
-    public Utilisateur getConnexionUtilisateurs() {
+    public static Utilisateur getConnexionUtilisateurs() {
         return connexionUtilisateurs;
     }
 
+    public static String getNomUtilisateur(){
+        Utilisateur utilisateur = getConnexionUtilisateurs();
+        String nom = utilisateur.getNomUser() + " " + utilisateur.getPrenomUser();
+        Log.d("Nom utilisateur", "**************************" + nom);
+        return nom;
+    }
     public int getIdUtilisateur(){
         //Log.d("idUser","******************" + connexionUtilisateurs.getIdUtilisateur());
         return connexionUtilisateurs.getIdUtilisateur();
