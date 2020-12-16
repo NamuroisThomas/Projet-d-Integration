@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import firebase from 'firebase';
+import {GetListeDemandeService} from "../liste-demande/liste-demande.service";
+import {HttpClient} from "@angular/common/http";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -22,6 +24,7 @@ export class ChatComponent implements OnInit {
   user = ('users/').concat(this.phoneNumber);
   ref = firebase.database().ref(this.user);
   matcher = new MyErrorStateMatcher();
+  profil = '';
 
   constructor(private router: Router, private formBuilder: FormBuilder) { }
 
@@ -46,6 +49,7 @@ export class ChatComponent implements OnInit {
         localStorage.setItem('phoneNumber', login.phoneNumber);
         this.router.navigate(['/conversations/', this.phoneNumber]);
       }
+
     });
   }
 }

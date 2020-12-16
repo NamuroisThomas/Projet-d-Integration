@@ -4,7 +4,7 @@
     <input type="tel" size="20" class="form-control" formControlName="phoneNumber"
            placeholder="Saisissez votre numéro de téléphone ex:+32458756415" pattern="[./+0-9]+">
     <mat-error>
-      <span *ngIf="!loginForm.get('phoneNumber').valid && loginForm.get('phoneNumber').touched">Rentrez un numéro de téléphone</span>
+      <span *ngIf="!loginForm.get('phoneNumber').valid && loginForm.get('phoneNumber').touched">format +32xxxxxxxxx obligé</span>
     </mat-error>
     <div class="button-row espace2">
       <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid" >login</button>

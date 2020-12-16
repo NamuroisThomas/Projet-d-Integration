@@ -1,11 +1,10 @@
 <div class="container">
+  <h3>chat demande: {{this.idDemande}}</h3>
   <div class="padding">
   <mat-drawer-container class="drawer-container">
     <mat-drawer mode="side" opened class="left-drawer">
       <div class="users-pane">
-        <mat-card class="users-card">
-          <button type="button" (click)="exitChat()"> logout </button>
-        </mat-card>
+        <button class="btn btn-danger" type="submit" (click)="exitChat()">Exit</button>
 <!--        <mat-card class="users-card" *ngFor="let user of users">-->
 <!--          person <span class="username">{{user.phoneNumber}}</span>-->
 <!--        </mat-card>-->
@@ -32,16 +31,15 @@
       </div>
 
       <form class="message-form" [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
-        <mat-form-field class="message-form-field">
-          <input matInput formControlName="message"
+          <input matInput formControlName="message" pInputText class="p-inputtext-sm"
                  [errorStateMatcher]="matcher">
           <mat-error>
             <span *ngIf="!chatForm.get('message').valid && chatForm.get('message').touched">Enter your message</span>
           </mat-error>
-          <button type="submit" [disabled]="!chatForm.valid" mat-button matSuffix mat-icon-button aria-label="Send">
+          <button type="button" class="btn btn-primary btn-sm" [disabled]="!chatForm.valid" >
             send
           </button>
-        </mat-form-field>
+
       </form>
 
       <div class="paddingbot">
