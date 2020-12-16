@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Entrez un numero d'utilisateur</h2>
+  <form class="example-form" [formGroup]="contactForm" (ngSubmit)="onFormSubmit(contactForm.value)">
+      <input  type="tel" size="20" class="form-control" formControlName="contactname"
+              placeholder="ex:+32458756415" pattern="[./+0-9]+">
+      <mat-error>
+        <span *ngIf="!contactForm.get('contactname').valid && contactForm.get('contactname').touched">Entrez un numéro d'uitilisateurr</span>
+      </mat-error>
+    <div class="button-row espace2">
+<!--      <button type="submit"  mat-fab color="primary"><mat-icon>save</mat-icon></button>-->
+      <button class="btn btn-primary" type="submit" [disabled]="!contactForm.valid" >Ajouter</button>
+    </div>
+  </form>
+</div>

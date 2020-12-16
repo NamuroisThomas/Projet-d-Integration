@@ -128,9 +128,4 @@ export class ListeDemandeComponent implements OnInit {
     this.profil = JSON.parse(localStorage.getItem('user'));
   }
 
-  onChangePage(listeDemande: Array<any>) {
-    // update current page of items
-    this.listeDemande = listeDemande;
-  }
-
 }

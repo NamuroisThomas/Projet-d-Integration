@@ -13,17 +13,18 @@
         <th>Catégorie</th>
         <th>Date</th>
         <th>Détail</th>
+        <th>retirer la demande</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let liste of listeDemande">
-        <td *ngIf="liste.accepte == nomPrenom">{{liste.titreDemande}}</td>
-        <td *ngIf="liste.accepte == nomPrenom"> {{ liste.nomCategorie }}</td>
-        <td *ngIf="liste.accepte == nomPrenom"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
-        <td *ngIf="liste.accepte == nomPrenom">
+        <td *ngIf="liste.accepteId == id">{{liste.titreDemande}}</td>
+        <td *ngIf="liste.accepteId == id"> {{ liste.nomCategorie }}</td>
+        <td *ngIf="liste.accepteId == id"> {{liste.dateDemande | date:"yyyy/MM/dd" }}</td>
+        <td *ngIf="liste.accepteId == id">
           <button class="btn btn-primary" routerLink="/listeAide/{{liste.idDemande}}">Détail</button>
         </td>
-        <td *ngIf="liste.accepte == nomPrenom">
+        <td *ngIf="liste.accepteId == id">
           <button class="btn btn-success" type="submit" (click)="desaccepterDemande(liste.idDemande)">Retirer votre
             acceptation
           </button>

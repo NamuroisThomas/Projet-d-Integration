@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import firebase from 'firebase';
 
 const config = {
   apiKey: 'AIzaSyDdE8dV4XP4LRawq64d7HKxVg53Qxnb_v0',
@@ -18,6 +19,7 @@ const config = {
 export class AppComponent {
   title = 'CodeWeb';
   constructor() {
+    firebase.initializeApp(config);
   }
 
 }

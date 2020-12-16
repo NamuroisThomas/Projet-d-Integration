@@ -12,11 +12,12 @@
 }
 
 
+@media (min-width: 770px) and (max-width: 1920px) {
 h1{
   height: auto;
 }
 
-h3{
+.espace2{
   padding-top: 0.50em;
   padding-bottom: 0.5em;
   padding-left: 2.55em;
@@ -27,22 +28,47 @@ h4{
   padding-left: 4em;
 }
 
-p{
+.espace{
   padding-bottom: 0.5em;
   padding-left: 8em;
 }
 
-dl {
-  overflow: auto;
+  dl {
+    overflow: auto;
+  }
+  dt {
+    float: left;
+    width: 40%;
+    padding-left: 6em;
+  }
+  dd {
+    float: right;
+    width: 55%;
+  }
+
 }
-dt {
-  float: left;
-  width: 40%;
-  padding-left: 6em;
-}
-dd {
-  float: right;
-  width: 55%;
+
+
+@media (max-width: 770px) {
+  h1{
+    height: auto;
+  }
+
+  .espace2{
+    padding-top: 0.50em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+  }
+
+  h4{
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+  }
+
+  .espace{
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+  }
 }
 
 button{
@@ -72,7 +98,7 @@ button{
   100% { transform: rotate(360deg); }
 }
 
-.text-centerp {
+.text-center {
 
   text-align: center;
   /* The image used */

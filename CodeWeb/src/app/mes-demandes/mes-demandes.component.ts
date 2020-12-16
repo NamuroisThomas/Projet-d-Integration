@@ -13,20 +13,23 @@ export class MesDemandesComponent implements OnInit {
   listeDemande: any;
   nomPrenom: string;
   allListe: Array<any>;
+  id: any;
 
   constructor(private api: GetListeDemandeService,
               private http: HttpClient)
   { }
   supprimerDemande(data){
     this.http.delete('http://62.210.130.145:3000/demande?idDemande=' + data).subscribe(
-      (res) => {
+      () => {
         alert('demande supprimé');
         location.reload();
       }
     );
   }
   ngOnInit(): void {
+
     this.profil = JSON.parse(localStorage.getItem('user'));
+    this.id = this.profil.idUtilisateur;
     this.api.listeDemandeCall().subscribe((res) => {
       this.listeDemande = res[Object.keys(res)[2]];
     });

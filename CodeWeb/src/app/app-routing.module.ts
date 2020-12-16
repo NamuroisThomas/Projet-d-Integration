@@ -13,7 +13,12 @@ import {ListeDemandeComponent} from './liste-demande/liste-demande.component';
 import {DetailDemandeComponent} from './detail-demande/detail-demande.component';
 import {MaListeComponent} from './ma-liste/ma-liste.component';
 import {MesDemandesComponent} from './mes-demandes/mes-demandes.component';
-import {ChartModule} from 'primeng/chart';
+import {ChatComponent} from './chat/chat.component';
+import {ChatroomComponent} from './chat/chatroom/chatroom.component';
+import {AjoutContactComponent} from './chat/ajout-contact/ajout-contact.component';
+import {ConversationsComponent} from './chat/conversations/conversations.component';
+import {GdprComponent} from './gdpr/gdpr.component';
+
 
 
 const appRoutes: Routes = [
@@ -30,7 +35,12 @@ const appRoutes: Routes = [
       {path: 'contactPage', component: ContactComponent},
       {path: 'editProfil', canActivate: [AuthGuard], component: EditProfilComponent},
       {path: 'connexion', component: ConnexionComponent},
+      {path: 'chatroom/:nickname/:contactname', component: ChatroomComponent}, //TODO ajouter canactivate quand test fini
+      {path: 'ajoutContact', component: AjoutContactComponent},
+      {path: 'conversations/:nickname', component: ConversationsComponent},
+      {path: 'chat', component: ChatComponent}, //TODO ajouter canactivate quand test fini
       {path: 'not-found', component: PageNotFoundComponent},
+      {path: 'gdpr', component: GdprComponent},
       {path: '**', redirectTo: 'home'}
     ]
   }
