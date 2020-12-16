@@ -147,6 +147,14 @@ public class CreerDemandeActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode pour afficher les données de la demandes en console
+     * @param titre
+     * @param description
+     * @param defraiement
+     * @param categorie
+     * @param codePostal
+     */
     private void afficheResult(String titre, String description, String defraiement, String categorie, String codePostal){
             Toast.makeText(CreerDemandeActivity.this,"ok",Toast.LENGTH_SHORT).show();
 
@@ -157,7 +165,9 @@ public class CreerDemandeActivity extends AppCompatActivity {
             Log.d("codePostal", "*******************" + codePostal);
     }
 
-
+    /**
+     * Méthode pour changer d'activity
+     */
     private void ecouteGoToHome(){
         ((Button)findViewById(R.id.buttonDeconnexionHome)).setOnClickListener(new Button.OnClickListener(){
             @Override
