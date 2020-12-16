@@ -27,6 +27,11 @@ public class EnCoursListAdapter extends BaseAdapter {
     private AccesDistant accesDistant = new AccesDistant();
     private Context context;
 
+    /**
+     * Constructeur
+     * @param context
+     * @param lesDemandes
+     */
     public EnCoursListAdapter(Context context,ArrayList<Demande> lesDemandes){
         this.lesDemandes = lesDemandes;
         this.inflater = LayoutInflater.from(context);
