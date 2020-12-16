@@ -32,6 +32,9 @@ public class MesDemandesActivity extends AppCompatActivity {
         ecouteGoToEncours();
     }
 
+    /**
+     * Méthode pour créer une liste de mes demandes grâce à l'adapter
+     */
     private void creerListeMesDemandes(){
         ArrayList<Demande> mesDemandes = controle.getMesDemandes();
         Log.d("Mes demandes","******************" + mesDemandes);
@@ -42,6 +45,9 @@ public class MesDemandesActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Méthode menant à l écran les demandes
+     */
     private void ecouteGoToLesDemandes(){
         ((Button)findViewById(R.id.radioDemandesToutes)).setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -52,6 +58,9 @@ public class MesDemandesActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode menant au profil
+     */
     public void  ecouteBoutonProfil() {
         ((Button) findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -63,6 +72,9 @@ public class MesDemandesActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode menant aux demandes en cours
+     */
     @SuppressLint("WrongViewCast")
     private void ecouteGoToEncours(){
         ((Button)findViewById(R.id.radioEnCours)).setOnClickListener(new Button.OnClickListener(){
@@ -92,6 +104,9 @@ public class MesDemandesActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode menant au chat
+     */
     void ecouteGoToChat(){
         Intent intent = new Intent(MesDemandesActivity.this,ChatActivity.class);
         startActivity(intent);

@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Ecoute du bouton menant à la connexion
+     */
     private void ecouteGoToConnexion() {
         ((Button) findViewById(R.id.boutonGoToConnexion)).setOnClickListener(new Button.OnClickListener() {
             @Override
