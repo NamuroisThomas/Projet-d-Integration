@@ -215,7 +215,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepteId\":1,\"accepte\":\"testNom testPrenom\"}');\r",
 									"\r",
 									"});"
 								],
@@ -261,7 +261,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepteId\":1,\"accepte\":\"testNom testPrenom\"}');\r",
 									"\r",
 									"});"
 								],
@@ -307,7 +307,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":34,\"titreDemande\":\"vev\",\"descriptionDemande\":\"vfvr\",\"dateDemande\":\"2020-11-06T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Electricité\",\"idCodePostal\":7804,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepte\":\"   \"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":34,\"titreDemande\":\"vev\",\"descriptionDemande\":\"vfvr\",\"dateDemande\":\"2020-11-06T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Electricité\",\"idCodePostal\":7804,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepteId\":0,\"accepte\":\"   \"}');\r",
 									"\r",
 									"});"
 								],
@@ -353,7 +353,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":15,\"titreDemande\":\"Cuisine\",\"descriptionDemande\":\"Je cherche de l\\'aide pour un gateau d\\'anniversaire\",\"dateDemande\":\"2020-11-10T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Cuisine\",\"idCodePostal\":7973,\"defraiementDemande\":1,\"accepteDemande\":1,\"accepte\":\"test test\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":15,\"titreDemande\":\"Cuisine\",\"descriptionDemande\":\"Je cherche de l\\'aide pour un gateau d\\'anniversaire\",\"dateDemande\":\"2020-11-10T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Cuisine\",\"idCodePostal\":7973,\"defraiementDemande\":1,\"accepteDemande\":1,\"accepteId\":5,\"accepte\":\"test test\"}');\r",
 									"\r",
 									"});"
 								],
@@ -399,7 +399,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepteId\":1,\"accepte\":\"testNom testPrenom\"}');\r",
 									"\r",
 									"});"
 								],
@@ -452,7 +452,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepteId\":1,\"accepte\":\"testNom testPrenom\"}');\r",
 									"\r",
 									"});"
 								],
@@ -505,7 +505,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":34,\"titreDemande\":\"vev\",\"descriptionDemande\":\"vfvr\",\"dateDemande\":\"2020-11-06T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Electricité\",\"idCodePostal\":7804,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepte\":\"   \"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":34,\"titreDemande\":\"vev\",\"descriptionDemande\":\"vfvr\",\"dateDemande\":\"2020-11-06T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Electricité\",\"idCodePostal\":7804,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepteId\":0,\"accepte\":\"   \"}');\r",
 									"\r",
 									"});"
 								],
@@ -558,7 +558,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":45,\"titreDemande\":\"test aller\",\"descriptionDemande\":\"ede\",\"dateDemande\":\"2020-12-16T23:00:00.000Z\",\"idUtilisateur\":3,\"nom\":\"Luk Brian\",\"nomCategorie\":\"Petits travaux\",\"idCodePostal\":1011,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepte\":\"   \"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":45,\"titreDemande\":\"test aller\",\"descriptionDemande\":\"ede\",\"dateDemande\":\"2020-12-16T23:00:00.000Z\",\"idUtilisateur\":3,\"nom\":\"Luk Brian\",\"nomCategorie\":\"Petits travaux\",\"idCodePostal\":1011,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepteId\":0,\"accepte\":\"   \"}');\r",
 									"\r",
 									"});"
 								],
