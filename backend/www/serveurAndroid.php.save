@@ -146,25 +146,6 @@
                 print ("Erreur !").$e->getMessage();
                 die();
             }
-        }elseif($_REQUEST["operation"]=="mesDemandes"){
-            try{
-                print("mesDemandes%");
-                $lesdonnees = $_REQUEST["lesdonnees"];
-                $donnee = json_decode($lesdonnees);
-                $idUtilisateur = $donnee[0];
-                $cnx= connexionPDO();
-                $larequete = "SELECT * FROM demandes WHERE idUtilisateur='$idUtilisateur'";
-                $req = $cnx->prepare($larequete);
-                $req->execute();
-                // recuperation des demandes en cours
-                while($ligne = $req->fetch(PDO::FETCH_ASSOC)){
-                   $resultat[]=$ligne;
-                }
-                 print(json_encode($resultat));
-            }catch(PDOException $e){
-                print ("Erreur !").$e->getMessage();
-                die();
-            }
         }elseif($_REQUEST["operation"]=="modificationUtilisateur"){
             try{
                 // recuperation des donnees en post
