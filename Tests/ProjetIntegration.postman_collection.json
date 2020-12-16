@@ -1,0 +1,985 @@
+{
+	"info": {
+		"_postman_id": "1c100d5c-f3ec-46c0-8bbe-d1a9a23cb6f8",
+		"name": "ProjetIntegration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Demandes",
+			"item": [
+				{
+					"name": "POST demande ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5ecbea0f-50b5-443a-a7d9-47fcadbcc300",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "formDemandeTitre",
+									"value": "Pantalons trop long",
+									"description": "Le titre de la demande, maximum 50 caractères",
+									"type": "text"
+								},
+								{
+									"key": "formDemandeDescription",
+									"value": "Un(e) couturier(e) pour me faire des bords de pantalon",
+									"description": "La description de la demande",
+									"type": "text"
+								},
+								{
+									"key": "formDemandeDate",
+									"value": "2020-11-03",
+									"description": "La date pour laquelle la demande doit être finie",
+									"type": "text"
+								},
+								{
+									"key": "formDemandeIdUtilisateur",
+									"value": "5",
+									"description": "L'id de l'utilisateur qui fait la demande",
+									"type": "text"
+								},
+								{
+									"key": "formDemandeIdCategorie",
+									"value": "5",
+									"description": "L'id de la catégorie dans laquelle la demande est",
+									"type": "text"
+								},
+								{
+									"key": "formDemandeDefraiement",
+									"value": "0",
+									"description": "Savoir si un défraiement est proposé pour la demande",
+									"type": "text"
+								},
+								{
+									"key": "formDemandeIdCodePostal",
+									"value": "6440",
+									"description": "L'id du code postal du lieu où la demande est",
+									"type": "text"
+								}
+							],
+							"options": {
+								"urlencoded": {}
+							}
+						},
+						"url": {
+							"raw": "62.210.130.145:3000/demande",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demande"
+							]
+						},
+						"description": "Permet d'ajouter une demande dans la base de données. Cette demande requiert d'avoir les champs suivants complétés : \r\n- Titre\r\n- Description\r\n- Date\r\n- Id de l'utilisateur\r\n- Id de la catégorie\r\n- Défraiement\r\n- Id du code postal"
+					},
+					"response": []
+				},
+				{
+					"name": "POST accepteDemande",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ee32365-9a14-42a9-aa76-33cc905f842d",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "formAccepteDemandeIdAccepteur",
+									"value": "5",
+									"description": "L'id de la personne qui accepte la demande",
+									"type": "text"
+								},
+								{
+									"key": "formAccepteDemandeIdDemande",
+									"value": "15",
+									"description": "L'id de la demande qui est acceptée",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "62.210.130.145:3000/accepteDemande",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"accepteDemande"
+							]
+						},
+						"description": "Permet d'accepter une demande sur base de l'id de l'utilisateur qui accepte et l'id de la demande."
+					},
+					"response": []
+				},
+				{
+					"name": "POST desaccepteDemande",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "870c03be-b304-4c74-8b56-3a4f6c419f74",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "formAccepteDemandeIdDemande",
+									"value": "56",
+									"description": "L'id de la demande qui ne doit plus être acceptée",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "62.210.130.145:3000/desaccepteDemande",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"desaccepteDemande"
+							]
+						},
+						"description": "Permet de désaccepter une demande sur base de l'id de la demande."
+					},
+					"response": []
+				},
+				{
+					"name": "GET demandes ALL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bfcf208d-8d5b-45b5-a2c4-c0dfca05a625",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepteId\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/demandes",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demandes"
+							]
+						},
+						"description": "Permet de récupérer toutes les demandes stockées dans la base de données."
+					},
+					"response": []
+				},
+				{
+					"name": "GET demandes ALL acceptee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9b063794-7c01-4936-a96e-444ef25eca2d",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepteId\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/demandeAcceptee",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demandeAcceptee"
+							]
+						},
+						"description": "Permet de récupérer toutes les demandes acceptées, qui sont stockées dans la base de données."
+					},
+					"response": []
+				},
+				{
+					"name": "GET demandes ALL non acceptee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f832f5f0-3e4a-45da-a1ed-0ab7cc107681",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":34,\"titreDemande\":\"vev\",\"descriptionDemande\":\"vfvr\",\"dateDemande\":\"2020-11-06T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Electricité\",\"idCodePostal\":7804,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepteId\":0,\"accepte\":\"   \"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/demandeNonAcceptee",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demandeNonAcceptee"
+							]
+						},
+						"description": "Permet de récupérer toutes les demandes non acceptées, stockées dans la base de données."
+					},
+					"response": []
+				},
+				{
+					"name": "GET demandes ALL defraiement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5645c38c-3191-4942-9eec-deb6d1040a2f",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":15,\"titreDemande\":\"Cuisine\",\"descriptionDemande\":\"Je cherche de l\\'aide pour un gateau d\\'anniversaire\",\"dateDemande\":\"2020-11-10T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Cuisine\",\"idCodePostal\":7973,\"defraiementDemande\":1,\"accepteDemande\":1,\"accepteId\":5,\"accepte\":\"test test\"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/demandeDefraiement",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demandeDefraiement"
+							]
+						},
+						"description": "Permet de récupérer toutes les demandes ayant un défraiement, stockées dans la base de données."
+					},
+					"response": []
+				},
+				{
+					"name": "GET demandes by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "97d79db3-de87-4d98-ad2c-b802be5d04f8",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepteId\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/demandes?idDemande=5",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demandes"
+							],
+							"query": [
+								{
+									"key": "idDemande",
+									"value": "5",
+									"description": "L'id de la demande recherchée"
+								}
+							]
+						},
+						"description": "Permet de récupérer une demande précise sur base de son ID passée en argument."
+					},
+					"response": []
+				},
+				{
+					"name": "GET demandes by idUtilisateur",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5994068a-0339-45ea-9f09-bd8fd7d9aae4",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepteId\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/demandes?utilisateur=1",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demandes"
+							],
+							"query": [
+								{
+									"key": "utilisateur",
+									"value": "1",
+									"description": "L'id de l'utilisateur dont on veut les demandes"
+								}
+							]
+						},
+						"description": "Permet de récupérer les demandes d'un utilisateur précis sur base de son ID utilisateur passé en argument."
+					},
+					"response": []
+				},
+				{
+					"name": "GET demandes by codePostal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b151c7e3-3e89-4e4f-8a3a-6afa338f33c4",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":34,\"titreDemande\":\"vev\",\"descriptionDemande\":\"vfvr\",\"dateDemande\":\"2020-11-06T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Electricité\",\"idCodePostal\":7804,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepteId\":0,\"accepte\":\"   \"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/demandes?codePostal=7804",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demandes"
+							],
+							"query": [
+								{
+									"key": "codePostal",
+									"value": "7804",
+									"description": "Le code postal du lieu où l'on veut les demandes"
+								}
+							]
+						},
+						"description": "Permet de récupérer les demandes, non acceptées, situées à un endroit précis sur base du code postal passé en argument."
+					},
+					"response": []
+				},
+				{
+					"name": "GET demandes by categorie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6a25d213-6df4-4045-a4c6-08e32b2d8454",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":45,\"titreDemande\":\"test aller\",\"descriptionDemande\":\"ede\",\"dateDemande\":\"2020-12-16T23:00:00.000Z\",\"idUtilisateur\":3,\"nom\":\"Luk Brian\",\"nomCategorie\":\"Petits travaux\",\"idCodePostal\":1011,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepteId\":0,\"accepte\":\"   \"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/demandes?idCateg=3",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demandes"
+							],
+							"query": [
+								{
+									"key": "idCateg",
+									"value": "3",
+									"description": "L'id de la catégorie dont on veut les demandes"
+								}
+							]
+						},
+						"description": "Permet de récupérer toutes les demandes, non acceptées, répondants à une catégorie précise, dont l'ID catégorie est passé en argument."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE demande by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64483d64-f4d1-4cf2-9dbd-07ed86cd0bbf",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/demande?idDemande=8",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"demande"
+							],
+							"query": [
+								{
+									"key": "idDemande",
+									"value": "8",
+									"description": "L'id de la demande que l'on veut supprimer"
+								}
+							]
+						},
+						"description": "Permet de supprimer une demande de la base de données grace à son ID."
+					},
+					"response": []
+				}
+			],
+			"description": "Dossier contenant toutes les requêtes permettant de traiter les demandes. Que cela soit pour en récupérér dans la base de données ou pour en extraire de la base de données.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Utilisateur",
+			"item": [
+				{
+					"name": "POST inscription",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c5a3085b-a327-4d59-81d2-93662dac450b",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "formInscriptionNom",
+									"value": "DeCocq",
+									"description": "Le nom de l'utilisateur qui veut s'inscrire",
+									"type": "text"
+								},
+								{
+									"key": "formInscriptionPrenom",
+									"value": "Maxime",
+									"description": "Le prénom de l'utilisateur qui veut s'inscrire",
+									"type": "text"
+								},
+								{
+									"key": "formInscriptionMail",
+									"value": "m.dc@gmail.com",
+									"description": "Le mail de l'utilisateur qui veut s'inscrire",
+									"type": "text"
+								},
+								{
+									"key": "formInscriptionTel",
+									"value": "+32478252412",
+									"description": "Le numéro de téléphonne de l'utilisateur qui veut s'inscrire",
+									"type": "text"
+								},
+								{
+									"key": "formInscriptionMdp",
+									"value": "pi7d1a9c8b51fe219bb747df492026c4648ba20139e4ef8065183bbcbc5c98abc7fsel",
+									"description": "Le condesat du mot de passe de l'utilisateur qui veut s'inscrire",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "62.210.130.145:3000/inscription",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"inscription"
+							]
+						},
+						"description": "Permet d'ajouter un utilisateur dans la base de données. Cette demande requiert d'avoir les champs suivants complétés : \r\n- formInscriptionNom : qui contient le nom du nouvel utilisateur\r\n- formInscriptionPrenom : qui contient le prénom du nouvel utilisateur\r\n- formInscriptionMail : qui contient le mail du nouvel utilisateur\r\n- formInscriptionTel : qui contient le numéro de télephonne du nouvel utilisateur\r\n- formInscriptionMdp : qui contient le condensat du mot de passe du nouvel utilisateur"
+					},
+					"response": []
+				},
+				{
+					"name": "POST profil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c33a6bad-be50-4cd6-8f1d-c8987a99add4",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "formProfilIdUtilisateur",
+									"value": "2",
+									"description": "L'id de l'utilisateur qui modifie son profil",
+									"type": "text"
+								},
+								{
+									"key": "formProfilMailUtilisateur",
+									"value": "gaetan.gortz@gmail.com",
+									"description": "L'adresse email du profil à modifier",
+									"type": "text"
+								},
+								{
+									"key": "formProfilTelUtilisateur",
+									"value": "+32478262700",
+									"description": "Le téléphone du profil à modifier",
+									"type": "text"
+								},
+								{
+									"key": "formProfilDescriptionUtilisateur",
+									"value": "Jeune ado disposant d'une voiture",
+									"description": "La description du profil à modifier",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "62.210.130.145:3000/profil",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"profil"
+							]
+						},
+						"description": "Permet à un utilisateur de modifier son profil en base de données. Les champs pouvant être modifiés sont : \r\n- formProfilMailUtilisateur : permettant de changer son adresse mail\r\n- formProfilTelUtilisateur : permettant de changer son numéro de téléphone\r\n- formProfilDescriptionUtilisateur : permettant de changer sa description"
+					},
+					"response": []
+				},
+				{
+					"name": "GET utilisateur",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d97b86ad-e583-4cb4-a0fa-3fdb2f23ba5d",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idUtilisateur\":3,\"nomUtilisateur\":\"Luk\",\"prenomUtilisateur\":\"Brian\",\"mailUtilisateur\":\"luk.brian@gmail.com\",\"telUtilisateur\":\"+32478252525\",\"mdpUtilisateur\":\"pi7d1a9c8b51fe219bb747df492026c4648ba20139e4ef8065183bbcbc5c98abc7fsel\"');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/mailExist?mail=luk.brian@gmail.com",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"mailExist"
+							],
+							"query": [
+								{
+									"key": "mail",
+									"value": "luk.brian@gmail.com",
+									"description": "Le mail de l'utilisateur dont on veut les informations"
+								}
+							]
+						},
+						"description": "Permet de récupérer les informations sur un utilisateur précis sur base de son id."
+					},
+					"response": []
+				}
+			],
+			"description": "Dossier contenant toutes les requêtes qui permettent de gérer les utilisateurs, que ce soit pour l'inscription ou la connexion.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Autre",
+			"item": [
+				{
+					"name": "GET codePostal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3ced621e-4231-4cf1-b505-098299a42b9b",
+								"exec": [
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idCodePostal\":1000,\"nomVille\":\"Bruxelles\",\"province\":\"Bruxelles\"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/codePostal",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"codePostal"
+							]
+						},
+						"description": "Permet de récupérer tous les codes postaux stockés dans la base de données."
+					},
+					"response": []
+				},
+				{
+					"name": "GET categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4c35d9aa-9a39-45a6-81eb-e0ec4339fbab",
+								"exec": [
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idCategorie\":1,\"nomCategorie\":\"Courses\"}');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/test",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"test"
+							]
+						},
+						"description": "Permet de récupérer toutes les catégories stockées dans la base de données."
+					},
+					"response": []
+				},
+				{
+					"name": "POST token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7cbe2886-b9fc-43bc-9bc9-795e3c5b9d06",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "62.210.130.145:3000/token_validate?recaptcha=",
+							"host": [
+								"62",
+								"210",
+								"130",
+								"145"
+							],
+							"port": "3000",
+							"path": [
+								"token_validate"
+							],
+							"query": [
+								{
+									"key": "recaptcha",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Dossier contenant les autres requêtes que nous employons afin d'avoir la liste des catégories, des codes postaux",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

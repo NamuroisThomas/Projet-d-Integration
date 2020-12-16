@@ -49,7 +49,7 @@ router.get('/demandes', function(req,res,next) {
     console.log('GET demande');
     if (demande_id != undefined) {
         console.log('GET demande by id ' + demande_id);
-        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE idDemande=?', [demande_id], function (error, results, fields) {
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande,u1.idUtilisateur, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, u2.idUtilisateur AS accepteId, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE idDemande=?', [demande_id], function (error, results, fields) {
             if (error != null) {
                 res.redirect(529, '/error');
                 console.log("erreur query");
@@ -61,7 +61,7 @@ router.get('/demandes', function(req,res,next) {
         });
     } else if (categ_id != undefined) {
         console.log('GET demande by idCateg' + categ_id);
-        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCategorie=? AND accepteDemande = 0', [categ_id], function (error, results, fields) {
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, u1.idUtilisateur, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, u2.idUtilisateur AS accepteId, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCategorie=? AND accepteDemande = 0', [categ_id], function (error, results, fields) {
             if (error != null) {
                 res.redirect(529, '/error');
                 console.log("erreur query");
@@ -73,7 +73,7 @@ router.get('/demandes', function(req,res,next) {
         });
     } else if (codePostal != undefined) {
         console.log('GET demande by codePostal' + codePostal);
-        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCodePostal=? AND accepteDemande = 0', [codePostal], function (error, results, fields) {
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, u1.idUtilisateur, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, u2.idUtilisateur AS accepteId, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idCodePostal=? AND accepteDemande = 0', [codePostal], function (error, results, fields) {
             if (error != null) {
                 res.redirect(529, '/error');
                 console.log("erreur query");
@@ -85,7 +85,7 @@ router.get('/demandes', function(req,res,next) {
         });
     } else if (idUtilisateur != undefined) {
         console.log('GET demande by utilisateur' + idUtilisateur);
-        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idUtilisateur=?', [idUtilisateur], function (error, results, fields) {
+        res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, u1.idUtilisateur, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, u2.idUtilisateur AS accepteId, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE demandes.idUtilisateur=?', [idUtilisateur], function (error, results, fields) {
             if (error != null) {
                 res.redirect(529, '/error');
                 console.log("erreur query");
@@ -98,7 +98,7 @@ router.get('/demandes', function(req,res,next) {
       
     }else {
 	    console.log('GET demande all');
-		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande,  CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur', function(error, results, fields) {
+		res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, u1.idUtilisateur, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, u2.idUtilisateur AS accepteId, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur', function(error, results, fields) {
 			if (error!=null) {
 				res.redirect(529, '/error');
 				console.log("erreur query" + error);
@@ -114,7 +114,7 @@ router.get('/demandes', function(req,res,next) {
 //Retourne toutes les demandes acceptées
 router.get('/demandeAcceptee', function(req,res,next){
     console.log('GET demande all acceptees');
-    res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande,  CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE accepteDemande = 1', function(error, results, fields) {
+    res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, u1.idUtilisateur, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, u2.idUtilisateur AS accepteId, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE accepteDemande = 1', function(error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
             console.log("erreur query" + error);
@@ -129,7 +129,7 @@ router.get('/demandeAcceptee', function(req,res,next){
 //Retourne toutes les demandes non acceptées
 router.get('/demandeNonAcceptee', function(req,res,next){
     console.log('GET demande all non acceptees');
-    res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande,  CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE accepteDemande = 0', function(error, results, fields) {
+    res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, u1.idUtilisateur, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, u2.idUtilisateur AS accepteId, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE accepteDemande = 0', function(error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
             console.log("erreur query" + error);
@@ -145,7 +145,7 @@ router.get('/demandeNonAcceptee', function(req,res,next){
 //Retourne toutes les demandes avec défraiement
 router.get('/demandeDefraiement', function(req,res,next){
     console.log('GET demande all non acceptees');
-    res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande,  CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE defraiementDemande = 1', function(error, results, fields) {
+    res.locals.connection.query('SELECT DISTINCT idDemande, titreDemande, descriptionDemande, dateDemande, u1.idUtilisateur, CONCAT(u1.nomUtilisateur, " " , u1.prenomUtilisateur) AS nom, nomCategorie, idCodePostal, defraiementDemande, accepteDemande, u2.idUtilisateur AS accepteId, CONCAT(u2.nomUtilisateur, " ", u2.prenomUtilisateur) AS accepte FROM demandes JOIN utilisateurs AS u1 on demandes.idUtilisateur = u1.idUtilisateur JOIN categories on demandes.idCategorie = categories.idCategorie JOIN utilisateurs AS u2 ON demandes.acceptePar = u2.idUtilisateur WHERE defraiementDemande = 1', function(error, results, fields) {
         if (error!=null) {
             res.redirect(529, '/error');
             console.log("erreur query" + error);
