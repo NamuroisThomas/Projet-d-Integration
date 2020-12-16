@@ -138,11 +138,15 @@ public class Demande {
     public String getDateDemande() {
         return dateDemande;
     }
-
     public void setAccepteDemande(int accepteDemande) {
         this.accepteDemande = accepteDemande;
     }
-    public void setAcceptePar(int acceptePar){
+
+    public int getAcceptePar() {
+        return acceptePar;
+    }
+
+    public void setAcceptePar(int acceptePar) {
         this.acceptePar = acceptePar;
     }
 }

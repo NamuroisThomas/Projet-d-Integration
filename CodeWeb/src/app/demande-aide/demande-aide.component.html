@@ -3,51 +3,56 @@
   <div class="row">
     <img src="./assets/img/svg/undraw_google_docs_jf93.svg" alt="Image demande d'aide" width="100vw" height="100vh">
     <div class="col-6">
-      <form #dPost="ngForm" (ngSubmit)="submit(dPost.value)" >
+      <form #dPost="ngForm" (ngSubmit)="submit(dPost.value)">
         <div class="form-group">
           <label>Intitulé</label>
           <input type="text" class="form-control" name="formDemandeTitre" placeholder="Ex: Courses" required ngModel>
         </div>
-        
+
         <div class="form-group">
           <label>Description</label>
-          <input type="text" class="form-control" name="formDemandeDescription" placeholder="ex: besoin d'une aide pour faire des courses mardi" required ngModel>
+          <input type="text" class="form-control" name="formDemandeDescription"
+                 placeholder="ex: besoin d'une aide pour faire des courses mardi" required ngModel>
         </div>
-        
+
         <div class="form-group">
           <label>Catégorie</label>
           <select class="form-control" [(ngModel)]="formDemandeIdCategorie" name="formDemandeIdCategorie">
-            <option *ngFor="let choice of listeCategorie" [ngValue]="choice.idCategorie" ngModel name="formDemandeIdCategorie">{{ choice.nomCategorie }}</option>
+            <option *ngFor="let choice of listeCategorie" [ngValue]="choice.idCategorie" ngModel
+                    name="formDemandeIdCategorie">{{ choice.nomCategorie }}
+            </option>
           </select>
         </div>
-        
+
         <div class="form-group">
           <label>Date</label>
           <input type="date" class="form-control" name="formDemandeDate" placeholder="2020-10-10" required ngModel>
         </div>
-        
+
         <div class="form-group">
           <label>Défraiement</label>
           <select class="form-control" [(ngModel)]="formDemandeDefraiement" name="formDemandeDefraiement">
             <option *ngFor="let defr of ONDefraiement" [ngValue]="defr.val">{{ defr.desc }}</option>
           </select>
         </div>
-        
+
         <div class="form-group">
           <label>Code postal</label>
-          <!--   <input type="text" class="form-control" name="formDemandeIdCodePostal" placeholder="ex: 1390" required ngModel>   -->
           <select class="form-control" [(ngModel)]="formDemandeIdCodePostal" name="formDemandeIdCodePostal">
-            <option *ngFor="let copo of listeCodePostaux" [ngValue]="copo.idCodePostal">{{copo.idCodePostal}} {{copo.nomVille}}</option>
+            <option *ngFor="let copo of listeCodePostaux" [ngValue]="copo.idCodePostal">{{copo.idCodePostal}}
+              {{copo.nomVille}}
+            </option>
           </select>
-          
+
         </div>
-        
+
         <div class="form-group" hidden>
           <label>idUtilisateur</label>
-          <input disabled="true" type="number" class="form-control" name="formDemandeIdUtilisateur" value="{{role.idUtilisateur}}" ngModel [(ngModel)]="role.idUtilisateur" required>
+          <input readonly="readonly" type="number" class="form-control" name="formDemandeIdUtilisateur"
+                 value="{{role.idUtilisateur}}" ngModel [(ngModel)]="role.idUtilisateur" required>
         </div>
-        
-        
+
+
         <div class="form-group">
           <button class="btn btn-primary" type="submit" [disabled]="!dPost.form.valid">Enregistrer</button>
         </div>

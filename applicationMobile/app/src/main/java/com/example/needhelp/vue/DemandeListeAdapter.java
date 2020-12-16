@@ -96,6 +96,8 @@ public class DemandeListeAdapter extends BaseAdapter {
                 lesDemandes.get(ligne).setAccepteDemande(1);
                 lesDemandes.get(ligne).setAcceptePar(controle.getIdUtilisateur());
                 accesDistant.envoi("accepter", lesDemandes.get(ligne).accepterConvertToJSONArray() );
+                lesDemandes.remove(ligne);
+                notifyDataSetChanged();
             }
         });
         holder.txtTitreDemande.setTag(position);

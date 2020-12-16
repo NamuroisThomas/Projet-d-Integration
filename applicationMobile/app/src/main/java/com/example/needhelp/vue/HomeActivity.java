@@ -38,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
         creerListe();
         ecouteBoutonProfil();
         ecouteGoToEncours();
+        ecouteGoToMesDemande();
     }
 
 
@@ -80,12 +81,41 @@ public class HomeActivity extends AppCompatActivity {
                             Log.d("Tread","**************** T1 commence");
                             AccesDistant accesDistant = new AccesDistant();
                             accesDistant.envoi("demandesEnCours", controle.idUtilisateurConvertToJSONArray());
+                            Log.d("test","************* ID:" + controle.idUtilisateurConvertToJSONArray());
                             try {
                                 Thread.sleep(3000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                             Intent intent = new Intent(HomeActivity.this,EnCoursActivity.class);
+                            startActivity(intent);
+                        }
+                    };
+                    t1.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void ecouteGoToMesDemande(){
+        ((Button)findViewById(R.id.radioMesDemandes)).setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                try{
+                    final Thread t1 = new Thread(){
+                        public void run(){
+                            Log.d("Tread","**************** T1 commence");
+                            AccesDistant accesDistant = new AccesDistant();
+                            accesDistant.envoi("mesDemandes", controle.idUtilisateurConvertToJSONArray());
+                            Log.d("test","************* ID:" + controle.idUtilisateurConvertToJSONArray());
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            Intent intent = new Intent(HomeActivity.this,MesDemandesActivity.class);
                             startActivity(intent);
                         }
                     };

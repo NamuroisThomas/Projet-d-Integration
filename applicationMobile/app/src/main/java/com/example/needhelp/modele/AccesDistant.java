@@ -51,22 +51,29 @@ public class AccesDistant implements AsyncResponse {
         if (message.length > 1) {
             if (message[0].equals("enreg")) {
                 Log.d("enreg", "***********" + message[1]);
-            } else if (message[0].equals("enregDemande")) {
+            }
+            /**
+             * Enregistrement d'une nouvelle demande
+             */
+            else if (message[0].equals("enregDemande")) {
                 Log.d("insert","********** insertion reussie normalement");
-            }else if (message[0].equals("modificationUtilisateur")) {
+            }
+            /**
+             * Modification des données utilisateurs
+             */
+            else if (message[0].equals("modificationUtilisateur")) {
                 Log.d("insert","********** Modification réussie");
-            } else if (message[0].equals("dernier")) {
-                Log.d("dernier", "***********" + message[1]);
-                try {
-                    JSONObject info = new JSONObject(message[1]);
-                    Integer idCateg = info.getInt("idCategorie");
-                    String nomCateg = info.getString("nomCategorie");
-                } catch (JSONException e) {
-                    Log.d("erreur ", "Conversiont JSON impossible ***********" + e.toString());
-                }
-            } else if (message[0].equals("Erreur !")) {
+            }
+            /**
+             * Message d'erreur
+             */
+            else if (message[0].equals("Erreur !")) {
                 Log.d("Erreur !", "***********" + message[1]);
-            } else if (message[0].equals("connexion")) {
+            }
+            /**
+             * Connexion de l'utilisateur et vérification des mdp
+             */
+            else if (message[0].equals("connexion")) {
                 try {
                     JSONObject info = new JSONObject(message[1]);
                     mailServeur = info.getString("mailUtilisateur");
@@ -98,9 +105,17 @@ public class AccesDistant implements AsyncResponse {
                     Log.d("ERREUR", "************** Recup donnee connexions echouee\n****" + e);
                     ConnexionActivity conn = new ConnexionActivity();
                 }
-            } else if (message[0].equals("accepter")) {
+            }
+            /**
+             * Accepter une demande
+             */
+            else if (message[0].equals("accepter")) {
                 Log.d("insert","********** Changement réussi");
-            }else if (message[0].equals("demandesTout")){
+            }
+            /**
+             * Récupération  de toutes les demandes
+             */
+            else if (message[0].equals("demandesTout")){
                 Log.d("demandes","*****************" + message[1]);
                 try {
                     JSONArray jsonInfo = new JSONArray(message[1]);
@@ -114,14 +129,14 @@ public class AccesDistant implements AsyncResponse {
                         String descriptionDemande = info.getString("descriptionDemande");
                         String dateDemande = info.getString("dateDemande");
                         Integer idUtilisateur = info.getInt("idUtilisateur");
-                        String idCategorie = info.getString("idCategorie");
+                        String categorie = info.getString("idCategorie");
                         String defraiementDemande = info.getString("defraiementDemande");
                         String idCodePostal = info.getString("idCodePostal");
                         Integer accepteDemande = info.getInt("accepteDemande");
                         Integer acceptePar = info.getInt("acceptePar");
 
                         // Création de l'objet
-                        Demande demande = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,idCategorie,defraiementDemande,
+                        Demande demande = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,categorie,defraiementDemande,
                                 idCodePostal,accepteDemande,acceptePar);
                         lesDemandes.add(demande);
                         Log.d("Ajout","********************* Demande ajoutéé");
@@ -130,7 +145,11 @@ public class AccesDistant implements AsyncResponse {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }else if (message[0].equals("demandesEnCours")){
+            }
+            /**
+             * Récupération des demandes en cours
+             */
+            else if (message[0].equals("demandesEnCours")){
                 Log.d("demandes","*****************" + message[1]);
                 try {
                     JSONArray jsonInfo = new JSONArray(message[1]);
@@ -144,14 +163,14 @@ public class AccesDistant implements AsyncResponse {
                         String descriptionDemande = info.getString("descriptionDemande");
                         String dateDemande = info.getString("dateDemande");
                         Integer idUtilisateur = info.getInt("idUtilisateur");
-                        String idCategorie = info.getString("idCategorie");
+                        String categorie = info.getString("idCategorie");
                         String defraiementDemande = info.getString("defraiementDemande");
                         String idCodePostal = info.getString("idCodePostal");
                         Integer accepteDemande = info.getInt("accepteDemande");
                         Integer acceptePar = info.getInt("acceptePar");
 
                         // Création de l'objet
-                        Demande demandeEnCours = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,idCategorie,defraiementDemande,
+                        Demande demandeEnCours = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,categorie,defraiementDemande,
                                 idCodePostal,accepteDemande,acceptePar);
                         lesDemandesEnCours.add(demandeEnCours);
                         Log.d("Ajout","********************* Demande en cours ajoutéé");
@@ -161,6 +180,43 @@ public class AccesDistant implements AsyncResponse {
                     e.printStackTrace();
                 }
             }
+            /**
+             * Récupération des demandes introduites par l'utilisateurs
+             */
+            else if (message[0].equals("mesDemandes")){
+                Log.d("mes demandes:","*****************" + message[1]);
+                try {
+                    JSONArray jsonInfo = new JSONArray(message[1]);
+                    ArrayList<Demande> lstMesDemandes = new ArrayList<Demande>();
+                    for(int k=0;k<jsonInfo.length();k++){
+                        JSONObject info = new JSONObject(jsonInfo.get(k).toString());
+
+                        // Ajout des valeur de la demandes
+                        Integer idDemande = info.getInt("idDemande");
+                        String titreDemande = info.getString("titreDemande");
+                        String descriptionDemande = info.getString("descriptionDemande");
+                        String dateDemande = info.getString("dateDemande");
+                        Integer idUtilisateur = info.getInt("idUtilisateur");
+                        String categorie = info.getString("idCategorie");
+                        String defraiementDemande = info.getString("defraiementDemande");
+                        String idCodePostal = info.getString("idCodePostal");
+                        Integer accepteDemande = info.getInt("accepteDemande");
+                        Integer acceptePar = info.getInt("acceptePar");
+
+                        // Création de l'objet
+                        Demande mesDemandes = new Demande(idDemande,titreDemande,descriptionDemande,dateDemande,idUtilisateur,categorie,defraiementDemande,
+                                idCodePostal,accepteDemande,acceptePar);
+                        lstMesDemandes.add(mesDemandes);
+                        Log.d("Ajout","********************* Demande en cours ajoutéé");
+                    }
+                    controle.setMesDemandes(lstMesDemandes);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            /**
+             * Message d'erreur si l'output ne contient aucun des choix
+             */
             else {
                 Log.d("ERREUR", "*************** Aucun choix valide");
             }

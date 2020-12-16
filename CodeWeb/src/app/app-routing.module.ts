@@ -13,13 +13,14 @@ import {ListeDemandeComponent} from './liste-demande/liste-demande.component';
 import {DetailDemandeComponent} from './detail-demande/detail-demande.component';
 import {MaListeComponent} from './ma-liste/ma-liste.component';
 import {MesDemandesComponent} from './mes-demandes/mes-demandes.component';
+import {ChartModule} from 'primeng/chart';
 
 
 const appRoutes: Routes = [
   {
     path: '', component: NavbarComponent,
     children: [
-      {path: 'home', component: HomeComponent},  /*remplacer HomeComponent ici par EditProfilComponent pour le moment pour eviter le dédoublement*/
+      {path: 'home', component: HomeComponent},
       {path: 'listeAide', component: ListeDemandeComponent},
       {path: 'listeAide/:idDemande', component: DetailDemandeComponent},
       {path: 'demandeAide', canActivate: [AuthGuard], component: DemandeAideComponent},

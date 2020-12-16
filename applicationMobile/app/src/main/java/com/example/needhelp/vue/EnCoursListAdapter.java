@@ -1,5 +1,6 @@
 package com.example.needhelp.vue;
 
+import android.widget.BaseAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -91,9 +92,11 @@ public class EnCoursListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 int ligne = (int) v.getTag();
-                lesDemandes.get(ligne).setAccepteDemande(1);
-                lesDemandes.get(ligne).setAcceptePar(controle.getIdUtilisateur());
+                lesDemandes.get(ligne).setAccepteDemande(0);
+                lesDemandes.get(ligne).setAcceptePar(0);
                 accesDistant.envoi("accepter", lesDemandes.get(ligne).accepterConvertToJSONArray() );
+                lesDemandes.remove(ligne);
+                notifyDataSetChanged();
             }
         });
         return view;
@@ -105,3 +108,4 @@ public class EnCoursListAdapter extends BaseAdapter {
         TextView txtTitreDemande;
     }
 }
+
