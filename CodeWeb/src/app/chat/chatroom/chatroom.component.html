@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>chat demande: {{this.idDemande}}</h3>
+  <h3>chat demande: {{this.contactname}}</h3>
   <div class="padding">
   <mat-drawer-container class="drawer-container">
     <mat-drawer mode="side" opened class="left-drawer">
@@ -22,7 +22,7 @@
               <div class="right-bubble" [ngClass]="{'right-bubble': chat.phoneNumber === phoneNumber, 'left-bubble': chat.phoneNumber !== phoneNumber}">
                 <span class="msg-name" *ngIf="chat.phoneNumber === phoneNumber">Me</span>
                 <span class="msg-name" *ngIf="chat.phoneNumber !== phoneNumber">{{chat.phoneNumber}}</span>
-<!--                <span class="msg-date"> at {{chat.date | date:'short'}}</span>-->
+                <span class="msg-date"> at {{chat.date | date:'short'}}</span>
                 <p text-wrap>{{chat.message}}</p>
               </div>
             </div>

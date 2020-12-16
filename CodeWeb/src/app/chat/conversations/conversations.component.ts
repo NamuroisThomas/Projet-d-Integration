@@ -106,7 +106,7 @@ export class ConversationsComponent implements OnInit {
     const chatRoom = firebase.database().ref(idDemande + '/user/').push();
     chatRoom.set(this.phoneNumber);
     this.idDemande = idDemande;
-    this.router.navigate(['/chatroom', this.phoneNumber, ('idDemande').concat(idDemande)]);
+    this.router.navigate(['/chatroom', this.phoneNumber, this.idDemande]);
   }
   logout(): void {
     localStorage.removeItem('phoneNumber');

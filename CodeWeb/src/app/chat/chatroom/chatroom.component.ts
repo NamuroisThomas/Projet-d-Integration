@@ -42,21 +42,18 @@ export class ChatroomComponent implements OnInit {
   users = [];
   chats = [];
   matcher = new MyErrorStateMatcher();
-  idDemande = '';
-  param1: string;
-  test = '';
 
   constructor(private router: Router,
               private route: ActivatedRoute,
               private formBuilder: FormBuilder,
               public datepipe: DatePipe) {
-    // this.phoneNumber = localStorage.getItem('phoneNumber');
-    // this.contactname = this.route.snapshot.params.contactname;
-    // firebase.database().ref('chats/').on('value', resp => {
-    //   this.chats = [];
-    //   this.chats = snapshotToArray(resp);
-    // //   setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
-    // });
+    this.phoneNumber = localStorage.getItem('phoneNumber');
+    this.contactname = this.route.snapshot.params.contactname;
+    firebase.database().ref(this.contactname + ('/messages/')).on('value', resp => {
+      this.chats = [];
+      this.chats = snapshotToArray(resp);
+      setTimeout(() => this.scrolltop = this.chatcontent.nativeElement.scrollHeight, 500);
+    });
     // firebase.database().ref('roomusers/').orderByChild('contactname').equalTo(this.contactname).on('value', (resp2: any) => {
     //   const roomusers = snapshotToArray(resp2);
     //   this.users = roomusers.filter(x => x.status === 'online');
@@ -67,33 +64,29 @@ export class ChatroomComponent implements OnInit {
     this.chatForm = this.formBuilder.group({
       'message' : [null, Validators.required]
     });
-    // Récuperer l'id de la demande dans l'url
-    this.test = this.router.url;
-    console.log(this.test);
-    this.idDemande = (this.test.substr(34, this.test.length));
   }
   onFormSubmit(form: any) {
     const chat = form;
     chat.contactname = this.contactname;
     chat.phoneNumber = this.phoneNumber;
     console.log(this.contactname);
-    // chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
+    chat.date = Date.now();
     chat.type = 'message';
-    const newMessage = firebase.database().ref(this.idDemande + '/messages/' + this.phoneNumber).push();
+    const newMessage = firebase.database().ref(this.contactname + ('/messages/')).push();
     newMessage.set(chat);
     this.chatForm = this.formBuilder.group({
       'message' : [null, Validators.required]
     });
   }
   exitChat() {
-    // const chat = { contactname: '', phoneNumber: '', message: '', date: '', type: '' };
-    // chat.contactname = this.contactname;
-    // chat.phoneNumber = this.phoneNumber;
-    // // chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
-    // // chat.message = `${this.phoneNumber} leave the room`;
-    // chat.type = 'exit';
-    // const newMessage = firebase.database().ref('chats/').push();
-    // newMessage.set(chat);
+    const chat = { contactname: '', phoneNumber: '', message: '', date: '', type: '' };
+    chat.contactname = this.contactname;
+    chat.phoneNumber = this.phoneNumber;
+    // chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
+    // chat.message = `${this.phoneNumber} leave the room`;
+    chat.type = 'exit';
+    const newMessage = firebase.database().ref(this.contactname + ('/messages/')).push();
+    newMessage.set(chat);
 
     // firebase.database().ref('roomusers/').orderByChild('contactname').equalTo(this.contactname).on('value', (resp: any) => {
     //   let roomuser = [];
@@ -106,6 +99,7 @@ export class ChatroomComponent implements OnInit {
     // });
 
     console.log(this.phoneNumber);
+    console.log(this.contactname);
     this.router.navigate(['/conversations/', this.phoneNumber]);
   }
 }
