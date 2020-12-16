@@ -13,7 +13,7 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/valueTitreDescription"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/valueChampDescription"
         android:layout_width="250dp"
         android:layout_height="150dp"
@@ -61,7 +61,7 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:id="@+id/valueDefraiement"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -85,8 +85,8 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/détailDescription"
+    <EditText
+        android:id="@+id/valueCategorie"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/categorie"
@@ -101,14 +101,14 @@
         android:id="@+id/codePostal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/détailDescription"
+        android:layout_below="@id/valueCategorie"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="@string/codePostal"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold" />
-    <TextView
+    <EditText
         android:id="@+id/valueCodePostal"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
         android:gravity="center"
         android:inputType="number" />
     <Button
-        android:id="@+id/buttonAjoutDemande"
+        android:id="@+id/boutonRetour"
         android:layout_below="@id/valueCodePostal"
         android:layout_width="250dp"
         android:layout_height="wrap_content"

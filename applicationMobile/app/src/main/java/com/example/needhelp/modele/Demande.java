@@ -153,4 +153,66 @@ public class Demande {
     public void setAcceptePar(int acceptePar) {
         this.acceptePar = acceptePar;
     }
+
+    public int getIdDemande() {
+        return idDemande;
+    }
+
+    public void setIdDemande(int idDemande) {
+        this.idDemande = idDemande;
+    }
+
+    public void setTitreDemande(String titreDemande) {
+        this.titreDemande = titreDemande;
+    }
+
+    public String getDescriptionDemande() {
+        return DescriptionDemande;
+    }
+
+    public void setDescriptionDemande(String descriptionDemande) {
+        DescriptionDemande = descriptionDemande;
+    }
+
+    public void setDateDemande(String dateDemande) {
+        this.dateDemande = dateDemande;
+    }
+
+    public int getIdUtilisateur() {
+        return idUtilisateur;
+    }
+
+    public void setIdUtilisateur(int idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
+    }
+
+    public String getIdCategorie() {
+        return idCategorie;
+    }
+
+    public void setIdCategorie(String idCategorie) {
+        this.idCategorie = idCategorie;
+    }
+
+    public String getDefraiement() {
+        return defraiement;
+    }
+
+    public void setDefraiement(String defraiement) {
+        this.defraiement = defraiement;
+    }
+
+    public String getIdCodePostal() {
+        return idCodePostal;
+    }
+
+    public void setIdCodePostal(String idCodePostal) {
+        this.idCodePostal = idCodePostal;
+    }
+
+    public int getAccepteDemande() {
+        return accepteDemande;
+    }
 }
+
+

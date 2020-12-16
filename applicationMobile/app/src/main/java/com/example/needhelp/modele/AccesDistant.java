@@ -26,7 +26,6 @@ public class AccesDistant implements AsyncResponse {
     private boolean dataExist = true;
 
 
-
     /**
      * Constructeur
      */
