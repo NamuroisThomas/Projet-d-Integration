@@ -1,46 +1,58 @@
-<p-fieldset>
-  <h1>Contactez-nous !</h1>
-  <div class="row">
-    <div class="col-6">
-      <form [formGroup]="">
-        <div class="row">
-          <div class="form-group col-lg-12 col-md-12">
-            <label for="nom">Nom et prénom :</label>
-            <input type="text"
-                   id="nom"
-                   class="form-control"
-                   formControlName="Nom" placeholder="Ex: Pierre Lebrun">
+ <div class="container">
+   <div class="row-cols-6">
+   <h2>Contactez-nous !</h2>
+   </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
+          <div class="form-group">
+            <label>Adresse mail</label>
+            <input
+              type="email"
+              class="form-control"
+              name="Email"
+              aria-describedby="emailHelp"
+              placeholder="Labeuh@hotmail.com"
+              formControlName="Email"
+            />
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-lg-12 col-md-12">
-            <label for="email">Email :</label>
-            <input type="text"
-                   id="email"
-                   class="form-control"
-                   formControlName="Email" placeholder="ex: 123@gmail.com" [required]="true">
+          <div class="form-group">
+            <label>Nom et prénom</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Fullname"
+              placeholder="Pierre Labeuh"
+              formControlName="Fullname"
+            />
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-lg-12 col-md-12">
-            <label for="message">Message :</label>
+
+          <div class="form-group">
+            <label>Commentaire</label>
             <textarea
-                   id="message"
-                   class="form-control"
-                   formControlName="Message" cols = "40" rows="10">
+              class="form-control"
+              formControlName="Comment"
+              name="Comment"
+            >
             </textarea>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-lg-12 col-md-12">
-            <button class="btn btn-primary"
-                    type="submit"
-
-                    >Enregistrer</button>
-
+          <div class="form-group">
+          <re-captcha (resolved)="resolved($event)"
+                      formControlName="recaptchaReactive"
+                      siteKey="6Lf-Uv8ZAAAAACEPjgTLhsGvOBz0R6UpiesdZgzY">
+          </re-captcha>
           </div>
-        </div>
-      </form>
+          <div class="hauteur">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!FormData.valid"
+          >
+            Envoyez
+          </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</p-fieldset>
+

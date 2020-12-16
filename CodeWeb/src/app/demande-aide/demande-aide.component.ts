@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import { MessageService } from 'primeng/api';
+import {Component, OnInit} from '@angular/core';
+import {MessageService} from 'primeng/api';
+import {HttpClient} from '@angular/common/http';
+import {GetListeDemandeService} from '../liste-demande/liste-demande.service';
 
 @Component({
   selector: 'app-demande-aide',
@@ -11,40 +11,37 @@ import { MessageService } from 'primeng/api';
 })
 export class DemandeAideComponent implements OnInit {
 
- public demandeAide: FormGroup;
- public errorMessage: string;
+  public demandeAide;
+  role: any;
+  listeCategorie: any;
+  listeCodePostaux: any;
+  ONDefraiement: any;
+  formDemandeDefraiement: any;
+  formDemandeIdCodePostal: any;
+  formDemandeIdCategorie: any;
 
- public formDemandeAide = new FormGroup({
-    Title: new FormControl(null),
-    Description: new FormControl(null)
-  })
-
-  constructor(private formBuilder: FormBuilder,
-              private messageService: MessageService,
-              private router: Router
-              ) { }
-
-  ngOnInit(){
-    this.initForm();
+  constructor(private http: HttpClient,
+              private api: GetListeDemandeService) {
   }
 
-  initForm(){
-    this.demandeAide = this.formBuilder.group({
-      titre: ['', [Validators.required]],
-      description: ['', [Validators.required]]
+  ngOnInit() {
+    this.role = JSON.parse(localStorage.getItem('user'));
+    this.ONDefraiement = [{val: 1, desc: 'Oui'}, {val: 0, desc: 'Non'}];
+    this.api.listeCategorieCall().subscribe((res) => {
+      this.listeCategorie = res[Object.keys(res)[2]];
+    });
+    this.api.listeCodePostauxCall().subscribe(res => {
+      this.listeCodePostaux = res[Object.keys(res)[2]];
     });
   }
-  // onSubmit() {
-  //   const titre =  this.demandeAide.get('titre').value;
-  //   const description = this.demandeAide.get('description').value;
-  //
-  //   console.log(titre, description);
-  // }
 
-  submit(){
-    console.log(this.formDemandeAide.value);
-    this.messageService.add({severity:'success', summary: 'Success Message', detail:'Order submitted'});
-
+  submit(data) {
+    this.http.post('http://62.210.130.145:3000/demande', data)
+      .subscribe((res) =>
+        console.warn('result', res)
+      );
+    alert('Demande introduite');
+    location.reload();
   }
 }
 

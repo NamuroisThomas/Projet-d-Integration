@@ -4,13 +4,71 @@
   <meta charset="utf-8">
   <title>NeedHelp</title>
   <base href="/">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" type="text/css" href="/node_modules/primeicons/primeicons.css" />
-  <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/nova-dark/theme.css" />
-  <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/primeng.min.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-  <app-root></app-root>
+<div class="bg">
+<app-root>
+    <div class="d-flex align-items-center flex-column justify-content-center h-100 ">
+      <div class="loader"></div>
+    </div>
+</app-root>
+</div>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mx-auto">
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Comment nous contactez ?</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="/contactPage">Page de contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2 col-lg-3 mx-auto my-md-6 my-0 mt-4 mb-1">
+        <h5 class="font-weight-bold text-uppercase mb-4">Application mobile</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a>bientôt disponible</a>
+          </li>
+        </ul>
+      </div>
+      <hr class="clearfix w-100 d-md-none">
+      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+        <h5 class="font-weight-bold text-uppercase mb-4">Liens utiles</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://github.com/NamuroisThomas/Projet-d-Integration/wiki">github</a>
+          </li>
+          <li>
+            <a href="https://clockify.me/shared/5f6b3df440e1787995ae272d">clockify</a>
+          </li>
+          <li>
+            <a href="https://trello.com/b/EK9LyOYb/projet-dintégration">trello</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center">Copyright &copy;
+      <script>type="text/javascript">document.write(new Date().getFullYear());</script>
+      NeedHelp!
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>

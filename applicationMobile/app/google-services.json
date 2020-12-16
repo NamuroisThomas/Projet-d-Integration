@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "804933626373",
+    "project_id": "needhelp-ab6e4",
+    "storage_bucket": "needhelp-ab6e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804933626373:android:520bf7c30b868a1b3bca6c",
+        "android_client_info": {
+          "package_name": "com.example.needhelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804933626373-v2f6il2ebg1q957dblmkktu6c1chj4a5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChJzJu70Xxt2bnJSLR_sROHw5HaEfEE1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804933626373-v2f6il2ebg1q957dblmkktu6c1chj4a5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

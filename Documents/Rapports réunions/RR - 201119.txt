@@ -1,0 +1,29 @@
+Démonstration
+	Le client a pu voir 
+	WEB : 
+		- inscription US01
+		- connexion US02
+		- liste des demandes US04
+		- profil US06
+		- acceptation d'une aide US09
+		- contatc support US12
+		
+	Appli : 
+		- inscription US01
+		- connexion US02
+		- liste des demandes US04
+
+
+
+Rétrospective
+	l'équipe web et api se divisent afin de créer une équipe consacrée à la VOIP
+	Brian travaille désormais seul sur le web
+	Gaëtan se consacre à l'API
+	
+	François et Maxime font la VOIP
+	
+	Maintenant que nous avons un moyen de communiquer avec la base de données qui est pleinement fonctionnel, l'équipe appli va pouvoir avancer sur la liste de demande et la demande
+	
+
+
+

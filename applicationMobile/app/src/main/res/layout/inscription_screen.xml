@@ -1,136 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="@color/backgroundHome"
+    android:layout_centerHorizontal="true"
+    android:background="#1B2AB1"
 
->
+    android:clipToPadding="true"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/inscriptionNomTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dip"
         android:text="@string/nom"
-        android:textStyle="bold"
+        android:textColor="#ffffff"
         android:textSize="20sp"
+        android:textStyle="bold" />
 
-        android:layout_marginTop="35dip"
-        />
     <EditText
         android:id="@+id/inscriptionNomEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="252dp"
         android:layout_height="wrap_content"
-        android:hint="@string/nom"
-        android:inputType="text"
         android:layout_below="@id/inscriptionNomTexte"
-        android:autofillHints="" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:hint="@string/nom"
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/inscriptionPrenomTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/prenom"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_below="@id/inscriptionNomEdit"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/prenom"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/inscriptionPrenomEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="@string/prenom"
-        android:inputType="text"
         android:layout_below="@id/inscriptionPrenomTexte"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:hint="@string/prenom"
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/inscriptionMailTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/mail"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_below="@id/inscriptionPrenomEdit"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/mail"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/inscriptionMailEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="@string/mail"
-        android:inputType="textWebEmailAddress"
         android:layout_below="@id/inscriptionMailTexte"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:hint="@string/mail"
+        android:inputType="textWebEmailAddress" />
 
     <TextView
         android:id="@+id/inscriptionGSMTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/gsm"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_below="@id/inscriptionMailEdit"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/gsm"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/inscriptionGSMEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="@string/gsm"
-        android:inputType="phone"
         android:layout_below="@id/inscriptionGSMTexte"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:hint="@string/gsm"
+        android:inputType="phone" />
 
     <TextView
         android:id="@+id/inscriptionPSWTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/password"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_below="@id/inscriptionGSMEdit"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/password"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/inscriptionPSWEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="@string/password"
-        android:inputType="textPassword"
         android:layout_below="@id/inscriptionPSWTexte"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/inscriptionConfirmTexte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/confirmation"
-        android:textStyle="bold"
-        android:textSize="20dip"
         android:layout_below="@id/inscriptionPSWEdit"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/confirmation"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/inscriptionConfirmEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="@string/password"
-        android:inputType="textPassword"
         android:layout_below="@id/inscriptionConfirmTexte"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/inscriptionBouton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inscriptionConfirmEdit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/backgroundbouton"
+        android:text="@string/inscription"
+
         />
 
     <Button
-        android:layout_width="fill_parent"
+        android:id="@+id/deconnexion"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
-        android:text="@string/connexion"
-        android:onClick="goHome"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_below="@id/inscriptionBouton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/backgroundbouton"
         android:text="@string/retour"
-        android:onClick="back"
-        />
+        tools:ignore="RelativeOverlap" />
 </RelativeLayout>

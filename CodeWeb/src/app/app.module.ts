@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { DemandeAideComponent } from './demande-aide/demande-aide.component';
-import { ChatComponent } from './chat/chat.component';
 import { ListeDemandeComponent } from './liste-demande/liste-demande.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { AvisReportComponent } from './avis-report/avis-report.component';
@@ -18,14 +17,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import {SidebarModule} from 'primeng/sidebar';
-
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactComponent } from './contact/contact.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-
 import {HttpClientModule} from '@angular/common/http';
-
-
+import {ConnexionService} from './connexion/connexion.service';
+import { ContactService } from './contact/contact.service';
+import { DetailDemandeComponent } from './detail-demande/detail-demande.component';
+import { MaListeComponent } from './ma-liste/ma-liste.component';
+import { MesDemandesComponent } from './mes-demandes/mes-demandes.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
 
 @NgModule({
@@ -33,7 +35,6 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     InscriptionComponent,
     DemandeAideComponent,
-    ChatComponent,
     ListeDemandeComponent,
     EditProfilComponent,
     AvisReportComponent,
@@ -41,7 +42,10 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     NavbarComponent,
     ContactComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    DetailDemandeComponent,
+    MaListeComponent,
+    MesDemandesComponent
 
   ],
   imports: [
@@ -62,10 +66,15 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule
-
+    RouterModule,
+    NgxPaginationModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
-  providers: [],
+  providers: [
+    ConnexionService,
+    ContactService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

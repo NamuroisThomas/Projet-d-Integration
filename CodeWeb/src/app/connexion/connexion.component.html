@@ -1,25 +1,31 @@
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <h2>Se connecter</h2>
-    <form [formGroup]="" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="email">Adresse mail</label>
-        <input type="text"
-               id="email"
-               class="form-control"
-               formControlName="email">
+ <div class="container">
+   <h2>{{pageC}}</h2>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="login-wrapper">
+          <form *ngIf="role === null" (ngSubmit)="onSignIn(f.value)" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label>Adresse mail</label>
+              <input type="text" class="form-control" name="formConnexionMail" id="username"
+                     [(ngModel)]="model.username" #username="ngModel" placeholder='Saisissez votre adresse mail'
+                     required/>
+            </div>
+            <div class="form-group">
+              <label>Mot de passe</label>
+              <input type="password" class="form-control" name="formConnexionMdp" id="password"
+                     [(ngModel)]="model.password" #password="ngModel" placeholder='Saisissez votre mot de passe'
+                     required/>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary co" [disabled]="!f.form.valid">Connexion</button>
+            </div>
+          </form>
+          <div class="col-md-6 col-md-offset-3 text-white" *ngIf="role !== null">
+            <p>Veuillez vous déconnecté une fois </p>
+          <button class="btn btn-primary"  (click)="onSignOut()">déconnexion</button>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password"
-               id="password"
-               class="form-control"
-               formControlName="password">
-      </div>
-      <button class="btn btn-primary"
-              type="submit"
-              (click)="onSubmit()">Créer mon compte</button>
-    </form>
-
+    </div>
   </div>
-</div>
+

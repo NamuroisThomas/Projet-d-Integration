@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.picture {
+  background: #4451c2;
+}
+
+.text {
+  background: #f451c2;
+}
+
+
+h1{
+  height: auto;
+}
+
+h3{
+  padding-top: 0.50em;
+  padding-bottom: 0.5em;
+  padding-left: 2.55em;
+}
+
+h4{
+  padding-bottom: 0.5em;
+  padding-left: 4em;
+}
+
+p{
+  padding-bottom: 0.5em;
+  padding-left: 8em;
+}
+
+dl {
+  overflow: auto;
+}
+dt {
+  float: left;
+  width: 40%;
+  padding-left: 6em;
+}
+dd {
+  float: right;
+  width: 55%;
+}
+
+button{
+  color: #ffffff;
+  border-color: black;
+  padding: 0.2%;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.text-centerp {
+
+  text-align: center;
+  /* The image used */
+  background-image: url("../../assets/img/svg/help2.jpg");
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-position: initial;
+  background-size: cover;
+  color: lightgrey;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1.5px 0 #000, -1.5px 0 0 #000;
+}
+
+.pad{
+  padding-bottom: 20px;
+}

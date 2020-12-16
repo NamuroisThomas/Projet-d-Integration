@@ -1,31 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
-
+import { MessageService } from 'primeng/api';
+import {HttpClient} from '@angular/common/http';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.scss']
+  styleUrls: ['./inscription.component.scss'],
+  providers: [MessageService]
 })
 export class InscriptionComponent implements OnInit {
-  nom: string;
-  prenom: string;
-  telephone: number;
-  email: string;
-  mdp: string;
-  mdpconfirmation: string;
-  options = false;
-  constructor() {
-  }
+  titre = 'Inscription';
 
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit(): void {
   }
 
-  afficherConsole(){
-    console.log('votre nom est : ' + this.nom + '\n votre prenom est : ' + this.prenom + '\n votre mail est : ' + this.email
-      + '\n votre numéro de téléphone est : ' + this.telephone  + '\n votre mot de passe est : ' + this.mdp);
+  submit(data) {
+    if (data.formInscriptionMdp === data.formInscriptionMdpConfirmation){
+      data.formInscriptionMdp = 'pi7' + CryptoJS.SHA256(data.formInscriptionMdp).toString(CryptoJS.enc.Hex) + 'sel';
+      this.http.post('http://62.210.130.145:3000/inscription', data)
+      .subscribe((res) =>
+        console.warn('result', res)
+      );
+      alert('Inscription complétée');
+      location.reload();
+    }
+    else {
+      alert('Les mots de passe ne correspondent pas');
+    }
   }
 }
-
-

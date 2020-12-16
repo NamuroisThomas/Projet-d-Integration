@@ -2,7 +2,12 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
+    <color name="backgroundApp">#1B2AB1</color>
     <color name="colorAccent">#03DAC5</color>
-    
     <color name="backgroundHome">#979EC5 </color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="colorChat1">#006257</color>
+    <color name="colorChat2">#005048</color>
+    <color name="colorChat3">#E6E6E6</color>
 </resources>

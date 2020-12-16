@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1B2AB1">
+    <TextView
+        android:id="@+id/titreDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/titreDemande"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/valueTitreDescription"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titreDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/champDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/valueTitreDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/champDescription"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/valueChampDescription"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/champDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@color/white"
+        android:gravity="top"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/defraiement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/valueChampDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/defraiement"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/valueDefraiement"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/defraiement"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/categorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/valueDefraiement"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/Categorie"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/détailDescription"
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categorie"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/codePostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/détailDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/codePostal"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/valueCodePostal"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/codePostal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:background="@drawable/backgroundtext"
+        android:gravity="center"
+        android:inputType="number" />
+    <Button
+        android:id="@+id/buttonAjoutDemande"
+        android:layout_below="@id/valueCodePostal"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/backgroundbouton"
+        android:text="@string/retour" />
+
+</RelativeLayout>

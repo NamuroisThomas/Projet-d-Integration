@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "1c100d5c-f3ec-46c0-8bbe-d1a9a23cb6f8",
+		"name": "ProjetIntegration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST inscription",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "formInscriptionNom",
+							"value": "Luk",
+							"type": "text"
+						},
+						{
+							"key": "formInscriptionPrenom",
+							"value": "Brian",
+							"type": "text"
+						},
+						{
+							"key": "formInscriptionMail",
+							"value": "luk.brian@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "formInscriptionTel",
+							"value": "+32478252525",
+							"type": "text"
+						},
+						{
+							"key": "formInscriptionMdp",
+							"value": "BlaBla",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "62.210.130.145:3000/inscription",
+					"host": [
+						"62",
+						"210",
+						"130",
+						"145"
+					],
+					"port": "3000",
+					"path": [
+						"inscription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post demande ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "formDemandeTitre",
+							"value": "jardine",
+							"type": "text"
+						},
+						{
+							"key": "formDemandeDescription",
+							"value": "bonjour, j ai besin daide pour jardiner ",
+							"type": "text"
+						},
+						{
+							"key": "formDemandeDate",
+							"value": "2020-12-12",
+							"type": "text"
+						},
+						{
+							"key": "formDemandeIdUtilisateur",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "formDemandeIdCategorie",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "formDemandeDefraiement",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "formDemandeIdCodePostal",
+							"value": "1325",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "62.210.130.145:3000/demande",
+					"host": [
+						"62",
+						"210",
+						"130",
+						"145"
+					],
+					"port": "3000",
+					"path": [
+						"demande"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
