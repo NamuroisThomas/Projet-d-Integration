@@ -39,7 +39,14 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {DatePipe} from '@angular/common';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
+
 import { GdprComponent } from './gdpr/gdpr.component';
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSortModule} from '@angular/material/sort';
+
 
 
 @NgModule({
@@ -92,7 +99,11 @@ import { GdprComponent } from './gdpr/gdpr.component';
     MatTableModule,
     MatProgressSpinnerModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSortModule
   ],
   providers: [
     ConnexionService,

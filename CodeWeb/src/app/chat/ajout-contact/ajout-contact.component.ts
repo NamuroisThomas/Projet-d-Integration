@@ -20,10 +20,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class AjoutContactComponent implements OnInit {
 
   contactForm: FormGroup;
-  nickname = '';
+  phoneNumber = '';
   contactname = '';
-  ref = firebase.database().ref('contacts/');
   matcher = new MyErrorStateMatcher();
+  phone = localStorage.getItem('phoneNumber');
+  stock = ('users/').concat(this.phone.concat( '/contacts/'));
+  ref = firebase.database().ref(this.stock);
+
+
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -33,19 +37,28 @@ export class AjoutContactComponent implements OnInit {
     this.contactForm = this.formBuilder.group({
       'contactname' : [null, Validators.required]
     });
+    console.log('stock', this.stock);
+    console.log(this.phone);
   }
 
+
   onFormSubmit(form: any) {
+
     const contact = form;
     this.ref.orderByChild('contactname').equalTo(contact.contactname).once('value', (snapshot: any) => {
       if (snapshot.exists()) {
         console.log('contactAlreadyExists');
       } else {
-        const newContact = firebase.database().ref('contacts/').push();
+        const newContact = firebase.database().ref(('users/' + this.phone + '/contacts/')).push();
         newContact.set(contact);
-        this.router.navigate(['/conversations']);
+
+        this.router.navigate(['/conversations/', this.phone]);
       }
     });
   }
 
 }
+//TODO quand ajou d'un contact, créer un chat commun et s'ajouter chez le contact
+// TODO Modifier les push dans firebase avec des + pour supp les va
+
+

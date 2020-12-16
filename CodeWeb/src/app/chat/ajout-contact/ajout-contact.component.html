@@ -15,4 +15,18 @@
       </div>
     </form>
   </div>
+
+  <form class="example-form" [formGroup]="contactForm" (ngSubmit)="onFormSubmit(contactForm.value)">
+    <h2>Entrez un nom d'utilisateur</h2>
+<!--    <mat-form-field class="example-full-width"> Afficher plein d'erreurs en console-->
+      <input  placeholder="Entrez un nom" formControlName="contactname">
+      <mat-error>
+        <span *ngIf="!contactForm.get('contactname').valid && contactForm.get('contactname').touched">Nom d'utilisateur</span>
+      </mat-error>
+<!--    </mat-form-field>-->
+    <div class="button-row">
+      <button type="submit"  mat-fab color="primary"><mat-icon>save</mat-icon></button>
+    </div>
+  </form>
+
 </div>

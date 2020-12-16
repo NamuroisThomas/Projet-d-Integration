@@ -36,7 +36,7 @@ export class ChatroomComponent implements OnInit {
   scrolltop: number = null;
 
   chatForm: FormGroup;
-  nickname = '';
+  phoneNumber = '';
   contactname = '';
   message = '';
   users = [];
@@ -47,7 +47,7 @@ export class ChatroomComponent implements OnInit {
               private route: ActivatedRoute,
               private formBuilder: FormBuilder,
               public datepipe: DatePipe) {
-    this.nickname = localStorage.getItem('nickname');
+    this.phoneNumber = localStorage.getItem('phoneNumber');
     this.contactname = this.route.snapshot.params.contactname;
     firebase.database().ref('chats/').on('value', resp => {
       this.chats = [];
@@ -68,7 +68,7 @@ export class ChatroomComponent implements OnInit {
   onFormSubmit(form: any) {
     const chat = form;
     chat.contactname = this.contactname;
-    chat.nickname = this.nickname;
+    chat.phoneNumber = this.phoneNumber;
     console.log(this.contactname);
     // chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
     chat.type = 'message';
@@ -79,11 +79,11 @@ export class ChatroomComponent implements OnInit {
     });
   }
   exitChat() {
-    const chat = { contactname: '', nickname: '', message: '', date: '', type: '' };
+    const chat = { contactname: '', phoneNumber: '', message: '', date: '', type: '' };
     chat.contactname = this.contactname;
-    chat.nickname = this.nickname;
+    chat.phoneNumber = this.phoneNumber;
     // chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
-    // chat.message = `${this.nickname} leave the room`;
+    // chat.message = `${this.phoneNumber} leave the room`;
     chat.type = 'exit';
     const newMessage = firebase.database().ref('chats/').push();
     newMessage.set(chat);
@@ -91,14 +91,14 @@ export class ChatroomComponent implements OnInit {
     firebase.database().ref('roomusers/').orderByChild('contactname').equalTo(this.contactname).on('value', (resp: any) => {
       let roomuser = [];
       roomuser = snapshotToArray(resp);
-      const user = roomuser.find(x => x.nickname === this.nickname);
+      const user = roomuser.find(x => x.phoneNumber === this.phoneNumber);
       if (user !== undefined) {
         const userRef = firebase.database().ref('roomusers/' + user.key);
         userRef.update({status: 'offline'});
       }
     });
 
-    console.log(this.nickname);
-    this.router.navigate(['/conversations/', this.nickname]);
+    console.log(this.phoneNumber);
+    this.router.navigate(['/conversations/', this.phoneNumber]);
   }
 }

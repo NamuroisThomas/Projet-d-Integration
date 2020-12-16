@@ -18,35 +18,34 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class ChatComponent implements OnInit {
 
   loginForm: FormGroup;
-  nickname = '';
-  ref = firebase.database().ref('users/');
+  phoneNumber = '';
+  user = ('users/').concat(this.phoneNumber);
+  ref = firebase.database().ref(this.user);
   matcher = new MyErrorStateMatcher();
 
   constructor(private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    if (localStorage.getItem('nickname')) {
-      this.router.navigate(['/conversations/', localStorage.getItem('nickname')]);
+    if (localStorage.getItem('phoneNumber')) {
+      this.router.navigate(['/conversations/', this.phoneNumber]);
     }
     this.loginForm = this.formBuilder.group({
-      'nickname' : [null, Validators.required]
+      'phoneNumber' : [null, Validators.required]
     });
   }
   onFormSubmit(form: any) {
+    console.log(this.phoneNumber);
     const login = form;
-    this.ref.orderByChild('nickname').equalTo(login.nickname).once('value', snapshot => {
+    this.ref.orderByChild('phoneNumber').equalTo(login.phoneNumber).once('value', snapshot => {
       if (snapshot.exists()) {
-        localStorage.setItem('nickname', login.nickname);
-        this.router.navigate(['/conversations', login.nickname]);
-        console.log(login.nickname);
+        localStorage.setItem('phoneNumber', login.phoneNumber);
+        this.router.navigate(['/conversations', login.phoneNumber]);
       } else {
-        const newUser = firebase.database().ref('users/').push();
+        const newUser = firebase.database().ref(this.user).push();
         newUser.set(login);
-        localStorage.setItem('nickname', login.nickname);
-        this.router.navigate(['/conversations/', login.nickname]);
+        localStorage.setItem('phoneNumber', login.phoneNumber);
+        this.router.navigate(['/conversations/', this.phoneNumber]);
       }
     });
   }
-
-
 }

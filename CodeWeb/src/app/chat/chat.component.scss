@@ -2,6 +2,32 @@
   padding-bottom: 200px;
 }
 
-.espace2{
+.espace2 {
   padding-top: 25px;
+}
+.example-container {
+  position: relative;
+  padding: 5px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-full-width:nth-last-child(0) {
+  margin-bottom: 10px;
+}
+
+.button-row {
+  margin: 10px 0;
+}
+
+.mat-flat-button {
+  margin: 5px;
 }

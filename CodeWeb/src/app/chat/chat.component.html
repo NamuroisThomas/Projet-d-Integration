@@ -1,19 +1,14 @@
 <div class="container">
+  <h2>Entrez votre numéro de téléphone </h2>
   <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
-    <h2>Page du chat du site</h2>
-    <mat-form-field class="example-full-width">
-      <label class="text-white">Veuillez entrez votre nom en dessous :</label>
-      <input class="form-control" matInput formControlName="nickname"
-             [errorStateMatcher]="matcher">
-      <mat-error>
-        <span *ngIf="!loginForm.get('nickname').valid && loginForm.get('nickname').touched">Rentrez un nom</span>
-      </mat-error>
-    </mat-form-field>
+    <input type="tel" size="20" class="form-control" formControlName="phoneNumber"
+           placeholder="Saisissez votre numéro de téléphone ex:+32458756415" pattern="[./+0-9]+">
+    <mat-error>
+      <span *ngIf="!loginForm.get('phoneNumber').valid && loginForm.get('phoneNumber').touched">Rentrez un numéro de téléphone</span>
+    </mat-error>
     <div class="button-row espace2">
-      <button type="submit" [disabled]="!loginForm.valid" mat-fab color="primary">login</button>
+      <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid" >login</button>
     </div>
   </form>
-  <div class="espace">
-  </div>
 </div>
-<!--TODO bug d'affichage du formulaire -> illisible-->
+

@@ -22,18 +22,20 @@ export const snapshotToArray = (snapshot: any) => {
 })
 export class ConversationsComponent implements OnInit {
 
-  nickname = '';
+  phoneNumber = '';
   displayedColumns: string[] = ['contactname'];
   contacts = [];
   isLoadingResults = true;
+  path = ('users/').concat(localStorage.getItem('phoneNumber')).concat('/contacts/');
 
 
   constructor(private route: ActivatedRoute, private router: Router, public datepipe: DatePipe) {
-    this.nickname = localStorage.getItem('nickname');
-    firebase.database().ref('contacts/').on('value', resp => {
+    this.phoneNumber = localStorage.getItem('phoneNumber');
+    firebase.database().ref(this.path).on('value', resp => {
       this.contacts = [];
       this.contacts = snapshotToArray(resp);
       this.isLoadingResults = false;
+      console.log('path:', this.path);
     });
   }
 
@@ -43,11 +45,11 @@ export class ConversationsComponent implements OnInit {
   enterChatRoom(contactname: string) {
 
     console.log('cn:', contactname);
-    const chat = { contactname: '', nickname: '', message: '', date: '', type: '' };
+    const chat = { contactname: '', phoneNumber: '', message: '', date: '', type: '' };
     chat.contactname = contactname;
-    chat.nickname = this.nickname;
+    chat.phoneNumber = this.phoneNumber;
     chat.date = this.datepipe.transform(new Date(), 'dd/MM/yyyy HH:mm:ss');
-    // chat.message = `${this.nickname} enter the room`;
+    // chat.message = `${this.phoneNumber} enter the room`;
     chat.type = 'join';
     const newMessage = firebase.database().ref('chats/').push();
     newMessage.set(chat);
@@ -55,26 +57,26 @@ export class ConversationsComponent implements OnInit {
     firebase.database().ref('roomusers/').orderByChild('contactname').equalTo(contactname).on('value', (resp: any) => {
       let roomuser = [];
       roomuser = snapshotToArray(resp);
-      const user = roomuser.find(x => x.nickname === this.nickname);
+      const user = roomuser.find(x => x.phoneNumber === this.phoneNumber);
       if (user !== undefined) {
         const userRef = firebase.database().ref('roomusers/' + user.key);
         userRef.update({status: 'online'});
       } else {
-        const newroomuser = { contactname: '', nickname: '', status: '' };
+        const newroomuser = { contactname: '', phoneNumber: '', status: '' };
         newroomuser.contactname = contactname;
-        newroomuser.nickname = this.nickname;
+        newroomuser.phoneNumber = this.phoneNumber;
         newroomuser.status = 'online';
         const newRoomUser = firebase.database().ref('roomusers/').push();
         newRoomUser.set(newroomuser);
       }
     });
 
-    this.router.navigate(['/chatroom', this.nickname, contactname]);
+    this.router.navigate(['/chatroom', this.phoneNumber, contactname]);
 
   }
 
   logout(): void {
-    localStorage.removeItem('nickname');
+    localStorage.removeItem('phoneNumber');
     this.router.navigate(['/chat']);
   }
 }
