@@ -21,6 +21,19 @@ public class Demande {
     private int accepteDemande;
     private int acceptePar;
 
+    /**
+     * Constructeur Complet
+     * @param idDemande
+     * @param titreDemande
+     * @param descriptionDemande
+     * @param dateDemande
+     * @param idUtilisateur
+     * @param idCategorie
+     * @param defraiement
+     * @param idCodePostal
+     * @param accepteDemande
+     * @param acceptePar
+     */
     public Demande(int idDemande, String titreDemande, String descriptionDemande, String dateDemande,
                    int idUtilisateur, String idCategorie, String defraiement, String idCodePostal, int accepteDemande, int acceptePar) {
         this.idDemande = idDemande;
@@ -33,32 +46,17 @@ public class Demande {
         this.idCodePostal = idCodePostal;
         this.accepteDemande = accepteDemande;
         this.acceptePar = acceptePar;
-
-       /* switch (idCategorie){
-            case "Courses" :
-                this.idCategorie = 1;
-            case "Aides ménagères" :
-                this.idCategorie = 2;
-            case "Petits travaux" :
-                this.idCategorie = 3;
-            case "Transport" :
-                this.idCategorie = 4;
-            case "Couture" :
-                this.idCategorie = 5;
-            case "Jardinage" :
-                this.idCategorie = 6;
-            case "Electricité" :
-                this.idCategorie = 7;
-            case "Peinture" :
-                this.idCategorie = 8;
-            case "Cuisine" :
-                this.idCategorie = 9;
-            case "Autre" :
-                this.idCategorie = 24;
-
-        }*/
     }
 
+    /**
+     * Constructeur incomplet
+     * @param titreDemande
+     * @param descriptionDemande
+     * @param idUtilisateur
+     * @param idCategorie
+     * @param defraiement
+     * @param idCodePostal
+     */
     public Demande(String titreDemande, String descriptionDemande, int idUtilisateur, String idCategorie, String defraiement, String idCodePostal) {
         this.titreDemande = titreDemande;
         this.DescriptionDemande = descriptionDemande;
@@ -66,32 +64,18 @@ public class Demande {
         this.idCategorie = idCategorie;
         this.defraiement = defraiement;
         this.idCodePostal = idCodePostal;
-
-        /*switch (categorie){
-            case "Courses" :
-                this.idCategorie = 1;
-            case "Aides ménagères" :
-                this.idCategorie = 2;
-            case "Petits travaux" :
-                this.idCategorie = 3;
-            case "Transport" :
-                this.idCategorie = 4;
-            case "Couture" :
-                this.idCategorie = 5;
-            case "Jardinage" :
-                this.idCategorie = 6;
-            case "Electricité" :
-                this.idCategorie = 7;
-            case "Peinture" :
-                this.idCategorie = 8;
-            case "Cuisine" :
-                this.idCategorie = 9;
-            case "Autre" :
-                this.idCategorie = 24;
-
-        }*/
     }
 
+    /**
+     * Constructeur incomplet
+     * @param dateDemande
+     * @param titreDemande
+     * @param descriptionDemande
+     * @param idUtilisateur
+     * @param idCategorie
+     * @param defraiement
+     * @param idCodePostal
+     */
     public Demande(String dateDemande, String titreDemande, String descriptionDemande, int idUtilisateur, int idCategorie, String defraiement, String idCodePostal) {
         this.titreDemande = titreDemande;
         this.DescriptionDemande = descriptionDemande;
@@ -102,15 +86,10 @@ public class Demande {
         this.idCodePostal = idCodePostal;
     }
 
-    public Demande(String titre, String description, String defraiement, String categorie, String codePostal) {
-        this.titreDemande = titre;
-        this.DescriptionDemande = description;
-        this.idUtilisateur = 18;
-        //this.idCategorie = 24;
-        this.defraiement = "18";
-        this.idCodePostal = codePostal;
-    }
-
+    /**
+     * Méthode pour convertir une nouvelle demande à envoyer à la base de données en JSON
+     * @return
+     */
     public JSONArray nouvelleDemandeConvertToJSONArray(){
         List laListe = new ArrayList();
         laListe.add(titreDemande);
@@ -122,6 +101,10 @@ public class Demande {
         return new JSONArray(laListe);
     }
 
+    /**
+     * Méthode pour convertir l'acceptation de demande en JSON
+     * @return
+     */
     public JSONArray accepterConvertToJSONArray(){
         List laListe = new ArrayList();
         laListe.add(idDemande);
@@ -133,22 +116,106 @@ public class Demande {
     public int getIdDemande(){
         return idDemande;
     }
+
+    /**
+     * Getter
+     * @return
+     */
     public String getTitreDemande() {
         return titreDemande;
     }
 
+    /**
+     * Getter
+     * @return
+     */
     public String getDateDemande() {
         return dateDemande;
     }
+
+    /**
+     * Setter
+     * @param accepteDemande
+     */
     public void setAccepteDemande(int accepteDemande) {
         this.accepteDemande = accepteDemande;
     }
 
+    /**
+     * Getter
+     * @return
+     */
     public int getAcceptePar() {
         return acceptePar;
     }
 
+    /**
+     * Setter
+     * @param acceptePar
+     */
     public void setAcceptePar(int acceptePar) {
         this.acceptePar = acceptePar;
     }
+
+    public int getIdDemande() {
+        return idDemande;
+    }
+
+    public void setIdDemande(int idDemande) {
+        this.idDemande = idDemande;
+    }
+
+    public void setTitreDemande(String titreDemande) {
+        this.titreDemande = titreDemande;
+    }
+
+    public String getDescriptionDemande() {
+        return DescriptionDemande;
+    }
+
+    public void setDescriptionDemande(String descriptionDemande) {
+        DescriptionDemande = descriptionDemande;
+    }
+
+    public void setDateDemande(String dateDemande) {
+        this.dateDemande = dateDemande;
+    }
+
+    public int getIdUtilisateur() {
+        return idUtilisateur;
+    }
+
+    public void setIdUtilisateur(int idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
+    }
+
+    public String getIdCategorie() {
+        return idCategorie;
+    }
+
+    public void setIdCategorie(String idCategorie) {
+        this.idCategorie = idCategorie;
+    }
+
+    public String getDefraiement() {
+        return defraiement;
+    }
+
+    public void setDefraiement(String defraiement) {
+        this.defraiement = defraiement;
+    }
+
+    public String getIdCodePostal() {
+        return idCodePostal;
+    }
+
+    public void setIdCodePostal(String idCodePostal) {
+        this.idCodePostal = idCodePostal;
+    }
+
+    public int getAccepteDemande() {
+        return accepteDemande;
+    }
 }
+
+

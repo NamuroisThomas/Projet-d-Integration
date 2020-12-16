@@ -26,6 +26,11 @@ public class DemandeListeAdapter extends BaseAdapter {
     private AccesDistant accesDistant = new AccesDistant();
     private Context context;
 
+    /**
+     * Constructeur
+     * @param context
+     * @param lesDemandes
+     */
     public DemandeListeAdapter(Context context,ArrayList<Demande> lesDemandes){
         this.lesDemandes = lesDemandes;
         this.context = context;

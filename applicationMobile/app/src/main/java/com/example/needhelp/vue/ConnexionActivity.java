@@ -2,6 +2,7 @@ package com.example.needhelp.vue;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -47,19 +48,6 @@ public class ConnexionActivity extends AppCompatActivity {
     }
 
     /**
-     * Temporaire
-     */
-    private void ecouteGoToHome(){
-        ((Button)findViewById(R.id.connexion)).setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ConnexionActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    /**
      * Méthode pour initialiser les objets graphiques
      */
     private void init(){
@@ -75,7 +63,8 @@ public class ConnexionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     final Thread t1 = new Thread(){
-                        public void run(){
+                        public void run (){
+                            Looper.prepare();
                             Log.d("Tread","**************** T1 commence");
                             recupDB();
                             try {
@@ -83,7 +72,12 @@ public class ConnexionActivity extends AppCompatActivity {
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            connexion();
+                            if(accesDistant.isDataExist()==false){
+                                Toast.makeText(ConnexionActivity.this,"mail incorrect",Toast.LENGTH_SHORT).show();
+                            }else{
+                                connexion();
+                            }
+                            Looper.loop();
                         }
                     };
                     t1.start();
@@ -94,6 +88,9 @@ public class ConnexionActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode permettant la connexion uniquement si le mdp est correct
+     */
     public void connexion(){
         if(accesDistant.isMdpCorrect() == true){
             Intent intent = new Intent(ConnexionActivity.this,HomeActivity.class);
@@ -104,6 +101,11 @@ public class ConnexionActivity extends AppCompatActivity {
         Log.d("Tread","**************** T finit");
 
     }
+
+    /**
+     * Méthode pour récupérer le mail et mot de passe depuis la DB
+     * @return
+     */
     public boolean recupDB(){
         // Variables locales
         String mail = "";
@@ -122,6 +124,11 @@ public class ConnexionActivity extends AppCompatActivity {
         // Envoi de la requête à la DB
         accesDistant.envoi("connexion", user.connexionConvertToJsonArray());
         return true;
+    }
+
+    public void restart(){
+        Toast.makeText(ConnexionActivity.this,"mail inconnu",Toast.LENGTH_SHORT).show();
+
     }
 
     public final static Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(

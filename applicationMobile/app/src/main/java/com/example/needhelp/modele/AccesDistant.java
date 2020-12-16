@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class AccesDistant implements AsyncResponse {
 
     //constante
-    //private static final String SERVEURADDR = "http://192.168.1.9/needhelp/serveurAndroid.php";
     private static final String SERVEURADDR = "http://62.210.130.145/serveurAndroid.php";
     //Variables
     private Controle controle;
@@ -24,7 +23,7 @@ public class AccesDistant implements AsyncResponse {
     private String mdpServeur;
     private String mdpUser;
     private boolean mdpCorrect = false;
-
+    private boolean dataExist = true;
 
 
     /**
@@ -42,6 +41,7 @@ public class AccesDistant implements AsyncResponse {
     @Override
     public void processFinish(String output) {
         Log.d("serveur", "************** OUTPUT :" + output);
+        setDataExist(true);
         // decoupage du message recu
         String[] message = output.split("%");
         // dans message[0] : "enreg", "dernier", "Erreur !"
@@ -76,6 +76,10 @@ public class AccesDistant implements AsyncResponse {
             else if (message[0].equals("connexion")) {
                 try {
                     JSONObject info = new JSONObject(message[1]);
+                    Log.d("length","************" + info.length());
+                    if(info.length() == 0){
+                        setDataExist(false);
+                    }
                     mailServeur = info.getString("mailUtilisateur");
                     mdpServeur = info.getString("mdpUtilisateur");
                     Log.d("HIT", "***********" + message[1]);
@@ -221,7 +225,13 @@ public class AccesDistant implements AsyncResponse {
                 Log.d("ERREUR", "*************** Aucun choix valide");
             }
         }
+        else{
+            setDataExist(false);
+            Log.d("DATA","*************** data exist = false");
+        }
     }
+
+
 
     /**
      * Methode pour envoyer des donnees à la base de donnees
@@ -240,14 +250,31 @@ public class AccesDistant implements AsyncResponse {
         accesDonnees.execute(SERVEURADDR);
     }
 
+    /**
+     * Setter
+     * @param mdpUser
+     */
     public void setMdpUser(String mdpUser) {
         this.mdpUser = mdpUser;
     }
-
+    /**
+     * Setter
+     * @param mdpCorrect
+     */
     public void setMdpCorrect(boolean mdpCorrect) {
         this.mdpCorrect = mdpCorrect;
     }
+    /**
+     * Getter boolean
+     */
     public boolean isMdpCorrect() {
         return mdpCorrect;
+    }
+
+    private void setDataExist(boolean b) {
+        this.dataExist = b;
+    }
+    public boolean isDataExist() {
+        return dataExist;
     }
 }

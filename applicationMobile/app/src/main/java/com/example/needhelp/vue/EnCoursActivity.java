@@ -34,6 +34,9 @@ public class EnCoursActivity extends AppCompatActivity{
         ecouteGoToMesDemande();
     }
 
+    /**
+     * Méthode pour créer une liste grace à l'adapter
+     */
     private void creerListeEnCours(){
         ArrayList<Demande> lesDemandesEnCours = controle.getLesDemandesEnCours();
         if (lesDemandesEnCours != null){
@@ -43,6 +46,9 @@ public class EnCoursActivity extends AppCompatActivity{
         }
     }
 
+    /**
+     * Méthode pour changer d'écran et aller sur Home
+     */
     private void ecouteGoToLesDemandes(){
         ((Button)findViewById(R.id.radioDemandesToutes)).setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -53,6 +59,9 @@ public class EnCoursActivity extends AppCompatActivity{
         });
     }
 
+    /**
+     * Méthode pour changer d'écran et aller sur le profil
+     */
     public void  ecouteBoutonProfil() {
         ((Button) findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -63,6 +72,10 @@ public class EnCoursActivity extends AppCompatActivity{
             }
         });
     }
+
+    /**
+     * Méthode pour changer d'écran et aller sur mes demandes
+     */
     private void ecouteGoToMesDemande(){
         ((Button)findViewById(R.id.radioMesDemandes)).setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -91,6 +104,9 @@ public class EnCoursActivity extends AppCompatActivity{
         });
     }
 
+    /**
+     * Méthode pour aller vers le chat
+     */
     void ecouteGoToChat(){
         Intent intent = new Intent(EnCoursActivity.this,ChatActivity.class);
         startActivity(intent);
