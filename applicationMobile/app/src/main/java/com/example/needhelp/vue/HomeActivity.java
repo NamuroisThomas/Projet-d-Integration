@@ -152,7 +152,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void afficherDetailDemande(Demande demande){
-        Log.d("test", "********************"+ demande.getTitreDemande());
+        Log.d("afficherdetails", "********************"+ demande.getTitreDemande());
+        controle.setDemande(demande);
         Intent intent = new Intent(HomeActivity.this,DetailsDemandeActivity.class);
         startActivity(intent);
     }

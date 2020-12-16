@@ -107,9 +107,7 @@ public class DemandeListeAdapter extends BaseAdapter {
             public void onClick(View v) {
                 int ligne = (int) v.getTag();
                 //Demande de l'affichage de la demande
-                HomeActivity home = new HomeActivity();
-                home.afficherDetailDemande(lesDemandes.get(ligne));
-
+                ((HomeActivity)contexte).afficherDetailDemande(lesDemandes.get(ligne));
             }
         });
         holder.txtDate.setTag(position);
@@ -119,9 +117,7 @@ public class DemandeListeAdapter extends BaseAdapter {
             public void onClick(View v) {
                 int ligne = (int) v.getTag();
                 //Demande de l'affichage de la demande
-                HomeActivity home = new HomeActivity();
-                home.afficherDetailDemande(lesDemandes.get(ligne));
-
+                ((HomeActivity)contexte).afficherDetailDemande(lesDemandes.get(ligne));
             }
         });
         return view;
