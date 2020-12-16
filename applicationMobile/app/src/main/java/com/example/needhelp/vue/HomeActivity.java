@@ -3,14 +3,12 @@ package com.example.needhelp.vue;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,8 +16,6 @@ import com.example.needhelp.R;
 import com.example.needhelp.controleur.Controle;
 import com.example.needhelp.modele.AccesDistant;
 import com.example.needhelp.modele.Demande;
-
-import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -58,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
      * Méthode pour aller vers la création de nouvelles demandes
      */
     private void ecouteGoToNouvelleDemande(){
-        ((Button)findViewById(R.id.buttonAjoutDemande)).setOnClickListener(new Button.OnClickListener(){
+        ((Button)findViewById(R.id.boutonRetour)).setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this,CreerDemandeActivity.class);
