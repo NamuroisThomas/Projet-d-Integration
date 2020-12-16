@@ -113,6 +113,9 @@ public class Demande {
         Log.d("test","*****************" + laListe);
         return new JSONArray(laListe);
     }
+    public int getIdDemande(){
+        return idDemande;
+    }
 
     /**
      * Getter

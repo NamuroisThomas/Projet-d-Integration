@@ -97,13 +97,18 @@ public final class Controle {
     public void setConnexionUtilisateurs(Utilisateur connexionUtilisateurs) {
         this.connexionUtilisateurs = connexionUtilisateurs;
     }
-    /**
-     * Getter
-     * @return
-     */
-    public Utilisateur getConnexionUtilisateurs() {
+
+    public static Utilisateur getConnexionUtilisateurs() {
         return connexionUtilisateurs;
     }
+
+    public static String getNomUtilisateur(){
+        Utilisateur utilisateur = getConnexionUtilisateurs();
+        String nom = utilisateur.getNomUser() + " " + utilisateur.getPrenomUser();
+        Log.d("Nom utilisateur", "**************************" + nom);
+        return nom;
+    }
+
     /**
      * Getter
      * @return

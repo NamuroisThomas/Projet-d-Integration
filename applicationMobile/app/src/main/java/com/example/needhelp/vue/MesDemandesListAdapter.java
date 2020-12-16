@@ -65,7 +65,7 @@ public class MesDemandesListAdapter extends BaseAdapter {
      * @return
      */
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, ViewGroup viewGroup) {
         // declaration d'un Holder
         MesDemandesListAdapter.ViewHolder holder;
         // si la ligne n'existe pas encore
@@ -96,14 +96,15 @@ public class MesDemandesListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 //Demande de l'affichage de la demande
-                ((MesDemandesActivity)context).ecouteGoToChat();
+                ((MesDemandesActivity)context).ecouteGoToChat(mesDemandes.get(position));
+
             }
         });
         holder.txtDate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Demande de l'affichage de la demande
-                ((MesDemandesActivity)context).ecouteGoToChat();
+                ((MesDemandesActivity)context).ecouteGoToChat(mesDemandes.get(position));
             }
         });
         return view;

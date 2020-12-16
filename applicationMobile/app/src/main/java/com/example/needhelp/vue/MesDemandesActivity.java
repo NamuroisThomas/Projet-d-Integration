@@ -103,11 +103,12 @@ public class MesDemandesActivity extends AppCompatActivity {
             }
         });
     }
-
+        
     /**
      * Méthode menant au chat
      */
-    void ecouteGoToChat(){
+    void ecouteGoToChat(Demande demande){
+        controle.setDemande(demande);
         Intent intent = new Intent(MesDemandesActivity.this,ChatActivity.class);
         startActivity(intent);
     }
