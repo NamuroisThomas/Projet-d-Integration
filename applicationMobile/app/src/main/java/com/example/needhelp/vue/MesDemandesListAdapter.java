@@ -23,11 +23,13 @@ public class MesDemandesListAdapter extends BaseAdapter {
     private Controle controle;
     private Demande demande;
     private AccesDistant accesDistant = new AccesDistant();
+    private Context context;
 
     public MesDemandesListAdapter(Context context, ArrayList<Demande> lesDemandes){
         this.mesDemandes = lesDemandes;
         this.inflater = LayoutInflater.from(context);
         this.controle = Controle.getInstance(null);
+        this.context=context;
     }
 
     @Override
@@ -89,22 +91,21 @@ public class MesDemandesListAdapter extends BaseAdapter {
         holder.txtDate.setText(mesDemandes.get(position).getDateDemande());
         Log.d("txtTitreDemande","************" + holder.txtTitreDemande.getText());
         holder.txtAcceptePar.setText("     ID: "+mesDemandes.get(position).getAcceptePar());
-        //Log.d("acceptePar","************" + holder.txtAcceptePar);
 
-        /*
-        //Clique sur le bouton pour accepter la demande
-        holder.txtAcceptePar.setOnClickListener(new View.OnClickListener(){
+        holder.txtTitreDemande.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                int ligne = (int) v.getTag();
-                MesDemandes.get(ligne).setAccepteDemande(1);
-                MesDemandes.get(ligne).setAcceptePar(controle.getIdUtilisateur());
-                accesDistant.envoi("mesDemandes", MesDemandes.get(ligne).accepterConvertToJSONArray() );
+                //Demande de l'affichage de la demande
+                ((MesDemandesActivity)context).ecouteGoToChat();
             }
-
         });
-
-         */
+        holder.txtDate.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //Demande de l'affichage de la demande
+                ((MesDemandesActivity)context).ecouteGoToChat();
+            }
+        });
         return view;
     }
 

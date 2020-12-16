@@ -87,13 +87,14 @@ public final class Controle {
         return connexionUtilisateurs.getIdUtilisateur();
     }
 
-    public ArrayList<Demande> getLesDemandesEnCours() {
-        return lesDemandesEnCours;
+    public static Demande getDemande() {
+        return demande;
     }
 
-    public void setLesDemandesEnCours(ArrayList<Demande> lesDemandesEnCours) {
-        Controle.lesDemandesEnCours = lesDemandesEnCours;
+    public static void setDemande(Demande demande) {
+        Controle.demande = demande;
     }
+
     public JSONArray idUtilisateurConvertToJSONArray(){
         List laListe = new ArrayList();
         laListe.add(getIdUtilisateur());

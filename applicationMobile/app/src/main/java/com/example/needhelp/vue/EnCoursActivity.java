@@ -90,4 +90,9 @@ public class EnCoursActivity extends AppCompatActivity{
             }
         });
     }
+
+    void ecouteGoToChat(){
+        Intent intent = new Intent(EnCoursActivity.this,ChatActivity.class);
+        startActivity(intent);
+    }
 }
