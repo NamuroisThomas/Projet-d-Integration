@@ -24,11 +24,11 @@ public class DemandeListeAdapter extends BaseAdapter {
     private Controle controle;
     private Demande demande;
     private AccesDistant accesDistant = new AccesDistant();
-    private Context contexte;
+    private Context context;
 
     public DemandeListeAdapter(Context context,ArrayList<Demande> lesDemandes){
         this.lesDemandes = lesDemandes;
-        this.contexte = context;
+        this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.controle = Controle.getInstance(null);
     }
@@ -107,7 +107,7 @@ public class DemandeListeAdapter extends BaseAdapter {
             public void onClick(View v) {
                 int ligne = (int) v.getTag();
                 //Demande de l'affichage de la demande
-                ((HomeActivity)contexte).afficherDetailDemande(lesDemandes.get(ligne));
+                ((HomeActivity)context).afficherDetailDemande(lesDemandes.get(ligne));
             }
         });
         holder.txtDate.setTag(position);
@@ -117,7 +117,7 @@ public class DemandeListeAdapter extends BaseAdapter {
             public void onClick(View v) {
                 int ligne = (int) v.getTag();
                 //Demande de l'affichage de la demande
-                ((HomeActivity)contexte).afficherDetailDemande(lesDemandes.get(ligne));
+                ((HomeActivity)context).afficherDetailDemande(lesDemandes.get(ligne));
             }
         });
         return view;

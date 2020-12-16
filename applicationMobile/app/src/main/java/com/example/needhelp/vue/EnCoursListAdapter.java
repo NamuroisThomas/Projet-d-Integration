@@ -25,11 +25,13 @@ public class EnCoursListAdapter extends BaseAdapter {
     private Controle controle;
     private Demande demande;
     private AccesDistant accesDistant = new AccesDistant();
+    private Context context;
 
     public EnCoursListAdapter(Context context,ArrayList<Demande> lesDemandes){
         this.lesDemandes = lesDemandes;
         this.inflater = LayoutInflater.from(context);
         this.controle = Controle.getInstance(null);
+        this.context = context;
     }
 
     @Override
@@ -97,6 +99,22 @@ public class EnCoursListAdapter extends BaseAdapter {
                 accesDistant.envoi("accepter", lesDemandes.get(ligne).accepterConvertToJSONArray() );
                 lesDemandes.remove(ligne);
                 notifyDataSetChanged();
+            }
+        });
+        holder.txtTitreDemande.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                int ligne = (int) v.getTag();
+                //Demande de l'affichage de la demande
+                ((HomeActivity)context).afficherDetailDemande(lesDemandes.get(ligne));
+            }
+        });
+        holder.txtDate.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                int ligne = (int) v.getTag();
+                //Demande de l'affichage de la demande
+                ((HomeActivity)context).afficherDetailDemande(lesDemandes.get(ligne));
             }
         });
         return view;
