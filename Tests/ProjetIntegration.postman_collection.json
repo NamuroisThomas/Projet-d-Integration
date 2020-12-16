@@ -16,8 +16,8 @@
 							"script": {
 								"id": "5ecbea0f-50b5-443a-a7d9-47fcadbcc300",
 								"exec": [
-									"pm.test(\"Response time is less than 500ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									""
 								],
@@ -103,8 +103,8 @@
 							"script": {
 								"id": "6ee32365-9a14-42a9-aa76-33cc905f842d",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									""
 								],
@@ -120,13 +120,13 @@
 							"urlencoded": [
 								{
 									"key": "formAccepteDemandeIdAccepteur",
-									"value": "1",
+									"value": "5",
 									"description": "L'id de la personne qui accepte la demande",
 									"type": "text"
 								},
 								{
 									"key": "formAccepteDemandeIdDemande",
-									"value": "5",
+									"value": "15",
 									"description": "L'id de la demande qui est acceptée",
 									"type": "text"
 								}
@@ -157,8 +157,8 @@
 							"script": {
 								"id": "870c03be-b304-4c74-8b56-3a4f6c419f74",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									""
 								],
@@ -205,8 +205,8 @@
 							"script": {
 								"id": "bfcf208d-8d5b-45b5-a2c4-c0dfca05a625",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -215,7 +215,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
 									"\r",
 									"});"
 								],
@@ -251,8 +251,8 @@
 							"script": {
 								"id": "9b063794-7c01-4936-a96e-444ef25eca2d",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -261,7 +261,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
 									"\r",
 									"});"
 								],
@@ -297,8 +297,8 @@
 							"script": {
 								"id": "f832f5f0-3e4a-45da-a1ed-0ab7cc107681",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -307,7 +307,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":31,\"titreDemande\":\"toto\",\"descriptionDemande\":\"tutu\",\"dateDemande\":\"2020-11-19T23:00:00.000Z\",\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Autre\",\"idCodePostal\":1300,\"defraiementDemande\":10,\"accepteDemande\":0,\"accepte\":\"   \"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":34,\"titreDemande\":\"vev\",\"descriptionDemande\":\"vfvr\",\"dateDemande\":\"2020-11-06T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Electricité\",\"idCodePostal\":7804,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepte\":\"   \"}');\r",
 									"\r",
 									"});"
 								],
@@ -343,8 +343,8 @@
 							"script": {
 								"id": "5645c38c-3191-4942-9eec-deb6d1040a2f",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -353,7 +353,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":15,\"titreDemande\":\"Cuisine\",\"descriptionDemande\":\"Je cherche de l\\'aide pour un gateau d\\'anniversaire\",\"dateDemande\":\"2020-11-10T23:00:00.000Z\",\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Cuisine\",\"idCodePostal\":7973,\"defraiementDemande\":1,\"accepteDemande\":1,\"accepte\":\"Luk Brian\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":15,\"titreDemande\":\"Cuisine\",\"descriptionDemande\":\"Je cherche de l\\'aide pour un gateau d\\'anniversaire\",\"dateDemande\":\"2020-11-10T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Cuisine\",\"idCodePostal\":7973,\"defraiementDemande\":1,\"accepteDemande\":1,\"accepte\":\"test test\"}');\r",
 									"\r",
 									"});"
 								],
@@ -389,8 +389,8 @@
 							"script": {
 								"id": "97d79db3-de87-4d98-ad2c-b802be5d04f8",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -399,7 +399,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
 									"\r",
 									"});"
 								],
@@ -442,8 +442,8 @@
 							"script": {
 								"id": "5994068a-0339-45ea-9f09-bd8fd7d9aae4",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -452,7 +452,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":5,\"titreDemande\":\"test\",\"descriptionDemande\":\"bonjour je suis un test\",\"dateDemande\":\"2008-10-19T22:00:00.000Z\",\"idUtilisateur\":1,\"nom\":\"testNom testPrenom\",\"nomCategorie\":\"Courses\",\"idCodePostal\":1000,\"defraiementDemande\":0,\"accepteDemande\":1,\"accepte\":\"testNom testPrenom\"}');\r",
 									"\r",
 									"});"
 								],
@@ -495,8 +495,8 @@
 							"script": {
 								"id": "b151c7e3-3e89-4e4f-8a3a-6afa338f33c4",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -505,7 +505,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":34,\"titreDemande\":\"vev\",\"descriptionDemande\":\"vfvr\",\"dateDemande\":\"2020-11-06T23:00:00.000Z\",\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Electricité\",\"idCodePostal\":7804,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepte\":\"   \"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":34,\"titreDemande\":\"vev\",\"descriptionDemande\":\"vfvr\",\"dateDemande\":\"2020-11-06T23:00:00.000Z\",\"idUtilisateur\":2,\"nom\":\"Gortz Gaetan\",\"nomCategorie\":\"Electricité\",\"idCodePostal\":7804,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepte\":\"   \"}');\r",
 									"\r",
 									"});"
 								],
@@ -548,8 +548,8 @@
 							"script": {
 								"id": "6a25d213-6df4-4045-a4c6-08e32b2d8454",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -558,7 +558,7 @@
 									"\r",
 									"\r",
 									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":45,\"titreDemande\":\"test aller\",\"descriptionDemande\":\"ede\",\"dateDemande\":\"2020-12-16T23:00:00.000Z\",\"nom\":\"Luk Brian\",\"nomCategorie\":\"Petits travaux\",\"idCodePostal\":1011,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepte\":\"   \"}');\r",
+									"    pm.expect(pm.response.text()).to.include('{\"idDemande\":45,\"titreDemande\":\"test aller\",\"descriptionDemande\":\"ede\",\"dateDemande\":\"2020-12-16T23:00:00.000Z\",\"idUtilisateur\":3,\"nom\":\"Luk Brian\",\"nomCategorie\":\"Petits travaux\",\"idCodePostal\":1011,\"defraiementDemande\":0,\"accepteDemande\":0,\"accepte\":\"   \"}');\r",
 									"\r",
 									"});"
 								],
@@ -601,8 +601,8 @@
 							"script": {
 								"id": "64483d64-f4d1-4cf2-9dbd-07ed86cd0bbf",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									""
 								],
@@ -652,8 +652,8 @@
 							"script": {
 								"id": "c5a3085b-a327-4d59-81d2-93662dac450b",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									""
 								],
@@ -724,8 +724,8 @@
 							"script": {
 								"id": "c33a6bad-be50-4cd6-8f1d-c8987a99add4",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									""
 								],
@@ -790,8 +790,8 @@
 							"script": {
 								"id": "d97b86ad-e583-4cb4-a0fa-3fdb2f23ba5d",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -850,8 +850,8 @@
 							"script": {
 								"id": "3ced621e-4231-4cf1-b505-098299a42b9b",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -896,8 +896,8 @@
 							"script": {
 								"id": "4c35d9aa-9a39-45a6-81eb-e0ec4339fbab",
 								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Verify status code is 200\", function () {\r",
@@ -943,7 +943,7 @@
 								"id": "7cbe2886-b9fc-43bc-9bc9-795e3c5b9d06",
 								"exec": [
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									""
 								],
