@@ -41,8 +41,9 @@ public class HomeActivity extends AppCompatActivity {
         ecouteGoToMesDemande();
     }
 
-
-
+    /**
+     * Méthode pour aller sur l'écran d'acceuil
+     */
     private void ecouteGoToAcceuil(){
         ((Button)findViewById(R.id.buttonDeconnexionHome)).setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -52,6 +53,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Méthode pour aller vers la création de nouvelles demandes
+     */
     private void ecouteGoToNouvelleDemande(){
         ((Button)findViewById(R.id.buttonAjoutDemande)).setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -62,14 +67,9 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void ecouteAccepter(){
-        ((Button)findViewById(R.id.btnAccepterDemande)).setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Log.d("test", "*******************************Le bouton réagi");
-            }
-        });
-    }
+    /**
+     * Méthode pour aller vers les demandes en cours
+     */
     @SuppressLint("WrongViewCast")
     private void ecouteGoToEncours(){
         ((Button)findViewById(R.id.radioEnCours)).setOnClickListener(new Button.OnClickListener(){
@@ -99,6 +99,9 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode pour aller vers mes demandes
+     */
     private void ecouteGoToMesDemande(){
         ((Button)findViewById(R.id.radioMesDemandes)).setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -140,6 +143,9 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Méthode pour aller sur le profil
+     */
     public void  ecouteBoutonProfil() {
         ((Button) findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -151,6 +157,10 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode pour aller vers un écran affichant le détails d'une demande
+     * @param demande
+     */
     public void afficherDetailDemande(Demande demande){
         Log.d("afficherdetails", "********************"+ demande.getTitreDemande());
         controle.setDemande(demande);

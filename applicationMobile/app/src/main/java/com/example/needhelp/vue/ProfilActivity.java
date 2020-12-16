@@ -41,6 +41,9 @@ public class ProfilActivity extends AppCompatActivity {
         ecouteGoToLesDemandes();
     }
 
+    /**
+     * Méthode qui initie les objet editText
+     */
     public void init(){
         nom = (EditText)findViewById(R.id.inscriptionNomEdit);
         prenom = (EditText)findViewById(R.id.inscriptionPrenomEdit);
@@ -58,6 +61,9 @@ public class ProfilActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Bouton permettant de modifier les informations du profil
+     */
     public void ecouterBoutonModifier(){
         ((Button)findViewById(R.id.modifierBouton)).setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -109,6 +115,9 @@ public class ProfilActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode pour aller vers les demandes en cours
+     */
     @SuppressLint("WrongViewCast")
     private void ecouteGoToEncours(){
         ((Button)findViewById(R.id.radioEnCours)).setOnClickListener(new Button.OnClickListener(){
@@ -137,6 +146,9 @@ public class ProfilActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode pour aller à l'ecran home
+     */
     public void  ecouteGoToLesDemandes() {
         ((Button) findViewById(R.id.radioProfil)).setOnClickListener(new Button.OnClickListener() {
             @Override

@@ -47,19 +47,6 @@ public class ConnexionActivity extends AppCompatActivity {
     }
 
     /**
-     * Temporaire
-     */
-    private void ecouteGoToHome(){
-        ((Button)findViewById(R.id.connexion)).setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ConnexionActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    /**
      * Méthode pour initialiser les objets graphiques
      */
     private void init(){
@@ -94,6 +81,9 @@ public class ConnexionActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Méthode permettant la connexion uniquement si le mdp est correct
+     */
     public void connexion(){
         if(accesDistant.isMdpCorrect() == true){
             Intent intent = new Intent(ConnexionActivity.this,HomeActivity.class);
@@ -104,6 +94,11 @@ public class ConnexionActivity extends AppCompatActivity {
         Log.d("Tread","**************** T finit");
 
     }
+
+    /**
+     * Méthode pour récupérer le mail et mot de passe depuis la DB
+     * @return
+     */
     public boolean recupDB(){
         // Variables locales
         String mail = "";
