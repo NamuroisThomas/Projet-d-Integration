@@ -34,7 +34,8 @@ export class ConversationsComponent implements OnInit {
   listeDemande: any;
   allListe: Array<any>;
   nomPrenom: string;
-  idDemande ='';
+  idDemande = '';
+  id: any;
 
 
   constructor(private route: ActivatedRoute, private router: Router, public datepipe: DatePipe, private api: GetListeDemandeService) {
@@ -49,6 +50,7 @@ export class ConversationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.profil = JSON.parse(localStorage.getItem('user'));
+    this.id = this.profil.idUtilisateur;
     this.api.listeDemandeCall().subscribe((res) => {
       this.listeDemande = res[Object.keys(res)[2]];
     });
