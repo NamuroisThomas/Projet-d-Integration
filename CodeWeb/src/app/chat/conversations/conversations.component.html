@@ -11,14 +11,22 @@
 <!--      <button class="btn btn-primary" type="submit" [routerLink]="['/ajoutContact']">ajouter contact-->
 <!--      </button>-->
 <!--    </div>-->
+  <div>
+    <h4>Mes offres</h4>
   <tr *ngFor="let liste of listeDemande" (click)="enterRoom(liste.idDemande)">
-    <td *ngIf="liste.accepte == nomPrenom">{{liste.idDemande}} </td>
-    <td *ngIf="liste.accepte == nomPrenom">{{liste.titreDemande}}</td>
+    <td *ngIf="liste.idUtilisateur == id">{{liste.nom}} </td>
+    <td *ngIf="liste.idUtilisateur == id"> -  </td>
+    <td *ngIf="liste.idUtilisateur == id">{{liste.titreDemande}}</td>
   </tr>
+  </div>
+  <div>
+    <h4>Demande acceptées</h4>
   <tr *ngFor="let liste of listeDemande" (click)="enterRoom(liste.idDemande)">
-    <td *ngIf="liste.nom == nomPrenom">{{liste.titreDemande}}</td>
-    <td *ngIf="liste.nom == nomPrenom"> {{ liste.idDemande}}</td>
+    <td *ngIf="liste.accepteId == id">{{liste.nom}} </td>
+    <td *ngIf="liste.accepteId == id"> -  </td>
+    <td *ngIf="liste.accepteId == id">{{liste.titreDemande}}</td>
   </tr>
+  </div>
 <!--    <div class="mat-elevation-z8">-->
 <!--      <table mat-table [dataSource]="contacts" class="example-table"-->
 <!--             matSort matSortActive="contactname" matSortDisableClear matSortDirection="asc">-->

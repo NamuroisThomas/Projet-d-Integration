@@ -35,10 +35,10 @@ const appRoutes: Routes = [
       {path: 'contactPage', component: ContactComponent},
       {path: 'editProfil', canActivate: [AuthGuard], component: EditProfilComponent},
       {path: 'connexion', component: ConnexionComponent},
-      {path: 'chatroom/:nickname/:contactname', component: ChatroomComponent}, //TODO ajouter canactivate quand test fini
+      {path: 'chatroom/:nickname/:contactname', canActivate: [AuthGuard], component: ChatroomComponent},
       {path: 'ajoutContact', component: AjoutContactComponent},
       {path: 'conversations/:nickname', component: ConversationsComponent},
-      {path: 'chat', component: ChatComponent}, //TODO ajouter canactivate quand test fini
+      {path: 'chat', canActivate: [AuthGuard], component: ChatComponent},
       {path: 'not-found', component: PageNotFoundComponent},
       {path: 'gdpr', component: GdprComponent},
       {path: '**', redirectTo: 'home'}
